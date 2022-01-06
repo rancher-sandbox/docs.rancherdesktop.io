@@ -8,13 +8,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Rancher Desktop Docs',
   tagline: 'Rancher Desktop Docs',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://docs.rancherdesktop.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'SUSE LLC', // Usually your GitHub org/user name.
-  projectName: 'rancher-desktop', // Usually your repo name.
+  organizationName: 'rancher-sandbox', // Usually your GitHub org/user name.
+  projectName: 'docs.rancherdesktop.io', // Usually your repo name.
 
   presets: [
     [
