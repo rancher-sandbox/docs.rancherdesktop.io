@@ -9,7 +9,7 @@ const config = {
   title: 'Rancher Desktop Docs',
   tagline: 'Rancher Desktop Docs',
   url: 'https://docs.rancherdesktop.io',
-  baseUrl: '/',
+  baseUrl: '/docs.rancherdesktop.io/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
