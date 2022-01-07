@@ -9,7 +9,7 @@ const config = {
   title: 'Rancher Desktop Docs',
   tagline: 'Rancher Desktop Docs',
   url: 'https://docs.rancherdesktop.io',
-  baseUrl: '/docs.rancherdesktop.io/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -22,10 +22,12 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/rancher-sandbox/rancher-desktop-docs/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/rancher-sandbox/docs.rancherdesktop.io/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -49,7 +51,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/rancher-sandbox/rancher-desktop-docs/',
+            href: 'https://github.com/rancher-sandbox/docs.rancherdesktop.io/',
             label: 'GitHub',
             position: 'right',
           },
