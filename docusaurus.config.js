@@ -25,7 +25,7 @@ const config = {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/rancher-sandbox/docs.rancherdesktop.io/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/rancher-sandbox/docs.rancherdesktop.io/edit/main',
         },
         blog: false,
         theme: {
