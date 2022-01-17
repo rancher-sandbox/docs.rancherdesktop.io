@@ -41,6 +41,24 @@ To switch versions:
 1. Select the version you want to change to.
 1. On the confirmation window, click **OK** to proceed.
 
+### Containter Runtime
+
+Set the [container runtime] for Rancher Desktop. Users have the option of [containerd] which provides namespaces for containers and the use of nerdctl or [dockerd (moby)] which enables the Docker API and the use of the Docker CLI. Only one container runtime will work function at a time.
+
+When switching to a different container runtime:
+
+- A restart of Kubernetes is required.
+- Workloads and images that have been built or pulled using the existing container runtime are not available on the the container runtime being switched to.
+
+[container runtime]:
+https://kubernetes.io/docs/setup/production-environment/container-runtimes/
+
+[containerd]:
+https://containerd.io/
+
+[dockerd (moby)]:
+https://mobyproject.org/
+
 ### Memory (macOS & Linux)
 
 The amount of memory to allocate to Rancher Desktop. The selectable range is based on your system. The red area within the range indicates an allocation that may affect system services.
