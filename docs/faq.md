@@ -25,9 +25,9 @@ https://kind.sigs.k8s.io/docs/user/quick-start/
 https://docs.docker.com/desktop/
 
 <!-- #1221 -->
-**Q: Can I run Rancher Desktop and Docker Desktop simultaneously?**
+**Q: Can I have Docker Desktop installed alongside Rancher Desktop?**
 
-**A:** No, they cannot be run at the same time as both Rancher Desktop and Docker Desktop use the same Docker socket (`/var/run/docker.sock`). Both can be installed and run, provided you stop one before starting the other.
+**A:** Yes, but they cannot be run at the same time as both Rancher Desktop and Docker Desktop use the same Docker socket (`/var/run/docker.sock`). Before starting one, be sure to stop the other first.
 
 <!-- #1074
 **Q: After uninstalling Rancher Desktop I noticed there are still some resources left behind. What are all the things that I need to manually remove and how?**
@@ -87,3 +87,4 @@ kubectl delete node lima rancher-desktop
 **Q: Is Cygwin compatible with Rancher Desktop?**
 
 **A:** No, but there are plans to add compatibility.
+
