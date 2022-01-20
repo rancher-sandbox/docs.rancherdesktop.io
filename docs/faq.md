@@ -88,3 +88,15 @@ kubectl delete node lima rancher-desktop
 
 **A:** No, but there are plans to add compatibility.
 
+<!-- #1156 -->
+**Q: How do I fix `permission denied` errors when trying to use Docker no WSL? **
+
+**A:** You need write-permission to access the docker socket. There are many ways to go about that, but this is one of the more common approaches. Using the Ubuntu WSL command-line:
+
+```bash
+sudo addgrp docker
+sudo adduser $USER docker
+sudo chown root:docker /var/run/docker.sock
+sudo chmod g+w /var/run/docker.sock
+newgrp docker
+```
