@@ -1,5 +1,4 @@
 ---
-sidebar_position: 3
 ---
 
 # Preferences
@@ -43,7 +42,7 @@ To switch versions:
 
 ### Containter Runtime
 
-Set the [container runtime] for Rancher Desktop. Users have the option of [containerd] which provides namespaces for containers and the use of nerdctl or [dockerd (moby)] which enables the Docker API and the use of the Docker CLI. Only one container runtime will function at a time.
+Set the [container runtime] for Rancher Desktop. Users have the option of [containerd] which provides namespaces for containers and the use of nerdctl or [docker (moby)] which enables the Docker API and the use of the Docker CLI. Only one container runtime will function at a time.
 
 When switching to a different container runtime:
 
@@ -56,7 +55,7 @@ https://kubernetes.io/docs/setup/production-environment/container-runtimes/
 [containerd]:
 https://containerd.io/
 
-[dockerd (moby)]:
+[docker (moby)]:
 https://mobyproject.org/
 
 ### Memory (macOS & Linux)
