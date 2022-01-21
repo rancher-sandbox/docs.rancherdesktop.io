@@ -64,9 +64,9 @@ kubectl delete node lima rancher-desktop
 ```
 
 <!-- #726 -->
-**Q: What's happening the Kubernetes Image Manager (kim)?**
+**Q: What's happening to the Kubernetes Image Manager (kim)?**
 
-**A:** Kim is now deprecated and is being replaced by nerdctl and other tools.
+**A:** As of version 1.0 Kim is no longer shipped and has been replaced by nerdctl and the Docker CLI.
 
 <!-- #966 -->
 **Q: I'm using Homebrew to install Rancher Desktop, but `brew install rancher-desktop` is failing, why?**
