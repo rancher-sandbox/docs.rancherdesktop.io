@@ -46,7 +46,7 @@ git clone https://github.com/microsoft/vscode-dev-containers.git
 Congragulations! You have successfully loaded and run a sample dev container using Rancher Desktop and VS Code.
 
 
-### Next steps?
+### Next steps
 
 Microsoft has provided extensive documentation about using dev containers in various scenarios [here]. Please refer to these tutorial to try a use case that's relavent to your need. Happy Contanerizing with Rancher Desktop.
 
