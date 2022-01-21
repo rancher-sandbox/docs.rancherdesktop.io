@@ -24,8 +24,19 @@ const sidebars = {
     {
       type: 'category',
       label: 'Features Guide',
-      items: ["preferences", "images"],
+      items: [
+        'preferences', 
+        'images'
+      ],
       collapsed: false,
+    },
+    {
+      type: 'category',
+      label: 'Tutorials',
+      items: [
+        'vscodeRemoteContainers'
+      ],
+      collapsed:true
     },
     "faq"
   ],
