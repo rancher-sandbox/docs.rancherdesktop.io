@@ -102,12 +102,11 @@ To forward a port:
 
 ## Supporting Utilities (macOS & Linux)
 
-On the **Supporting Utilities** tab, you can create symbolic links to tools in /usr/local/bin. By default, a symbolic links is created if the tool is not already linked.
+On the **Supporting Utilities** tab, you can create symbolic links to tools in /usr/local/bin. By default, a symbolic link is created if the tool is not already linked.
 
-Symbolic links can be created (or removed) for the following tools, which are installed as part Rancher Desktop:
+Symbolic links can be created (or removed) for the following tools, which are installed as part of Rancher Desktop:
 
 - helm
-- kim
 - kubectl
 - nerdctl
 - docker
@@ -150,7 +149,7 @@ https://hub.docker.com/
 
 #### Building Images
 
-Use this option to build an image and it to your virtual machine.
+Use this option to build an image and add it to your virtual machine.
 
 To build an image:
 

@@ -58,7 +58,7 @@ https://github.com/docker/compose
 
 **A:** As a temporary workaround, you can _disable_ Kubernetes in Rancher Desktop with these commands:
 
-```
+```bash
 kubectl config use-context rancher-desktop
 kubectl delete node lima rancher-desktop
 ```
@@ -76,7 +76,7 @@ kubectl delete node lima rancher-desktop
 <!-- #776 -->
 **Q: Running `brew install rancher` is failing with a `It seems there is already a Binary at '/usr/local/bin/<BINARY>'` error, why?**
 
-**A:** If any of the Rancher Desktop supporting utilities (Helm, kubectl, nerdctl, Moby) are already managed by Homebrew, then the installation fails due to how the Homebrew cask formula is defined. Installing using the Mac app will avoid this issue.
+**A:** If any of the Rancher Desktop supporting utilities (Helm, kubectl, nerdctl, docker) are already managed by Homebrew, then the installation fails due to how the Homebrew cask formula is defined. Installing using the Mac app will avoid this issue.
 
 <!-- #1155 -->
 **Q: The tools on the Support Utilities page are not installed and I see a `Insufficient permission to manipulate /usr/local/bin` error, how do I fix it?**
@@ -89,7 +89,7 @@ kubectl delete node lima rancher-desktop
 **A:** No, but there are plans to add compatibility.
 
 <!-- #1156 -->
-**Q: How do I fix `permission denied` errors when trying to use Docker on WSL? **
+**Q: How do I fix `permission denied` errors when trying to use Docker on WSL?**
 
 **A:** You need write-permission to access the docker socket. There are many ways to go about that, but this is one of the more common approaches. Using the Ubuntu WSL command-line:
 
@@ -103,7 +103,7 @@ newgrp docker
 
 **Q: How do I fix `kubectl: command not found` issue on Linux?**
 
-**A:** By default Rancher Desktop creates symlinks of `kubectl`, `docker`, `helm` and `nerdctl` binaries in `/home/<user>/.local/bin` directory on Linux. To be able call these commands directly from console you may add the directory to user's `PATH` environment variable by executing following command in console and performing logout and login:
+**A:** By default, Rancher Desktop creates symlinks of `kubectl`, `docker`, `helm` and `nerdctl` binaries in the `/home/<user>/.local/bin` directory on Linux. To be able to call these commands directly from the console you may add the directory to your `PATH` environment variable by executing the following command in console and performing logout and login:
 
 ```bash
 echo "export PATH=\$PATH:/home/$(whoami)/.local/bin" >> ~/.bashrc
