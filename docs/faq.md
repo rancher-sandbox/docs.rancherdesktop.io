@@ -100,3 +100,11 @@ sudo chown root:docker /var/run/docker.sock
 sudo chmod g+w /var/run/docker.sock
 newgrp docker
 ```
+
+**Q: How do I fix `kubectl: command not found` issue on Linux?**
+
+**A:** By default Rancher Desktop creates symlinks of `kubectl`, `docker`, `helm` and `nerdctl` binaries in `/home/<user>/.local/bin` directory on Linux. To be able call these commands directly from console you may add the directory to user's `PATH` environment variable by executing following command in console and performing logout and login:
+
+```bash
+echo "export PATH=\$PATH:/home/$(whoami)/.local/bin" >> ~/.bashrc
+```
