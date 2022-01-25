@@ -53,7 +53,7 @@ After Rancher Desktop is installed, users will have access to these supporting u
 - [Helm](https://helm.sh/)
 - [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
 - [nerdctl](https://github.com/containerd/nerdctl)
-- [Kubernetes Image Manager (kim)](https://github.com/rancher/kim)
+- [docker (moby)](https://github.com/moby/moby)
 
 ### Uninstalling Rancher Desktop on macOS
 
