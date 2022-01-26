@@ -22,7 +22,7 @@ On the **Kubernetes Settings** tab, you can manage the settings of your virtual 
 
 ### Kubernetes Version
 
-This option presents a list of Kubernetes versions that your Rancher Desktop instance can use. 
+This option presents a list of Kubernetes versions that your Rancher Desktop instance can use.
 
 When upgrading:
 
@@ -41,7 +41,7 @@ To switch versions:
 1. Select the version you want to change to.
 1. On the confirmation window, click **OK** to proceed.
 
-### Containter Runtime
+### Container Runtime
 
 Set the [container runtime] for Rancher Desktop. Users have the option of [containerd] which provides namespaces for containers and the use of nerdctl or [dockerd (moby)] which enables the Docker API and the use of the Docker CLI. Only one container runtime will function at a time.
 
@@ -83,7 +83,7 @@ Set the port Kubernetes is exposed on. Use this setting to avoid port collisions
 
 ### Reset Kubernetes/Reset Kubernetes and Container Images
 
-This option removes all workloads and Kubernetes configurations. 
+This option removes all workloads and Kubernetes configurations.
 Images that have been pulled are not removed when a reset occurs.
 1. On the confirmation window, click **OK** to proceed.
 
