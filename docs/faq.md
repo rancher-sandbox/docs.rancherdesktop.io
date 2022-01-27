@@ -94,7 +94,7 @@ kubectl delete node lima rancher-desktop
 **A:** You need write-permission to access the docker socket. There are many ways to go about that, but this is one of the more common approaches. Using the Ubuntu WSL command-line:
 
 ```bash
-sudo addgrp docker
+sudo groupadd docker
 sudo adduser $USER docker
 sudo chown root:docker /var/run/docker.sock
 sudo chmod g+w /var/run/docker.sock
