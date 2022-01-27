@@ -60,7 +60,7 @@ https://github.com/docker/compose
 
 ```bash
 kubectl config use-context rancher-desktop
-kubectl delete node lima rancher-desktop
+kubectl delete node lima-rancher-desktop
 ```
 
 <!-- #726 -->
