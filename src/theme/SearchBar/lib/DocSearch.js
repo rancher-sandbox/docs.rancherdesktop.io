@@ -31,7 +31,7 @@ class DocSearch {
         queryHook = false,
         handleSelected = false,
         enhancedSearchInput = false,
-        layout = "collumns"
+        layout = "columns"
     }) {
         this.input = DocSearch.getInputFromSelector(inputSelector);
         this.queryDataCallback = queryDataCallback || null;
