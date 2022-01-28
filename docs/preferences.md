@@ -48,7 +48,7 @@ Set the [container runtime] for Rancher Desktop. Users have the option of [conta
 When switching to a different container runtime:
 
 - A restart of Kubernetes is required.
-- Workloads and images that have been built or pulled using the existing container runtime are not available on the the container runtime being switched to.
+- Workloads and images that have been built or pulled using the existing container runtime are not available on the container runtime being switched to.
 
 [container runtime]:
 https://kubernetes.io/docs/setup/production-environment/container-runtimes/
