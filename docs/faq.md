@@ -46,12 +46,50 @@ https://docs.docker.com/desktop/
 [Rancher Desktop Github]:
 https://github.com/rancher-sandbox/rancher-desktop/issues
 
+<!-- RD #1262 -->
 **Q: I can no longer run `docker compose` after installing Rancher Desktop and uninstalling Docker Desktop, what happened?**
 
-**A:** The `docker compose` subcommand is bundled as part of a Docker Desktop installation and is removed when uninstalled. Follow these [instructions] to install it.
+**A:** The `docker compose` subcommand is bundled as part of a Docker Desktop installation and is removed when uninstalled. Future versions of Rancher Desktop will include and automatically `docker compose` for you, but until then you can install it using this procedure:
 
-[instructions]:
-https://github.com/docker/compose
+For Macos:
+```shell
+$ cd /tmp
+$ mkdir dc-work
+$ cd dc-work
+$ curl -o docker-compose -kL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-darwin-x86_64
+$ chmod +x docker-compose
+$ mkdir -p ~/.docker/cli-plugins/
+$ mv docker-compose ~/.docker/cli-plugins/
+$ cd ..
+$ rmdir dc-work
+```
+
+For Linux, and in a Linux subsystem on Windows:
+```shell
+$ cd /tmp
+$ mkdir dc-work
+$ cd dc-work
+$ curl -o docker-compose -kL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64
+$ chmod +x docker-compose
+$ mkdir -p ~/.docker/cli-plugins/
+$ mv docker-compose ~/.docker/cli-plugins/
+$ cd ..
+$ rmdir dc-work
+```
+
+For Windows, in a powershell session:
+```shell
+$ cd $Env:TEMP # (or $Env:TMP)
+$ mkdir dc-work
+$ cd dc-work
+$ iwr -UseBasicParsing -OutFile docker-compose.exe https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-windows-x86_64.exe 
+$ mkdir $ENV:HOMEPATH/.docker/cli-plugins -Force
+$ mv docker-compose.exe $ENV:HOMEPATH/.docker/cli-plugins/
+$ cd ..
+$ rmdir dc-work
+```
+
+Also, on Windows, don't forget to also set up `docker-compose` on the Linux side as well, described above.
 
 <!-- #985 -->
 **Q: I don't need the Kubernetes cluster deployed by Rancher Desktop, how do I disable it to save resources?**
