@@ -118,7 +118,7 @@ Rancher Desktop requires the following on Linux:
 
 - A distribution that can install .deb or .rpm packages, or AppImages.
 - A persistent internet connection.
-- An x86_64 processor with either AMD-V or VT-X.
+- An x86_64 processor with either AMD-V or VT-x.
 - Read-write access on `/dev/kvm`. See below for details.
 
 It is also recommended to have:
