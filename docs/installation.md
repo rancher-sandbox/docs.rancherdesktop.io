@@ -118,6 +118,8 @@ Rancher Desktop requires the following on Linux:
 
 - A distribution that can install .deb or .rpm packages, or AppImages.
 - A persistent internet connection.
+- An x86_64 processor with either AMD-V or VT-x.
+- Read-write access on `/dev/kvm`. See below for details.
 
 It is also recommended to have:
 
@@ -125,6 +127,27 @@ It is also recommended to have:
 - 4 CPU
 
 Additional resources may be required depending on the workloads you plan to run.
+
+
+### Ensuring You Have Access to `/dev/kvm`
+
+On some distributions (Ubuntu 18.04 for example) the user has insufficient
+privileges to use `/dev/kvm`, which is required for Rancher Desktop.
+To check whether you have the required privileges, do:
+
+```
+[ -r /dev/kvm ] && [ -w /dev/kvm ] || echo 'insufficient privileges'
+```
+
+If it outputs `insufficient privileges`, you need to add your user to the
+`kvm` group. You can do this with:
+
+```
+adduser "$USER" kvm
+```
+
+Then reboot in order to make these changes take effect.
+
 
 ### Installation via .deb Package
 
@@ -136,6 +159,7 @@ sudo add-apt-repository 'deb https://download.opensuse.org/repositories/isv:/Ran
 sudo apt update
 sudo apt install rancher-desktop
 ```
+
 
 ### Uninstalling .deb Package
 
@@ -158,6 +182,7 @@ uid           [ unknown] isv:Rancher:stable OBS Project <isv:Rancher:stable@buil
 ```
 
 then my `keyid` is `236E B3BE 8504 1EAE C40B  2641 2431 4E44 EE21 3962`.
+
 
 ### Installing via .rpm Package
 
@@ -182,6 +207,7 @@ sudo zypper remove --clean-deps rancher-desktop
 sudo zypper removerepo isv_Rancher_stable
 ```
 
+
 ### Installing via AppImage
 
 You may download the AppImage [here].
@@ -193,6 +219,7 @@ For better integration with your desktop, you may use [AppImageLauncher].
 https://download.opensuse.org/repositories/isv:/Rancher:/stable/AppImage/rancher-desktop-latest-x86_64.AppImage
 [AppImageLauncher]:
 https://github.com/TheAssassin/AppImageLauncher
+
 
 ### Uninstalling AppImage
 
