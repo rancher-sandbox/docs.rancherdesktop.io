@@ -137,6 +137,23 @@ sudo apt update
 sudo apt install rancher-desktop
 ```
 
+On some distributions (Ubuntu 18.04 is one example) the user has insufficient
+privileges to use `/dev/kvm`, which is required for Rancher Desktop.
+To check whether you have the required privileges, do:
+
+```
+[ -r /dev/kvm ] && [ -w /dev/kvm ] || echo 'insufficient privileges'
+```
+
+If it outputs `insufficient privileges`, you need to add your user to the
+`kvm` group. You can do this with:
+
+```
+adduser "$USER" kvm
+```
+
+Then reboot in order to make these changes take effect.
+
 ### Uninstalling .deb Package
 
 You can remove the package, repository, and key with:
