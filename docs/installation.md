@@ -154,8 +154,8 @@ Then reboot in order to make these changes take effect.
 Add the Rancher Desktop repository and install Rancher Desktop with:
 
 ```
-curl https://download.opensuse.org/repositories/isv:/Rancher:/stable/deb/Release.key | sudo apt-key add -
-sudo add-apt-repository 'deb https://download.opensuse.org/repositories/isv:/Rancher:/stable/deb/ ./'
+curl -s https://download.opensuse.org/repositories/isv:/Rancher:/stable/deb/Release.key | gpg --dearmor | sudo dd status=none of=/usr/share/keyrings/isv-rancher-stable-archive-keyring.gpg
+echo 'deb [signed-by=/usr/share/keyrings/isv-rancher-stable-archive-keyring.gpg] https://download.opensuse.org/repositories/isv:/Rancher:/stable/deb/ ./' | sudo dd status=none of=/etc/apt/sources.list.d/isv-rancher-stable.list
 sudo apt update
 sudo apt install rancher-desktop
 ```
@@ -167,21 +167,10 @@ You can remove the package, repository, and key with:
 
 ```
 sudo apt remove --autoremove rancher-desktop
-sudo add-apt-repository -r 'deb https://download.opensuse.org/repositories/isv:/Rancher:/stable/deb/ ./'
-sudo apt-key del <keyid>
+sudo rm /etc/apt/sources.list.d/isv-rancher-stable.list
+sudo rm /usr/share/keyrings/isv-rancher-stable-archive-keyring.gpg
+sudo apt update
 ```
-
-where `keyid` is the line above the one containing `isv:Rancher:stable`
-when you run `apt-key list`. So if I have the following block for the
-Rancher Desktop Key:
-
-```
-pub   rsa2048 2021-10-29 [SC] [expires: 2024-01-07]
-      236E B3BE 8504 1EAE C40B  2641 2431 4E44 EE21 3962
-uid           [ unknown] isv:Rancher:stable OBS Project <isv:Rancher:stable@build.opensuse.org>
-```
-
-then my `keyid` is `236E B3BE 8504 1EAE C40B  2641 2431 4E44 EE21 3962`.
 
 
 ### Installing via .rpm Package
