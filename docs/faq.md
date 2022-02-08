@@ -12,6 +12,10 @@ This FAQ is a work in progress designed to answer the questions our users most f
 
 Rancher is a unified multi-cluster management stack, whereas Rancher Desktop is similar to applications like [minikube], [kind], or [Docker Desktop], where the goal is to have an easy to set up local Kubernetes environment to manage containers. 
 
+**Q: Can I open Cluster Manager in Rancher Desktop?**
+
+**A:** No, the Cluster Manager feature is currently a Rancher-only concept. We are working on an early integration of the Rancher Dashboard in an upcoming release and will notify the community when this becomes available.  
+
 To learn more about Rancher Desktop, click [here](https://docs.rancherdesktop.io/).
 To learn more about Rancher, click [here](https://rancher.com/why-rancher).
 
