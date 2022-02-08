@@ -27,6 +27,7 @@ const sidebars = {
       items: ["preferences", "images"],
       collapsed: false,
     },
+    "examples",
     "faq"
   ],
   
