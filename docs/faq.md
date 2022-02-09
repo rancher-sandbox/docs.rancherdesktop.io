@@ -43,10 +43,6 @@ https://docs.docker.com/desktop/
 -->
 
 <!-- #640 -->
-**Q: How can I restart Rancher Desktop?**
-
-**A:** Click **File** and then **Exit**, or right click on the tray icon at the bottom of the screen and choose to quit the app there.
-
 **Q: How can I perform a clean uninstall of Rancher Desktop?**
 
 **A:** You have two options for this procedure:
