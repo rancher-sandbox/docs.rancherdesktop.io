@@ -42,6 +42,27 @@ https://docs.docker.com/desktop/
 **A:**
 -->
 
+<!-- #640 -->
+**Q: How can I restart Rancher Desktop?**
+
+**A:** Click **File** and then **Exit**, or right click on the tray icon at the bottom of the screen and choose to quit the app there.
+
+**Q: How can I perform a clean uninstall of Rancher Desktop?**
+
+**A:** You have two options for this procedure:
+
+1. Click on the **Troubleshooting** tab in the Rancher Desktop UI. Once there, click on **Factory Reset**: this will reset to defaults and remove all user data such as Kubernetes, any caches, any configuration, logs, etc. After completing this step, Rancher Desktop should restart and start fresh.
+
+1. Click on **Add or Remove Programs** in your system settings, then uninstall Rancher Desktop there.
+
+**Q: What does the "WSL Integration" tab do?**
+
+**A:** This makes the Kubernetes configuration accessible in the displayed WSL distributions so that you can use commands such as `kubectl` to communicate with Kubernetes.
+
+**Q: Where can I find detail logs?**
+
+**A:** Click on the **Troubleshooting** tab, then click on **Show Logs**.
+
 **Q: I do not see an entry for Rancher Desktop when running `kubectl config get-contexts`, where is it?**
 
 **A:** Rancher Desktop places its configuration in the default location, `~/.kube/config,` and uses that. Your `KUBECONFIG` environment variable may be set to look elsewhere for configuration files.
@@ -58,7 +79,7 @@ https://github.com/rancher-sandbox/rancher-desktop/issues
 
 **A:** The `docker compose` subcommand is bundled as part of a Docker Desktop installation and is removed when uninstalled. Future versions of Rancher Desktop will include and automatically `docker compose` for you, but until then you can install it using this procedure:
 
-For Macos:
+For MacOS:
 ```shell
 $ cd /tmp
 $ mkdir dc-work
