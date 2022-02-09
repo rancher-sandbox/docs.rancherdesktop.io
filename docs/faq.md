@@ -45,11 +45,7 @@ https://docs.docker.com/desktop/
 <!-- #640 -->
 **Q: How can I perform a clean uninstall of Rancher Desktop?**
 
-**A:** You have two options for this procedure:
-
-1. Click on the **Troubleshooting** tab in the Rancher Desktop UI. Once there, click on **Factory Reset**: this will reset to defaults and remove all user data such as Kubernetes, any caches, any configuration, logs, etc. After completing this step, Rancher Desktop should restart and start fresh.
-
-1. Click on **Add or Remove Programs** in your system settings, then uninstall Rancher Desktop there.
+**A:** The uninstall process varies based on the operating system. For more information, please refer [here](https://docs.rancherdesktop.io/installation).
 
 **Q: What does the "WSL Integration" tab do?**
 
