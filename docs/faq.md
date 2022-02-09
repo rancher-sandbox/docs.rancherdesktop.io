@@ -59,7 +59,7 @@ https://docs.docker.com/desktop/
 
 **A:** This makes the Kubernetes configuration accessible in the displayed WSL distributions so that you can use commands such as `kubectl` to communicate with Kubernetes.
 
-**Q: Where can I find detail logs?**
+**Q: Where can I find detailed logs?**
 
 **A:** Click on the **Troubleshooting** tab, then click on **Show Logs**.
 
