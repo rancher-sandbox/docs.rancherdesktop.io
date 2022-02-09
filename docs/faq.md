@@ -45,7 +45,7 @@ https://docs.docker.com/desktop/
 <!-- #640 -->
 **Q: How can I perform a clean uninstall of Rancher Desktop?**
 
-**A:** The uninstall process varies based on the operating system. For more information, please refer [here](https://docs.rancherdesktop.io/installation).
+**A:** First, perform a [Factory Reset](./preferences.md#factory-reset), and then you will uninstall the app. The uninstall process varies based on the operating system. For more information, please refer [here](./installation.md).
 
 **Q: What does the "WSL Integration" tab do?**
 
