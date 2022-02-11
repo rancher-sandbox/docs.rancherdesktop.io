@@ -34,7 +34,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'How-to Guides',
-      items: ["how-to-guides/private-registries", "how-to-guides/building-images", "how-to-guides/running-containers", "how-to-guides/overriding-mac-and-linux-config"],
+      items: ["how-to-guides/private-registries", "how-to-guides/managing-images", "how-to-guides/running-containers", "how-to-guides/overriding-mac-and-linux-config"],
       collapsed: false,
     },
     {
