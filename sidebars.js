@@ -19,17 +19,31 @@ const sidebars = {
   // But you can create a sidebar manually
   
   tutorialSidebar: [
-    "intro",
-    "installation",
     {
       type: 'category',
-      label: 'Features Guide',
-      items: ["preferences", "images"],
+      label: 'Introduction',
+      items: ["introduction/overview", "introduction/installation", "introduction/faq", "introduction/quickstart-guide"],
       collapsed: false,
     },
-    "faq"
-  ],
-  
+    {
+      type: 'category',
+      label: 'Tutorials',
+      items: ["tutorials/vs-code-dev-containers", "tutorials/apps-in-kubernetes-upgrade"],
+      collapsed: false,
+    },
+    {
+      type: 'category',
+      label: 'How-to Guides',
+      items: ["how-to-guides/private-registries", "how-to-guides/building-images", "how-to-guides/running-containers", "how-to-guides/overriding-mac-and-linux-config"],
+      collapsed: false,
+    },
+    {
+      type: 'category',
+      label: 'Reference Guides',
+      items: ["references/architecture", "references/preferences", "references/docker-cli-and-dockerd", "references/containerd-and-nerdctl", "references/troubleshooting"],
+      collapsed: false,
+    },
+  ],   
 };
 
 module.exports = sidebars;

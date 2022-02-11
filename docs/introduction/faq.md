@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+title: FAQ
 ---
 
 # FAQ
@@ -54,6 +54,11 @@ https://docs.docker.com/desktop/
 **Q: Where can I find detailed logs?**
 
 **A:** Click on the **Troubleshooting** tab, then click on **Show Logs**.
+
+**Q: I am receiving a startup read permissions error and a `kubeconfig` copy permissions error when I try to launch Rancher Desktop. How can I resolve these?**
+
+**A:** 
+
 
 **Q: I do not see an entry for Rancher Desktop when running `kubectl config get-contexts`, where is it?**
 
