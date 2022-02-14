@@ -21,28 +21,14 @@ const sidebars = {
   tutorialSidebar: [
     {
       type: 'category',
-      label: 'Introduction',
-      items: ["introduction/overview", "introduction/installation", "introduction/faq", "introduction/quickstart-guide"],
+      label: 'Getting Started',
+      items: ["getting-started/introduction", "getting-started/installation", "getting-started/features"],
       collapsed: false,
     },
-    {
-      type: 'category',
-      label: 'Tutorials',
-      items: ["tutorials/vs-code-dev-containers", "tutorials/apps-in-kubernetes-upgrade"],
-      collapsed: false,
-    },
-    {
-      type: 'category',
-      label: 'How-to Guides',
-      items: ["how-to-guides/private-registries", "how-to-guides/managing-images", "how-to-guides/running-containers", "how-to-guides/overriding-mac-and-linux-config"],
-      collapsed: false,
-    },
-    {
-      type: 'category',
-      label: 'Reference Guides',
-      items: ["references/architecture", "references/preferences", "references/docker-cli-and-dockerd", "references/containerd-and-nerdctl", "references/troubleshooting"],
-      collapsed: false,
-    },
+    "tutorials",
+    "how-to-guides",
+    "references",
+    "faq"
   ],   
 };
 

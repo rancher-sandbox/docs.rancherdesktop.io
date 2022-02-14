@@ -1,8 +1,8 @@
 ---
-title: Preferences
+title: Features
 ---
 
-# Preferences
+# Features
 
 ## General
 
@@ -115,7 +115,7 @@ Symbolic links can be created (or removed) for the following tools, which are in
 
 The **Images** tab, allows you to manage the images on your virtual machine.
 
-To manage your images using nerdctl instead, refer to the [Images](./how-to-guides/managing-images.md) section.
+To manage your images using nerdctl instead, refer to the [Images](./how-to-guides.md) section.
 
 ### Scanning Images
 
@@ -158,3 +158,19 @@ To build an image:
 1. Enter a name for the image being built. E.g., `repo/image`, `repo/image:tag`, `registry.example.com/repo/image`, or `registry.example.com/repo/image:tag`.
 1. Click **Build**.
 1. In the file browser, select the Dockerfile to build an image with.
+
+## Troubleshooting Tips
+
+### Show Logs
+
+Use this option to open the folder containing all Rancher Desktop log files.
+
+### Factory Reset
+
+Remove the cluster and all other Rancher Desktop settings. The initial setup procedure must be done again.
+
+To perform a factory reset:
+
+1. Click **Reset**.
+1. On the confirmation window, click **OK** to proceed. Kubernetes stops and Rancher Desktop closes.
+1. Start Rancher Desktop again.

@@ -1,11 +1,11 @@
 ---
-title: Images
+title: How-to Guides
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# How to Manage Images
+# Working with Images
 
 Rancher Desktop provides the ability to build, push, and pull images via the
 [NERDCTL](https://github.com/containerd/nerdctl) project and the Docker CLI.
@@ -148,4 +148,3 @@ docker rmi IMAGE
 ```
   </TabItem>
 </Tabs>
-
