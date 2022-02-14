@@ -25,9 +25,24 @@ const sidebars = {
       items: ["getting-started/introduction", "getting-started/installation", "getting-started/features"],
       collapsed: false,
     },
-    "tutorials",
-    "how-to-guides",
-    "references",
+    {
+      type: 'category',
+      label: 'Tutorials',
+      items: ["tutorials/vs-code-remote-containers"],
+      collapsed: false,
+    },
+    {
+      type: 'category',
+      label: 'How-to Guides',
+      items: ["how-to-guides/working-with-images"],
+      collapsed: false,
+    },
+    {
+      type: 'category',
+      label: 'References',
+      items: ["references/architecture"],
+      collapsed: false,
+    },
     "faq"
   ],   
 };

@@ -1,5 +1,5 @@
 ---
-title: How-to Guides
+title: Working with Images
 ---
 
 import Tabs from '@theme/Tabs';

@@ -115,7 +115,7 @@ Symbolic links can be created (or removed) for the following tools, which are in
 
 The **Images** tab, allows you to manage the images on your virtual machine.
 
-To manage your images using nerdctl instead, refer to the [Images](./how-to-guides.md) section.
+To manage your images using nerdctl instead, refer to the [Images](./how-to-guides/#working-with-images) section.
 
 ### Scanning Images
 
