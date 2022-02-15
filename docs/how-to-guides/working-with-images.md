@@ -5,8 +5,6 @@ title: Working with Images
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Working with Images
-
 Rancher Desktop provides the ability to build, push, and pull images via the
 [NERDCTL](https://github.com/containerd/nerdctl) project and the Docker CLI.
 

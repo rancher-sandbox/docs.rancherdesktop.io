@@ -2,8 +2,6 @@
 title: Features
 ---
 
-# Features
-
 ## General
 
 The **General** tab, provides general information about the project's status as well as links to discuss the project, report issues, or to learn more about the project.
