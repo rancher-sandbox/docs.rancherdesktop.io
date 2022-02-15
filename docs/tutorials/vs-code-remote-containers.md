@@ -4,7 +4,7 @@ title: VS Code Remote Containers
 
 # VS Code Remote Containers
 
-The [Visual Studio Code Remote - Containers] extension lets you use a Docker container as a full-featured development environment, which ihelps ensure a consistent environment across developer machines and makes it easy for new team members and contributors to get up and running. Since Rancher Desktop supports Docker CLI via [Moby], you can use the Visual Studio Code Remote - Containers extension out-of-the-box.
+The [Visual Studio Code Remote - Containers] extension lets you use a Docker container as a full-featured development environment, which helps ensure a consistent environment across developer machines and makes it easy for new team members and contributors to get up and running. Since Rancher Desktop supports Docker CLI via [Moby], you can use the Visual Studio Code Remote - Containers extension out-of-the-box.
 
 ### Steps to try a sample dev container
 
