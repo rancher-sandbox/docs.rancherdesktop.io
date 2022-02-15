@@ -58,25 +58,12 @@ https://docs.docker.com/desktop/
 <!-- #896 -->
 **Q: How can I enable the dashboard for the Traefik ingress controller?**
 
-**A:** Use the command below with `kubectl` for both macOS and Windows:
+**A:** The Traefik dashboard is not exposed by default, for security reasons. However, it is possible to expose the dashboard in multiple ways. For instance, using `port-forward` will enable dashboard access:
 
 ```
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: dashboard
-spec:
-  entryPoints:
-    - web
-  routes:
-    - match: Host(`traefik.localhost`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
-      kind: Rule
-      services:
-        - name: api@internal
-          kind: TraefikService
+kubectl port-forward -n kube-system $(kubectl -n kube-system get pods --selector "app.kubernetes.io/name=traefik" --output=name) 9000:9000
 ```
-
-- You can then access the Traefik dashboard [here](http://traefik.localhost/dashboard/#/).
+You can then view the Traefik dashboard in your browser [here](http://127.0.0.1:9000/dashboard/).
 
 **Q: I do not see an entry for Rancher Desktop when running `kubectl config get-contexts`, where is it?**
 
