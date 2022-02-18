@@ -29,19 +29,19 @@ const sidebars = {
       type: 'category',
       label: 'Tutorials',
       items: ["tutorials/vs-code-remote-containers"],
-      collapsed: false,
+      collapsed: true,
     },
     {
       type: 'category',
       label: 'How-to Guides',
       items: ["how-to-guides/working-with-images"],
-      collapsed: false,
+      collapsed: true,
     },
     {
       type: 'category',
       label: 'References',
       items: ["references/architecture"],
-      collapsed: false,
+      collapsed: true,
     },
     "faq"
   ],   
