@@ -19,17 +19,32 @@ const sidebars = {
   // But you can create a sidebar manually
   
   tutorialSidebar: [
-    "intro",
-    "installation",
     {
       type: 'category',
-      label: 'Features Guide',
-      items: ["preferences", "images"],
+      label: 'Getting Started',
+      items: ["getting-started/introduction", "getting-started/installation", "getting-started/features"],
+      collapsed: false,
+    },
+    {
+      type: 'category',
+      label: 'Tutorials',
+      items: ["tutorials/vs-code-remote-containers"],
+      collapsed: false,
+    },
+    {
+      type: 'category',
+      label: 'How-to Guides',
+      items: ["how-to-guides/working-with-images"],
+      collapsed: false,
+    },
+    {
+      type: 'category',
+      label: 'References',
+      items: ["references/architecture"],
       collapsed: false,
     },
     "faq"
-  ],
-  
+  ],   
 };
 
 module.exports = sidebars;

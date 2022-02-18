@@ -1,8 +1,6 @@
 ---
-sidebar_position: 2
+title: Installation
 ---
-
-# Installation
 
 Rancher Desktop is delivered as a desktop application. You can download it from
 the [releases page on GitHub](https://github.com/rancher-sandbox/rancher-desktop/releases).

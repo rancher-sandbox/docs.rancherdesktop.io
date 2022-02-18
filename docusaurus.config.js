@@ -11,7 +11,7 @@ const config = {
   url: 'https://docs.rancherdesktop.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'rancher-sandbox', // Usually your GitHub org/user name.
   projectName: 'docs.rancherdesktop.io', // Usually your repo name.

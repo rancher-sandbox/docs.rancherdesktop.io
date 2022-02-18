@@ -1,8 +1,6 @@
 ---
-sidebar_position: 4
+title: FAQ
 ---
-
-# FAQ
 
 This FAQ is a work in progress designed to answer the questions our users most frequently ask about Rancher Desktop.
 
@@ -45,7 +43,7 @@ https://docs.docker.com/desktop/
 <!-- #640 -->
 **Q: How can I perform a clean uninstall of Rancher Desktop?**
 
-**A:** First, perform a [Factory Reset](./preferences.md#factory-reset), and then you will uninstall the app. The uninstall process varies based on the operating system. For more information, please refer [here](./installation.md).
+**A:** First, perform a [Factory Reset](./getting-started/features.md#factory-reset), and then you will uninstall the app. The uninstall process varies based on the operating system. For more information, please refer [here](./getting-started/installation.md).
 
 **Q: What does the "WSL Integration" tab do?**
 
@@ -54,6 +52,10 @@ https://docs.docker.com/desktop/
 **Q: Where can I find detailed logs?**
 
 **A:** Click on the **Troubleshooting** tab, then click on **Show Logs**.
+
+**Q: I am receiving a startup read permissions error and a `kubeconfig` copy permissions error when I try to launch Rancher Desktop. How can I resolve these?**
+
+**A:** 
 
 <!-- #896 -->
 **Q: How can I enable the dashboard for the Traefik ingress controller?**
