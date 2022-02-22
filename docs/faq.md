@@ -77,7 +77,6 @@ kubectl port-forward -n kube-system $(kubectl -n kube-system get pods --selector
 ```
 Visit [http://127.0.0.1:9000/dashboard/](http://127.0.0.1:9000/dashboard/) in your browser to view the Traefik dashboard.
 
-
 **Q: I do not see an entry for Rancher Desktop when running `kubectl config get-contexts`, where is it?**
 
 **A:** Rancher Desktop places its configuration in the default location, `~/.kube/config,` and uses that. Your `KUBECONFIG` environment variable may be set to look elsewhere for configuration files.
