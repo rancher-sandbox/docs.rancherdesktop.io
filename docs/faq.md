@@ -67,6 +67,10 @@ kubectl port-forward -n kube-system $(kubectl -n kube-system get pods --selector
 ```
 Visit [http://127.0.0.1:9000/dashboard/](http://127.0.0.1:9000/dashboard/) in your browser to view the Traefik dashboard.
 
+**Q: Does file sharing work similarly to Docker Desktop? Do I have to do any additional configuration to mount volumes to VMs?**
+
+**A:** No additional configuration is necessary to mount volumes to VMs. Per the [Docker Desktop for Mac user manual](https://docs.docker.com/desktop/mac/#resources), the `/Users`, `/Volume`, `/private`, `/tmp`, and `/var/folders` directories are shared by default. For Windows, all files are automatically shared via WSL2.
+
 **Q: I do not see an entry for Rancher Desktop when running `kubectl config get-contexts`, where is it?**
 
 **A:** Rancher Desktop places its configuration in the default location, `~/.kube/config,` and uses that. Your `KUBECONFIG` environment variable may be set to look elsewhere for configuration files.
