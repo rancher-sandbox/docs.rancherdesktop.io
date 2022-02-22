@@ -34,7 +34,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'How-to Guides',
-      items: ["how-to-guides/working-with-images"],
+      items: ["how-to-guides/working-with-images", "how-to-guides/working-with-nerdctl", "how-to-guides/working-with-docker-cli"],
       collapsed: false,
     },
     {
