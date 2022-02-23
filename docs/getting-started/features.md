@@ -1,8 +1,6 @@
 ---
-sidebar_position: 3
+title: Features
 ---
-
-# Preferences
 
 ## General
 
@@ -115,7 +113,7 @@ Symbolic links can be created (or removed) for the following tools, which are in
 
 The **Images** tab, allows you to manage the images on your virtual machine.
 
-To manage your images using nerdctl instead, refer to the [Images](./images) section.
+To manage your images using nerdctl instead, refer to the [Images](./how-to-guides/working-with-images.md) section.
 
 ### Scanning Images
 
@@ -159,7 +157,7 @@ To build an image:
 1. Click **Build**.
 1. In the file browser, select the Dockerfile to build an image with.
 
-## Troubleshooting
+## Troubleshooting Tips
 
 ### Show Logs
 

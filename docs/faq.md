@@ -1,8 +1,6 @@
 ---
-sidebar_position: 4
+title: FAQ
 ---
-
-# FAQ
 
 This FAQ is a work in progress designed to answer the questions our users most frequently ask about Rancher Desktop.
 
@@ -11,6 +9,10 @@ This FAQ is a work in progress designed to answer the questions our users most f
 **A:** No, Rancher Desktop is not [Rancher] on the desktop. Installing Rancher Desktop does not install Rancher, but you can install Rancher as a workload.
 
 Rancher is a unified multi-cluster management stack, whereas Rancher Desktop is similar to applications like [minikube], [kind], or [Docker Desktop], where the goal is to have an easy to set up local Kubernetes environment to manage containers. 
+
+**Q: Can I open Cluster Manager in Rancher Desktop?**
+
+**A:** No, the Cluster Manager feature is currently a Rancher-only concept. We are working on an early integration of the Rancher Dashboard in an upcoming release and will notify the community when this becomes available.  
 
 To learn more about Rancher Desktop, click [here](https://docs.rancherdesktop.io/).
 To learn more about Rancher, click [here](https://rancher.com/why-rancher).
@@ -38,6 +40,33 @@ https://docs.docker.com/desktop/
 **A:**
 -->
 
+<!-- #640 -->
+**Q: How can I perform a clean uninstall of Rancher Desktop?**
+
+**A:** First, perform a [Factory Reset](./getting-started/features.md#factory-reset), and then you will uninstall the app. The uninstall process varies based on the operating system. For more information, please refer [here](./getting-started/installation.md).
+
+**Q: What does the "WSL Integration" tab do?**
+
+**A:** This makes the Kubernetes configuration accessible in the displayed WSL distributions so that you can use commands such as `kubectl` to communicate with Kubernetes.
+
+**Q: Where can I find detailed logs?**
+
+**A:** Click on the **Troubleshooting** tab, then click on **Show Logs**.
+
+**Q: I am receiving a startup read permissions error and a `kubeconfig` copy permissions error when I try to launch Rancher Desktop. How can I resolve these?**
+
+**A:** 
+
+<!-- #896 -->
+**Q: How can I enable the dashboard for the Traefik ingress controller?**
+
+**A:** The Traefik dashboard is not exposed by default, for security reasons. However, it is possible to expose the dashboard in multiple ways. For instance, using `port-forward` will enable dashboard access:
+
+```
+kubectl port-forward -n kube-system $(kubectl -n kube-system get pods --selector "app.kubernetes.io/name=traefik" --output=name) 9000:9000
+```
+Visit [http://127.0.0.1:9000/dashboard/](http://127.0.0.1:9000/dashboard/) in your browser to view the Traefik dashboard.
+
 **Q: I do not see an entry for Rancher Desktop when running `kubectl config get-contexts`, where is it?**
 
 **A:** Rancher Desktop places its configuration in the default location, `~/.kube/config,` and uses that. Your `KUBECONFIG` environment variable may be set to look elsewhere for configuration files.
@@ -54,7 +83,7 @@ https://github.com/rancher-sandbox/rancher-desktop/issues
 
 **A:** The `docker compose` subcommand is bundled as part of a Docker Desktop installation and is removed when uninstalled. Future versions of Rancher Desktop will include and automatically `docker compose` for you, but until then you can install it using this procedure:
 
-For Macos:
+For MacOS:
 ```shell
 $ cd /tmp
 $ mkdir dc-work
