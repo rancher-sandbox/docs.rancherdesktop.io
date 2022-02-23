@@ -69,7 +69,7 @@ Visit [http://127.0.0.1:9000/dashboard/](http://127.0.0.1:9000/dashboard/) in yo
 
 **Q: Does file sharing work similarly to Docker Desktop? Do I have to do any additional configuration to mount volumes to VMs?**
 
-**A:** Currently, the following directories are shared by default: `/Users/$USER` on macOS, `/home/$USER` on Linux, and `/tmp/rancher-desktop` on both. For Windows, these files are automatically shared via WSL2. We will update the community as additional mounted directories are added.
+**A:** Currently, the following directories are shared by default: `/Users/$USER` on macOS, `/home/$USER` on Linux, and `/tmp/rancher-desktop` on both. For Windows, these files are automatically shared via WSL2. We will update the community as more mounted directories are added to this list.
 
 **Q: I do not see an entry for Rancher Desktop when running `kubectl config get-contexts`, where is it?**
 
