@@ -1,9 +1,10 @@
+---
+title: Rancher UI on Rancher Desktop
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Examples
-
-## Rancher UI on Rancher Desktop
 Installing Rancher Dashboard on Rancher Desktop using `container runtime` or `helm` (local environment):
 
 <Tabs groupId="container-runtime">
