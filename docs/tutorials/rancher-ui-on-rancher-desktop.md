@@ -29,7 +29,7 @@ docker run --privileged -d --restart=no -p 8080:80 -p 8443:443 rancher/rancher
 helm repo add jetstack https://charts.jetstack.io
 ```
 
-2: Add lastest Rancher charts:
+2: Add latest Rancher charts:
 ```console
 helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
 ```
