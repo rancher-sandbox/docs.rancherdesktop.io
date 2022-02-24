@@ -83,6 +83,26 @@ come to expect.
 ```console
 nerdctl build -t TAG .
 ```
+
+### Building Local Images
+
+To run your locally-built container images in Kubernetes manifests with `nerdctl`:
+
+```
+# nerdctl --namespace k8s.io build -t foo /some-dockerfile-directory
+# kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: foo
+spec:
+  containers:
+    - name: foo
+      image: foo
+      imagePullPolicy: Never
+EOF
+```
+
   </TabItem>
   <TabItem value="docker">
 
@@ -105,6 +125,26 @@ come to expect.
 ```console
 docker build -t TAG .
 ```
+
+### Building Local Images
+
+To run your locally-built container images in Kubernetes manifests with `docker`:
+
+```
+# docker --namespace k8s.io build -t foo /some-dockerfile-directory
+# kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: foo
+spec:
+  containers:
+    - name: foo
+      image: foo
+      imagePullPolicy: Never
+EOF
+```
+
   </TabItem>
 </Tabs>
 
