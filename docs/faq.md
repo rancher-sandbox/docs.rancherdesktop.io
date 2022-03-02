@@ -53,20 +53,6 @@ https://docs.docker.com/desktop/
 
 **A:** Click on the **Troubleshooting** tab, then click on **Show Logs**.
 
-**Q: How can I inspect the Rancher Desktop app?**
-
-**A:** One way to inspect the app is as follows:
-
-```
-% cd /Applications/Rancher\ Desktop.app/Contents/MacOS
-% ./Rancher\ Desktop --inspect-brk=5858
-Debugger listening on ws://127.0.0.1:5858/7feddde7-ef9d-4afe-8f6b-977b03a4b755
-For help, see: https://nodejs.org/en/docs/inspector
-Debugger attached.
-```
-
-Finally, use `chrome://inspect` in Chrome to attach to the Rancher Desktop app.
-
 <!-- #896 -->
 **Q: How can I enable the dashboard for the Traefik ingress controller?**
 
