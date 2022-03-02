@@ -86,21 +86,18 @@ nerdctl build -t TAG .
 
 ### Building Local Images
 
-To run your locally-built container images in Kubernetes manifests with `nerdctl`:
+In order to demonstrate the steps to build local images and run apps, a sample nodejs app is provided within the [Rancher Desktop docs repository](https://github.com/rancher-sandbox/docs.rancherdesktop.io.git). To get started, clone the repository and cd into `assets/express-sample` in a terminal.
+
+Run the following command to build image from Dockerfile:
 
 ```
-# nerdctl --namespace k8s.io build -t foo /some-dockerfile-directory
-# kubectl apply -f - <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  name: foo
-spec:
-  containers:
-    - name: foo
-      image: foo
-      imagePullPolicy: Never
-EOF
+nerdctl --namespace k8s.io build -t expressapp:v1.0 .
+```
+
+Run the following command to run container:
+```
+kubectl run --image expressapp:v1.0 expressapp
+kubectl port-forward pods/expressapp 3000:3000
 ```
 
   </TabItem>
@@ -128,21 +125,18 @@ docker build -t TAG .
 
 ### Building Local Images
 
-To run your locally-built container images in Kubernetes manifests with `docker`:
+In order to demonstrate the steps to build local images and run apps, a sample nodejs app is provided within the [Rancher Desktop docs repository](https://github.com/rancher-sandbox/docs.rancherdesktop.io.git). To get started, clone the repository and cd into `assets/express-sample` in a terminal.
+
+Run the following command to build image from Dockerfile:
 
 ```
-# docker --namespace k8s.io build -t foo /some-dockerfile-directory
-# kubectl apply -f - <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  name: foo
-spec:
-  containers:
-    - name: foo
-      image: foo
-      imagePullPolicy: Never
-EOF
+docker build -t expressapp:v1.0 .
+```
+
+Run the following command to run container:
+```
+kubectl run --image expressapp:v1.0 expressapp
+kubectl port-forward pods/expressapp 3000:3000
 ```
 
   </TabItem>
