@@ -77,7 +77,7 @@ docker ps
 
 **To shut down the container:**
 ```
-docker stop # Container ID (note that the container ID has most likely changed)
+docker stop <container_id> (note that the container ID has most likely changed)
 docker ps (to verify nothing is running)
 ```
 
