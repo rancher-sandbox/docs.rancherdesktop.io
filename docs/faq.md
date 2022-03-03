@@ -53,11 +53,6 @@ https://docs.docker.com/desktop/
 
 **A:** Click on the **Troubleshooting** tab, then click on **Show Logs**.
 
-#### **Q: I am receiving a startup read permissions error and a `kubeconfig` copy permissions error when I try to launch Rancher Desktop. How can I resolve these?**
-
-**A:** 
-
-<!-- #896 -->
 #### **Q: How can I enable the dashboard for the Traefik ingress controller?**
 
 **A:** The Traefik dashboard is not exposed by default, for security reasons. However, it is possible to expose the dashboard in multiple ways. For instance, using `port-forward` will enable dashboard access:

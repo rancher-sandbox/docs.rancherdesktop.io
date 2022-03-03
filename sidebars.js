@@ -33,19 +33,19 @@ const sidebars = {
         "tutorials/vs-code-remote-containers", 
         "tutorials/rancher-ui-on-rancher-desktop"
       ],
-      collapsed: false,
+      collapsed: true,
     },
     {
       type: 'category',
       label: 'How-to Guides',
       items: ["how-to-guides/working-with-images"],
-      collapsed: false,
+      collapsed: true,
     },
     {
       type: 'category',
       label: 'References',
       items: ["references/architecture"],
-      collapsed: false,
+      collapsed: true,
     },
     "faq"
   ],   
