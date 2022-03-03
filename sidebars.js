@@ -36,7 +36,7 @@ const sidebars = {
         "tutorials/vs-code-docker", 
         "tutorials/vs-code-remote-containers", 
         "tutorials/rancher-ui-on-rancher-desktop",
-        "tutorials/hello-world-example"
+        "tutorials/hello-world-example",
       ],
       collapsed: true,
     },
