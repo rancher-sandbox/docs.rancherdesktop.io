@@ -28,7 +28,11 @@ const sidebars = {
     {
       type: 'category',
       label: 'Tutorials',
-      items: ["tutorials/vs-code-remote-containers"],
+      items: [
+        "tutorials/vs-code-docker", 
+        "tutorials/vs-code-remote-containers", 
+        "tutorials/rancher-ui-on-rancher-desktop"
+      ],
       collapsed: true,
     },
     {
