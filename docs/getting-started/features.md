@@ -87,6 +87,32 @@ Images that have been pulled are not removed when a reset occurs.
 
 At this point, Kubernetes is stopped then workloads and configurations are removed. Kubernetes is then be started again.
 
+### Working with Kubernetes Clusters
+
+**Launching a Kubernetes cluster:** 
+
+1. Launch Rancher Desktop app.
+
+1. Click on **Kubernetes Settings**, and then select your desired **Kubernetes version**.
+
+1. Choose either **containerd** or **dockerd** for your container runtime.
+
+![](/img/kubernetes-settings-main-page.png)
+
+Note the progress bar at the bottom-left of the app indicating Kubernetes download progress and API setup. Once that bar has completed initializing, your cluster is fully up.
+
+![](/img/kubernetes-cluster-progress.png)
+
+**Stopping a Kubernetes cluster:**
+
+You may stop the Kubernetes cluster by quitting Rancher Desktop. You can close Rancher Desktop by right-clicking on tray icon at the bottom of the screen, or by selecting **File** > **Exit**.
+
+**Resetting a Kubernetes cluster:**
+
+Refer [here](./getting-started/features.md#reset-kubernetesreset-kubernetes-and-container-images) to learn about resetting the Kubernetes cluster. Note that resetting will delete all workloads and configuration.
+
+![](/img/reset-kubernetes.png)
+
 ## WSL Integration (Windows)
 
 The **WSL Integration** tab gives the option to make the Rancher Desktop Kubernetes configuration accessible to any Linux distributions configured for WSL. Once enabled, you can use communicate with the Rancher Desktop Kubernetes cluster using tools like `kubectl` from within the WSL distribution.

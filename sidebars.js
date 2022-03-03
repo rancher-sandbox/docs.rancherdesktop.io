@@ -28,8 +28,12 @@ const sidebars = {
     {
       type: 'category',
       label: 'Tutorials',
-      items: ["tutorials/vs-code-remote-containers"],
-      collapsed: false,
+      items: [
+        "tutorials/vs-code-docker", 
+        "tutorials/vs-code-remote-containers", 
+        "tutorials/rancher-ui-on-rancher-desktop"
+      ],
+      collapsed: true,
     },
     {
       type: 'category',
@@ -41,7 +45,7 @@ const sidebars = {
       type: 'category',
       label: 'References',
       items: ["references/architecture"],
-      collapsed: false,
+      collapsed: true,
     },
     "faq"
   ],   
