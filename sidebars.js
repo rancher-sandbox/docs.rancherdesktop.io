@@ -38,8 +38,8 @@ const sidebars = {
     {
       type: 'category',
       label: 'How-to Guides',
-      items: ["how-to-guides/working-with-images"],
-      collapsed: true,
+      items: ["how-to-guides/working-with-images", "how-to-guides/working-with-containers"],
+      collapsed: false,
     },
     {
       type: 'category',
