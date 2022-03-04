@@ -22,16 +22,21 @@ const sidebars = {
     {
       type: 'category',
       label: 'Getting Started',
-      items: ["getting-started/introduction", "getting-started/installation", "getting-started/features"],
+      items: [
+        "getting-started/introduction", 
+        "getting-started/installation", 
+        "getting-started/features",
+      ],
       collapsed: false,
     },
     {
       type: 'category',
       label: 'Tutorials',
       items: [
+        "tutorials/hello-world-example",
         "tutorials/vs-code-docker", 
         "tutorials/vs-code-remote-containers", 
-        "tutorials/rancher-ui-on-rancher-desktop"
+        "tutorials/rancher-ui-on-rancher-desktop",
       ],
       collapsed: true,
     },
