@@ -15,6 +15,9 @@ After Rancher Desktop is installed, users will have access to these supporting u
 - [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
 - [nerdctl](https://github.com/containerd/nerdctl)
 - [Moby](https://github.com/moby/moby)
+- [Docker Compose](https://docs.docker.com/compose/)*
+
+\* `docker compose` is included when `docker` is selected in the **Supporting Utilities** tab in the UI.
 
 ## macOS
 
