@@ -11,16 +11,16 @@ Rancher Desktop works with two container engines, [`containerd`](https://contain
 
 ### Hello World example
 
-**Create a folder as follows:** Make sure to specify your "USERNAME". For this example, USERNAME = John.
+**Create a folder:**
 ```
 mkdir ../hello-world
 cd ../hello-world
 ```
 
-**Create a Dockerfile with the following content:**
+**Create a Dockerfile with the command below.** Make sure to specify your "USERNAME". For this example, USERNAME = john.
 ```
 FROM alpine  
-CMD ["echo", "Hello, John!"]
+CMD ["echo", "Hello, john!"]
 ```
 
 **Build and run the image for verification purposes:**
@@ -29,18 +29,18 @@ CMD ["echo", "Hello, John!"]
   <TabItem value="nerdctl" default>
 
 ```
-nerdctl build -t John/hello:1.0 .
-nerdctl images | grep John
-nerdctl run -d -p 8080:80 John/hello:1.0
+nerdctl build -t john/hello:1.0 .
+nerdctl images | grep john
+nerdctl run -d -p 8080:80 john/hello:1.0
 ```
 
   </TabItem>
   <TabItem value="docker">
 
 ```
-docker build -t John/hello:1.0 .
-docker images | grep John
-docker run -d -p 8080:80 John/hello:1.0
+docker build -t john/hello:1.0 .
+docker images | grep john
+docker run -d -p 8080:80 john/hello:1.0
 ```
 
   </TabItem>
@@ -50,16 +50,16 @@ docker run -d -p 8080:80 John/hello:1.0
 
 Make sure that you switch the `container runtime` setting in the **Kubernetes Settings** panel to either `dockerd` or `containerd` as needed.
 
-**Create a folder as follows:** Make sure to specify your "USERNAME". For this example, USERNAME = John.
+**Create a folder as follows:**
 ```
 mkdir ../nginx
 cd ../nginx
 ```
 
-**Create a Dockerfile with the following content:**
+**Create a Dockerfile with the command below.** Make sure to specify your "USERNAME". For this example, USERNAME = john.
 ```
 FROM alpine  
-CMD ["echo", "Hello, John!"]
+CMD ["echo", "Hello, john!"]
 ```
 
 **Build and run the image for verification purposes:**
@@ -68,18 +68,18 @@ CMD ["echo", "Hello, John!"]
   <TabItem value="nerdctl" default>
 
 ```
-nerdctl build -t John/nginx:1.0 .
-nerdctl images | grep John
-nerdctl run -d -p 8080:80 John/nginx:1.0
+nerdctl build -t john/nginx:1.0 .
+nerdctl images | grep john
+nerdctl run -d -p 8080:80 john/nginx:1.0
 ```
 
   </TabItem>
   <TabItem value="docker">
 
 ```
-docker build -t John/nginx:1.0 .
-docker images | grep John
-docker run -d -p 8080:80 John/nginx:1.0
+docker build -t john/nginx:1.0 .
+docker images | grep john
+docker run -d -p 8080:80 john/nginx:1.0
 ```
   </TabItem>
 </Tabs>
@@ -92,7 +92,7 @@ docker run -d -p 8080:80 John/nginx:1.0
 ```
 nerdctl ps
 CONTAINER ID    IMAGE                          COMMAND                  CREATED        STATUS   PORTS   NAMES
-fd869b8e08c5    docker.io/John/nginx:1.0    "/docker-entrypoint.…"   8 seconds ago     Up               nginx-fd869
+fd869b8e08c5    docker.io/john/nginx:1.0    "/docker-entrypoint.…"   8 seconds ago     Up               nginx-fd869
 ```
 
   </TabItem>
@@ -101,7 +101,7 @@ fd869b8e08c5    docker.io/John/nginx:1.0    "/docker-entrypoint.…"   8 seconds
 ```
 docker ps 
 CONTAINER ID    IMAGE                          COMMAND                  CREATED        STATUS   PORTS   NAMES
-fd869b8e08c5    docker.io/John/nginx:1.0    "/docker-entrypoint.…"      8 seconds ago  Up               nginx-fd869
+fd869b8e08c5    docker.io/john/nginx:1.0    "/docker-entrypoint.…"      8 seconds ago  Up               nginx-fd869
 ```
   </TabItem>
 </Tabs>

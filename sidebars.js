@@ -33,10 +33,10 @@ const sidebars = {
       type: 'category',
       label: 'Tutorials',
       items: [
+        "tutorials/hello-world-example",
         "tutorials/vs-code-docker", 
         "tutorials/vs-code-remote-containers", 
         "tutorials/rancher-ui-on-rancher-desktop",
-        "tutorials/hello-world-example",
       ],
       collapsed: true,
     },
