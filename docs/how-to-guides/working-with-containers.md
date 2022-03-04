@@ -11,49 +11,73 @@ import TabItem from '@theme/TabItem';
 
 ## Running Containers
 
+To run a container with the default `bridge` CNI network (10.4.0.0/24):
+
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
 
-To run a container with the default `bridge` CNI network (10.4.0.0/24):
 ```
 nerdctl run -it --rm alpine
 ```
 
+  </TabItem>
+  <TabItem value="docker" default>
+
+```
+docker run -it --rm alpine
+```
+  </TabItem>
+</Tabs>
+
 To build an image using BuildKit:
+
+<Tabs groupId="container-runtime">
+  <TabItem value="nerdctl" default>
+
 ```
 nerdctl build -t foo /some-dockerfile-directory
 nerdctl run -it --rm foo
 ```
 
-To build and send output to a local directory uding BuiltKit:
-```
-nerdctl build -o type=local,dest=. /some-dockerfile-directory
-```
-
-To run containers from `docker-compose-yaml`:
-```
-nerdctl compose -f ./examples/compose-wordpress/docker-compose.yaml up
-```
   </TabItem>
-  <TabItem value="docker-cli" default>
+  <TabItem value="docker" default>
 
-To run a container with the default `bridge` CNI network (10.4.0.0/24):
-```
-docker run -it --rm alpine
-```
-
-To build an image using BuildKit:
-```
+  ```
 docker build -t foo /some-dockerfile-directory
 docker run -it --rm foo
 ```
+  </TabItem>
+</Tabs>
 
-To build and send output to a local directory uding BuiltKit:
+To build and send output to a local directory using BuiltKit:
+
+<Tabs groupId="container-runtime">
+  <TabItem value="nerdctl" default>
+
+```
+nerdctl build -o type=local,dest=. /some-dockerfile-directory
+```
+  </TabItem>
+  <TabItem value="docker" default>
+
 ```
 docker build -o type=local,dest=. /some-dockerfile-directory
 ```
+  </TabItem>
+</Tabs>
 
 To run containers from `docker-compose-yaml`:
+
+<Tabs groupId="container-runtime">
+  <TabItem value="nerdctl" default>
+
+```
+nerdctl compose -f ./examples/compose-wordpress/docker-compose.yaml up
+```
+  
+  </TabItem>
+  <TabItem value="docker" default>
+
 ```
 docker -f ./examples/compose-wordpress/docker-compose.yaml up
 ```
@@ -74,7 +98,7 @@ nerdctl compose up -d
 nerdctl compose down
 ```
   </TabItem>
-  <TabItem value="docker-cli">
+  <TabItem value="docker">
 
 The `compose` command in the Docker CLI supports most of the `docker-compose` commands and flags. It is expected to be a drop-in replacement for `docker-compose`.
 ```
@@ -86,28 +110,34 @@ docker compose down
 
 ## Exposing a Port
 
+To expose port 8000 for a container:
+
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
 
-To expose port 8000 for a container:
 ```
 nerdctl run -d -p 8000:80 nginx
 ```
+  </TabItem>
+  <TabItem value="docker" default>
+
+```
+docker run -d -p 8000:80 nginx
+```
+  </TabItem>
+</Tabs>
 
 You can then access the container via the browser here: [http://localhost:8080/](http://localhost:8080/).
+
+<Tabs groupId="container-runtime">
+  <TabItem value="nerdctl" default>
 
 ```
 nerdctl build -t demo:latest /code/demos/rd/anvil-app
 ```
+
   </TabItem>
-  <TabItem value="docker-cli" default>
-
-To expose port 8000 for a container:
-```
-docker run -d -p 8000:80 nginx
-```
-
-You can then access the container via the browser here: [http://localhost:8080/](http://localhost:8080/).
+  <TabItem value="docker" default>
 
 ```
 docker build -t demo:latest /code/demos/rd/anvil-app
@@ -117,21 +147,15 @@ docker build -t demo:latest /code/demos/rd/anvil-app
 
 ## Targeting a Kubernetes Namespace
 
+You may also target a Kubernetes namespace with the `--namespace` parameter with `containerd`. Please note that `docker` doesn't use namespaces.
+
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
 
-You may also target a Kubernetes namespace with the `--namespace` parameter:
 ```
 nerdctl --namespace k8s.io build -t demo:latest /code/demos/rd/anvil-app
 nerdctl --namespace k8s.io ps
 ```
-  </TabItem>
-  <TabItem value="docker-cli" default>
 
-You may also target a Kubernetes namespace with the `--namespace` parameter:
-```
-docker --namespace k8s.io build -t demo:latest /code/demos/rd/anvil-app
-docker --namespace k8s.io ps
-```
   </TabItem>
 </Tabs>
