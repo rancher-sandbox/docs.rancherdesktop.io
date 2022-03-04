@@ -66,25 +66,6 @@ docker build -o type=local,dest=. /some-dockerfile-directory
   </TabItem>
 </Tabs>
 
-To run containers from `docker-compose-yaml`:
-
-<Tabs groupId="container-runtime">
-  <TabItem value="nerdctl" default>
-
-```
-nerdctl compose -f ./examples/compose-wordpress/docker-compose.yaml up
-```
-  
-  </TabItem>
-  <TabItem value="docker" default>
-
-```
-docker -f ./examples/compose-wordpress/docker-compose.yaml up
-```
-
-  </TabItem>
-</Tabs>
-
 ## Docker Compose
 
 Docker Compose is a tool for defining and running multi-container Docker applications. 
