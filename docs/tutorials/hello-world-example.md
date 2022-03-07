@@ -17,10 +17,10 @@ mkdir ../hello-world
 cd ../hello-world
 ```
 
-**Create a Dockerfile with the command below.** Make sure to specify your "USERNAME". For this example, USERNAME = john.
+**Create a Dockerfile with the command below.**
 ```
 FROM alpine  
-CMD ["echo", "Hello, john!"]
+CMD ["echo", "Hello World!!"]
 ```
 
 **Build and run the image for verification purposes:**
@@ -29,18 +29,20 @@ CMD ["echo", "Hello, john!"]
   <TabItem value="nerdctl" default>
 
 ```
-nerdctl build -t john/hello:1.0 .
-nerdctl images | grep john
-nerdctl run -d -p 8080:80 john/hello:1.0
+nerdctl build -t helloworld:v1.0 .
+nerdctl images | grep helloworld
+nerdctl run --rm helloworld:v1.0
+nerdctl rmi helloworld:v1.0 #To remove the image
 ```
 
   </TabItem>
   <TabItem value="docker">
 
 ```
-docker build -t john/hello:1.0 .
-docker images | grep john
-docker run -d -p 8080:80 john/hello:1.0
+docker build -t helloworld:v1.0 .
+docker images | grep helloworld
+docker run --rm helloworld:v1.0
+docker rmi helloworld:v1.0 #To remove the image
 ```
 
   </TabItem>
@@ -50,16 +52,17 @@ docker run -d -p 8080:80 john/hello:1.0
 
 Make sure that you switch the `container runtime` setting in the **Kubernetes Settings** panel to either `dockerd` or `containerd` as needed.
 
-**Create a folder as follows:**
+**Create a folder and add a sample index.html file as follows:**
 ```
 mkdir ../nginx
 cd ../nginx
+echo "<h1>Hello World from NGINX!!</h1>" > index.html
 ```
 
-**Create a Dockerfile with the command below.** Make sure to specify your "USERNAME". For this example, USERNAME = john.
+**Create a Dockerfile with the command below.**
 ```
-FROM alpine  
-CMD ["echo", "Hello, john!"]
+FROM nginx:alpine
+COPY . /usr/share/nginx/html
 ```
 
 **Build and run the image for verification purposes:**
@@ -68,18 +71,18 @@ CMD ["echo", "Hello, john!"]
   <TabItem value="nerdctl" default>
 
 ```
-nerdctl build -t john/nginx:1.0 .
-nerdctl images | grep john
-nerdctl run -d -p 8080:80 john/nginx:1.0
+nerdctl build -t nginx-helloworld:v1.0 .
+nerdctl images | grep nginx-helloworld
+nerdctl run -d -p 8080:80 --name my-site nginx-helloworld:v1.0
 ```
 
   </TabItem>
   <TabItem value="docker">
 
 ```
-docker build -t john/nginx:1.0 .
-docker images | grep john
-docker run -d -p 8080:80 john/nginx:1.0
+docker build -t nginx-helloworld:v1.0 .
+docker images | grep nginx-helloworld
+docker run -d -p 8080:80 --name my-site nginx-helloworld:v1.0
 ```
   </TabItem>
 </Tabs>
@@ -91,8 +94,8 @@ docker run -d -p 8080:80 john/nginx:1.0
 
 ```
 nerdctl ps
-CONTAINER ID    IMAGE                          COMMAND                  CREATED        STATUS   PORTS   NAMES
-fd869b8e08c5    docker.io/john/nginx:1.0    "/docker-entrypoint.…"   8 seconds ago     Up               nginx-fd869
+CONTAINER ID    IMAGE                                      COMMAND                   CREATED           STATUS    PORTS                   NAMES
+b6775a69ab93    docker.io/library/nginx-helloworld:v1.0    "/docker-entrypoint.…"    48 seconds ago    Up        0.0.0.0:8080->80/tcp    my-site
 ```
 
   </TabItem>
@@ -100,30 +103,34 @@ fd869b8e08c5    docker.io/john/nginx:1.0    "/docker-entrypoint.…"   8 seconds
 
 ```
 docker ps 
-CONTAINER ID    IMAGE                          COMMAND                  CREATED        STATUS   PORTS   NAMES
-fd869b8e08c5    docker.io/john/nginx:1.0    "/docker-entrypoint.…"      8 seconds ago  Up               nginx-fd869
+CONTAINER ID   IMAGE                   COMMAND                  CREATED          STATUS          PORTS                                   NAMES
+5f50ba3f504c   nginx-helloworld:v1.0   "/docker-entrypoint.…"   7 seconds ago    Up 6 seconds    0.0.0.0:8080->80/tcp, :::8080->80/tcp   my-site
 ```
   </TabItem>
 </Tabs>
 
 Point your web browser to `localhost:8080`, and you will see the nginx intro screen. If you prefer to stay on the command line, use `curl localhost:8080`.
 
-**To shut down the container:**
+**To stop, remove the container and delete the image:**
 
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
 
 ```
-nerdctl stop <fd869b8e08c5>
+nerdctl stop <container-id>
+nerdctl rm <container-id>
 nerdctl ps #to verify nothing is running 
+nerdctl rmi nginx-helloworld:v1.0 #to remove the image
 ```
  
   </TabItem>
   <TabItem value="docker">
 
 ```
-docker stop <fd869b8e08c5>
+docker stop <container-id>
+docker rm <container-id>
 docker ps #to verify nothing is running 
+docker rmi nginx-helloworld:v1.0 #to remove the image
 ```
 
   </TabItem>
