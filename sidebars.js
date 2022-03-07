@@ -22,23 +22,31 @@ const sidebars = {
     {
       type: 'category',
       label: 'Getting Started',
-      items: ["getting-started/introduction", "getting-started/installation", "getting-started/features"],
+      items: [
+        "getting-started/introduction", 
+        "getting-started/installation", 
+        "getting-started/features",
+      ],
       collapsed: false,
     },
     {
       type: 'category',
       label: 'Tutorials',
       items: [
-        "tutorials/vs-code-docker", 
-        "tutorials/vs-code-remote-containers", 
-        "tutorials/rancher-ui-on-rancher-desktop"
+        "tutorials/working-with-images", 
+        "tutorials/working-with-containers"
       ],
       collapsed: true,
     },
     {
       type: 'category',
       label: 'How-to Guides',
-      items: ["how-to-guides/working-with-images"],
+      items: [
+        "how-to-guides/hello-world-example",
+        "how-to-guides/vs-code-docker", 
+        "how-to-guides/vs-code-remote-containers", 
+        "how-to-guides/rancher-ui-on-rancher-desktop",
+      ],
       collapsed: true,
     },
     {

@@ -108,6 +108,41 @@ docker build -t TAG .
   </TabItem>
 </Tabs>
 
+### Building Local Images
+
+In order to demonstrate the steps to build local images and run apps, a sample nodejs app is provided within the [Rancher Desktop docs repository](https://github.com/rancher-sandbox/docs.rancherdesktop.io.git). To get started, clone the repository and cd into `assets/express-sample` in a terminal.
+
+Run the following command to build image from Dockerfile:
+
+<Tabs groupId="container-runtime">
+  <TabItem value="nerdctl" default>
+
+```
+nerdctl --namespace k8s.io build -t expressapp:v1.0 .
+```
+
+  </TabItem>
+  <TabItem value="docker">
+
+```
+docker build -t expressapp:v1.0 .
+```
+ 
+  </TabItem>
+</Tabs>
+
+Run the following command to run container:
+
+```
+kubectl run --image expressapp:v1.0 expressapp
+kubectl port-forward pods/expressapp 3000:3000
+```
+
+**Note:** When adding the `latest` tag, be sure to also specify the following:
+```
+imagePullPolicy: Never
+```
+
 ## Tagging Images
 
 If you want to tag an existing image you've built you can use the following
