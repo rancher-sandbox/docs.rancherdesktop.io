@@ -33,17 +33,20 @@ const sidebars = {
       type: 'category',
       label: 'Tutorials',
       items: [
-        "tutorials/hello-world-example",
-        "tutorials/vs-code-docker", 
-        "tutorials/vs-code-remote-containers", 
-        "tutorials/rancher-ui-on-rancher-desktop",
+        "tutorials/working-with-images", 
+        "tutorials/working-with-containers"
       ],
       collapsed: true,
     },
     {
       type: 'category',
       label: 'How-to Guides',
-      items: ["how-to-guides/working-with-images", "how-to-guides/working-with-containers"],
+      items: [
+        "how-to-guides/hello-world-example",
+        "how-to-guides/vs-code-docker", 
+        "how-to-guides/vs-code-remote-containers", 
+        "how-to-guides/rancher-ui-on-rancher-desktop",
+      ],
       collapsed: true,
     },
     {
