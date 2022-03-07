@@ -138,6 +138,11 @@ kubectl run --image expressapp:v1.0 expressapp
 kubectl port-forward pods/expressapp 3000:3000
 ```
 
+**Note:** When adding the `latest` tag, be sure to also specify the following:
+```
+imagePullPolicy: Never
+```
+
 ## Tagging Images
 
 If you want to tag an existing image you've built you can use the following
