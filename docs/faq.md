@@ -72,9 +72,9 @@ Visit [http://127.0.0.1:9000/dashboard/](http://127.0.0.1:9000/dashboard/) in yo
 
 If you want to delete Traefik resources, click on `Reset Kubernetes` on the **Kubernetes Settings** panel of the UI.
 
-#### **Q: Is there support for port forwarding?**
+#### **Q: Is there support for internal container port forwarding?**
 
-**A:** Internal container port forwarding support has been enabled again on Linux and macOS.
+**A:** Yes, support has been enabled again for this feature on Linux and macOS.
 
 #### **Q: Does file sharing work similarly to Docker Desktop? Do I have to do any additional configuration to mount volumes to VMs?**
 
