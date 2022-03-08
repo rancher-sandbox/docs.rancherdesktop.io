@@ -45,6 +45,10 @@ https://docs.docker.com/desktop/
 
 **A:** First, perform a [Factory Reset](./getting-started/features.md#factory-reset), and then you will uninstall the app. The uninstall process varies based on the operating system. For more information, please refer [here](./getting-started/installation.md).
 
+#### **Q: What support, if any, is available for DNS over VPN on Windows?**
+
+**A:** Support is now available for tunneling only. Currently, no support is available for split-DNS.
+
 #### **Q: What does the "WSL Integration" tab do?**
 
 **A:** This makes the Kubernetes configuration accessible in the displayed WSL distributions so that you can use commands such as `kubectl` to communicate with Kubernetes.
@@ -62,6 +66,16 @@ kubectl port-forward -n kube-system $(kubectl -n kube-system get pods --selector
 ```
 Visit [http://127.0.0.1:9000/dashboard/](http://127.0.0.1:9000/dashboard/) in your browser to view the Traefik dashboard.
 
+#### **Q: How can I disable Traefik, and will doing so remove Traefik resources?**
+
+**A:** Yes, you can disable Traefik in order to free up port 80 and 443 for alternate ingress configuration. Disabling Traefik will _not_ delete existing resources. By default, the `Enable Traefik` feature is selected under **Kubernetes Settings**; uncheck this box to disable it.
+
+If you want to delete Traefik resources, click on `Reset Kubernetes` on the **Kubernetes Settings** panel of the UI.
+
+#### **Q: Is there support for internal container port forwarding?**
+
+**A:** Yes, support has been enabled again for this feature on Linux and macOS.
+
 #### **Q: Does file sharing work similarly to Docker Desktop? Do I have to do any additional configuration to mount volumes to VMs?**
 
 **A:** Currently, the following directories are shared by default: `/Users/$USER` on macOS, `/home/$USER` on Linux, and `/tmp/rancher-desktop` on both. For Windows, all files are automatically shared via WSL2. 
@@ -69,6 +83,10 @@ Visit [http://127.0.0.1:9000/dashboard/](http://127.0.0.1:9000/dashboard/) in yo
 #### **Q: I do not see an entry for Rancher Desktop when running `kubectl config get-contexts`, where is it?**
 
 **A:** Rancher Desktop places its configuration in the default location, `~/.kube/config,` and uses that. Your `KUBECONFIG` environment variable may be set to look elsewhere for configuration files.
+
+#### **Q: Can containers reach back to host services via `host.docker.internal`?**
+
+**A:** Yes.
 
 #### **Q: Rancher Desktop is stuck on `Waiting for Kubernetes API`, what do I do?**
 
@@ -123,14 +141,9 @@ $ rmdir dc-work
 Also, on Windows, don't forget to also set up `docker-compose` on the Linux side as well, described above.
 
 <!-- #985 -->
-#### **Q: I don't need the Kubernetes cluster deployed by Rancher Desktop, how do I disable it to save resources?**
+#### **Q: I don't need the Kubernetes cluster deployed by Rancher Desktop; how do I disable it to save resources?**
 
-**A:** As a temporary workaround, you can _disable_ Kubernetes in Rancher Desktop with these commands:
-
-```bash
-kubectl config use-context rancher-desktop
-kubectl delete node lima-rancher-desktop
-```
+**A:** Kubernetes can be disabled to run just `containerd` or `dockerd` by itself for reduced resource consumption. By default, the `Enable Kubernetes` feature is selected under **Kubernetes Settings**; uncheck this box to disable it.
 
 <!-- #726 -->
 #### **Q: What's happening to the Kubernetes Image Manager (kim)?**
