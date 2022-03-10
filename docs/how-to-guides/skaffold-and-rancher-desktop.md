@@ -17,11 +17,11 @@ In order to demonstrate the steps to set up Skaffold with Rancher Desktop, a sam
     cd docs.rancherdesktop.io/assets/express-sample
     ```
 
-1. Run `skaffold init`. 
+1. Run `skaffold init`.
 
-1. Specify the builder you want to build the image, e.g., Dockerfile.
-
-1. Specify the buildpacks you want to use, e.g., `package.json`. This will generate the initial configuration file that you can modify as needed. When prompted, select `yes` to write your config to `skaffold.yaml`. 
+    Per the [Skaffold docs](https://skaffold.dev/docs/pipeline-stages/init/#build-config-initialization),`skaffold init` walks your project directory and looks for any build configuration files such as `Dockerfile`, `build.gradle/pom.xml`, `package.json`, `requirements.txt`, or `go.mod`. 
+    
+    We will select `Dockerfile` and `package.json` in our example. This will generate the initial configuration file that you can modify as needed. When prompted, select `yes` to write your config to `skaffold.yaml`. 
 
 1. In your editor, review your `app.js` and `manifests.yaml` files. Note that in `manifests.yaml`, you will have a deployment config as well as a service config. It is only necessary to have 1 `replica` for testing purposes.
 
