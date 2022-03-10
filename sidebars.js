@@ -34,7 +34,7 @@ const sidebars = {
       label: 'Tutorials',
       items: [
         "tutorials/working-with-images", 
-        "tutorials/working-with-containers"
+        "tutorials/working-with-containers",
       ],
       collapsed: true,
     },
@@ -46,6 +46,7 @@ const sidebars = {
         "how-to-guides/vs-code-docker", 
         "how-to-guides/vs-code-remote-containers", 
         "how-to-guides/rancher-ui-on-rancher-desktop",
+        "how-to-guides/skaffold-and-rancher-desktop",
       ],
       collapsed: true,
     },
