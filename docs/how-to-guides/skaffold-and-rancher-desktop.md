@@ -6,13 +6,16 @@ Skaffold is a command line tool that optimizes your development workflow by auto
 
 The combination of Skaffold and Rancher Desktop can help make your workflow easier and more efficient. These tools enable developers to focus on apps by giving a simplified approach to working in a Kubernetes environment and deploying to it, rather than having to manage the repetitive steps required during the edit-debug-deploy "inner loop".
 
-In order to demonstrate the steps to set up Skaffold with Rancher Desktop, a sample nodejs app is provided within the [Rancher Desktop docs repository](https://github.com/rancher-sandbox/docs.rancherdesktop.io.git). 
+In order to demonstrate the steps to set up Skaffold with Rancher Desktop, a sample nodejs app example is provided within the Rancher Desktop docs repository [here](https://github.com/rancher-sandbox/docs.rancherdesktop.io/tree/main/assets/express-sample). 
 
 >**Important: Skaffold only works with `dockerd` (Moby).** Therefore, make sure to select your runtime as `dockerd` from the **Kubernetes Settings** panel in the Rancher Desktop UI. 
 
 1. Visit https://skaffold.dev/docs/install/ to install Skaffold.
 
-1. Clone the [Rancher Desktop docs repository](https://github.com/rancher-sandbox/docs.rancherdesktop.io.git) and cd into `assets/express-sample` in a terminal.
+1. Clone the [Rancher Desktop docs repository](https://github.com/rancher-sandbox/docs.rancherdesktop.io.git) and navigate to the `express-sample` in a terminal as follows: 
+    ```
+    cd docs.rancherdesktop.io/assets/express-sample
+    ```
 
 1. Run `skaffold init`. 
 
