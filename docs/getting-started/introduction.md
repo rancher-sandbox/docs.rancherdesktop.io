@@ -15,3 +15,9 @@ Rancher Desktop provides the ability to build, push, and pull container images a
 ## Kubernetes
 
 Kubernetes is built in to Rancher Desktop. Kubernetes is provided by [k3s](https://k3s.io/), a lightweight certified distribution. With Rancher Desktop you have the ability to _choose your version of Kubernetes_ and _reset Kubernetes or Kubernetes and the whole container runtime with the click of a button_.
+
+## Rancher vs Rancher Desktop
+
+While [Rancher](https://rancher.com/) and Rancher Desktop share the _Rancher_ name they do different things. Rancher Desktop is not Rancher on the Desktop. Rancher is a powerful solution to manage Kubernetes clusters. Rancher Desktop provides a local Kubernetes and container management platform. The two solutions complement each other.
+
+If you want to run Rancher on your local system, you can install Rancher into Rancher Desktop.
