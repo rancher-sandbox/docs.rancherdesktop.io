@@ -6,9 +6,7 @@ This FAQ is a work in progress designed to answer the questions our users most f
 
 #### **Q: Is Rancher Desktop a desktop version of Rancher?**
 
-**A:** No, Rancher Desktop is not [Rancher] on the desktop. Installing Rancher Desktop does not install Rancher, but you can install Rancher as a workload.
-
-Rancher is a unified multi-cluster management stack, whereas Rancher Desktop is similar to applications like [minikube], [kind], or [Docker Desktop], where the goal is to have an easy to set up local Kubernetes environment to manage containers. 
+**A:** While [Rancher](https://rancher.com/) and Rancher Desktop share the _Rancher_ name, they do different things. Rancher Desktop is not Rancher on the Desktop. Rancher is a powerful solution to manage Kubernetes clusters. Rancher Desktop provides a local Kubernetes and container management platform. The two solutions complement each other. 
 
 #### **Q: Can I open Cluster Manager in Rancher Desktop?**
 

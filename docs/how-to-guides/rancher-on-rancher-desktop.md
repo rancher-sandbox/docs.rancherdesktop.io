@@ -1,11 +1,13 @@
 ---
-title: Rancher UI on Rancher Desktop
+title: Rancher on Rancher Desktop
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To install Rancher Dashboard on Rancher Desktop using `container runtime` or `helm` (local environment):
+While [Rancher](https://rancher.com/) and Rancher Desktop share the _Rancher_ name, they do different things. Rancher Desktop is not Rancher on the Desktop. Rancher is a powerful solution to manage Kubernetes clusters. Rancher Desktop provides a local Kubernetes and container management platform. The two solutions complement each other. For example, you can install Rancher as a workload in Rancher Desktop.
+
+This guide outlines steps to install Rancher Dashboard on Rancher Desktop using `container runtime` or `helm` (local environment):
 
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
