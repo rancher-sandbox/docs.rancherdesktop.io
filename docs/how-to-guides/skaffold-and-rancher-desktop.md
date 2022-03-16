@@ -28,7 +28,7 @@ In order to demonstrate the steps to set up Skaffold with Rancher Desktop, a sam
 
 1. Back in your terminal, you'll notice that you will have two options: `skaffold run` that lets you build and deploy, and `skaffold dev` that allows you to enter development mode with auto-redeploy. We will use `skaffold dev` in this example.
 
-   As you will need to have push access to the image repository, you can use either use your docker login, or you can set up a local registry: 
+   As you will need to have push access to the image repository, you can either use your docker login, or you can set up a local registry: 
 
   <Tabs>
     <TabItem value="docker-hub" label="Docker Hub" default>
