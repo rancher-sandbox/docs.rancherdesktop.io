@@ -10,7 +10,7 @@ On Windows, scripts can be written to override some of Rancher Desktop's interna
 
 1. Open the `%AppData%\rancher-desktop\provisioning` directory. An example of the full path: `C:\Users\Joe\AppData\Roaming\rancher-desktop\provisioning`.
 
-1. Note that any files with a file extension of `.start`, such as `k3s-overrides-start`, will be executed when _Rancher Desktop starts its Kubernetes backend_. Such files will run within the Rancher Desktop WSL context.
+1. Note that any files with a file extension of `.start`, such as `k3s-overrides.start`, will be executed when _Rancher Desktop starts its Kubernetes backend_. Such files will run within the Rancher Desktop WSL context.
 
 1. Note that files with a file extension of `.stop`, such as `wipe-data.stop`, will be executed _after Rancher Desktop shuts down its Kubernetes backend_. Such files will run within the same Rancher Desktop WSL context.
 
