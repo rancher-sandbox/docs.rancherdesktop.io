@@ -2,9 +2,9 @@
 title: rdctl Command Reference
 ---
 
-`rdctl` is a command-line tool, included in Rancher Desktop that enables command-line access to the application features. `rdctl` is developed to help users with tasks such as scripting (for automation, CI/CD), troubleshooting, remote management etc. The current version of `rdctl` supports below commands, and support for more commands would be added in the upcoming releases.
+`rdctl` is a command-line tool, included in Rancher Desktop that enables command-line access to GUI features. `rdctl` is developed to help users with tasks such as scripting (for automation, CI/CD), troubleshooting, remote management, etc. The current version of `rdctl` supports the below commands (with support for more commands to be added in upcoming releases):
 
-***Note:  Rancher Desktop app should be running on your machine to use `rdctl` commands ***
+***Note:  Rancher Desktop app must be running on your machine to use `rdctl` commands ***
 
 ## rdctl or rdctl help
 
