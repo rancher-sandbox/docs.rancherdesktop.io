@@ -5,7 +5,7 @@ title: Setup NGINX Ingress Controller
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Rancher Desktop, which uses K3s under the hood in turn uses Traefik as the default ingress controller for your kubernetes cluster. However, there are unique use cases where NGINX may be required or preferred. Below steps show how to use NGINX Ingress controller for a sample deployment.
+Rancher Desktop uses K3s under the hood, which in turn uses Traefik as the default ingress controller for your Kubernetes cluster. However, there are unique use cases where NGINX may be required or preferred. Below steps show how to use NGINX Ingress controller for a sample deployment.
 
 ### Steps
 
@@ -48,7 +48,7 @@ kubectl expose deployment demo
 5. Create an ingress resource. The following command uses a host that maps to localhost.
 
 ```
-kubectl create ingress demo-localhost --class=nginx --rule=demo.localdev.me/*=demo:80
+kubectl create ingress demo-localhost --class=nginx --rule="demo.localdev.me/*=demo:80"
 ```
 
 6. Forward a local port to the ingress controller.
