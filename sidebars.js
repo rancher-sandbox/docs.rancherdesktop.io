@@ -53,7 +53,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'References',
-      items: ["references/architecture"],
+      items: [
+        "references/architecture",
+        "references/rdctl-command-reference"
+      ],
       collapsed: true,
     },
     "faq"
