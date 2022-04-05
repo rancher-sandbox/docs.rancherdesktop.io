@@ -43,13 +43,13 @@ To switch versions:
 
 This option allows you to enable or disable Kubernetes. By disabling Kubernetes, you can run just `containerd` or `dockerd` by itself for reduced resource consumption. By default, Kubernetes is enabled.
 
-To enable/disable Kubernetes, just check/uncheck the `Enable Kubernetes` checkbox. The app would be restarted when you enable/disable Kubernetes. Disabling Kubernetes will not delete existing resources and will be available when you enable Kubernetes back.
+To enable/disable Kubernetes, just check/uncheck the `Enable Kubernetes` checkbox. The app would be restarted when you enable/disable Kubernetes. Disabling Kubernetes will not delete existing resources and they will be available again when you enable Kubernetes back.
 
 ### Enable Traefik
 
 This option allows you to enable or disable Traefik. By disabling Traefik, you can free up port 80 and 443 for alternate ingress configuration. By default, Traefik is enabled.
 
-To enable/disable Traefik, just check/uncheck the `Enable Traefik` checkbox. The app needs to be manually restarted when you enable/disable Traefik. This behavior will be changed in an upcoming release, where a prompt will let you restart. Disabling Traefik will not delete existing resources.
+To enable/disable Traefik, just check/uncheck the `Enable Traefik` checkbox. The app needs to be manually restarted when you enable/disable Traefik. This behavior will be changed in an upcoming release, where a prompt will let you restart the app. Disabling Traefik will not delete existing resources.
 
 ### Container Runtime
 
