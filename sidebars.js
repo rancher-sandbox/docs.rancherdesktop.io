@@ -43,6 +43,7 @@ const sidebars = {
       label: 'How-to Guides',
       items: [
         "how-to-guides/hello-world-example",
+        "how-to-guides/create-multi-node-cluster",
         "how-to-guides/setup-NGINX-Ingress-Controller",
         "how-to-guides/vs-code-docker", 
         "how-to-guides/vs-code-remote-containers", 
