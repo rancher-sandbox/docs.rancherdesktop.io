@@ -87,7 +87,7 @@ Run `rdctl set [flags]` to set properties. In most of the cases, Kubernetes woul
 
 ```
 > rdctl set --kubernetes-enabled false
-> rdctl set --container-runtime dockerd --kubernetes-version 1.21.2
+> rdctl set --container-engine docker --kubernetes-version 1.21.2
 ```
 
 ## rdctl shutdown
