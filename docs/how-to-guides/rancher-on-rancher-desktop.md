@@ -43,7 +43,7 @@ kubectl create namespace cert-manager
 
 4: Install cert-manager services:
 ```console
-helm install cert-manager jetstack/cert-manager --namespace cert-manager --version v1.1.0 --set installCRDs=true
+helm install cert-manager jetstack/cert-manager --namespace cert-manager --version v1.7.1 --set installCRDs=true
 ```
 
 5: Create cattle-system namespace:
