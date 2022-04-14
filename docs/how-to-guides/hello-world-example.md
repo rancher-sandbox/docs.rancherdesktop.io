@@ -32,7 +32,7 @@ CMD ["echo", "Hello World!!"]
 nerdctl build --tag helloworld:v1.0 .
 nerdctl images | grep helloworld
 nerdctl run --rm helloworld:v1.0
-#To remove the image
+# Remove the image
 nerdctl rmi helloworld:v1.0 
 ```
 
@@ -43,7 +43,7 @@ nerdctl rmi helloworld:v1.0
 docker build --tag helloworld:v1.0 .
 docker images | grep helloworld
 docker run --rm helloworld:v1.0
-#To remove the image
+# Remove the image
 docker rmi helloworld:v1.0 
 ```
 
