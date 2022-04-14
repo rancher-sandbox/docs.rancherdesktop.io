@@ -11,38 +11,40 @@ Rancher Desktop works with two container engines, [containerd](https://container
 
 ### Example#1 - Build Image & Run Container
 
-**Create a folder:**
+#### Create a folder
 ```
 mkdir ../hello-world
 cd ../hello-world
 ```
 
-**Create a Dockerfile with the command below.**
+#### Create a Dockerfile with the command below
 ```
 FROM alpine  
 CMD ["echo", "Hello World!!"]
 ```
 
-**Build and run the image for verification purposes:**
+#### Build and run the image for verification purposes
 
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
 
 ```
-nerdctl build -t helloworld:v1.0 .
+nerdctl build --tag helloworld:v1.0 .
 nerdctl images | grep helloworld
 nerdctl run --rm helloworld:v1.0
-nerdctl rmi helloworld:v1.0 #To remove the image
+#To remove the image
+nerdctl rmi helloworld:v1.0 
 ```
 
   </TabItem>
   <TabItem value="docker">
 
 ```
-docker build -t helloworld:v1.0 .
+docker build --tag helloworld:v1.0 .
 docker images | grep helloworld
 docker run --rm helloworld:v1.0
-docker rmi helloworld:v1.0 #To remove the image
+#To remove the image
+docker rmi helloworld:v1.0 
 ```
 
   </TabItem>
@@ -52,20 +54,20 @@ docker rmi helloworld:v1.0 #To remove the image
 
 Make sure that you switch the **Container Runtime** setting in the **Kubernetes Settings** panel to either `dockerd` or `containerd` as needed.
 
-**Create a folder and add a sample index.html file as follows:**
+#### Create a folder and add a sample index.html file as follows
 ```
 mkdir ../nginx
 cd ../nginx
 echo "<h1>Hello World from NGINX!!</h1>" > index.html
 ```
 
-**Create a Dockerfile with the command below.**
+#### Create a Dockerfile with the command below
 ```
 FROM nginx:alpine
 COPY . /usr/share/nginx/html
 ```
 
-**Build Image from code locally:**
+#### Build Image from code locally
 
 :warning: **Note:** Please note that you need to pass the flag `--namespace k8s.io` to the `nerdctl` build command, so that `nerdctl` builds the image and then makes it available in the `k8s.io` namespace.
 
@@ -73,7 +75,7 @@ COPY . /usr/share/nginx/html
   <TabItem value="nerdctl" default>
 
 ```
-nerdctl build --namespace k8s.io -t nginx-helloworld:latest .
+nerdctl --namespace k8s.io build --tag nginx-helloworld:latest .
 nerdctl images --namespace k8s.io | grep nginx-helloworld
 ```
 
@@ -81,13 +83,13 @@ nerdctl images --namespace k8s.io | grep nginx-helloworld
   <TabItem value="docker">
 
 ```
-docker build -t nginx-helloworld:latest .
+docker build --tag nginx-helloworld:latest .
 docker images | grep nginx-helloworld
 ```
   </TabItem>
 </Tabs>
 
-**Deploy to Kubernetes**
+#### Deploy to Kubernetes
 
 Run below command to create and run a pod using the image built in the previous step. 
 
@@ -100,14 +102,15 @@ kubectl port-forward pods/hello-world 8080:80
 
 Point your web browser to `localhost:8080`, and you will see the message `Hello World from NGINX!!`. If you prefer to stay on the command line, use `curl localhost:8080`.
 
-**To delete the pod and the image:**
+#### To delete the pod and the image
 
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
 
 ```
 kubectl delete pod hello-world
-nerdctl rmi nginx-helloworld:latest --namespace k8s.io #to remove the image
+#to remove the image
+nerdctl --namespace k8s.io rmi nginx-helloworld:latest 
 ```
  
   </TabItem>
@@ -115,7 +118,8 @@ nerdctl rmi nginx-helloworld:latest --namespace k8s.io #to remove the image
 
 ```
 kubectl delete pod hello-world 
-docker rmi nginx-helloworld:latest #to remove the image
+#to remove the image
+docker rmi nginx-helloworld:latest
 ```
 
   </TabItem>
