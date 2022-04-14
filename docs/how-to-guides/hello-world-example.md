@@ -76,7 +76,7 @@ COPY . /usr/share/nginx/html
 
 ```
 nerdctl --namespace k8s.io build --tag nginx-helloworld:latest .
-nerdctl images --namespace k8s.io | grep nginx-helloworld
+nerdctl --namespace k8s.io images | grep nginx-helloworld
 ```
 
   </TabItem>
@@ -102,14 +102,14 @@ kubectl port-forward pods/hello-world 8080:80
 
 Point your web browser to `localhost:8080`, and you will see the message `Hello World from NGINX!!`. If you prefer to stay on the command line, use `curl localhost:8080`.
 
-#### To delete the pod and the image
+#### Delete the pod and the image
 
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
 
 ```
 kubectl delete pod hello-world
-#to remove the image
+# Remove the image
 nerdctl --namespace k8s.io rmi nginx-helloworld:latest 
 ```
  
@@ -118,7 +118,7 @@ nerdctl --namespace k8s.io rmi nginx-helloworld:latest
 
 ```
 kubectl delete pod hello-world 
-#to remove the image
+# Remove the image
 docker rmi nginx-helloworld:latest
 ```
 
