@@ -67,7 +67,7 @@ FROM nginx:alpine
 COPY . /usr/share/nginx/html
 ```
 
-#### Build Image from code locally
+#### Build image from code locally
 
 :warning: **Note:** Please note that you need to pass the flag `--namespace k8s.io` to the `nerdctl` build command, so that `nerdctl` builds the image and then makes it available in the `k8s.io` namespace.
 
