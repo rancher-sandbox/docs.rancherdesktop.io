@@ -7,130 +7,119 @@ import TabItem from '@theme/TabItem';
 
 This tutorial will demonstrate how to get started with Rancher Desktop by pushing an app to a local Kubernetes cluster.
 
-Rancher Desktop works with two container engines, [`containerd`](https://containerd.io/) and [Moby](https://mobyproject.org/), the open-sourced components of the Docker ecosystem. For `nerdctl`, use the containerd runtime. For `docker`, use the Moby (`dockerd`) runtime.
+Rancher Desktop works with two container engines, [containerd](https://containerd.io/) and [Moby](https://mobyproject.org/), the open-sourced components of the Docker ecosystem. For `nerdctl`, use the **containerd** runtime. For `docker`, use the **dockerd(moby)** runtime.
 
-### Hello World example
+### Example#1 - Build Image & Run Container
 
-**Create a folder:**
+#### Create a folder
 ```
 mkdir ../hello-world
 cd ../hello-world
 ```
 
-**Create a Dockerfile with the command below.**
+#### Create a Dockerfile with the command below
 ```
 FROM alpine  
 CMD ["echo", "Hello World!!"]
 ```
 
-**Build and run the image for verification purposes:**
+#### Build and run the image for verification purposes
 
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
 
 ```
-nerdctl build -t helloworld:v1.0 .
+nerdctl build --tag helloworld:v1.0 .
 nerdctl images | grep helloworld
 nerdctl run --rm helloworld:v1.0
-nerdctl rmi helloworld:v1.0 #To remove the image
+# Remove the image
+nerdctl rmi helloworld:v1.0 
 ```
 
   </TabItem>
   <TabItem value="docker">
 
 ```
-docker build -t helloworld:v1.0 .
+docker build --tag helloworld:v1.0 .
 docker images | grep helloworld
 docker run --rm helloworld:v1.0
-docker rmi helloworld:v1.0 #To remove the image
+# Remove the image
+docker rmi helloworld:v1.0 
 ```
 
   </TabItem>
 </Tabs>
 
-### NGINX example
+### Example#2 - Build Image & Deploy Container to Kubernetes
 
-Make sure that you switch the `container runtime` setting in the **Kubernetes Settings** panel to either `dockerd` or `containerd` as needed.
+Make sure that you switch the **Container Runtime** setting in the **Kubernetes Settings** panel to either `dockerd` or `containerd` as needed.
 
-**Create a folder and add a sample index.html file as follows:**
+#### Create a folder and add a sample index.html file as follows
 ```
 mkdir ../nginx
 cd ../nginx
 echo "<h1>Hello World from NGINX!!</h1>" > index.html
 ```
 
-**Create a Dockerfile with the command below.**
+#### Create a Dockerfile with the command below
 ```
 FROM nginx:alpine
 COPY . /usr/share/nginx/html
 ```
 
-**Build and run the image for verification purposes:**
+#### Build image from code locally
+
+:warning: **Note:** Please note that you need to pass the flag `--namespace k8s.io` to the `nerdctl` build command, so that `nerdctl` builds the image and then makes it available in the `k8s.io` namespace.
 
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
 
 ```
-nerdctl build -t nginx-helloworld:v1.0 .
-nerdctl images | grep nginx-helloworld
-nerdctl run -d -p 8080:80 --name my-site nginx-helloworld:v1.0
+nerdctl --namespace k8s.io build --tag nginx-helloworld:latest .
+nerdctl --namespace k8s.io images | grep nginx-helloworld
 ```
 
   </TabItem>
   <TabItem value="docker">
 
 ```
-docker build -t nginx-helloworld:v1.0 .
+docker build --tag nginx-helloworld:latest .
 docker images | grep nginx-helloworld
-docker run -d -p 8080:80 --name my-site nginx-helloworld:v1.0
 ```
   </TabItem>
 </Tabs>
 
-**Check your list of running containers:**
+#### Deploy to Kubernetes
+
+Run below command to create and run a pod using the image built in the previous step. 
+
+:warning: **Note:** Please note that you need to pass the flag `--image-pull-policy=Never` to use a local image with `:latest` tag, as `:latest` tag will always try to pull the images from a remote repository.
+
+```
+kubectl run hello-world --image=nginx-helloworld:latest --image-pull-policy=Never --port=80
+kubectl port-forward pods/hello-world 8080:80
+```
+
+Point your web browser to `localhost:8080`, and you will see the message `Hello World from NGINX!!`. If you prefer to stay on the command line, use `curl localhost:8080`.
+
+#### Delete the pod and the image
 
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
 
 ```
-nerdctl ps
-CONTAINER ID    IMAGE                                      COMMAND                   CREATED           STATUS    PORTS                   NAMES
-b6775a69ab93    docker.io/library/nginx-helloworld:v1.0    "/docker-entrypoint.…"    48 seconds ago    Up        0.0.0.0:8080->80/tcp    my-site
-```
-
-  </TabItem>
-  <TabItem value="docker">
-
-```
-docker ps 
-CONTAINER ID   IMAGE                   COMMAND                  CREATED          STATUS          PORTS                                   NAMES
-5f50ba3f504c   nginx-helloworld:v1.0   "/docker-entrypoint.…"   7 seconds ago    Up 6 seconds    0.0.0.0:8080->80/tcp, :::8080->80/tcp   my-site
-```
-  </TabItem>
-</Tabs>
-
-Point your web browser to `localhost:8080`, and you will see the nginx intro screen. If you prefer to stay on the command line, use `curl localhost:8080`.
-
-**To stop, remove the container and delete the image:**
-
-<Tabs groupId="container-runtime">
-  <TabItem value="nerdctl" default>
-
-```
-nerdctl stop <container-id>
-nerdctl rm <container-id>
-nerdctl ps #to verify nothing is running 
-nerdctl rmi nginx-helloworld:v1.0 #to remove the image
+kubectl delete pod hello-world
+# Remove the image
+nerdctl --namespace k8s.io rmi nginx-helloworld:latest 
 ```
  
   </TabItem>
   <TabItem value="docker">
 
 ```
-docker stop <container-id>
-docker rm <container-id>
-docker ps #to verify nothing is running 
-docker rmi nginx-helloworld:v1.0 #to remove the image
+kubectl delete pod hello-world 
+# Remove the image
+docker rmi nginx-helloworld:latest
 ```
 
   </TabItem>
