@@ -86,7 +86,7 @@ Run `rdctl list-settings` to see the current active configuration.
 Run `rdctl set [flags]` to set properties. In most of the cases, Kubernetes would be reset on running the `set` command. You can set multiple properties by chaining in a single command. See some examples below.
 
 ```
-> rdctl set --kubernetes-enabled false
+> rdctl set --kubernetes-enabled=false
 > rdctl set --container-engine docker --kubernetes-version 1.21.2
 ```
 
