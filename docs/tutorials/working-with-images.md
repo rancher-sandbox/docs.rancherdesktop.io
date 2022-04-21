@@ -23,10 +23,8 @@ You can learn about all of the command options and display the help documentatio
 nerdctl -h
 ```
 
-The initial set of images are stored in the same containerd that Kubernetes uses and are part of the `k8s.io` namespace. You can also switch to a namespace called `default` if you wish to build or pull images into a different namespace. If you want your images available for use by Kubernetes, use the `--namespace k8s.io` or `-n k8s.io` CLI argument. Currently the only way to create other namespaces is to build or pull an image with the
-`nerdctl` CLI, using the `--namespace <NAMESPACE_NAME>` option.
-
-Unlike Docker, containerd features its own namespaces. By default, nerdctl images are stored in the `default` namespace. Note that nerdctl namespaces are separate and independent from Kubernetes and `kubectl` namespaces.
+Unlike Docker, containerd features its own namespaces. By default, nerdctl images are stored in the `default` namespace. If you want your images available for use by Kubernetes, use the `--namespace k8s.io` or `-n k8s.io` CLI argument. You can also switch to a namespace called `default` or any other name using the option `--namespace <NAMESPACE_NAME>`.  Note that nerdctl namespaces are separate and independent from Kubernetes and `kubectl` namespaces.
+ 
   </TabItem>
   <TabItem value="docker" default>
 
