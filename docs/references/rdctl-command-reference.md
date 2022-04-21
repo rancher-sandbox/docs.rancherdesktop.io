@@ -20,11 +20,15 @@ Usage:
   rdctl [command]
 
 Available Commands:
-  completion    Generate the autocompletion script for the specified shell
-  help          Help about any command
+  api /         Calls an rd-engine API, such as [gh api](https://cli.github.com/manual/gh_api) for the Github API.
+  api /vX       Enables you to see the endpoints for a particular version; e.g., v0.
+  completion    Generates the autocompletion script for the specified shell.
+  help          Help about any command.
   list-settings Lists the current settings.
-  set           Update selected fields in the Rancher Desktop UI and restart the backend.
-  shutdown      Shuts down the running Rancher Desktop application
+  set           Updates selected fields in the Rancher Desktop UI and restart the backend.
+  shutdown      Shuts down the running Rancher Desktop application.
+  start         Ensures that RD is running with the specified options.
+  status        Provides information about the status of the resource returned.
   version       Shows the CLI version.
 
 Flags:
