@@ -18,6 +18,17 @@ Example flow for `.start` files:
 - Enable `dockerd` or `containerd` in the UI
 - Kubernetes (K3s)
 
+As an example, using `~/AppData/Roaming/rancher-desktop/provisioning/insecure-registry.start` will allow `nerdctl` to use insecure registries by default:
+
+```
+#!/bin/sh
+
+mkdir -p /etc/nerdctl
+cat >  /etc/nerdctl/nerdctl.toml <<EOF
+insecure_registry = true
+EOF
+```
+
 1. Note that files with a file extension of `.stop`, such as `wipe-data.stop`, can be executed _after Rancher Desktop shuts down its Kubernetes backend_ (if enabled). Such files will run within the same Rancher Desktop WSL context.
 
 Example flow for `.stop` files:
