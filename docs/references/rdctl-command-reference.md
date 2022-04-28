@@ -27,8 +27,7 @@ Available Commands:
   list-settings Lists the current settings.
   set           Updates selected fields in the Rancher Desktop UI and restart the backend.
   shutdown      Shuts down the running Rancher Desktop application.
-  start         Ensures that RD is running with the specified options.
-  status        Provides information about the status of the resource returned.
+  start         Ensures that Rancher Desktop is running with the specified options.
   version       Shows the CLI version.
 
 Flags:
@@ -42,15 +41,49 @@ Flags:
 Use "rdctl [command] --help" for more information about a command.
 ```
 
-## rdctl version
+## rdctl api /
 
-Run `rdctl version` to see the current rdctl CLI version.
+Run `rdctl api /` to list all endpoints globally.
 
 ```
-> rdctl version
-rdctl client version: 1.0.0, targeting server version: v0
+$ ../../../resources/darwin/bin/rdctl api / | jq -r .
+[
+  "GET /",
+  "GET /v0",
+  "GET /v0/settings",
+  "PUT /v0/settings",
+  "PUT /v0/shutdown"
+]
+```
+## rdctl api /vX
+
+Run `rdctl api /v0` to list all endpoints in a specified version.
+
+```
+$ rdctl api /v0 | jq -r .
+[
+  "GET /v0",
+  "GET /v0/settings",
+  "PUT /v0/settings",
+  "PUT /v0/shutdown"
+]
+```
+## rdctl api /v0/settings
+
+`rdctl api [endpoints]` are commands that are most useful for users working directly with the API itself, and therefore they would not be for everyday use, such as `rdctl set` might be. For example,
+
+a command such as
+
+```
+rdctl api /v0/settings --method PUT --body '{"kubernetes": {"enabled": false}}'
 ```
 
+is the same as 
+```
+rdctl set --kubernetes-enabled=false
+```
+
+but less concise and user-friendly.
 ## rdctl list-settings
 
 Run `rdctl list-settings` to see the current active configuration.
@@ -101,4 +134,21 @@ Run `rdctl shutdown` to gracefully shutdown Rancher Desktop.
 ```
 > rdctl shutdown
 Shutting down.
+```
+
+## rdctl start
+
+Run `rdctl start` to ensure that Rancher Desktop is running and configured as requested.
+
+```
+> rdctl start --container-runtime dockerd -- kubernetes-version 1.19.3
+```
+
+## rdctl version
+
+Run `rdctl version` to see the current rdctl CLI version.
+
+```
+> rdctl version
+rdctl client version: 1.0.0, targeting server version: v0
 ```
