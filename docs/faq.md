@@ -10,7 +10,7 @@ This FAQ is a work in progress designed to answer the questions our users most f
 
 #### **Q: Can I open Cluster Manager in Rancher Desktop?**
 
-**A:** No, the Cluster Manager feature is currently a Rancher-only concept. We are working on an early integration of the Rancher Dashboard in an upcoming release and will notify the community when this becomes available.  
+**A:** Yes, the Rancher Dashboard is included as a feature preview in the release 1.2.1. Invoke the dashboard by clicking on **Dashboard** option in the system tray menu. 
 
 To learn more about Rancher Desktop, click [here](https://docs.rancherdesktop.io/).
 To learn more about Rancher, click [here](https://rancher.com/why-rancher).
@@ -45,7 +45,7 @@ https://docs.docker.com/desktop/
 
 #### **Q: What support, if any, is available for DNS over VPN on Windows?**
 
-**A:** Support is now available for tunneling only. Currently, no support is available for split-DNS.
+**A:** An alternative DNS resolver for Windows has been implemented to address some of the VPN issues on Windows. It should support DNS lookup over VPN connections. It has to be enabled manually by editing an internal [configuration file](https://github.com/rancher-sandbox/rancher-desktop/issues/1899#issuecomment-1109128277).
 
 #### **Q: What does the "WSL Integration" tab do?**
 
@@ -96,7 +96,7 @@ https://github.com/rancher-sandbox/rancher-desktop/issues
 <!-- RD #1262 -->
 #### **Q: I can no longer run `docker compose` after installing Rancher Desktop and uninstalling Docker Desktop, what happened?**
 
-**A:** The `docker compose` subcommand is bundled as part of a Docker Desktop installation and is removed when uninstalled. Future versions of Rancher Desktop will include and automatically `docker compose` for you, but until then you can install it using this procedure:
+**A:** The `docker-compose` utility is bundled as part of a Docker Desktop installation and is removed when uninstalled. Rancher Desktop version 1.1.0 and above comes bundled with `docker-compose` for you. If you don't see `docker-compose` available then please file a bug on [Github](https://github.com/rancher-sandbox/rancher-desktop/issues/new?assignees=&labels=kind%2Fbug&template=bug_report.yml). Also, the steps to manually install `docker-compose` is provided below for reference:
 
 For MacOS:
 ```shell
@@ -163,6 +163,8 @@ Also, on Windows, don't forget to also set up `docker-compose` on the Linux side
 
 **A:** This occurs when you do not have ownership of `/usr/local/bin`. A long-term solution to improve the handling of permissions is in the works. In the meantime, a temporary workaround is to change ownership of `/usr/local/bin` by running `sudo chown $USER /usr/local/bin`. When you are able to write to the directory, Rancher Desktop is able to create the symlinks.
 
+From versions 1.3.0 and above, we no longer create symlinks in /usr/local/bin but in ~/.rd/bin and put that directory on the PATH instead, to avoid having to deal with write permissions to /usr/local/bin and file conflicts. We strongly recommend you to upgrade to the latest version of Rancher Desktop.
+
 <!-- #981 -->
 #### **Q: Is Cygwin compatible with Rancher Desktop?**
 
@@ -187,4 +189,15 @@ newgrp docker
 
 ```bash
 echo "export PATH=\$PATH:/home/$(whoami)/.local/bin" >> ~/.bashrc
+```
+
+#### **Q: How can I add Rancher Desktop to the startup programs list on Windows?**
+
+**A:** On Windows, you can add a program to startup programs list in different ways. For example, you can use below steps.
+
+```
+- Press Windows+R to open the Run dialog box.
+- Type `shell:startup` and then hit Enter to open the Startup folder.
+- Copy "Rancher Desktop" shortcut from Desktop and paste in Startup folder.
+- Restart your machine.
 ```
