@@ -138,14 +138,9 @@ To forward a port:
 
 ## Supporting Utilities (macOS & Linux)
 
-On the **Supporting Utilities** tab, you can create symbolic links to tools in /usr/local/bin. By default, a symbolic link is created if the tool is not already linked.
+A Rancher Desktop installation comes with command-line utilities that are used to interface with its various features. Some examples of these utilities are `docker`, `nerdctl`, `kubectl`, and `helm`. These utilities are located in `~/.rd/bin` - you may see which utilities are included in your installation by running `ls ~/.rd/bin`.
 
-Symbolic links can be created (or removed) for the following tools, which are installed as part of Rancher Desktop:
-
-- helm
-- kubectl
-- nerdctl
-- docker
+In order to use the utilities, `~/.rd/bin` must be in the `PATH` variable in your shell. On the **Application Settings** tab there are two options for doing this: **Automatic** or **Manual**. **Automatic** `PATH` management will add `~/.rd/bin` to your `PATH` by modifying your shell .rc files for you. **Manual** `PATH` management does not change anything - in this mode you must add `~/.rd/bin` to your `PATH` yourself.
 
 ## Images
 
