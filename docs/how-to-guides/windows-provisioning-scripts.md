@@ -18,7 +18,7 @@ Example flow for `.start` files:
 - Enable `dockerd` or `containerd` in the UI
 - Kubernetes (K3s)
 
-As an example, using `~/AppData/Roaming/rancher-desktop/provisioning/insecure-registry.start` will allow `nerdctl` to use insecure registries by default:
+As an example, using `%AppData%\rancher-desktop\provisioning\insecure-registry.start` will allow `nerdctl` to use insecure registries by default:
 
 ```
 #!/bin/sh
