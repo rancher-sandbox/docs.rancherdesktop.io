@@ -84,7 +84,11 @@ If you want to delete Traefik resources, click on `Reset Kubernetes` on the **Ku
 
 #### **Q: Can containers reach back to host services via `host.docker.internal`?**
 
-**A:** Yes.
+**A:** Yes. On Windows, you may need to create a firewall rule to allow communication between the host and the container. You can run below command in a privileged powershell to create the firewall rule.
+
+```
+New-NetFirewallRule -DisplayName "WSL" -Direction Inbound -InterfaceAlias "vEthernet (WSL)" -Action Allow
+```
 
 #### **Q: Rancher Desktop is stuck on `Waiting for Kubernetes API`, what do I do?**
 
