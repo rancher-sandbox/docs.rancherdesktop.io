@@ -8,7 +8,7 @@ This FAQ is a work in progress designed to answer the questions our users most f
 
 **A:** While [Rancher](https://rancher.com/) and [Rancher Desktop](https://rancherdesktop.io/) share the _Rancher_ name, they do different things. Rancher Desktop is not Rancher on the Desktop. Rancher is a powerful solution to manage Kubernetes clusters. Rancher Desktop runs local Kubernetes and a container management platform. The two solutions complement each other.
 
-#### **Q: Can I open Cluster Manager in Rancher Desktop?**
+#### **Q: Is there a Kubernetes Cluster Explorer available in Rancher Desktop?**
 
 **A:** Yes, the Rancher Dashboard is included as a feature preview in the release 1.2.1. Invoke the dashboard by clicking on **Dashboard** option in the system tray menu. 
 
@@ -96,47 +96,9 @@ https://github.com/rancher-sandbox/rancher-desktop/issues
 <!-- RD #1262 -->
 #### **Q: I can no longer run `docker compose` after installing Rancher Desktop and uninstalling Docker Desktop, what happened?**
 
-**A:** The `docker-compose` utility is bundled as part of a Docker Desktop installation and is removed when uninstalled. Rancher Desktop version 1.1.0 and above comes bundled with `docker-compose` for you. If you don't see `docker-compose` available then please file a bug on [Github](https://github.com/rancher-sandbox/rancher-desktop/issues/new?assignees=&labels=kind%2Fbug&template=bug_report.yml). Also, the steps to manually install `docker-compose` is provided below for reference:
+**A:** This was an issue related to earlier versions (prior to 1.1.0) of Rancher Desktop.  Rancher Desktop version 1.1.0 and above comes bundled with `docker-compose` for you, and makes the cli plugins available at `~/.docker/cli-plugins`. We strongly recommend you to be on the latest version of Rancher Desktop.
 
-For MacOS:
-```shell
-$ cd /tmp
-$ mkdir dc-work
-$ cd dc-work
-$ curl -o docker-compose -kL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-darwin-x86_64
-$ chmod +x docker-compose
-$ mkdir -p ~/.docker/cli-plugins/
-$ mv docker-compose ~/.docker/cli-plugins/
-$ cd ..
-$ rmdir dc-work
-```
-
-For Linux, and in a Linux subsystem on Windows:
-```shell
-$ cd /tmp
-$ mkdir dc-work
-$ cd dc-work
-$ curl -o docker-compose -kL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64
-$ chmod +x docker-compose
-$ mkdir -p ~/.docker/cli-plugins/
-$ mv docker-compose ~/.docker/cli-plugins/
-$ cd ..
-$ rmdir dc-work
-```
-
-For Windows, in a powershell session:
-```shell
-$ cd $Env:TEMP # (or $Env:TMP)
-$ mkdir dc-work
-$ cd dc-work
-$ iwr -UseBasicParsing -OutFile docker-compose.exe https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-windows-x86_64.exe 
-$ mkdir $ENV:HOMEPATH/.docker/cli-plugins -Force
-$ mv docker-compose.exe $ENV:HOMEPATH/.docker/cli-plugins/
-$ cd ..
-$ rmdir dc-work
-```
-
-Also, on Windows, don't forget to also set up `docker-compose` on the Linux side as well, described above.
+If you still don't see `docker-compose` available then please file a bug on [Github](https://github.com/rancher-sandbox/rancher-desktop/issues/new?assignees=&labels=kind%2Fbug&template=bug_report.yml).
 
 <!-- #985 -->
 #### **Q: I don't need the Kubernetes cluster deployed by Rancher Desktop; how do I disable it to save resources?**
