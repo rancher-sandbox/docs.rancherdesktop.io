@@ -129,6 +129,8 @@ Run `rdctl list-settings` to see the current active configuration.
   </TabItem>
   <TabItem value="API" default>
 
+Run the following API call to see the current active configuration:
+
 ```
 curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -X GET
 ```
@@ -152,6 +154,8 @@ Run `rdctl set [flags]` to set properties. In most of the cases, Kubernetes woul
   </TabItem>
   <TabItem value="API" default>
 
+Run the following API call to set properties:
+
 ```
 curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -d '{ "kubernetes": { "containerEngine": "docker", "enabled": false, "version":"1.23.5" }}' -X PUT
 ```
@@ -163,7 +167,7 @@ curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -d '{ 
 <Tabs groupId="command-reference">
   <TabItem value="CLI" default>
 
-Run `rdctl shutdown` to gracefully shutdown Rancher Desktop.
+Run `rdctl shutdown` to gracefully shut down Rancher Desktop.
 
 ```
 > rdctl shutdown
@@ -172,6 +176,9 @@ Shutting down.
 
   </TabItem>
   <TabItem value="API" default>
+
+
+Run the following API call to shut down Rancher Desktop:
 
 ```
 shutdown: curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/shutdown -X PUT
@@ -192,6 +199,9 @@ Run `rdctl start` to ensure that Rancher Desktop is running and configured as re
 
   </TabItem>
   <TabItem value="API" default>
+
+
+Run the following API call to ensure Rancher Desktop is running and configured, making sure to fill in your respective user and password values:
 
 ```
 curl -s -H "Authorization: Basic $(echo -n "user:PASSWORD" | base64)"
