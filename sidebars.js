@@ -48,6 +48,7 @@ const sidebars = {
         "how-to-guides/vs-code-docker", 
         "how-to-guides/vs-code-remote-containers", 
         "how-to-guides/rancher-on-rancher-desktop",
+        "how-to-guides/serveless-development-with-openfaas",
         "how-to-guides/skaffold-and-rancher-desktop",
         "how-to-guides/windows-provisioning-scripts",
       ],
