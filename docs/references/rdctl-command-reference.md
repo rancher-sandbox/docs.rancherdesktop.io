@@ -2,11 +2,16 @@
 title: rdctl Command Reference
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 `rdctl` is a command-line tool, included in Rancher Desktop that enables command-line access to GUI features. `rdctl` is developed to help users with tasks such as scripting (for automation, CI/CD), troubleshooting, remote management, etc. The current version of `rdctl` supports the below commands (with support for more commands to be added in upcoming releases):
  
 **:warning: As the current version of `rdctl` is experimental, all subcommands names, their arguments, and their output are still subjected to change.**
 
 **:warning: Rancher Desktop app must be running on your machine to use `rdctl` commands.**
+
+**Note:** For many `rdctl` commands, there are corresponding `API` calls that can be applied. Listed below are the available commands shown in both formats. The `api` examples will assume `curl` as the tool being used to talk to the API.
 
 ## rdctl or rdctl help
 
@@ -20,15 +25,16 @@ Usage:
   rdctl [command]
 
 Available Commands:
-  api /         Calls an rd-engine API, such as [gh api](https://cli.github.com/manual/gh_api) for the Github API.
-  api /vX       Enables you to see the endpoints for a particular version; e.g., v0.
-  completion    Generates the autocompletion script for the specified shell.
-  help          Help about any command.
-  list-settings Lists the current settings.
-  set           Updates selected fields in the Rancher Desktop UI and restart the backend.
-  shutdown      Shuts down the running Rancher Desktop application.
-  start         Ensures that Rancher Desktop is running with the specified options.
-  version       Shows the CLI version.
+  api           Runs API endpoints directly
+  api /vX       Enables you to see the endpoints for a particular version; e.g., v0
+  completion    Generates the autocompletion script for the specified shell
+  help          Help about any command
+  list-settings Lists the current settings
+  set           Updates selected fields in the Rancher Desktop UI and restart the backend
+  shell         Run an interactive shell or a command in a Rancher Desktop-managed VM
+  shutdown      Shuts down the running Rancher Desktop application
+  start         Start up Rancher Desktop or update its settings
+  version       Shows the CLI version
 
 Flags:
       --config-path string   config file (default C:\Users\GunasekharMatamalam\AppData\Roaming\rancher-desktop\rd-engine.json)
@@ -41,9 +47,9 @@ Flags:
 Use "rdctl [command] --help" for more information about a command.
 ```
 
-## rdctl api /
+## rdctl api
 
-Run `rdctl api /` to list all endpoints globally.
+Run `rdctl api` to list all endpoints globally.
 
 ```
 $ ../../../resources/darwin/bin/rdctl api / | jq -r .
@@ -86,6 +92,9 @@ rdctl set --kubernetes-enabled=false
 but less concise and user-friendly.
 ## rdctl list-settings
 
+<Tabs groupId="command-reference">
+  <TabItem value="CLI" default>
+
 Run `rdctl list-settings` to see the current active configuration.
 
 ```
@@ -117,8 +126,22 @@ Run `rdctl list-settings` to see the current active configuration.
   "debug": false
 }
 ``` 
+  </TabItem>
+  <TabItem value="API" default>
+
+```
+curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -X GET
+```
+
+**Note:** Using `-X GET` is optional. You could also just use the preceding command by itself.
+
+  </TabItem>
+</Tabs>
 
 ## rdctl set
+
+<Tabs groupId="command-reference">
+  <TabItem value="CLI" default>
 
 Run `rdctl set [flags]` to set properties. In most of the cases, Kubernetes would be reset on running the `set` command. You can set multiple properties by chaining in a single command. See some examples below.
 
@@ -126,8 +149,19 @@ Run `rdctl set [flags]` to set properties. In most of the cases, Kubernetes woul
 > rdctl set --kubernetes-enabled=false
 > rdctl set --container-engine docker --kubernetes-version 1.21.2
 ```
+  </TabItem>
+  <TabItem value="API" default>
+
+```
+curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -d '{ "kubernetes": { "containerEngine": "docker", "enabled": false, "version":"1.23.5" }}' -X PUT
+```
+  </TabItem>
+</Tabs>
 
 ## rdctl shutdown
+
+<Tabs groupId="command-reference">
+  <TabItem value="CLI" default>
 
 Run `rdctl shutdown` to gracefully shutdown Rancher Desktop.
 
@@ -136,13 +170,34 @@ Run `rdctl shutdown` to gracefully shutdown Rancher Desktop.
 Shutting down.
 ```
 
+  </TabItem>
+  <TabItem value="API" default>
+
+```
+shutdown: curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/shutdown -X PUT
+```
+  </TabItem>
+</Tabs>
+
 ## rdctl start
+
+<Tabs groupId="command-reference">
+  <TabItem value="CLI" default>
 
 Run `rdctl start` to ensure that Rancher Desktop is running and configured as requested.
 
 ```
 > rdctl start --container-runtime dockerd -- kubernetes-version 1.19.3
 ```
+
+  </TabItem>
+  <TabItem value="API" default>
+
+```
+curl -s -H "Authorization: Basic $(echo -n "user:PASSWORD" | base64)"
+```
+  </TabItem>
+</Tabs>
 
 ## rdctl version
 
