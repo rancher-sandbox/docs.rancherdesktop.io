@@ -167,3 +167,19 @@ echo "export PATH=\$PATH:/home/$(whoami)/.local/bin" >> ~/.bashrc
 - Copy "Rancher Desktop" shortcut from Desktop and paste in Startup folder.
 - Restart your machine.
 ```
+#### **Where does Rancher Desktop actually put the data volumes?**
+
+**A:** 
+
+**Windows:**
+Open Run menu (Press Windows + R) and open the path provided below, depending on the active container runtime.
+```
+dockerd(moby): \\wsl$\rancher-desktop-data\var\lib\docker\volumes
+containerd: \\wsl$\rancher-desktop-data\var\lib\nerdctl\dbb19c5e\volumes\<namespace>
+```
+**macOS & Linux:**
+Navigate to the path provided below in the VM(lima), depending on the active container runtime. You can use `rdctl shell` to access these paths in the VM.
+```
+dockerd(moby): /var/lib/docker/volumes
+containerd: /var/lib/nerdctl/dbb19c5e/volumes/<namespace>
+```
