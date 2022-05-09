@@ -29,15 +29,7 @@ On macOS and Linux, you can use lima override.yaml to write provisioning scripts
   </TabItem>
 </Tabs>
 
-- Write a provisioning script in the `override.yaml` file created in the previous step. For example, you can use the below script to create additional mounts.
-
-```
-mounts:
-  - location: /some/path 
-    writable: true
-```
-
-or increase ulimit for containers with the below script.
+- Write a provisioning script in the `override.yaml` file created in the previous step. For example, you can use the below script to increase ulimit for containers.
 
 ```
 provision:
@@ -48,6 +40,12 @@ provision:
     * soft     nofile         82920
     * hard     nofile         82920
     EOF
+```
+- You can also use `override.yaml` to override/modify a lima configuration setting, for example, to create additional mounts as shown below.
+```
+mounts:
+  - location: /some/path 
+    writable: true
 ```
 
 ## Windows 
@@ -82,4 +80,4 @@ Example flow for `.stop` files:
 - Stop `k3s`, `dockerd` or `containerd`
 - Run deprovisioning scripts
 
-**Important to note:** Scripts need to be saved with Unix line endings; line-ending conversion is not done; and files with DOS line endings may produce unexpected results.
+**Important to note:** Scripts need to be saved with Unix line endings; line-ending conversion is not done; and files with DOS line endings may produce unexpected results. There are some limitations to the things you can change using provisioning scripts. For example, you cannot change the hard ulimits on WSL2 using provisioning scripts. Please use provisioning scripts with caution and feel free to reach out to the Rancher Desktop team on Slack/Github if you have a specific question about provisioning scripts.
