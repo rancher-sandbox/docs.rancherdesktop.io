@@ -51,6 +51,10 @@ https://docs.docker.com/desktop/
 
 **A:** This makes the Kubernetes configuration accessible in the displayed WSL distributions so that you can use commands such as `kubectl` to communicate with Kubernetes.
 
+#### **Q: Why do I not see my WSL distro under Rancher Desktop's WSL Integration page?**
+
+**A:** You are likely using a WSL 1 distro. Rancher Desktop supports only WSL 2 distros. You can convert your WSL 1 distro into a WSL 2 distro by running the command `wsl --set-version <distro-name> 2`. You can also run the command `wsl --set-default-version 2` to set all the future distributions you might install to use WSL 2.
+
 #### **Q: Where can I find detailed logs?**
 
 **A:** Click on the **Troubleshooting** tab, then click on **Show Logs**.
