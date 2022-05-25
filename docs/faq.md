@@ -10,7 +10,7 @@ This FAQ is a work in progress designed to answer the questions our users most f
 
 #### **Q: Is there a Kubernetes Cluster Explorer available in Rancher Desktop?**
 
-**A:** Yes, the Rancher Dashboard is included as a feature preview in the release 1.2.1. Invoke the dashboard by clicking on **Dashboard** option in the system tray menu. 
+**A:** Yes, the Rancher Dashboard is included as a feature preview in the release 1.2.1. Invoke the dashboard by clicking on **Dashboard** option in the system tray menu.
 
 To learn more about Rancher Desktop, click [here](https://docs.rancherdesktop.io/).
 To learn more about Rancher, click [here](https://rancher.com/why-rancher).
@@ -80,7 +80,7 @@ If you want to delete Traefik resources, click on `Reset Kubernetes` on the **Ku
 
 #### **Q: Does file sharing work similarly to Docker Desktop? Do I have to do any additional configuration to mount volumes to VMs?**
 
-**A:** Currently, the following directories are shared by default: `/Users/$USER` on macOS, `/home/$USER` on Linux, and `/tmp/rancher-desktop` on both. For Windows, all files are automatically shared via WSL2. 
+**A:** Currently, the following directories are shared by default: `/Users/$USER` on macOS, `/home/$USER` on Linux, and `/tmp/rancher-desktop` on both. For Windows, all files are automatically shared via WSL2.
 
 #### **Q: I do not see an entry for Rancher Desktop when running `kubectl config get-contexts`, where is it?**
 
@@ -128,6 +128,10 @@ If you still don't see `docker-compose` available then please file a bug on [Git
 
 **A:** If any of the Rancher Desktop supporting utilities (Helm, kubectl, nerdctl, docker) are already managed by Homebrew, then the installation fails due to how the Homebrew cask formula is defined. Installing using the Mac app will avoid this issue.
 
+#### Q: I installed `nerdctl` through the Arch User Repository, but it doesn't work with Rancher Desktop, why?
+
+**A:** For Rancher Desktop, `nerdctl` must run inside the VM and not on the host. The host version is just a shell wrapper to execute the command inside the VM.
+
 <!-- #1155 -->
 #### **Q: The tools on the Support Utilities page are not installed and I see a `Insufficient permission to manipulate /usr/local/bin` error, how do I fix it?**
 
@@ -173,7 +177,7 @@ echo "export PATH=\$PATH:/home/$(whoami)/.local/bin" >> ~/.bashrc
 ```
 #### **Q: Where does Rancher Desktop actually put the data volumes?**
 
-**A:** 
+**A:**
 
 **Windows:**
 Open Run menu (Press Windows + R) and open the path provided below, depending on the active container runtime.
