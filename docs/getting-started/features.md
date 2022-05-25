@@ -101,7 +101,7 @@ At this point, Kubernetes is stopped then workloads and configurations are remov
 
 ### Working with Kubernetes Clusters
 
-**Launching a Kubernetes cluster:** 
+**Launching a Kubernetes cluster:**
 
 1. Launch Rancher Desktop app.
 
@@ -190,7 +190,7 @@ To build an image:
 1. Click **Build**.
 1. In the file browser, select the Dockerfile to build an image with.
 
-## Troubleshooting Tips
+## Troubleshooting
 
 ### Show Logs
 
