@@ -77,6 +77,13 @@ If you want to delete Traefik resources, click on `Reset Kubernetes` on the **Ku
 #### **Q: Does file sharing work similarly to Docker Desktop? Do I have to do any additional configuration to mount volumes to VMs?**
 
 **A:** Currently, the following directories are shared by default: `/Users/$USER` on macOS, `/home/$USER` on Linux, and `/tmp/rancher-desktop` on both. For Windows, all files are automatically shared via WSL2.
+<<<<<<< HEAD
+=======
+
+#### **Q: I do not see an entry for Rancher Desktop when running `kubectl config get-contexts`, where is it?**
+
+**A:** Rancher Desktop places its configuration in the default location, `~/.kube/config,` and uses that. Your `KUBECONFIG` environment variable may be set to look elsewhere for configuration files.
+>>>>>>> main
 
 #### **Q: Can containers reach back to host services via `host.docker.internal`?**
 
@@ -100,6 +107,10 @@ New-NetFirewallRule -DisplayName "WSL" -Direction Inbound -InterfaceAlias "vEthe
 #### **Q: Running `brew install rancher` is failing with a `It seems there is already a Binary at '/usr/local/bin/<BINARY>'` error, why?**
 
 **A:** If any of the Rancher Desktop supporting utilities (Helm, kubectl, nerdctl, docker) are already managed by Homebrew, then the installation fails due to how the Homebrew cask formula is defined. Installing using the Mac app will avoid this issue.
+
+#### Q: I installed `nerdctl` through the Arch User Repository, but it doesn't work with Rancher Desktop, why?
+
+**A:** For Rancher Desktop, `nerdctl` must run inside the VM and not on the host. The host version is just a shell wrapper to execute the command inside the VM.
 
 <!-- #1155 -->
 #### **Q: The tools on the Support Utilities page are not installed and I see a `Insufficient permission to manipulate /usr/local/bin` error, how do I fix it?**
