@@ -77,13 +77,6 @@ If you want to delete Traefik resources, click on `Reset Kubernetes` on the **Ku
 #### **Q: Does file sharing work similarly to Docker Desktop? Do I have to do any additional configuration to mount volumes to VMs?**
 
 **A:** Currently, the following directories are shared by default: `/Users/$USER` on macOS, `/home/$USER` on Linux, and `/tmp/rancher-desktop` on both. For Windows, all files are automatically shared via WSL2.
-<<<<<<< HEAD
-=======
-
-#### **Q: I do not see an entry for Rancher Desktop when running `kubectl config get-contexts`, where is it?**
-
-**A:** Rancher Desktop places its configuration in the default location, `~/.kube/config,` and uses that. Your `KUBECONFIG` environment variable may be set to look elsewhere for configuration files.
->>>>>>> main
 
 #### **Q: Can containers reach back to host services via `host.docker.internal`?**
 
