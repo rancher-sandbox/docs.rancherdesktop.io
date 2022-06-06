@@ -108,23 +108,13 @@ docker run -d -p 8000:80 nginx
   </TabItem>
 </Tabs>
 
-You can then access the container via the browser here: [http://localhost:8080/](http://localhost:8080/).
+You can then access the container via the browser here: [http://localhost:8080/](http://localhost:8080/).  The port will be accessible on all network interfaces of the host machine.
 
-<Tabs groupId="container-runtime">
-  <TabItem value="nerdctl" default>
-
-```
-nerdctl build -t demo:latest /code/demos/rd/anvil-app
-```
-
-  </TabItem>
-  <TabItem value="docker" default>
+*Note: Exposed ports on Windows are currently only accessible through the `localhost` network interface (see issue [#1180](https://github.com/rancher-sandbox/rancher-desktop/issues/1180)).  As a workaround, you can [configure a `portproxy` on the windows host](https://github.com/rancher-sandbox/rancher-desktop/issues/1180#issuecomment-1005514200) to expose the port to additional network interfaces.*
 
 ```
-docker build -t demo:latest /code/demos/rd/anvil-app
+netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=8080 connectaddress=localhost
 ```
-  </TabItem>
-</Tabs>
 
 ## Targeting a Kubernetes Namespace
 
