@@ -51,8 +51,13 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/rancher-sandbox/docs.rancherdesktop.io/',
+            href: 'https://github.com/rancher-sandbox/rancher-desktop/',
             label: 'GitHub',
+            position: 'right',
+          },
+          {
+            href: 'https://github.com/rancher-sandbox/docs.rancherdesktop.io/',
+            label: 'Docs GitHub',
             position: 'right',
           },
         ],
