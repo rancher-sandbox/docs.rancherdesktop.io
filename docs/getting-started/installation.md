@@ -144,7 +144,7 @@ If it outputs `insufficient privileges`, you need to add your user to the
 `kvm` group. You can do this with:
 
 ```
-adduser "$USER" kvm
+sudo usermod -a -G kvm "$USER"
 ```
 
 Then reboot in order to make these changes take effect.
