@@ -15,9 +15,7 @@ After Rancher Desktop is installed, users will have access to these supporting u
 - [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
 - [nerdctl](https://github.com/containerd/nerdctl)
 - [Moby](https://github.com/moby/moby)
-- [Docker Compose](https://docs.docker.com/compose/)*
-
-\* `docker compose` is included when `docker` is selected in the **Supporting Utilities** tab in the UI.
+- [Docker Compose](https://docs.docker.com/compose/)
 
 ## macOS
 
@@ -150,6 +148,34 @@ sudo usermod -a -G kvm "$USER"
 Then reboot in order to make these changes take effect.
 
 
+### `pass` Setup
+
+By default, Rancher Desktop uses `pass` to securely store credentials
+passed via `docker login` and `nerdctl login`. `pass` requires a small amount
+of setup if this is the first time it has been used on your machine. If you don't
+intend to use `docker login` or `nerdctl login` you don't have to set up
+`pass` - just remember that if you use them in the future, you must set it
+up or you will run into errors.
+
+Once Rancher Desktop is installed, you should create a GPG key. This will be
+used by `pass` to secure secrets. You can create a GPG key with:
+
+```
+gpg --generate-key
+```
+
+The output should contain something like `8D818FB37A9279E341F01506ED96AD27A40C9C73`.
+This is your key ID. You can then initialize `pass` by passing this key ID to it:
+
+```
+pass init 8D818FB37A9279E341F01506ED96AD27A40C9C73
+```
+
+For more information on `pass`, please see [its website].
+
+[its website]: https://www.passwordstore.org/
+
+
 ### Installation via .deb Package
 
 Add the Rancher Desktop repository and install Rancher Desktop with:
@@ -200,10 +226,14 @@ sudo zypper removerepo isv_Rancher_stable
 
 ### Installing via AppImage
 
-You may download the AppImage [here].
+First, ensure that `pass` and `gpg` are installed. For example, on Fedora:
 
-In order to run it, simply make it executable and execute it.
-For better integration with your desktop, you may use [AppImageLauncher].
+```
+dnf install pass gnupg2
+```
+
+You may download the AppImage [here]. In order to run it, simply make it executable
+and execute it. For better integration with your desktop, you may use [AppImageLauncher].
 
 [here]:
 https://download.opensuse.org/repositories/isv:/Rancher:/stable/AppImage/rancher-desktop-latest-x86_64.AppImage
