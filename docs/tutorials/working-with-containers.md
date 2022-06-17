@@ -108,7 +108,7 @@ docker run -d -p 8000:80 nginx
   </TabItem>
 </Tabs>
 
-You can then access the container via the browser here: [http://localhost:8080/](http://localhost:8080/).
+You can then access the container via the browser here: [http://localhost:8000/](http://localhost:8000/).
 
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
