@@ -121,7 +121,7 @@ You may stop the Kubernetes cluster by quitting Rancher Desktop. You can close R
 
 **Resetting a Kubernetes cluster:**
 
-Refer [here](./getting-started/features.md#reset-kubernetesreset-kubernetes-and-container-images) to learn about resetting the Kubernetes cluster. Note that resetting will delete all workloads and configuration.
+Refer [here](#reset-kubernetesreset-kubernetes-and-container-images) to learn about resetting the Kubernetes cluster. Note that resetting will delete all workloads and configuration.
 
 ![](/img/reset-kubernetes.png)
 
@@ -146,7 +146,7 @@ In order to use the utilities, `~/.rd/bin` must be in the `PATH` variable in you
 
 The **Images** tab, allows you to manage the images on your virtual machine.
 
-To manage your images using nerdctl instead, refer to the [Images](./tutorials/working-with-images.md) section.
+To manage your images using nerdctl instead, refer to the [Images](../tutorials/working-with-images.md) section.
 
 ### Scanning Images
 
