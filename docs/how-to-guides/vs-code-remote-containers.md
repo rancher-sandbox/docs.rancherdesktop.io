@@ -18,7 +18,7 @@ The [Visual Studio Code Remote - Containers] extension lets you use a Docker con
 
 ![](/img/vscoderemotecontainers/vscode-remotedevelopment-marketplace.png)
 
-4. After the extension is installed, you will see the extention item in the side bar, and a green button at the lower left corner to show the command palette with various options/commands related to `Remote Development`.
+4. After the extension is installed, you will see the extension item in the side bar, and a green button at the lower left corner to show the command palette with various options/commands related to `Remote Development`.
 
 ![](/img/vscoderemotecontainers/vscode-remotedevelopment-installed.png)
 
