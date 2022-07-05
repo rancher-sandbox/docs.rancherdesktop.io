@@ -108,7 +108,7 @@ docker run -d -p 8000:80 nginx
   </TabItem>
 </Tabs>
 
-You can then access the container via the browser here: [http://localhost:8080/](http://localhost:8080/).
+You can then access the container via the browser here: [http://localhost:8000/](http://localhost:8000/).
 
 *Note: By default the exposed ports are accessible on all network interfaces on macOS and Linux. However, on Windows, the exposed ports are currently only accessible through the localhost network interface (see issue [#1180](https://github.com/rancher-sandbox/rancher-desktop/issues/1180)).  As a workaround, you can [configure a `portproxy` on the windows host](https://github.com/rancher-sandbox/rancher-desktop/issues/1180#issuecomment-1005514200) to expose the port to additional network interfaces.*
 
