@@ -8,6 +8,10 @@ This page provides tips to troubleshoot issues you may have with Rancher Desktop
 
 **A:** You are likely using a WSL 1 distro. Rancher Desktop supports only WSL 2 distros. You can convert your WSL 1 distro into a WSL 2 distro by running the command `wsl --set-version <distro-name> 2`. You can also run the command `wsl --set-default-version 2` to set all the future distributions you might install to use WSL 2.
 
+#### Q: I see an error related to `docker-credential-secretservice` while pulling images within my WSL distro. What do I do?
+
+**A:** It is likely because the library `libsecret` required for `docker-credential-secretservice` is not available in the distro. Please install the library `libsecret` and try again. For example, on Ubuntu,  you can run the command `sudo apt install libsecret-1-0` to install the library.
+
 #### Q: I do not see an entry for Rancher Desktop when running `kubectl config get-contexts`, where is it?
 
 **A:** Rancher Desktop places its configuration in the default location, `~/.kube/config,` and uses that. Your `KUBECONFIG` environment variable may be set to look elsewhere for configuration files.
