@@ -34,7 +34,8 @@ To scan an image:
 
 1. From the image list, find the image you want to scan.
 1. Click **⋮ > Scan**.
-1. Review the results then click **Close Output to Continue**.
+1. A summary of the vulnerabilities, sorted by the level of severity, are displayed.
+1. Click **>** to view the details of each vulnerability, including reference links to learn more about the particular vulnerability.
 
 [Trivy]:
 https://github.com/aquasecurity/trivy
@@ -50,7 +51,7 @@ To pull an image:
 1. Click the **+** button in the top-right corner.
 1. Click on the **Pull** tab.
 1. Enter the name of the image to pull.
-    > Note: By default, images are pulled from [Docker Hub] in which use the `repo/image[:tag]` format. To pull from other registries, include the hostname `registry.example.com/repo/image[:tag]`.
+    > Note: By default, images are pulled from [Docker Hub] which uses the `repo/image[:tag]` format. To pull from other registries, include the hostname `registry.example.com/repo/image[:tag]`.
 1. Click **Pull**.
 
 [Docker Hub]:
@@ -149,7 +150,7 @@ In order to use the utilities, `~/.rd/bin` must be in the `PATH` variable in you
 There are two options for doing this:
 
 - **Automatic**: `PATH` management will add `~/.rd/bin` to your `PATH` by modifying your shell .rc files for you.
-- **Manual**: `PATH` management does not change anything - in this mode you must add `~/.rd/bin` to your `PATH` yourself.
+- **Manual**: `PATH` management does not change anything - in this mode, you must add `~/.rd/bin` to your `PATH` yourself.
 
 </TabItem>
 </Tabs>
@@ -179,7 +180,6 @@ Set the [container runtime] for Rancher Desktop. Users have the option of [conta
 
 When switching to a different container runtime:
 
-- A restart of Kubernetes is required.
 - Workloads and images that have been built or pulled using the existing container runtime are not available on the container runtime being switched to.
 
 [container runtime]:
@@ -197,7 +197,7 @@ https://mobyproject.org/
 
 This option allows you to enable or disable Kubernetes. By disabling Kubernetes, you can run just `containerd` or `dockerd` by itself for reduced resource consumption. By default, Kubernetes is enabled.
 
-To enable/disable Kubernetes, just check/uncheck the `Enable Kubernetes` checkbox. The app would be restarted when you enable/disable Kubernetes. Disabling Kubernetes will not delete existing resources and they will be available again when you enable Kubernetes back.
+To enable/disable Kubernetes, just check/uncheck the `Enable Kubernetes` checkbox. The app will be restarted when you enable/disable Kubernetes. Disabling Kubernetes will not delete existing resources and they will be available again when you enable Kubernetes again.
 
 ### Kubernetes Version
 
@@ -218,7 +218,6 @@ To switch versions:
 
 1. Click the **Kubernetes version** drop-down menu.
 1. Select the version you want to change to.
-1. On the confirmation window, click **OK** to proceed.
 
 ### Kubernetes Port
 
@@ -228,4 +227,4 @@ Set the port Kubernetes is exposed on. Use this setting to avoid port collisions
 
 This option allows you to enable or disable Traefik. By disabling Traefik, you can free up port 80 and 443 for alternate ingress configuration. By default, Traefik is enabled.
 
-To enable/disable Traefik, just check/uncheck the `Enable Traefik` checkbox. The app needs to be manually restarted when you enable/disable Traefik. This behavior will be changed in an upcoming release, where a prompt will let you restart the app. Disabling Traefik will not delete existing resources.
+Disabling Traefik will not delete existing resources.
