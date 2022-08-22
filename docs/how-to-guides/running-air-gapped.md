@@ -37,7 +37,7 @@ Suppose there are three versions of `k3s` in the `rancher-desktop` cache.
 - 1.19.16
 
 But suppose that on this system we only ran `kubectl` when using versions `1.24.3` and `1.21.14`. This means that 
-the `~/.kuberlr/PLATFORM-ARCH/` directory (`$HOME/windows-amd64` on Windows) will contain only two files:
+the `~/.kuberlr/PLATFORM-ARCH/` directory (`%HOME%/.kuberlr/windows-amd64` on Windows) will contain only two files:
 
 - kubectl1.24.3
 
