@@ -17,7 +17,12 @@ mkdir ../hello-world
 cd ../hello-world
 ```
 
-#### Create a Dockerfile with the command below
+#### Create a blank Dockerfile
+```
+vi Dockerfile
+```
+
+#### Populate the Dockerfile with the command below
 ```
 FROM alpine  
 CMD ["echo", "Hello World!!"]
@@ -61,7 +66,12 @@ cd ../nginx
 echo "<h1>Hello World from NGINX!!</h1>" > index.html
 ```
 
-#### Create a Dockerfile with the command below
+#### Create a blank Dockerfile
+```
+vi Dockerfile
+```
+
+#### Populate the Dockerfile with the command below
 ```
 FROM nginx:alpine
 COPY . /usr/share/nginx/html
