@@ -57,11 +57,44 @@ https://docs.docker.com/desktop/
 
 #### **Q: How can I enable the dashboard for the Traefik ingress controller?**
 
-**A:** The Traefik dashboard is not exposed by default, for security reasons. However, it is possible to expose the dashboard in multiple ways. For instance, using `port-forward` will enable dashboard access:
+**A:** The Traefik dashboard is not exposed by default, for security reasons. However, it is possible to expose the dashboard in multiple ways. For instance, you can use one of the two approaches shown below.
+
+#### Using `port-forward` to enable dashboard access
 
 ```
 kubectl port-forward -n kube-system $(kubectl -n kube-system get pods --selector "app.kubernetes.io/name=traefik" --output=name) 9000:9000
 ```
+
+Visit [http://127.0.0.1:9000/dashboard/](http://127.0.0.1:9000/dashboard/) in your browser to view the Traefik dashboard.
+
+#### Using `HelmChartConfig` to enable dashboard access
+
+Copy the instructions below into a file, for example, `expose-traefik.yaml`
+
+```
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  valuesContent: |-
+    dashboard:
+      enabled: true
+    ports:
+      traefik:
+        expose: true # Avoid this in production deployments
+    logs:
+      access:
+        enabled: true
+```
+
+Run the command
+
+```
+kubectl apply -f expose-traefik.yaml
+```
+
 Visit [http://127.0.0.1:9000/dashboard/](http://127.0.0.1:9000/dashboard/) in your browser to view the Traefik dashboard.
 
 #### **Q: How can I disable Traefik, and will doing so remove Traefik resources?**
