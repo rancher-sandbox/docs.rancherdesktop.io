@@ -106,7 +106,7 @@ The **Diagnostics** feature runs several checks in the background to detect comm
 
 The diagnostics checks are run every time during the application launches. If there are any problems identified then the count of failed checks is shown next to the *Diagnostics* menu text in the left navigation bar, indicating that something needs your attention. The *Diagnostics* tab displays the results of the diagnostics tests, highlighting areas that need attention, and guides you to resolve problems.
 
-On this tab, you can mute/unmute individual checks that the diagnostics tool performs to fit your needs. You can also rerun the diagnostics anytime within an active Rancher Desktop session.
+On this tab you can mute/unmute individual checks if you have a non-standard setup and know that these checks don't apply to your situation. You can also rerun the diagnostics anytime to verify that changes you have made to your environment have rectified the problem.
 
 ![](/img/features/diagnostics-checks-table.png)
 
