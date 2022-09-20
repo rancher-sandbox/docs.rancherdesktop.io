@@ -35,6 +35,19 @@ const config = {
     ],
   ],
 
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "zh"],
+    localeConfigs: {
+      en: {
+        label: "English",
+      },
+      zh: {
+        label: "简体中文",
+      },
+    },
+  },
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -44,6 +57,10 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
+          {
+            type: "localeDropdown",
+            position: "right",
+          },
           {
             href: 'https://rancherdesktop.io/',
             label: 'Rancher Desktop Home',
