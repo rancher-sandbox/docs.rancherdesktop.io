@@ -33,7 +33,7 @@ In order to demonstrate the steps to set up Skaffold with Rancher Desktop, a sam
   <Tabs>
     <TabItem value="docker-hub" label="Docker Hub" default>
 
-    Before running `skaffold dev`, use your docker login if you have a [Docker Hub](https://hub.docker.com/) account.
+    Before running `skaffold dev`, use your docker login if you have a [Docker Hub](https://hub.docker.com/) account. Then, in the files `skaffold.yaml` and `manifests.yaml` replace `matamagu/express-sample` for `YOUR_DOCKER_HUB_USERNAME/express-sample` as `skaffold dev` will push the built image to DockerHub.
    
     </TabItem>  
     <TabItem value="local-registry" label="Local Registry">
