@@ -72,22 +72,23 @@ mkdir v1.24.3+k3s1
 cd v1.24.3+k3s1
 wget https://github.com/k3s-io/k3s/releases/download/v1.24.3%2Bk3s1/k3s-airgap-images-amd64.tar
 wget https://github.com/k3s-io/k3s/releases/download/v1.24.3%2Bk3s1/sha256sum-amd64.txt
+wget https://github.com/k3s-io/k3s/releases/download/v1.24.3%2Bk3s1/k3s
 ```
 
 <Tabs groupId="os">
   <TabItem value="Windows">
 
-On Windows, the cache directory is at `%HOME%\AppData\Local\rancher-desktop\cache\k3s`, and can be created with the command
+On Windows, the cache directory is at `$env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s`, and can be created with the command
 
 ```
-mkdir --Force %HOME%\AppData\Local\rancher-desktop\cache\k3s
+mkdir -Force $env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s
 ```
 
 Assuming you have some source media, you would also run the following commands to pre-populate the cache:
 
 ```
-copy-item %SOURCEDISK%\k3s-versions.json %HOME%\AppData\Local\rancher-desktop\cache\
-copy-item -Recurse %SOURCEDISK%\v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> %HOME%\AppData\Local\rancher-desktop\cache\k3s\
+copy-item -Force %SOURCEDISK%\k3s-versions.json $env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\
+copy-item -Recurse -Force %SOURCEDISK%\v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s\
 ```
 
   </TabItem>
@@ -121,7 +122,7 @@ cp -r $SOURCEDISK/v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $CACHEDIR/k3s/
 
 The location of this directory is more straightforward. On all platforms, it's at `HOME/.kuberlr/PLATFORM-ARCH` where:
 
-- `HOME` is the home directory: usually `%HOMEDRIVE%\%HOMEPATH` on Windows, and `~` or `$HOME` on macOS and Linux.
+- `HOME` is the home directory: usually `$env:HOMEDRIVE%\$env:HOMEPATH` on Windows, and `~` or `$HOME` on macOS and Linux.
 - `PLATFORM` is one of `windows`, `linux`, or `darwin`.
 - `ARCH` is `aarch64` on M1 machines, and `amd64` everywhere else.
 
