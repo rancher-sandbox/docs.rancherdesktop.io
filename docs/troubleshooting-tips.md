@@ -51,6 +51,8 @@ newgrp docker
 ```bash
 echo "export PATH=\$PATH:/home/$(whoami)/.local/bin" >> ~/.bashrc
 ```
-#### Q: How do I fix `FATA[0005] subnet 10.4.0.0/24 overlaps with other one on this address space` when running a container using `nerdctl run`
+#### Q: How do I fix `FATA[0005] subnet 10.4.0.0/24 overlaps with other one on this address space` when running a container using `nerdctl run`?
 
-**A:** You will see this error if there's a route rule with an IP address from a conflicting subnet on the Iptables. The conflicting routes could be either from the host network (bridge mode) or the Kubernetes network. A quick workaround to this issue is to shutdown WSL via the command `wsl --shutdown`. **:warning: Please note that shutting down WSL will stop all other distros along with the `rancher-desktop` distro.**
+**A:** You will see this error if there's a route rule with an IP address from a conflicting subnet on the Iptables. The conflicting routes could be either from the host network (bridge mode) or the Kubernetes network. A quick workaround to this issue is to shutdown WSL via the command `wsl --shutdown`. 
+
+**:warning: Please note that shutting down WSL will stop all other distros along with the `rancher-desktop` distro.**
