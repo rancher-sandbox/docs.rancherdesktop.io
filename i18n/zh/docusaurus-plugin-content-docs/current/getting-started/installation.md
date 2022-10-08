@@ -80,6 +80,11 @@ Rancher Desktop 在 Windows 上需要 [Windows Subsystem for Linux]，它将作�
 
 你要运行的工作负载可能还需要一些额外的资源。
 
+**注意**：你可以在 Windows 主机上以非管理员用户身份使用 Rancher Desktop。但是，以下组件的安装过程需要管理员的干预：
+
+- **WSL2**：你需要管理员权限才能安装 WSL2，它是 Rancher Desktop 的重要组件。
+- **Rancher Desktop Privileged Service**：你需要管理员权限才能安装 Rancher Desktop Privileged Service，这是在主机的所有接口上公开运行在容器内的应用程序/服务所必需的。你也可以跳过 Rancher Desktop Privileged Service 的安装，这样的话，你将无法在 `127.0.0.1` 之外的任何接口上公开应用程序/服务。
+
 ### 在 Windows 上安装 Rancher Desktop
 
 1. 转到 GitHub 上的 [Releases 页面]。
