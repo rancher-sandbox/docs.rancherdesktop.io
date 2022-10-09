@@ -64,7 +64,7 @@ There are two directories that need to be populated in order for Rancher Desktop
 To populate a source disk (which we refer to here as `%SOURCEDISK%`, although it is probably some kind of removable medium like a USB thumb drive), you need the following files:
 
 * `k3s-versions.json` -- this file is created by Rancher Desktop. It reads a raw JSON file from `https://update.k3s.io/v1-release/channels` and converts it into a different kind of JSON file. Currently there is no utility to do that conversion; the easiest way to get this file is to run Rancher Desktop on a connected system and save the `CACHE/k3s-versions.json` file (see below for where `CACHE` exists on different platforms).
-* Tar archives of Kubernetes K3s images. These are listed at https://github.com/k3s-io/k3s/releases, and you'll want to download `k3s-airgap-images-amd64.tar` or `k3s-airgap-images-arm64.tar` (for AMD/intel and M1 machines respectively) for the versions you plan on working with. For example, the following commands will let you work with K3s v1.24.3 build 1 offline:
+* Tar archives of Kubernetes K3s images. These are listed at https://github.com/k3s-io/k3s/releases, and you'll want to download `k3s-airgap-images-amd64.tar` or `k3s-airgap-images-arm64.tar` (for AMD/intel and M1 machines respectively) for the versions you plan on working with. Last you have to download k3s file from  the slected version. For example, the following commands will let you work with K3s v1.24.3 build 1 offline:
 
 ```
 cd .../CACHE
