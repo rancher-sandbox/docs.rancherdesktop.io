@@ -33,7 +33,7 @@ Skaffold 是一个命令行工具，用于 Kubernetes 原生应用程序的持�
   <Tabs>
     <TabItem value="docker-hub" label="Docker Hub" default>
 
-    在运行 `skaffold dev` 之前，如果你有 [Docker Hub](https://hub.docker.com/) 账号，请使用你的 docker 登录。
+    在运行 `skaffold dev` 之前，如果你有 [Docker Hub](https://hub.docker.com/) 账号，请使用你的 docker 登录。然后，在文件 `skaffold.yaml` 和 `manifests.yaml` 中，将 `matamagu/express-sample` 替换为 `YOUR_DOCKER_HUB_USERNAME/express-sample`，这是因为 `skaffold dev` 会将构建的镜像推送到 DockerHub。
 
     </TabItem>  
     <TabItem value="local-registry" label="本地镜像仓库">

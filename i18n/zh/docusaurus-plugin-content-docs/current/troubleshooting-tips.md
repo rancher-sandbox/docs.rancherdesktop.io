@@ -50,3 +50,8 @@ newgrp docker
 ```bash
 echo "export PATH=\$PATH:/home/$(whoami)/.local/bin" >> ~/.bashrc
 ```
+#### 问：使用 `nerdctl run` 运行容器时，如何修复 `FATA[0005] subnet 10.4.0.0/24 overlaps with other one on this address space` 问题？
+
+**答**：如果路由规则的 IP 地址来自 Iptables 上的冲突子网，你将看到此错误。冲突的路由可能来自主机网络（桥接模式）或 Kubernetes 网络。此问题的快速解决方法是通过命令 `wsl --shutdown` 关闭 WSL。
+
+**警告：关闭 WSL 将停止所有其他发行版以及 `rancher-desktop` 发行版。**
