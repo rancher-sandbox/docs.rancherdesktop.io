@@ -95,7 +95,7 @@ To perform a factory reset:
 
 1. Click **Reset**. A confirmation window appears.
 1. Optional: select whether cached Kubernetes images are kept.
-1. Click **Factor Reset** to proceed. Kubernetes stops and Rancher Desktop closes.
+1. Click **Factory Reset** to proceed. Kubernetes stops and Rancher Desktop closes.
 1. Optional: start Rancher Desktop again.
 
 ## Diagnostics
