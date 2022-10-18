@@ -8,6 +8,12 @@ import TabItem from '@theme/TabItem';
 Rancher Desktop can be run when offline, aka in air-gapped mode. This document covers requirements
 and possible problems when running in air-gapped mode.
 
+
+### A Note for Windows users
+
+This document uses Powershell syntax for environment variables. If you're using the Command shell
+instead, where you see an environment variable reference of `$env:FOO`, please substitute it with `%FOO%`.
+
 ### Network-Sensitive areas
 
 There are two areas where Rancher Desktop assumes network availability and will recover in an air-gapped situation:
@@ -37,7 +43,7 @@ Suppose there are three versions of `k3s` in the `rancher-desktop` cache.
 - 1.19.16
 
 But suppose that on this system we only ran `kubectl` when using versions `1.24.3` and `1.21.14`. This means that 
-the `~/.kuberlr/PLATFORM-ARCH/` directory (`%HOME%/.kuberlr/windows-amd64` on Windows) will contain only two files:
+the `~/.kuberlr/PLATFORM-ARCH/` directory (`$env:HOMEDRIVE%\$env:HOMEPATH/.kuberlr/windows-amd64` on Windows) will contain only two files:
 
 - kubectl1.24.3
 
@@ -64,7 +70,7 @@ There are two directories that need to be populated in order for Rancher Desktop
 To populate a source disk (which we refer to here as `%SOURCEDISK%`, although it is probably some kind of removable medium like a USB thumb drive), you need the following files:
 
 * `k3s-versions.json` -- this file is created by Rancher Desktop. It reads a raw JSON file from `https://update.k3s.io/v1-release/channels` and converts it into a different kind of JSON file. Currently there is no utility to do that conversion; the easiest way to get this file is to run Rancher Desktop on a connected system and save the `CACHE/k3s-versions.json` file (see below for where `CACHE` exists on different platforms).
-* Tar archives of Kubernetes K3s images. These are listed at https://github.com/k3s-io/k3s/releases, and you'll want to download `k3s-airgap-images-amd64.tar` or `k3s-airgap-images-arm64.tar` (for AMD/intel and M1 machines respectively) for the versions you plan on working with. For example, the following commands will let you work with K3s v1.24.3 build 1 offline:
+* Tar archives of Kubernetes K3s images. These are listed at https://github.com/k3s-io/k3s/releases, and you'll want to download `k3s-airgap-images-amd64.tar` or `k3s-airgap-images-arm64.tar` (for AMD/intel and M1 machines respectively) for the versions you plan on working with. Finally you'll need to download the `k3s` executable for the selected version. For example, the following commands will let you work with K3s v1.24.3 build 1 offline:
 
 ```
 cd .../CACHE
@@ -72,22 +78,23 @@ mkdir v1.24.3+k3s1
 cd v1.24.3+k3s1
 wget https://github.com/k3s-io/k3s/releases/download/v1.24.3%2Bk3s1/k3s-airgap-images-amd64.tar
 wget https://github.com/k3s-io/k3s/releases/download/v1.24.3%2Bk3s1/sha256sum-amd64.txt
+wget https://github.com/k3s-io/k3s/releases/download/v1.24.3%2Bk3s1/k3s
 ```
 
 <Tabs groupId="os">
   <TabItem value="Windows">
 
-On Windows, the cache directory is at `%HOME%\AppData\Local\rancher-desktop\cache\k3s`, and can be created with the command
+On Windows, the cache directory is at `$env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s`, and can be created with the command
 
 ```
-mkdir --Force %HOME%\AppData\Local\rancher-desktop\cache\k3s
+mkdir -Force $env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s
 ```
 
 Assuming you have some source media, you would also run the following commands to pre-populate the cache:
 
 ```
-copy-item %SOURCEDISK%\k3s-versions.json %HOME%\AppData\Local\rancher-desktop\cache\
-copy-item -Recurse %SOURCEDISK%\v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> %HOME%\AppData\Local\rancher-desktop\cache\k3s\
+copy-item -Force $env:SOURCEDISK\k3s-versions.json $env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\
+copy-item -Recurse -Force $env:SOURCEDISK\v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s\
 ```
 
   </TabItem>
@@ -121,7 +128,7 @@ cp -r $SOURCEDISK/v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $CACHEDIR/k3s/
 
 The location of this directory is more straightforward. On all platforms, it's at `HOME/.kuberlr/PLATFORM-ARCH` where:
 
-- `HOME` is the home directory: usually `%HOMEDRIVE%\%HOMEPATH` on Windows, and `~` or `$HOME` on macOS and Linux.
+- `HOME` is the home directory: usually `$env:HOMEDRIVE%\$env:HOMEPATH` on Windows, and `~` or `$HOME` on macOS and Linux.
 - `PLATFORM` is one of `windows`, `linux`, or `darwin`.
 - `ARCH` is `aarch64` on M1 machines, and `amd64` everywhere else.
 
