@@ -59,7 +59,8 @@ const sidebars = {
       label: 'References',
       items: [
         "references/architecture",
-        "references/rdctl-command-reference"
+        "references/rdctl-command-reference",
+        "references/dependency-versions"
       ],
       collapsed: true,
     },
