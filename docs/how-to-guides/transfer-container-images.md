@@ -27,7 +27,7 @@ nerdctl save -o local-images.tar image1:tag1 image2:tag2
 # Bash command
 nerdctl -n k8s.io save -o all-local-images-in-namespace.tar $(nerdctl -n k8s.io image ls --format '{{json .}}' | jq -r 'select(.Repository!="<none>") | if (.Tag=="<none>") then .Repository else (.Repository+":"+.Tag) end')
 
-# Powershell command
+# PowerShell command
 nerdctl -n k8s.io save -o all-local-images-in-namespace.tar $(nerdctl -n k8s.io image ls --format '{{json .}}' | jq -r 'select(.Repository!=\"<none>\") | if (.Tag==\"<none>\") then .Repository else (.Repository+\":\"+.Tag) end')
 
 ```
