@@ -9,7 +9,7 @@ Rancher Desktop provides `dockerd` and `containerd` as container engine options 
 
 ### Steps
 
-1. Save image(s) from the source environment to a tar archive
+1. Save image(s) from the source environment to a tar archive.
 
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
@@ -49,7 +49,7 @@ docker save -o all-local-images.tar $(docker image list --all --format '{{.Repos
   </TabItem>
 </Tabs>
 
-2. Load images from the saved tar archive in the target environment
+2. Load images from the saved tar archive in the target environment.
 
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
