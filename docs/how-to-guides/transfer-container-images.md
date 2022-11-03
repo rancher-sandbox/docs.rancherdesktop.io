@@ -5,7 +5,7 @@ title: Transfer Container Images
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Rancher Desktop provides `dockerd` and `containerd` as container engine options to manage containers. There are occasions when you might want to transfer the images from one container engine environment to other. Or You may have migrated to Rancher Desktop from a different container management application and might want to bring the local images from the previous application environment to the Rancher Desktop environment.  This guide provides steps to transfer images using `save` and `load` commands.
+Rancher Desktop provides `dockerd` and `containerd` as container engine options to manage containers. There are occasions when you might want to transfer the images from one container engine environment to the other. Or you may have migrated to Rancher Desktop from a different container management application and might want to bring the local images from the previous application environment to the Rancher Desktop environment.  This guide provides steps to transfer images using the `save` and `load` commands.
 
 ### Steps
 
@@ -20,6 +20,16 @@ nerdctl save -o local-image.tar image:tag
 
 # Save multiple images
 nerdctl save -o local-images.tar image1:tag1 image2:tag2
+
+# Save all images in a namespace 
+# Below two commands use jq for JSON parsing
+
+# Bash command
+nerdctl -n k8s.io save -o all-local-images-in-namespace.tar $(nerdctl -n k8s.io image ls --format '{{json .}}' | jq -r 'select(.Repository!="<none>") | if (.Tag=="<none>") then .Repository else (.Repository+":"+.Tag) end')
+
+# Powershell command
+nerdctl -n k8s.io save -o all-local-images-in-namespace.tar $(nerdctl -n k8s.io image ls --format '{{json .}}' | jq -r 'select(.Repository!=\"<none>\") | if (.Tag==\"<none>\") then .Repository else (.Repository+\":\"+.Tag) end')
+
 ```
 
   </TabItem>
@@ -52,7 +62,7 @@ nerdctl load < local-images.tar
   <TabItem value="docker">
 
 ```
-nerdctl load < local-images.tar
+docker load < local-images.tar
 ```
 
   </TabItem>
