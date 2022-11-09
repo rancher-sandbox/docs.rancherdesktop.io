@@ -26,6 +26,11 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl: 'https://github.com/rancher-sandbox/docs.rancherdesktop.io/edit/main',
+          versions: {
+            current: {
+              label: 'Next 🚧',
+            },
+          },
         },
         blog: false,
         theme: {
@@ -57,6 +62,11 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
+          {
+            type: 'docsVersionDropdown',
+            position: 'left',
+            dropdownActiveClassDisabled: true,
+          },
           {
             type: "localeDropdown",
             position: "right",
