@@ -6,8 +6,6 @@ title: Diagnostics
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Diagnostics
-
 **Note:** Rancher Desktop *doesn't* send the diagnostics data to any remote server for processing or storing.
 
 The **Diagnostics** feature runs several checks in the background to detect common problems such as missing minimum requirements, misconfigurations, etc., in your environment to help you self-troubleshoot and fix Rancher Desktop application issues.

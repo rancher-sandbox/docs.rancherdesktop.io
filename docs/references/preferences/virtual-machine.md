@@ -1,6 +1,6 @@
 ---
-sidebar_label: Virtual machine / WSL
-title: Virtual machine / WSL
+sidebar_label: Virtual Machine
+title: Virtual machine
 ---
 
 import Tabs from '@theme/Tabs';

@@ -6,8 +6,6 @@ title: Port forwarding
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Port Forwarding
-
 To forward a port:
 
 1. Find the service and click **Forward**.

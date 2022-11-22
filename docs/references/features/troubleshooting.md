@@ -6,8 +6,6 @@ title: Troubleshooting
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Troubleshooting
-
 ### Show Logs
 
 Use this option to open the folder containing all Rancher Desktop log files.
