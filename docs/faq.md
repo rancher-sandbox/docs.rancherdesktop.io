@@ -41,7 +41,7 @@ https://docs.docker.com/desktop/
 <!-- #640 -->
 #### **Q: How can I perform a clean uninstall of Rancher Desktop?**
 
-**A:** First, perform a [Factory Reset](./getting-started/features.md#factory-reset), and then you will uninstall the app. The uninstall process varies based on the operating system. For more information, please refer [here](./getting-started/installation.md).
+**A:** First, perform a [Factory Reset](./references/features/troubleshooting.md#factory-reset), and then you will uninstall the app. The uninstall process varies based on the operating system. For more information, please refer [here](./getting-started/installation.md).
 
 #### **Q: What support, if any, is available for DNS over VPN on Windows?**
 
