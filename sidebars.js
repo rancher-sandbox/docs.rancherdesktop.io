@@ -25,7 +25,6 @@ const sidebars = {
       items: [
         "getting-started/introduction",
         "getting-started/installation",
-        "getting-started/features",
       ],
       collapsed: false,
     },
@@ -61,6 +60,28 @@ const sidebars = {
       items: [
         "references/architecture",
         "references/rdctl-command-reference",
+        {
+          type: 'category',
+          label: 'Features',
+          items: [
+            "references/features/general",
+            "references/features/port-forwarding",
+            "references/features/images",
+            "references/features/troubleshooting",
+            "references/features/diagnostics",
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Preferences',
+          items: [
+            "references/preferences/application",
+            "references/preferences/virtual-machine",
+            "references/preferences/wsl",
+            "references/preferences/container-engine",
+            "references/preferences/kubernetes",
+          ],
+        },
         "references/dependency-versions"
       ],
       collapsed: true,
