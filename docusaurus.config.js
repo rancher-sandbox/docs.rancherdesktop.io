@@ -28,8 +28,18 @@ const config = {
           editUrl: 'https://github.com/rancher-sandbox/docs.rancherdesktop.io/edit/main',
           versions: {
             current: {
-              label: 'Next 🚧',
+              label: 'Pre-release 1.7',
+              path: '1.7'
             },
+            latest: {
+              label: "Latest",
+              banner: "none",
+              path: "/",
+            },
+            1.6: {
+              path: "1.6",
+              banner: "none"
+            }
           },
         },
         blog: false,
