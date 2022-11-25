@@ -1,5 +1,5 @@
 ---
-title: rdctl Command Reference
+title: "Command Reference: rdctl"
 ---
 
 import Tabs from '@theme/Tabs';

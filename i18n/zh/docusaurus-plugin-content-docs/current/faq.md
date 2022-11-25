@@ -37,7 +37,7 @@ title: 常见问题
 <!-- #640 -->
 #### **问：如何彻底卸载 Rancher Desktop？**
 
-**答**：首先，执行[恢复出厂设置](references/features/troubleshooting#factory-reset)，然后你将卸载该应用程序。卸载过程因操作系统而异。如需更多信息，请参阅[此处](getting-started/installation.md)。
+**答**：首先，执行[恢复出厂设置](ui/troubleshooting#factory-reset)，然后你将卸载该应用程序。卸载过程因操作系统而异。如需更多信息，请参阅[此处](getting-started/installation.md)。
 
 #### **问：Windows 上的 DNS VPN 有哪些支持（如果有）？**
 
