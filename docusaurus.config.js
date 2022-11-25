@@ -24,6 +24,8 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
+          sidebarCollapsed: true,
+          sidebarCollapsible: true,
           // Please change this to your repo.
           editUrl: 'https://github.com/rancher-sandbox/docs.rancherdesktop.io/edit/main',
           versions: {
@@ -65,6 +67,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      docs: {
+        sidebar: {
+          autoCollapseCategories: true,
+        },
+      },
       navbar: {
         logo: {
           alt: 'Rancher Desktop Logo',
