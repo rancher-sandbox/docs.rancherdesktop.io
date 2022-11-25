@@ -57,7 +57,6 @@ const sidebars = {
         "tutorials/working-with-images",
         "tutorials/working-with-containers",
       ],
-      collapsed: true,
     },
     {
       type: 'category',
@@ -74,7 +73,6 @@ const sidebars = {
         "how-to-guides/provisioning-scripts",
         "how-to-guides/running-air-gapped"
       ],
-      collapsed: true,
     },
     {
       type: 'category',
@@ -84,7 +82,6 @@ const sidebars = {
         "references/rdctl-command-reference",
         "references/bundled-utilities"
       ],
-      collapsed: true,
     },
     "faq",
     "troubleshooting-tips"
