@@ -30,6 +30,28 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'User Interface',
+      items: [
+        "ui/general",
+        "ui/port-forwarding",
+        "ui/images",
+        "ui/troubleshooting",
+        "ui/diagnostics",
+        {
+          type: 'category',
+          label: 'Preferences',
+          items: [
+            "ui/preferences/application",
+            "ui/preferences/virtual-machine",
+            "ui/preferences/wsl",
+            "ui/preferences/container-engine",
+            "ui/preferences/kubernetes",
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'Tutorials',
       items: [
         "tutorials/working-with-images",
@@ -60,29 +82,7 @@ const sidebars = {
       items: [
         "references/architecture",
         "references/rdctl-command-reference",
-        {
-          type: 'category',
-          label: 'Features',
-          items: [
-            "references/features/general",
-            "references/features/port-forwarding",
-            "references/features/images",
-            "references/features/troubleshooting",
-            "references/features/diagnostics",
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Preferences',
-          items: [
-            "references/preferences/application",
-            "references/preferences/virtual-machine",
-            "references/preferences/wsl",
-            "references/preferences/container-engine",
-            "references/preferences/kubernetes",
-          ],
-        },
-        "references/dependency-versions"
+        "references/bundled-utilities"
       ],
       collapsed: true,
     },

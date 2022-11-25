@@ -1,21 +1,21 @@
 ---
-title: "Command Reference: rdctl"
+title: rdctl 命令参考
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-`rdctl` is a command-line tool, included in Rancher Desktop that enables command-line access to GUI features. `rdctl` is developed to help users with tasks such as scripting (for automation, CI/CD), troubleshooting, remote management, etc. The current version of `rdctl` supports the below commands (with support for more commands to be added in upcoming releases):
- 
-**:warning: As the current version of `rdctl` is experimental, all subcommands names, their arguments, and their output are still subjected to change.**
+`rdctl` 是包含在 Rancher Desktop 中的命令行工具，它能让你通过命令行访问 GUI 功能。`rdctl` 旨在帮助用户完成脚本（用于自动化、CI/CD）、故障排除、远程管理等任务。当前版本的 `rdctl` 支持以下命令（即将发布的版本中将支持更多命令）：
 
-**:warning: Rancher Desktop app must be running on your machine to use `rdctl` commands.**
+**:warning: 由于当前版本的 `rdctl` 是实验性的，因此所有子命令的名称、参数以及它们的输出可能会改变**。
 
-**Note:** For many `rdctl` commands, there are corresponding `API` calls that can be applied. Listed below are the available commands shown in both formats. The `api` examples will assume `curl` as the tool being used to talk to the API.
+**:warning: 你必须在主机上运行 Rancher Desktop 应用程序才能使用 `rdctl` 命令**。
 
-## rdctl or rdctl help
+**注意**：很多 `rdctl` 命令都有对应的 `API` 调用。下面列出了两种格式的可用命令。`api` 示例假定你使用 `curl` 作为与 API 对话的工具。
 
-Run `rdctl` or `rdctl help` to see the list of available commands.
+## rdctl 或 rdctl help
+
+运行 `rdctl` 或 `rdctl help` 查看可用命令的列表：
 
 ```
 > rdctl help
@@ -49,7 +49,7 @@ Use "rdctl [command] --help" for more information about a command.
 
 ## rdctl api
 
-Run `rdctl api` to list all endpoints globally.
+运行 `rdctl api` 全局列出所有端点：
 
 ```
 $ ../../../resources/darwin/bin/rdctl api / | jq -r .
@@ -63,7 +63,7 @@ $ ../../../resources/darwin/bin/rdctl api / | jq -r .
 ```
 ## rdctl api /vX
 
-Run `rdctl api /v0` to list all endpoints in a specified version.
+运行 `rdctl api /v0` 列出指定版本的所有端点：
 
 ```
 $ rdctl api /v0 | jq -r .
@@ -76,26 +76,26 @@ $ rdctl api /v0 | jq -r .
 ```
 ## rdctl api /v0/settings
 
-`rdctl api [endpoints]` are commands that are most useful for users working directly with the API itself, and therefore they would not be for everyday use, such as `rdctl set` might be. For example,
+`rdctl api [endpoints]` 是对直接使用 API 的用户最有用的命令，因此它们不适合像 `rdctl set` 一样日常使用。例如：
 
-a command such as
+以下命令
 
 ```
 rdctl api /v0/settings --method PUT --body '{"kubernetes": {"enabled": false}}'
 ```
 
-is the same as 
+与以下命令是一样的：
 ```
 rdctl set --kubernetes-enabled=false
 ```
 
-but less concise and user-friendly.
+只是它没那么简洁和用户友好。
 ## rdctl list-settings
 
 <Tabs groupId="command-reference">
   <TabItem value="CLI" default>
 
-Run `rdctl list-settings` to see the current active configuration.
+运行 `rdctl list-settings` 以查看当前的活动配置：
 
 ```
 > rdctl list-settings
@@ -125,19 +125,19 @@ Run `rdctl list-settings` to see the current active configuration.
   "updater": true,
   "debug": false
 }
-``` 
-  </TabItem>
+```
+</TabItem>
   <TabItem value="API" default>
 
-Run the following API call to see the current active configuration:
+调用以下 API 以查看当前的活动配置：
 
 ```
 curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -X GET
 ```
 
-**Note:** Using `-X GET` is optional. You could also just use the preceding command by itself.
+**注意**：`-X GET` 是可选的。你也可以单独使用前面的命令。
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## rdctl set
@@ -145,21 +145,21 @@ curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -X GET
 <Tabs groupId="command-reference">
   <TabItem value="CLI" default>
 
-Run `rdctl set [flags]` to set properties. In most of the cases, Kubernetes would be reset on running the `set` command. You can set multiple properties by chaining in a single command. See some examples below.
+运行 `rdctl set [flags]` 来设置属性。在大多数情况下，Kubernetes 会在运行 `set` 命令时重置。你可以通过在单个命令中使用链接来设置多个属性。下面是一些参考示例：
 
 ```
 > rdctl set --kubernetes-enabled=false
 > rdctl set --container-engine docker --kubernetes-version 1.21.2
 ```
-  </TabItem>
+</TabItem>
   <TabItem value="API" default>
 
-Run the following API call to set properties:
+调用以下 API 来设置属性：
 
 ```
 curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -d '{ "kubernetes": { "containerEngine": "docker", "enabled": false, "version":"1.23.5" }}' -X PUT
 ```
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## rdctl shutdown
@@ -167,23 +167,23 @@ curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -d '{ 
 <Tabs groupId="command-reference">
   <TabItem value="CLI" default>
 
-Run `rdctl shutdown` to gracefully shut down Rancher Desktop.
+运行 `rdctl shutdown` 来正常关闭 Rancher Desktop：
 
 ```
 > rdctl shutdown
 Shutting down.
 ```
 
-  </TabItem>
+</TabItem>
   <TabItem value="API" default>
 
 
-Run the following API call to shut down Rancher Desktop:
+调用以下 API 来关闭 Rancher Desktop：
 
 ```
 shutdown: curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/shutdown -X PUT
 ```
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## rdctl start
@@ -191,27 +191,27 @@ shutdown: curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/shutd
 <Tabs groupId="command-reference">
   <TabItem value="CLI" default>
 
-Run `rdctl start` to ensure that Rancher Desktop is running and configured as requested.
+运行 `rdctl start` 来确保 Rancher Desktop 按照要求运行和配置：
 
 ```
 > rdctl start --container-runtime dockerd -- kubernetes-version 1.19.3
 ```
 
-  </TabItem>
+</TabItem>
   <TabItem value="API" default>
 
 
-Run the following API call to ensure Rancher Desktop is running and configured, making sure to fill in your respective user and password values:
+调用以下 API 来确保 Rancher Desktop 按照要求运行和配置，请填写你的用户和密码：
 
 ```
 curl -s -H "Authorization: Basic $(echo -n "user:PASSWORD" | base64)"
 ```
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## rdctl version
 
-Run `rdctl version` to see the current rdctl CLI version.
+运行 `rdctl version` 来查看当前 rdctl CLI 的版本：
 
 ```
 > rdctl version

@@ -30,6 +30,15 @@ const config = {
             current: {
               label: 'Next 🚧',
             },
+            latest: {
+              label: "Latest",
+              banner: "none",
+              path: "/",
+            },
+            1.6: {
+              path: "1.6",
+              banner: "none"
+            }
           },
         },
         blog: false,

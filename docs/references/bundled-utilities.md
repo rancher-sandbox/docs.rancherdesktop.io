@@ -1,5 +1,5 @@
 ---
-title: Dependency Versions
+title: Bundled Utilities
 ---
 
 import Version160 from '@site/docs/dependency-versions/v1.6.0.md';
