@@ -20,7 +20,7 @@ The `Allowed Images` tab provides options to let you control which registry arti
 
 Check the **Enable** checkbox to enable Rancher Desktop to apply the specified patterns while pulling images, which means only the image URLs that match atleast one of the specified patterns will be allowed.
 
-You can use the `+` and `-` buttons to add/remove image URL patterns. 
+You can use the **+** and **-** buttons to add/remove image URL patterns. 
 
 ![](/img/preferences/allowed-images.png)
 
@@ -29,10 +29,10 @@ You can use the `+` and `-` buttons to add/remove image URL patterns.
 You can specify Allowed Image patterns using the format `[registryServerUrl/][:port/][organization/]repository[:tag]`. Rancher Desktop supports using regular expressions in any part of an Allowed Image pattern string.
 
 > If not specified in an Allowed Image pattern string,
-> * `registryServerUrl` defaults to DockerHub registry (`registry-1.docker.io`)
+> * `registryServerUrl` defaults to DockerHub registry (`registry-1.docker.io`).
 > * `port` defaults to 433, but is optional because the HTTP "Host" header may not include it. 
-> * `organization` for DockerHub registry defaults to `library`, and for Non-DockerHub registries defaults to no organization.
-> * `tag` defaults to anything (not including a '/') and NOT just to "latest".
+> * `organization` for DockerHub registry defaults to `library`, and for non-DockerHub registries defaults to no organization.
+> * `tag` defaults to anything (not including a `/`) and NOT just to `latest`.
 
 ### Examples
 
