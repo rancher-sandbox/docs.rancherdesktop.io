@@ -1,15 +1,14 @@
 ---
-title: 功能
+sidebar_label: 镜像
+title: 镜像
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Images
-
 **Images** 选项卡允许你管理虚拟机上的镜像。
 
-要改用 nerdctl 管理镜像，请参阅[镜像](../tutorials/working-with-images.md)。
+要改用 nerdctl 管理镜像，请参阅[镜像](../tutorials/working-with-images)。
 
 ### Scanning Images
 

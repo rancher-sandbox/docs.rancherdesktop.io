@@ -1,5 +1,5 @@
 ---
-title: rdctl 命令参考
+title: "命令参考：rdctl"
 ---
 
 import Tabs from '@theme/Tabs';

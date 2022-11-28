@@ -1,11 +1,10 @@
 ---
-title: Diagnostics
+sidebar_label: 诊断
+title: 诊断
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-## Diagnostics
 
 **注意**：Rancher Desktop *不会*将诊断数据发送到任何远程服务器进行处理或存储。
 
