@@ -97,9 +97,13 @@ Additional resources may be required depending on the workloads you plan to run.
 
 1. Go to the [releases page] on GitHub.
 1. Find the version of Rancher Desktop you want to download.
-1. Expand the **Assets** section and download the Windows installer. It will be called `Rancher.Desktop.Setup.X.Y.Z.exe`, where `X.Y.Z` is the version of Rancher Desktop.
+1. Expand the **Assets** section and download the Windows installer. It will be called `Rancher.Desktop.Setup.X.Y.Z.msi`, where `X.Y.Z` is the version of Rancher Desktop.
 1. Navigate to the directory where you downloaded the installer to and run the installer. This will usually be the `Downloads` folder.
 1. Review the License Agreement and click **I Agree** to proceed with the installation.
+1. If prompted, choose between installing for everyone on the machine or installing
+   just for the current user.  Installing for everyone is preferred in order to
+   install the Rancher Desktop Privileged Service, as noted above.
+1. Follow the prompts to confirm installation.
 1. When the installation completes, click **Finish** to close the installation wizard.
 
 [release page]:
