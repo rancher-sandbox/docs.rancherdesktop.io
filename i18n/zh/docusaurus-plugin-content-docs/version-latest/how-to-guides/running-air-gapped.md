@@ -7,6 +7,11 @@ import TabItem from '@theme/TabItem';
 
 Rancher Desktop 可以在离线模式下运行。本文介绍了离线运行的要求以及可能出现的问题。
 
+
+### Windows 用户须知
+
+本文档的环境变量使用 Powershell 语法。如果你使用的是 Command shell，看到 `$env:FOO` 环境变量的引用时，请将其替换为 `%FOO%`。
+
 ### 网络敏感区域
 
 Rancher Desktop 假设有两个的区域的网络可用，并会在离线的情况下进行恢复：
@@ -31,7 +36,7 @@ Rancher Desktop 假设有两个的区域的网络可用，并会在离线的情�
 
 - 1.19.16
 
-假设在这个系统上我们只有在使用 `1.24.3` 和 `1.21.14` 时运行了 `kubectl`。换言之，`~/.kuberlr/PLATFORM-ARCH/` 目录（Windows 上为`%HOME%/.kuberlr/windows-amd64`）只包含两个文件：
+假设在这个系统上我们只有在使用 `1.24.3` 和 `1.21.14` 时运行了 `kubectl`。换言之，`~/.kuberlr/PLATFORM-ARCH/` 目录（Windows 上为`$env:HOMEDRIVE%\$env:HOMEPATH/.kuberlr/windows-amd64`）只包含两个文件：
 
 - kubectl1.24.3
 
@@ -55,7 +60,7 @@ Rancher Desktop 假设有两个的区域的网络可用，并会在离线的情�
 要填充源磁盘（我们在此将其称为 `%SOURCEDISK%`，实际上它也可能是某种可移动设备，例如 USB 驱动器），你需要以下文件：
 
 * `k3s-versions.json`：该文件由 Rancher Desktop 创建。它从 `https://update.k3s.io/v1-release/channels` 读取原始 JSON 文件并将其转换为不同类型的 JSON 文件。目前没有实用程序来进行这种转换。获取此文件的最简单方法是在连接的系统上运行 Rancher Desktop 并保存 `CACHE/k3s-versions.json` 文件（请参阅下方不同系统的 `CACHE` 位置）。
-* Kubernetes K3s 镜像的 Tar 包。你可以在 [K3s Releases](https://github.com/k3s-io​​/k3s/releases) 页面找到这些 Tar 包，你需要根据实际情况下载 `k3s-airgap-images-amd64.tar` 或 `k3s-airgap -images-arm64.tar`（分别用于 AMD/Intel 和 M1 主机）。例如，以下命令将让你离线的情况下使用 K3s v1.24.3 build 1：
+* Kubernetes K3s 镜像的 Tar 包。你可以在 [K3s Releases](https://github.com/k3s-io​​/k3s/releases) 页面找到这些 Tar 包，你需要根据实际情况下载 `k3s-airgap-images-amd64.tar` 或 `k3s-airgap -images-arm64.tar`（分别用于 AMD/Intel 和 M1 主机）。最后，你需要下载所选版本的 `k3s` 可执行文件。例如，以下命令将让你离线的情况下使用 K3s v1.24.3 build 1：
 
 ```
 cd .../CACHE
@@ -63,22 +68,23 @@ mkdir v1.24.3+k3s1
 cd v1.24.3+k3s1
 wget https://github.com/k3s-io/k3s/releases/download/v1.24.3%2Bk3s1/k3s-airgap-images-amd64.tar
 wget https://github.com/k3s-io/k3s/releases/download/v1.24.3%2Bk3s1/sha256sum-amd64.txt
+wget https://github.com/k3s-io/k3s/releases/download/v1.24.3%2Bk3s1/k3s
 ```
 
 <Tabs groupId="os">
   <TabItem value="Windows">
 
-在 Windows 上，缓存目录是 `%HOME%\\AppData\\Local\\rancher-desktop\\cache\\k3s`，你可以运行以下命令创建该目录：
+在 Windows 上，缓存目录是 `$env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s`，你可以运行以下命令创建该目录：
 
 ```
-mkdir --Force %HOME%\AppData\Local\rancher-desktop\cache\k3s
+mkdir -Force $env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s
 ```
 
 假设你已有某些源媒体，你还需要运行以下命令来预填充缓存：
 
 ```
-copy-item %SOURCEDISK%\k3s-versions.json %HOME%\AppData\Local\rancher-desktop\cache\
-copy-item -Recurse %SOURCEDISK%\v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> %HOME%\AppData\Local\rancher-desktop\cache\k3s\
+copy-item -Force $env:SOURCEDISK\k3s-versions.json $env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\
+copy-item -Recurse -Force $env:SOURCEDISK\v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s\
 ```
 
 </TabItem>
@@ -112,7 +118,7 @@ cp -r $SOURCEDISK/v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $CACHEDIR/k3s/
 
 这个目录的位置更直接，在所有平台上，该目录都位于 `HOME/.kuberlr/PLATFORM-ARCH`，其中：
 
-- `HOME` 是主目录。通常情况下，在 Windows 上为 `%HOMEDRIVE%\\%HOMEPATH`，在 macOS 和 Linux 上为 `~` 或 `$HOME`。
+- `HOME` 是主目录。通常情况下，在 Windows 上为 `$env:HOMEDRIVE%\$env:HOMEPATH`，在 macOS 和 Linux 上为 `~` 或 `$HOME`。
 - `PLATFORM` 是 `windows`、`linux` 或 `darwin`。
 - `ARCH` 在 M1 主机上是 `aarch64`，在其它主机上是 `amd64`。
 

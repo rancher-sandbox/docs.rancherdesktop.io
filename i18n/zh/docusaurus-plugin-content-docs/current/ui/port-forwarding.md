@@ -1,11 +1,10 @@
 ---
-title: 功能
+sidebar_label: 端口转发
+title: 端口转发
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-## Port Forwarding
 
 如需转发端口：
 

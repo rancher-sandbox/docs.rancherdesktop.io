@@ -1,23 +1,30 @@
 ---
-title: 功能
+sidebar_label: 应用程序
+title: 应用程序
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Preferences
-
-此页面允许你修改 Rancher Desktop 实例的设置。
-
-1. 要访问 **Preferences**，请单击右上角的 &#9881; 图标。
-1. 你可以使用左侧的选项卡来访问不同类别的 Rancher Desktop 首选项。
-1. 根据需要更新首选项。下方概述了可用的首选项设置。
-1. 要应用更新，请单击 **Apply**。
-
-### Application
-
 <Tabs groupId="os">
 <TabItem value="Windows">
+
+### Automatic Updates
+
+当一个新版本发布时，用户会得到一个通知和升级目标的发行版说明。无论是否启用了自动更新，用户都会收到通知。如果启用此选项，更新会被下载，然后在下次启动 Rancher Desktop 时安装更新。
+
+### Statistics
+
+该选项允许 Rancher Desktop 收集关于你与 Rancher Desktop 应用程序交互的信息，但不会收集你运行的工作负载等信息。
+
+</TabItem>
+<TabItem value="macOS & Linux">
+
+### Behavior
+
+#### Administrative Access
+
+允许 Rancher Desktop 在启动某些操作时获得管理访问权限（sudo 权限）。这能用于增强功能，包括桥接网络和默认 docker socket 支持。更改会在 Rancher Desktop 下次启动时应用。
 
 #### Automatic Updates
 
@@ -27,26 +34,9 @@ import TabItem from '@theme/TabItem';
 
 该选项允许 Rancher Desktop 收集关于你与 Rancher Desktop 应用程序交互的信息，但不会收集你运行的工作负载等信息。
 
-</TabItem>
-<TabItem value="macOS & Linux">
+### Environment
 
-#### Behavior
-
-##### Administrative Access
-
-允许 Rancher Desktop 在启动某些操作时获得管理访问权限（sudo 权限）。这能用于增强功能，包括桥接网络和默认 docker socket 支持。更改会在 Rancher Desktop 下次启动时应用。
-
-##### Automatic Updates
-
-当一个新版本发布时，用户会得到一个通知和升级目标的发行版说明。无论是否启用了自动更新，用户都会收到通知。如果启用此选项，更新会被下载，然后在下次启动 Rancher Desktop 时安装更新。
-
-##### Statistics
-
-该选项允许 Rancher Desktop 收集关于你与 Rancher Desktop 应用程序交互的信息，但不会收集你运行的工作负载等信息。
-
-#### Environment
-
-##### 配置 PATH
+#### 配置 PATH
 
 Rancher Desktop 附带命令行实用程序，用于与其各种功能交互。这些实用程序包括 `docker`、`nerdctl`、`kubectl` 和 `helm` 等。这些实用程序位于 `~/.rd/bin`，因此你可以通过运行 `ls ~/.rd/bin` 来查看你的安装中包含了哪些实用程序。
 

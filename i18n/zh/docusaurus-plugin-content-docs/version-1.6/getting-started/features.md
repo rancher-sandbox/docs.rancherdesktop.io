@@ -93,7 +93,7 @@ import TabItem from '@theme/TabItem';
 
 1. 单击 **Reset**。然后，你会看到一个确认窗口。
 1. 可选：选择是否保留缓存的 Kubernetes 镜像。
-1. 单击 **Factor Reset**。Kubernetes 会停止，Rancher Desktop 会关闭。
+1. 单击 **Factory Reset**。Kubernetes 会停止，Rancher Desktop 会关闭。
 1. 可选：再次启动 Rancher Desktop。
 
 ## Diagnostics
