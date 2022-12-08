@@ -14,4 +14,20 @@ The diagnostics checks are run every time when the application launches. If ther
 
 On this tab you can mute/unmute individual checks if you have a non-standard setup and know that these checks don't apply to your situation. You can also rerun the diagnostics anytime to verify that changes you have made to your environment have rectified the problem.
 
-![](/img/features/diagnostics-checks-table.png)
+<Tabs groupId="os">
+<TabItem value="Windows">
+
+![](../img/ui-main/Windows_Diagnostics.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](../img/ui-main/macOS_Diagnostics.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](../img/ui-main/Linux_Diagnostics.png)
+
+</TabItem>
+</Tabs>

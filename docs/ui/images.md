@@ -10,6 +10,24 @@ The **Images** tab, allows you to manage the images on your virtual machine.
 
 To manage your images using nerdctl instead, refer to the [Images](../tutorials/working-with-images) section.
 
+<Tabs groupId="os">
+<TabItem value="Windows">
+
+![](../img/ui-main/Windows_Images.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](../img/ui-main/macOS_Images.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](../img/ui-main/Linux_Images.png)
+
+</TabItem>
+</Tabs>
+
 ### Scanning Images
 
 This feature uses [Trivy] to scan your images for vulnerabilities and configuration issues.
