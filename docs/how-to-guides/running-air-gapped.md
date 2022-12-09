@@ -141,7 +141,12 @@ To populate it, determine which versions of Kubernetes you'll be using, and down
 `https://dl.k8s.io/VERSION/bin/PLATFORM/CPU/kubectl.exe`
 
   </TabItem>
-  <TabItem value="macOS & Linux">
+  <TabItem value="macOS">
+
+`https://dl.k8s.io/VERSION/bin/PLATFORM/CPU/kubectl`
+
+  </TabItem>
+    <TabItem value="Linux">
 
 `https://dl.k8s.io/VERSION/bin/PLATFORM/CPU/kubectl`
 
