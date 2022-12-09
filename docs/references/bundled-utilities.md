@@ -2,8 +2,8 @@
 title: Bundled Utilities
 ---
 
-import Version160 from '@site/docs/bundled-utilities-version-info/v1.6.0.md';
-import Version170 from '@site/docs/bundled-utilities-version-info/v1.7.0.md';
+import Version160 from '../bundled-utilities-version-info/v1.6.0.md';
+import Version170 from '../bundled-utilities-version-info/v1.7.0.md';
 
 Rancher Desktop uses several utilities/subsystems as dependencies under the hood for various purposes. For example, **docker CLI** to interact with **dockerd**, **helm** to manage charts, **trivy** for container image scanning, etc. This page provides information about the versions of the bundled utilities that go into a specific Rancher Desktop release version.
 
