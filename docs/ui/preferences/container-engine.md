@@ -5,6 +5,7 @@ title: Container engine
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 ## General
 
@@ -14,7 +15,7 @@ When switching to a different container runtime:
 
 - Workloads and images that have been built or pulled using the existing container runtime are not available on the container runtime being switched to.
 
-<Tabs groupId="os">
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
 ![](../../img/preferences/Windows_containerEngine_tabGeneral.png)

@@ -5,6 +5,7 @@ title: Port forwarding
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 To forward a port:
 
@@ -13,7 +14,7 @@ To forward a port:
 1. Click the &check; button to confirm your selection.
 1. Optional: click **Cancel** to remove the port assigned.
 
-<Tabs groupId="os">
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
 ![](../img/ui-main/Windows_PortForwarding.png)

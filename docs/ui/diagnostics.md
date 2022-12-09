@@ -5,6 +5,7 @@ title: Diagnostics
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 **Note:** Rancher Desktop *doesn't* send the diagnostics data to any remote server for processing or storing.
 
@@ -14,7 +15,7 @@ The diagnostics checks are run every time when the application launches. If ther
 
 On this tab you can mute/unmute individual checks if you have a non-standard setup and know that these checks don't apply to your situation. You can also rerun the diagnostics anytime to verify that changes you have made to your environment have rectified the problem.
 
-<Tabs groupId="os">
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
 ![](../img/ui-main/Windows_Diagnostics.png)

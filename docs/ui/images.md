@@ -5,12 +5,13 @@ title: Images
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 The **Images** tab, allows you to manage the images on your virtual machine.
 
 To manage your images using nerdctl instead, refer to the [Images](../tutorials/working-with-images) section.
 
-<Tabs groupId="os">
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
 ![](../img/ui-main/Windows_Images.png)

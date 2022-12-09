@@ -5,6 +5,7 @@ title: Kubernetes
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 ### Enable Kubernetes
 
@@ -42,7 +43,7 @@ This option allows you to enable or disable Traefik. By disabling Traefik, you c
 
 Disabling Traefik will not delete existing resources.
 
-<Tabs groupId="os">
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
 ![](../../img/preferences/Windows_kubernetes.png)
