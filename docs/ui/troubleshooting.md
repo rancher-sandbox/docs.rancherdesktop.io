@@ -5,6 +5,7 @@ title: Troubleshooting
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 ### Show Logs
 
@@ -34,3 +35,21 @@ To perform a factory reset:
 1. Optional: select whether cached Kubernetes images are kept.
 1. Click **Factory Reset** to proceed. Kubernetes stops and Rancher Desktop closes.
 1. Optional: start Rancher Desktop again.
+
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![](../img/ui-main/Windows_Troubleshooting.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](../img/ui-main/macOS_Troubleshooting.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](../img/ui-main/Linux_Troubleshooting.png)
+
+</TabItem>
+</Tabs>

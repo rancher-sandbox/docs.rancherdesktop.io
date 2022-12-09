@@ -5,6 +5,7 @@ title: Container engine
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 ## General
 
@@ -14,6 +15,24 @@ When switching to a different container runtime:
 
 - Workloads and images that have been built or pulled using the existing container runtime are not available on the container runtime being switched to.
 
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![](../../img/preferences/Windows_containerEngine_tabGeneral.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](../../img/preferences/macOS_containerEngine_tabGeneral.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](../../img/preferences/Linux_containerEngine_tabGeneral.png)
+
+</TabItem>
+</Tabs>
+
 ## Allowed Images
 
 The `Allowed Images` tab provides options to let you control which registry artifacts you can access within Rancher Desktop. For example, you may want to pull container images only from your organization's private registry or only from your department-specific namespace in your organization's registry, etc. You can specify image URL patterns to allow accessing images only from specific registries and/or repositories.
@@ -22,7 +41,23 @@ Check the **Enable** checkbox to enable Rancher Desktop to apply the specified p
 
 You can use the **+** and **-** buttons to add/remove image URL patterns. 
 
-![](/img/preferences/allowed-images.png)
+<Tabs groupId="os">
+<TabItem value="Windows">
+
+![](../../img/preferences/Windows_containerEngine_tabAllowedImages.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](../../img/preferences/macOS_containerEngine_tabAllowedImages.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](../../img/preferences/Linux_containerEngine_tabAllowedImages.png)
+
+</TabItem>
+</Tabs>
 
 ### How to specify Allowed Image patterns
 

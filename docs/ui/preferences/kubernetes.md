@@ -5,6 +5,7 @@ title: Kubernetes
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 ### Enable Kubernetes
 
@@ -41,3 +42,21 @@ Set the port Kubernetes is exposed on. Use this setting to avoid port collisions
 This option allows you to enable or disable Traefik. By disabling Traefik, you can free up port 80 and 443 for alternate ingress configuration. By default, Traefik is enabled.
 
 Disabling Traefik will not delete existing resources.
+
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![](../../img/preferences/Windows_kubernetes.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](../../img/preferences/macOS_kubernetes.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](../../img/preferences/Linux_kubernetes.png)
+
+</TabItem>
+</Tabs>

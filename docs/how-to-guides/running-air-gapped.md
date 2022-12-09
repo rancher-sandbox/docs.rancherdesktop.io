@@ -4,6 +4,7 @@ title: Running When Offline
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 Rancher Desktop can be run when offline, aka in air-gapped mode. This document covers requirements
 and possible problems when running in air-gapped mode.
@@ -81,7 +82,7 @@ wget https://github.com/k3s-io/k3s/releases/download/v1.24.3%2Bk3s1/sha256sum-am
 wget https://github.com/k3s-io/k3s/releases/download/v1.24.3%2Bk3s1/k3s
 ```
 
-<Tabs groupId="os">
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
   <TabItem value="Windows">
 
 On Windows, the cache directory is at `$env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s`, and can be created with the command
@@ -134,13 +135,18 @@ The location of this directory is more straightforward. On all platforms, it's a
 
 To populate it, determine which versions of Kubernetes you'll be using, and download the appropriate executables from the internet. These would be in:
 
-<Tabs groupId="os">
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
   <TabItem value="Windows">
 
 `https://dl.k8s.io/VERSION/bin/PLATFORM/CPU/kubectl.exe`
 
   </TabItem>
-  <TabItem value="macOS & Linux">
+  <TabItem value="macOS">
+
+`https://dl.k8s.io/VERSION/bin/PLATFORM/CPU/kubectl`
+
+  </TabItem>
+    <TabItem value="Linux">
 
 `https://dl.k8s.io/VERSION/bin/PLATFORM/CPU/kubectl`
 
