@@ -108,4 +108,4 @@ Follow the wizard instructions and click on `Continue` to land on the main Ranch
 
 ![](/img/examples/rancherUiMainPage.png)
 
-From the Rancher UI, you can manage your local cluster, node, and more. For more information, see [Rancher Docs](https://rancher.com/docs/).
+From the Rancher UI, you can manage your local cluster, node, and more. For more information, see [Rancher Docs](https://ranchermanager.docs.rancher.com/).
