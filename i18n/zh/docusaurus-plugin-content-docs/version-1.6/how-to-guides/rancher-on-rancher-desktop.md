@@ -108,4 +108,4 @@ docker logs [rancherContainerID] 2>&1 | grep "Bootstrap Password:"
 
 ![](/img/examples/rancherUiMainPage.png)
 
-在 Rancher UI 中，你可以管理 local 集群、节点等。如需更多信息，请参阅 [Rancher 文档](https://rancher.com/docs/)。
+在 Rancher UI 中，你可以管理 local 集群、节点等。如需更多信息，请参阅 [Rancher 文档](https://ranchermanager.docs.rancher.com/)。

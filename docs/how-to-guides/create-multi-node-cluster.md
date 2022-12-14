@@ -42,6 +42,6 @@ k3d cluster create three-node-cluster --agents 3
 ```
 kubectl config use-context k3d-two-node-cluster
 ```
-To learn more about **k3s** and **k3d**, refer to these projects' docs at [k3s docs](https://rancher.com/docs/k3s/latest/en/) and [k3d docs](https://k3d.io/).
+To learn more about **k3s** and **k3d**, refer to these projects' docs at [k3s docs](https://docs.k3s.io/) and [k3d docs](https://k3d.io/).
 
 **:warning: Please note that the clusters created by `k3d` are not managed by Rancher Desktop GUI.**
