@@ -176,3 +176,10 @@ Navigate to the path provided below in the (lima) VM, depending on the active co
 dockerd(moby): /var/lib/docker/volumes
 containerd: /var/lib/nerdctl/dbb19c5e/volumes/<namespace>
 ```
+#### **Q: How can I downgrade Rancher Desktop to a non-current (older) release version**
+
+**A:** We strongly recommend you use the current release version that has the latest features and bug fixes included. However, if you want to downgrade to an earlier version, please follow the steps below.
+
+- Perform `Troubleshooting > Factory Reset` from the current installation. Please make sure the `Keep cached Kubernetes images` box is *not* checked in the `Factory Reset` pop up dialog.
+- Uninstall the current version by following uninstallation instructions [here](https://docs.rancherdesktop.io/getting-started/installation) for your OS.
+- Install the older version that you need.
