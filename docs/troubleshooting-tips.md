@@ -56,3 +56,11 @@ echo "export PATH=\$PATH:/home/$(whoami)/.local/bin" >> ~/.bashrc
 **A:** You will see this error if there's a route rule with an IP address from a conflicting subnet on the Iptables. The conflicting routes could be either from the host network (bridge mode) or the Kubernetes network. A quick workaround to this issue is to shutdown WSL via the command `wsl --shutdown`. 
 
 **:warning: Please note that shutting down WSL will stop all other distros along with the `rancher-desktop` distro.**
+
+#### Q: How do I fix the `Installation Aborted` error while downgrading from an existing MSI installation to an older EXE version (1.6.x or earlier) on Windows?
+
+**A:** You will see this error if the Windows registry key `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\EventLog\Application\RancherDesktopPrivilegedService` that is supposed to be deleted during the MSI uninstallation process is not deleted for some reason. Please manually delete the registry key and try installing the EXE version. You can run the below command in a privileged shell to delete the registry key.
+
+```
+reg.exe delete HKLM\System\CurrentControlSet\Services\EventLog\Application\RancherDesktopPrivilegedService /reg:64 /f
+```
