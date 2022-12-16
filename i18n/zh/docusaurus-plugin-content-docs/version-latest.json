@@ -18,5 +18,13 @@
   "sidebar.tutorialSidebar.category.References": {
     "message": "参考",
     "description": "The label for category References in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.User Interface": {
+    "message": "用户界面",
+    "description": "The label for category User Interface in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Preferences": {
+    "message": "偏好设置",
+    "description": "The label for category Preferences in sidebar tutorialSidebar"
   }
 }
