@@ -172,3 +172,10 @@ containerd: \\wsl$\rancher-desktop-data\var\lib\nerdctl\dbb19c5e\volumes\<namesp
 dockerd(moby): /var/lib/docker/volumes
 containerd: /var/lib/nerdctl/dbb19c5e/volumes/<namespace>
 ```
+#### **问：如何将 Rancher Desktop 降级到旧版本**
+
+**答**：我们强烈建议你使用包含最新功能和错误修复的当前发行版。但是，如果你想降级到较早的版本，请按照以下步骤操作。
+
+- 执行 `Troubleshooting > Factory Reset`。请确保*没有*在 `Factory Reset` 对话框中选中 `Keep cached Kubernetes images`。
+- 按照[此处](https://docs.rancherdesktop.io/getting-started/installation)的卸载说明卸载当前版本。
+- 安装你所需的旧版本。

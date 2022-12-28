@@ -55,3 +55,11 @@ echo "export PATH=\$PATH:/home/$(whoami)/.local/bin" >> ~/.bashrc
 **答**：如果路由规则的 IP 地址来自 Iptables 上的冲突子网，你将看到此错误。冲突的路由可能来自主机网络（桥接模式）或 Kubernetes 网络。此问题的快速解决方法是通过命令 `wsl --shutdown` 关闭 WSL。
 
 **警告：关闭 WSL 将停止所有其他发行版以及 `rancher-desktop` 发行版。**
+
+#### 问：在 Windows 上将现有 MSI 降级到较旧的 EXE 版本（1.6.x 或更早版本）时，如何修复 `Installation Aborted` 错误？
+
+**答**：在 MSI 卸载过程中，如果应该删除的 Windows 注册表项 `HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\EventLog\\Application\\RancherDesktopPrivilegedService` 没有被删除，你将看到此错误。请手动删除注册表项并尝试安装 EXE 版本。你可以在特权 shell 中运行以下命令来删除注册表项：
+
+```
+reg.exe delete HKLM\System\CurrentControlSet\Services\EventLog\Application\RancherDesktopPrivilegedService /reg:64 /f
+```

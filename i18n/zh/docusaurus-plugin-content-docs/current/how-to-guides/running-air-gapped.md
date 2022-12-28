@@ -4,6 +4,7 @@ title: 离线运行
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 Rancher Desktop 可以在离线模式下运行。本文介绍了离线运行的要求以及可能出现的问题。
 
@@ -71,8 +72,8 @@ wget https://github.com/k3s-io/k3s/releases/download/v1.24.3%2Bk3s1/sha256sum-am
 wget https://github.com/k3s-io/k3s/releases/download/v1.24.3%2Bk3s1/k3s
 ```
 
-<Tabs groupId="os">
-  <TabItem value="Windows">
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
 
 在 Windows 上，缓存目录是 `$env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s`，你可以运行以下命令创建该目录：
 
@@ -124,13 +125,18 @@ cp -r $SOURCEDISK/v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $CACHEDIR/k3s/
 
 要进行填充，请确定你要使用的 Kubernetes 版本，并联网下载适当的可执行文件。它们将位于：
 
-<Tabs groupId="os">
-  <TabItem value="Windows">
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
 
 `https://dl.k8s.io/VERSION/bin/PLATFORM/CPU/kubectl.exe`
 
 </TabItem>
-  <TabItem value="macOS & Linux">
+  <TabItem value="macOS">
+
+`https://dl.k8s.io/VERSION/bin/PLATFORM/CPU/kubectl`
+
+</TabItem>
+    <TabItem value="Linux">
 
 `https://dl.k8s.io/VERSION/bin/PLATFORM/CPU/kubectl`
 
