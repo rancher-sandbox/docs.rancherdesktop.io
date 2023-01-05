@@ -13,14 +13,14 @@ import TabItem from '@theme/TabItem';
   <TabItem value="nerdctl" default>
 
 ```console
-nerdctl run --privileged -d --restart=no -p 8080:80 -p 8443:443 rancher/rancher
+nerdctl run --privileged -d --restart=always -p 8080:80 -p 8443:443 rancher/rancher
 ```
 
 </TabItem>
   <TabItem value="docker" default>
 
 ```console
-docker run --privileged -d --restart=no -p 8080:80 -p 8443:443 rancher/rancher
+docker run --privileged -d --restart=always -p 8080:80 -p 8443:443 rancher/rancher
 ```
 
 </TabItem>
