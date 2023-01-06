@@ -5,6 +5,7 @@ title: 端口转发
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 如需转发端口：
 
@@ -12,3 +13,21 @@ import TabItem from '@theme/TabItem';
 1. 指定要使用的端口或使用随机分配的端口。
 1. 点击 &check; 按钮来确认你的选择。
 1. 可选：单击 **Cancel** 来移除分配的端口。
+
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![](../img/ui-main/Windows_PortForwarding.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](../img/ui-main/macOS_PortForwarding.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](../img/ui-main/Linux_PortForwarding.png)
+
+</TabItem>
+</Tabs>

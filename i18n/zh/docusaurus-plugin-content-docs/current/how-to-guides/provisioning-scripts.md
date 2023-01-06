@@ -4,6 +4,7 @@ title: 配置脚本
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 配置脚本可以覆盖 Rancher Desktop 的一些内部流程。例如，脚本可用于向 K3s 提供某些命令行参数、添加额外的挂载、增加 ulimit 值等。本指南将介绍如何为 macOS、Linux 和 Windows 主机设置脚本。
 
@@ -12,8 +13,8 @@ import TabItem from '@theme/TabItem';
 
 - 在以下路径创建 `override.yaml` 文件。
 
-<Tabs groupId="os">
-  <TabItem value="macOS" default>
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="macOS">
 
 ```
 ~/Library/Application Support/rancher-desktop/lima/_config/override.yaml

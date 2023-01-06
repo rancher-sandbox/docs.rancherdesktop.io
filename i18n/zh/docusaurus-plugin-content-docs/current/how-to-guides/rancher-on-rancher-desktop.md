@@ -63,7 +63,7 @@ helm install rancher rancher-latest/rancher --namespace cattle-system --set host
 * 通过 `container runtime` 安装：[https://localhost:8443/](https://localhost:8443/)
 * 通过 `helm` 安装：[https://rancher.rd.localhost/](https://rancher.rd.localhost/)
 
-![](/img/examples/rancherUiWelcomePage.png)
+![](../img/examples/rancherUiWelcomePage.png)
 
 
 <Tabs groupId="container-runtime">
@@ -106,6 +106,6 @@ docker logs [rancherContainerID] 2>&1 | grep "Bootstrap Password:"
 
 按照向导说明并单击 `Continue` 以进入 Rancher UI 主页面。
 
-![](/img/examples/rancherUiMainPage.png)
+![](../img/examples/rancherUiMainPage.png)
 
 在 Rancher UI 中，你可以管理 local 集群、节点等。如需更多信息，请参阅 [Rancher 文档](https://ranchermanager.docs.rancher.com/)。

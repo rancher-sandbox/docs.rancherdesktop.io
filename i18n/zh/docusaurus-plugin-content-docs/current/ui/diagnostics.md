@@ -5,6 +5,7 @@ title: 诊断
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 **注意**：Rancher Desktop *不会*将诊断数据发送到任何远程服务器进行处理或存储。
 
@@ -14,4 +15,20 @@ import TabItem from '@theme/TabItem';
 
 如果你进行了非标准设置，并且知道这些检查不适用于你的情况，你可以在此选项卡上 mute/unmute 个别检查。你还可以随时重新运行诊断程序，从而验证你对环境所做的更改是否已经解决了问题。
 
-![](/img/features/diagnostics-checks-table.png)
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![](../img/ui-main/Windows_Diagnostics.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](../img/ui-main/macOS_Diagnostics.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](../img/ui-main/Linux_Diagnostics.png)
+
+</TabItem>
+</Tabs>

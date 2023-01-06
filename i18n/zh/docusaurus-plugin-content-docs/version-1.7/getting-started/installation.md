@@ -89,9 +89,11 @@ Rancher Desktop 在 Windows 上需要 [Windows Subsystem for Linux]，它将作�
 
 1. 转到 GitHub 上的 [Releases 页面]。
 1. 找到要下载的 Rancher Desktop 版本。
-1. 展开 **Assets** 部分并下载 Windows 安装程序。它的名称是 `Rancher.Desktop.Setup.X.Y.Z.exe`，其中 `X.Y.Z` 是 Rancher Desktop 的版本。
+1. 展开 **Assets** 部分并下载 Windows 安装程序。它的名称是 `Rancher.Desktop.Setup.X.Y.Z.msi`，其中 `X.Y.Z` 是 Rancher Desktop 的版本。
 1. 导航到下载安装程序的目录，并运行安装程序。这个目录通常是`下载`文件夹。
 1. 查看许可协议并单击 **I Agree** 来继续安装。
+1. 如果出现提示，请选择为计算机的所有用户安装，或仅为当前用户安装。建议为所有用户安装，以便安装 Rancher Desktop Privileged Service，如上所述。
+1. 按照提示确认安装。
 1. 安装完成后，单击 **Finish** 来关闭安装向导。
 
 [release page]: https://github.com/rancher-sandbox/rancher-desktop/releases

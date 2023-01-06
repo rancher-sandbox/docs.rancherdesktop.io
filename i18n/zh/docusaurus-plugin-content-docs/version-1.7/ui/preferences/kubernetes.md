@@ -5,6 +5,7 @@ title: Kubernetes
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 ### Enable Kubernetes
 
@@ -41,3 +42,21 @@ import TabItem from '@theme/TabItem';
 此选项允许你启用或禁用 Traefik。禁用 Traefik 后，你可以释放端口 80 和 443，以便将其用于备用 ingress 配置。默认情况下，Traefik 是启用的。
 
 禁用 Traefik 不会删除现有资源。
+
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![](../../img/preferences/Windows_kubernetes.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](../../img/preferences/macOS_kubernetes.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](../../img/preferences/Linux_kubernetes.png)
+
+</TabItem>
+</Tabs>

@@ -5,10 +5,29 @@ title: 镜像
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 **Images** 选项卡允许你管理虚拟机上的镜像。
 
 要改用 nerdctl 管理镜像，请参阅[镜像](../tutorials/working-with-images)。
+
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![](../img/ui-main/Windows_Images.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](../img/ui-main/macOS_Images.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](../img/ui-main/Linux_Images.png)
+
+</TabItem>
+</Tabs>
 
 ### Scanning Images
 

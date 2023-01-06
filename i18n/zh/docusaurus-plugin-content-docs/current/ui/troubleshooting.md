@@ -5,6 +5,7 @@ title: 故障排除
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
 
 ### Show Logs
 
@@ -34,3 +35,21 @@ import TabItem from '@theme/TabItem';
 1. 可选：选择是否保留缓存的 Kubernetes 镜像。
 1. 单击 **Factory Reset**。Kubernetes 会停止，Rancher Desktop 会关闭。
 1. 可选：再次启动 Rancher Desktop。
+
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![](../img/ui-main/Windows_Troubleshooting.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](../img/ui-main/macOS_Troubleshooting.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](../img/ui-main/Linux_Troubleshooting.png)
+
+</TabItem>
+</Tabs>
