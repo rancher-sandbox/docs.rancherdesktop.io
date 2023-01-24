@@ -18,8 +18,8 @@ Rancher Desktop provides container management and a Kubernetes instance on the d
 
 **A:** Yes, the Rancher Dashboard is included as a feature preview in the release 1.2.1. Invoke the dashboard by clicking on **Dashboard** option in the system tray menu.
 
-To learn more about Rancher Desktop, click [here](https://docs.rancherdesktop.io/).
-To learn more about Rancher, click [here](https://rancher.com/why-rancher).
+Learn more about [Rancher Desktop](https://docs.rancherdesktop.io/).
+Learn more about [Rancher](https://rancher.com/why-rancher).
 
 [Rancher]:
 https://rancher.com/
