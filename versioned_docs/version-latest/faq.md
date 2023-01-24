@@ -134,7 +134,9 @@ New-NetFirewallRule -DisplayName "WSL" -Direction Inbound -InterfaceAlias "vEthe
 <!-- #985 -->
 #### **Q: I don't need the Kubernetes cluster deployed by Rancher Desktop; how do I disable it to save resources?**
 
-**A:** Kubernetes can be disabled to run just `containerd` or `dockerd` by itself for reduced resource consumption. By default, the `Enable Kubernetes` feature is selected under **Kubernetes Settings**; uncheck this box to disable it.
+**A:** Open **Rancher Desktop** settings, click the cog to open **Preferences**, select **Kuberentes**, uncheck `Enable Kubernetes` feature is selected under **Kubernetes Settings**; uncheck this box to disable it.
+
+This will allow you to run just `containerd` or `dockerd` by without allocating resources for Kubernetes.
 
 <!-- #726 -->
 #### **Q: What's happening to the Kubernetes Image Manager (kim)?**
