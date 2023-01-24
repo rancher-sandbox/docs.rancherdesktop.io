@@ -77,7 +77,7 @@ Visit [http://127.0.0.1:9000/dashboard/](http://127.0.0.1:9000/dashboard/) in yo
 
 Copy the instructions below into a file, for example, `expose-traefik.yaml`
 
-```
+```yaml
 apiVersion: helm.cattle.io/v1
 kind: HelmChartConfig
 metadata:
