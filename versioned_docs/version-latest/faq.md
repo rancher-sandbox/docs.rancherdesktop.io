@@ -111,7 +111,7 @@ If you want to delete Traefik resources, click on `Reset Kubernetes` on the **Ku
 
 #### **Q: Is there support for internal container port forwarding?**
 
-**A:** Yes, support has been enabled again for this feature on Linux and macOS.
+**A:** Yes, support for this feature is available on all three platforms, Windows, Linux, and macOS, as of [v1.1.0](https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.1.0).
 
 #### **Q: Does file sharing work similarly to Docker Desktop? Do I have to do any additional configuration to mount volumes to VMs?**
 
