@@ -103,7 +103,7 @@ kubectl apply -f expose-traefik.yaml
 
 Visit [http://127.0.0.1:9000/dashboard/](http://127.0.0.1:9000/dashboard/) in your browser to view the Traefik dashboard.
 
-#### **Q: How can I disable Traefik, and will doing so remove Traefik resources?**
+#### **Q: Can I disable Traefik, and will doing so remove Traefik resources?**
 
 **A:** Yes, you can disable Traefik in order to free up port 80 and 443 for alternate ingress configuration. Disabling Traefik will _not_ delete existing resources. By default, the `Enable Traefik` feature is selected under **Kubernetes Settings**; uncheck this box to disable it.
 
