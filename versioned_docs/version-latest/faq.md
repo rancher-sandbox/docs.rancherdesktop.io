@@ -6,7 +6,13 @@ This FAQ is a work in progress designed to answer the questions our users most f
 
 #### **Q: Is Rancher Desktop a desktop version of Rancher?**
 
-**A:** While [Rancher](https://rancher.com/) and [Rancher Desktop](https://rancherdesktop.io/) share the _Rancher_ name, they do different things. Rancher Desktop is not Rancher on the Desktop. Rancher is a powerful solution to manage Kubernetes clusters. Rancher Desktop runs local Kubernetes and a container management platform. The two solutions complement each other.
+**A:** No. Rancher Desktop is not Rancher on the Desktop.
+
+While [Rancher](https://rancher.com/) and [Rancher Desktop](https://rancherdesktop.io/) share the _Rancher_ name, they do different things. But, the two solutions do complement each other:
+
+Rancher is a complete software stack for managing multiple Kubernetes clusters across any infrastructure.
+
+Rancher Desktop provides container management and a Kubernetes instance on the desktop to support local development use cases.
 
 #### **Q: Is there a Kubernetes Cluster Explorer available in Rancher Desktop?**
 
