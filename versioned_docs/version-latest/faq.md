@@ -117,6 +117,12 @@ If you want to delete Traefik resources, click on `Reset Kubernetes` on the **Ku
 
 **A:** Currently, the following directories are shared by default: `/Users/$USER` on macOS, `/home/$USER` on Linux, and `/tmp/rancher-desktop` on both. For Windows, all files are automatically shared via WSL2.
 
+Standard Docker volumes that are not generally accessible from the host computer work out of the box.
+
+To access other directories on Linux/macOS, you will have to perform additional configuration.
+
+If you want to change the behavior of the mounts, that will also require [additional configuration](https://github.com/rancher-sandbox/rancher-desktop/issues/1209#issuecomment-1370181132).
+
 #### **Q: Can containers reach back to host services via `host.docker.internal`?**
 
 **A:** Yes. On Windows, you may need to create a firewall rule to allow communication between the host and the container. You can run below command in a privileged powershell to create the firewall rule.
