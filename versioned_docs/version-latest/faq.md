@@ -141,7 +141,7 @@ This will allow you to run just `containerd` or `dockerd` by without allocating 
 <!-- #726 -->
 #### **Q: What's happening to the Kubernetes Image Manager (kim)?**
 
-**A:** As of version 1.0 Kim is no longer shipped and has been replaced by nerdctl and the Docker CLI.
+**A:** As of version 1.0, Kim is no longer shipped and has been replaced by nerdctl and the Docker CLI.
 
 <!-- #776 -->
 #### **Q: Running `brew install rancher` is failing with a `It seems there is already a Binary at '/usr/local/bin/<BINARY>'` error, why?**
