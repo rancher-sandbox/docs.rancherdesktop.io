@@ -150,7 +150,7 @@ This will allow you to run just `containerd` or `dockerd` by without allocating 
 
 #### Q: I installed `nerdctl` through the Arch User Repository, but it doesn't work with Rancher Desktop, why?
 
-**A:** For Rancher Desktop, `nerdctl` must run inside the VM and not on the host. The host version is just a shell wrapper to execute the command inside the VM.
+**A:** For Rancher Desktop, `nerdctl` must run inside the VM and not on the host. The host version distributed with Rancher Desktop is just a shell wrapper to execute the command inside the VM.
 
 <!-- #1155 -->
 #### **Q: The tools on the Support Utilities page are not installed and I see a `Insufficient permission to manipulate /usr/local/bin` error, how do I fix it?**
