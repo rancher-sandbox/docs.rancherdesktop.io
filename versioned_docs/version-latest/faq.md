@@ -36,7 +36,7 @@ https://docs.docker.com/desktop/
 <!-- #1221 -->
 #### **Q: Can I have Docker Desktop installed alongside Rancher Desktop?**
 
-**A:** Yes, but they cannot be run at the same time as both Rancher Desktop and Docker Desktop use the same Docker socket (`/var/run/docker.sock`). Before starting one, be sure to stop the other first.
+**A:** Yes, but they cannot be run at the same time as both Rancher Desktop and Docker Desktop use the same Docker socket (`/var/run/docker.sock`). Be sure to stop one before starting the other.
 
 <!-- #1074
 #### **Q: After uninstalling Rancher Desktop I noticed there are still some resources left behind. What are all the things that I need to manually remove and how?**
