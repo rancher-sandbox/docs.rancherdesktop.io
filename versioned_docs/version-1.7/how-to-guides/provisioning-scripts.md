@@ -13,7 +13,7 @@ On macOS and Linux, you can use lima override.yaml to write provisioning scripts
 
 - Create `override.yaml` file at below path
 
-<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<Tabs groupId="os">
   <TabItem value="macOS">
 
 ```
