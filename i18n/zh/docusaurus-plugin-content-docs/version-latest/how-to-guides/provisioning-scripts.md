@@ -13,8 +13,8 @@ import TabsConstants from '@site/core/TabsConstants';
 
 - 在以下路径创建 `override.yaml` 文件。
 
-<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
-<TabItem value="macOS">
+<Tabs groupId="os">
+  <TabItem value="macOS">
 
 ```
 ~/Library/Application Support/rancher-desktop/lima/_config/override.yaml
