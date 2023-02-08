@@ -6,14 +6,20 @@ This FAQ is a work in progress designed to answer the questions our users most f
 
 #### **Q: Is Rancher Desktop a desktop version of Rancher?**
 
-**A:** While [Rancher](https://rancher.com/) and [Rancher Desktop](https://rancherdesktop.io/) share the _Rancher_ name, they do different things. Rancher Desktop is not Rancher on the Desktop. Rancher is a powerful solution to manage Kubernetes clusters. Rancher Desktop runs local Kubernetes and a container management platform. The two solutions complement each other.
+**A:** No. Rancher Desktop is not Rancher on the Desktop.
+
+While [Rancher](https://rancher.com/) and [Rancher Desktop](https://rancherdesktop.io/) share the _Rancher_ name, they do different things. But, the two solutions do complement each other:
+
+Rancher is a complete software stack for managing multiple Kubernetes clusters across any infrastructure.
+
+Rancher Desktop provides container management and a Kubernetes instance on the desktop to support local development use cases.
 
 #### **Q: Is there a Kubernetes Cluster Explorer available in Rancher Desktop?**
 
 **A:** Yes, the Rancher Dashboard is included as a feature preview in the release 1.2.1. Invoke the dashboard by clicking on **Dashboard** option in the system tray menu.
 
-To learn more about Rancher Desktop, click [here](https://docs.rancherdesktop.io/).
-To learn more about Rancher, click [here](https://rancher.com/why-rancher).
+Learn more about [Rancher Desktop](https://docs.rancherdesktop.io/).
+Learn more about [Rancher](https://rancher.com/why-rancher).
 
 [Rancher]:
 https://rancher.com/
@@ -30,7 +36,7 @@ https://docs.docker.com/desktop/
 <!-- #1221 -->
 #### **Q: Can I have Docker Desktop installed alongside Rancher Desktop?**
 
-**A:** Yes, but they cannot be run at the same time as both Rancher Desktop and Docker Desktop use the same Docker socket (`/var/run/docker.sock`). Before starting one, be sure to stop the other first.
+**A:** Yes, but they cannot be run at the same time as both Rancher Desktop and Docker Desktop use the same Docker socket (`/var/run/docker.sock`). Be sure to stop one before starting the other.
 
 <!-- #1074
 #### **Q: After uninstalling Rancher Desktop I noticed there are still some resources left behind. What are all the things that I need to manually remove and how?**
@@ -41,7 +47,7 @@ https://docs.docker.com/desktop/
 <!-- #640 -->
 #### **Q: How can I perform a clean uninstall of Rancher Desktop?**
 
-**A:** First, perform a [Factory Reset](ui/troubleshooting.md#factory-reset), and then you will uninstall the app. The uninstall process varies based on the operating system. For more information, please refer [here](./getting-started/installation.md).
+**A:** First, perform a [Factory Reset](ui/troubleshooting.md#factory-reset), and then uninstall the app. The uninstall process varies based on the operating system. For more information, please refer [here](./getting-started/installation.md).
 
 #### **Q: What support, if any, is available for DNS over VPN on Windows?**
 
@@ -57,9 +63,9 @@ https://docs.docker.com/desktop/
 
 #### **Q: How can I enable the dashboard for the Traefik ingress controller?**
 
-**A:** The Traefik dashboard is not exposed by default, for security reasons. However, it is possible to expose the dashboard in multiple ways. For instance, you can use one of the two approaches shown below.
+**A:** For security reasons, the Traefik dashboard is not exposed by default. However, it is possible to expose the dashboard in multiple ways. For instance, you can use one of the two approaches shown below.
 
-#### Using `port-forward` to enable dashboard access
+##### Using `port-forward` to enable dashboard access
 
 ```
 kubectl port-forward -n kube-system $(kubectl -n kube-system get pods --selector "app.kubernetes.io/name=traefik" --output=name) 9000:9000
@@ -67,11 +73,11 @@ kubectl port-forward -n kube-system $(kubectl -n kube-system get pods --selector
 
 Visit [http://127.0.0.1:9000/dashboard/](http://127.0.0.1:9000/dashboard/) in your browser to view the Traefik dashboard.
 
-#### Using `HelmChartConfig` to enable dashboard access
+##### Using `HelmChartConfig` to enable dashboard access
 
 Copy the instructions below into a file, for example, `expose-traefik.yaml`
 
-```
+```yaml
 apiVersion: helm.cattle.io/v1
 kind: HelmChartConfig
 metadata:
@@ -97,7 +103,7 @@ kubectl apply -f expose-traefik.yaml
 
 Visit [http://127.0.0.1:9000/dashboard/](http://127.0.0.1:9000/dashboard/) in your browser to view the Traefik dashboard.
 
-#### **Q: How can I disable Traefik, and will doing so remove Traefik resources?**
+#### **Q: Can I disable Traefik, and will doing so remove Traefik resources?**
 
 **A:** Yes, you can disable Traefik in order to free up port 80 and 443 for alternate ingress configuration. Disabling Traefik will _not_ delete existing resources. By default, the `Enable Traefik` feature is selected under **Kubernetes Settings**; uncheck this box to disable it.
 
@@ -105,11 +111,17 @@ If you want to delete Traefik resources, click on `Reset Kubernetes` on the **Ku
 
 #### **Q: Is there support for internal container port forwarding?**
 
-**A:** Yes, support has been enabled again for this feature on Linux and macOS.
+**A:** Yes, support for this feature is available on all three platforms, Windows, Linux, and macOS, as of [v1.1.0](https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v1.1.0).
 
 #### **Q: Does file sharing work similarly to Docker Desktop? Do I have to do any additional configuration to mount volumes to VMs?**
 
 **A:** Currently, the following directories are shared by default: `/Users/$USER` on macOS, `/home/$USER` on Linux, and `/tmp/rancher-desktop` on both. For Windows, all files are automatically shared via WSL2.
+
+Standard Docker volumes that are not generally accessible from the host computer work out of the box.
+
+To access other directories on Linux/macOS, you will have to perform additional configuration.
+
+If you want to change the behavior of the mounts, that will also require [additional configuration](https://github.com/rancher-sandbox/rancher-desktop/issues/1209#issuecomment-1370181132).
 
 #### **Q: Can containers reach back to host services via `host.docker.internal`?**
 
@@ -122,12 +134,14 @@ New-NetFirewallRule -DisplayName "WSL" -Direction Inbound -InterfaceAlias "vEthe
 <!-- #985 -->
 #### **Q: I don't need the Kubernetes cluster deployed by Rancher Desktop; how do I disable it to save resources?**
 
-**A:** Kubernetes can be disabled to run just `containerd` or `dockerd` by itself for reduced resource consumption. By default, the `Enable Kubernetes` feature is selected under **Kubernetes Settings**; uncheck this box to disable it.
+**A:** Open **Rancher Desktop** settings, click the cog to open **Preferences**, select **Kuberentes**, uncheck `Enable Kubernetes` feature is selected under **Kubernetes Settings**; uncheck this box to disable it.
+
+This will allow you to run just `containerd` or `dockerd` by without allocating resources for Kubernetes.
 
 <!-- #726 -->
 #### **Q: What's happening to the Kubernetes Image Manager (kim)?**
 
-**A:** As of version 1.0 Kim is no longer shipped and has been replaced by nerdctl and the Docker CLI.
+**A:** As of version 1.0, Kim is no longer shipped and has been replaced by nerdctl and the Docker CLI.
 
 <!-- #776 -->
 #### **Q: Running `brew install rancher` is failing with a `It seems there is already a Binary at '/usr/local/bin/<BINARY>'` error, why?**
@@ -136,14 +150,14 @@ New-NetFirewallRule -DisplayName "WSL" -Direction Inbound -InterfaceAlias "vEthe
 
 #### Q: I installed `nerdctl` through the Arch User Repository, but it doesn't work with Rancher Desktop, why?
 
-**A:** For Rancher Desktop, `nerdctl` must run inside the VM and not on the host. The host version is just a shell wrapper to execute the command inside the VM.
+**A:** For Rancher Desktop, `nerdctl` must run inside the VM and not on the host. The host version distributed with Rancher Desktop is just a shell wrapper to execute the command inside the VM.
 
 <!-- #1155 -->
-#### **Q: The tools on the Support Utilities page are not installed and I see a `Insufficient permission to manipulate /usr/local/bin` error, how do I fix it?**
+#### **Q: The tools on the Support Utilities page (in Rancher Desktop <1.3.0) are not installed and I see an `Insufficient permission to manipulate /usr/local/bin` error, how do I fix it?**
 
-**A:** This occurs when you do not have ownership of `/usr/local/bin`. A long-term solution to improve the handling of permissions is in the works. In the meantime, a temporary workaround is to change ownership of `/usr/local/bin` by running `sudo chown $USER /usr/local/bin`. When you are able to write to the directory, Rancher Desktop is able to create the symlinks.
+**A:** This occurs when you do not have ownership of `/usr/local/bin`. A long-term solution to improve the handling of permissions is in the works. In the meantime, a temporary workaround is to change ownership of `/usr/local/bin` by running `sudo chown $USER /usr/local/bin`. When you are able to write to the directory, Rancher Desktop should be able to create the symlinks.
 
-From versions 1.3.0 and above, we no longer create symlinks in /usr/local/bin but in ~/.rd/bin and put that directory on the PATH instead, to avoid having to deal with write permissions to /usr/local/bin and file conflicts. We strongly recommend you to upgrade to the latest version of Rancher Desktop.
+From versions 1.3.0 and above, we no longer create symlinks in `/usr/local/bin` but in `~/.rd/bin` and put that directory on the PATH instead, to avoid having to deal with write permissions to `/usr/local/bin` and file conflicts. We strongly recommend you to upgrade to the latest version of Rancher Desktop.
 
 <!-- #981 -->
 #### **Q: Is Cygwin compatible with Rancher Desktop?**
@@ -152,14 +166,13 @@ From versions 1.3.0 and above, we no longer create symlinks in /usr/local/bin bu
 
 #### **Q: How can I add Rancher Desktop to the startup programs list on Windows?**
 
-**A:** On Windows, you can add a program to startup programs list in different ways. For example, you can use below steps.
+**A:** On Windows, you can add a program to startup programs list in a number of ways. For example, you can use the following steps.
 
-```
-- Press Windows+R to open the Run dialog box.
-- Type `shell:startup` and then hit Enter to open the Startup folder.
-- Copy "Rancher Desktop" shortcut from Desktop and paste in Startup folder.
-- Restart your machine.
-```
+1. Press Windows+R to open the Run dialog box.
+2. Type `shell:startup` and then hit Enter to open the Startup folder.
+3. Copy "Rancher Desktop" shortcut from Desktop and paste in Startup folder.
+4. Restart your machine.
+
 #### **Q: Where does Rancher Desktop actually put the data volumes?**
 
 **A:**
@@ -178,8 +191,8 @@ containerd: /var/lib/nerdctl/dbb19c5e/volumes/<namespace>
 ```
 #### **Q: How can I downgrade Rancher Desktop to a non-current (older) release version**
 
-**A:** We strongly recommend you use the current release version that has the latest features and bug fixes included. However, if you want to downgrade to an earlier version, please follow the steps below.
+**A:** We strongly recommend you use the current release version as it has the latest features and bug fixes included. However, if you want to downgrade to an earlier version, please follow the steps below.
 
-- Perform `Troubleshooting > Factory Reset` from the current installation. Please make sure the `Keep cached Kubernetes images` box is *not* checked in the `Factory Reset` pop up dialog.
-- Uninstall the current version by following uninstallation instructions [here](https://docs.rancherdesktop.io/getting-started/installation) for your OS.
-- Install the older version that you need.
+1. Perform `Troubleshooting > Factory Reset` from the current installation. Please make sure the `Keep cached Kubernetes images` box is *not* checked in the `Factory Reset` pop up dialog.
+2. Uninstall the current version by following [uninstallation instructions](https://docs.rancherdesktop.io/getting-started/installation) for your OS.
+3. Install the older version that you need.
