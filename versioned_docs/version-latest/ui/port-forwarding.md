@@ -1,6 +1,6 @@
 ---
-sidebar_label: Port forwarding
-title: Port forwarding
+sidebar_label: Port Forwarding
+title: Port Forwarding
 ---
 
 import Tabs from '@theme/Tabs';

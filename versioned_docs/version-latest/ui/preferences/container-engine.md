@@ -1,6 +1,6 @@
 ---
-sidebar_label: Container engine
-title: Container engine
+sidebar_label: Container Engine
+title: Container Engine
 ---
 
 import Tabs from '@theme/Tabs';
