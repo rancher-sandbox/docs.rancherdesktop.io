@@ -181,6 +181,17 @@ For more information on `pass`, please see [its website].
 [its website]: https://www.passwordstore.org/
 
 
+### Traefik Port Binding Access
+
+Rancher Desktop makes use of Traefik as the default ingress controller. Users may run into a `permission denied` error after deploying Rancher Desktop due to restricted port access on the Traefik ingress. Most Linux distributions (e.g. Ubuntu 20.04) do not allow non-root users to listen on TCP and UDP ports below `1024`. In order to allow Traefik to listen to privileged ports on the local host, please run the following command:
+
+```
+sudo sysctl -w net.ipv4.ip_unprivileged_port_start=80
+```
+
+After the command is run, all ports `80` and above will become unprivileged and Traefik will be able to successfully access said ports.
+
+
 ### Installation via .deb Package
 
 Add the Rancher Desktop repository and install Rancher Desktop with:
@@ -207,7 +218,7 @@ sudo apt update
 
 ### Installing via .rpm Package
 
-Note: RHEL, Fedora, and related distributions package QEMU, which Rancher Desktop
+**Note:** RHEL, Fedora, and related distributions package QEMU, which Rancher Desktop
 uses on Linux, differently than other distributions. To use Rancher Desktop on these
 distributions, please use the AppImage.
 
