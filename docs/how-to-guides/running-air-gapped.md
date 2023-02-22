@@ -9,7 +9,6 @@ import TabsConstants from '@site/core/TabsConstants';
 Rancher Desktop can be run when offline, aka in air-gapped mode. This document covers requirements
 and possible problems when running in air-gapped mode.
 
-
 ### A Note for Windows users
 
 This document uses Powershell syntax for environment variables. If you're using the Command shell
@@ -25,7 +24,7 @@ There are two areas where Rancher Desktop assumes network availability and will 
 
 ### Existing Deployments
 
-If Rancher Desktop has been installed on a machine initially with networked access, it can 
+If Rancher Desktop has been installed on a machine initially with networked access, it can
 be run subsequently on that machine after network connectivity has been turned off. The main
 difference in core functionality is that the list of versions of Kubernetes available in drop-down menus
 is limited to those versions that have actually been downloaded and stored in the cache.
@@ -43,7 +42,7 @@ Suppose there are three versions of `k3s` in the `rancher-desktop` cache.
 
 - 1.19.16
 
-But suppose that on this system we only ran `kubectl` when using versions `1.24.3` and `1.21.14`. This means that 
+But suppose that on this system we only ran `kubectl` when using versions `1.24.3` and `1.21.14`. This means that
 the `~/.kuberlr/PLATFORM-ARCH/` directory (`$env:HOMEDRIVE%\$env:HOMEPATH/.kuberlr/windows-amd64` on Windows) will contain only two files:
 
 - kubectl1.24.3
@@ -71,7 +70,7 @@ There are two directories that need to be populated in order for Rancher Desktop
 To populate a source disk (which we refer to here as `%SOURCEDISK%`, although it is probably some kind of removable medium like a USB thumb drive), you need the following files:
 
 * `k3s-versions.json` -- this file is created by Rancher Desktop. It reads a raw JSON file from `https://update.k3s.io/v1-release/channels` and converts it into a different kind of JSON file. Currently there is no utility to do that conversion; the easiest way to get this file is to run Rancher Desktop on a connected system and save the `CACHE/k3s-versions.json` file (see below for where `CACHE` exists on different platforms).
-* Tar archives of Kubernetes K3s images. These are listed at https://github.com/k3s-io/k3s/releases, and you'll want to download `k3s-airgap-images-amd64.tar` or `k3s-airgap-images-arm64.tar` (for AMD/intel and M1 machines respectively) for the versions you plan on working with. Finally you'll need to download the `k3s` executable for the selected version. For example, the following commands will let you work with K3s v1.24.3 build 1 offline:
+* Tar archives of Kubernetes K3s images. These are listed at https://github.com/k3s-io/k3s/releases. You'll want to download either the `k3s-airgap-images-amd64.tar` for AMD/Intel machines, `k3s-airgap-images-arm64.tar` for M1 machines, or the respective `*.tar.zst` compressed tarball if you are using `k3s` v1.26.1 and above. Finally you'll need to download the `k3s` executable for the selected version. For example, the following commands will let you work with K3s v1.24.3 build 1 offline:
 
 ```
 cd .../CACHE
