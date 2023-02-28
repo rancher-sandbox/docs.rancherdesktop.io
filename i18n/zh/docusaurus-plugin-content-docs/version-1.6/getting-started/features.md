@@ -106,7 +106,7 @@ import TabItem from '@theme/TabItem';
 
 如果你进行了非标准设置，并且知道这些检查不适用于你的情况，你可以在此选项卡上 mute/unmute 个别检查。你还可以随时重新运行诊断程序，从而验证你对环境所做的更改是否已经解决了问题。
 
-![](/img/features/diagnostics-checks-table.png)
+![](../img/features/diagnostics-checks-table.png)
 
 ## Preferences
 

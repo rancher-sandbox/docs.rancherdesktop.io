@@ -18,7 +18,7 @@ import TabsConstants from '@site/core/TabsConstants';
 
 该选项允许 Rancher Desktop 收集关于你与 Rancher Desktop 应用程序交互的信息，但不会收集你运行的工作负载等信息。
 
-![](../../img/preferences/Windows_application.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Windows_application.png)
 
 </TabItem>
 <TabItem value="macOS">
@@ -37,7 +37,7 @@ import TabsConstants from '@site/core/TabsConstants';
 
 该选项允许 Rancher Desktop 收集关于你与 Rancher Desktop 应用程序交互的信息，但不会收集你运行的工作负载等信息。
 
-![](../../img/preferences/macOS_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/macOS_application_tabBehavior.png)
 
 ### Environment
 
@@ -52,7 +52,7 @@ Rancher Desktop 附带命令行实用程序，用于与其各种功能交互。�
 - **Automatic**：`PATH` 管理将通过修改你的 shell .rc 文件来将 `~/.rd/bin` 添加到 `PATH` 中。
 - **Manual**：`PATH` 管理不会改变任何东西 - 在这种模式下，你必须手动将 `~/.rd/bin` 添加到 `PATH` 中。
 
-![](../../img/preferences/macOS_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/macOS_application_tabEnvironment.png)
 
 </TabItem>
 <TabItem value="Linux">
@@ -71,7 +71,7 @@ Rancher Desktop 附带命令行实用程序，用于与其各种功能交互。�
 
 该选项允许 Rancher Desktop 收集关于你与 Rancher Desktop 应用程序交互的信息，但不会收集你运行的工作负载等信息。
 
-![](../../img/preferences/Linux_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Linux_application_tabBehavior.png)
 
 ### Environment
 
@@ -86,7 +86,7 @@ Rancher Desktop 附带命令行实用程序，用于与其各种功能交互。�
 - **Automatic**：`PATH` 管理将通过修改你的 shell .rc 文件来将 `~/.rd/bin` 添加到 `PATH` 中。
 - **Manual**：`PATH` 管理不会改变任何东西 - 在这种模式下，你必须手动将 `~/.rd/bin` 添加到 `PATH` 中。
 
-![](../../img/preferences/Linux_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Linux_application_tabEnvironment.png)
 
 </TabItem>
 </Tabs>
