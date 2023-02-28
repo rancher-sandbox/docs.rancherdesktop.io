@@ -18,7 +18,7 @@ When an update is available, users are provided a notification and the release n
 
 This option allows Rancher Desktop to collect information on how you interact with the Rancher Desktop application. Information such as what workloads you run are not collected.
 
-![](../../img/preferences/Windows_application.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Windows_application.png)
 
 </TabItem>
 <TabItem value="macOS">
@@ -37,7 +37,7 @@ When an update is available, users are provided a notification and the release n
 
 This option allows Rancher Desktop to collect information on how you interact with the Rancher Desktop application. Information such as what workloads you run are not collected.
 
-![](../../img/preferences/macOS_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/macOS_application_tabBehavior.png)
 
 ### Environment
 
@@ -52,7 +52,7 @@ There are two options for doing this:
 - **Automatic**: `PATH` management will add `~/.rd/bin` to your `PATH` by modifying your shell .rc files for you.
 - **Manual**: `PATH` management does not change anything - in this mode, you must add `~/.rd/bin` to your `PATH` yourself.
 
-![](../../img/preferences/macOS_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/macOS_application_tabEnvironment.png)
 
 </TabItem>
 <TabItem value="Linux">
@@ -71,7 +71,7 @@ When an update is available, users are provided a notification and the release n
 
 This option allows Rancher Desktop to collect information on how you interact with the Rancher Desktop application. Information such as what workloads you run are not collected.
 
-![](../../img/preferences/Linux_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Linux_application_tabBehavior.png)
 
 ### Environment
 
@@ -86,7 +86,7 @@ There are two options for doing this:
 - **Automatic**: `PATH` management will add `~/.rd/bin` to your `PATH` by modifying your shell .rc files for you.
 - **Manual**: `PATH` management does not change anything - in this mode, you must add `~/.rd/bin` to your `PATH` yourself.
 
-![](../../img/preferences/Linux_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Linux_application_tabEnvironment.png)
 
 </TabItem>
 </Tabs>

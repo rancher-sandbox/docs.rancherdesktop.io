@@ -18,12 +18,12 @@ The number of CPUs to allocate to Rancher Desktop. The selectable range is based
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](../../img/preferences/macOS_virtualMachine.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/macOS_virtualMachine.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](../../img/preferences/Linux_virtualMachine.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Linux_virtualMachine.png)
 
 </TabItem>
 </Tabs>

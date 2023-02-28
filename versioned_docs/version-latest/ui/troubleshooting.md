@@ -39,17 +39,17 @@ To perform a factory reset:
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](../img/ui-main/Windows_Troubleshooting.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/ui-main/Windows_Troubleshooting.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](../img/ui-main/macOS_Troubleshooting.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/ui-main/macOS_Troubleshooting.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](../img/ui-main/Linux_Troubleshooting.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/ui-main/Linux_Troubleshooting.png)
 
 </TabItem>
 </Tabs>

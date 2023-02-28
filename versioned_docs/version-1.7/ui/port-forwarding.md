@@ -17,17 +17,17 @@ To forward a port:
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](../img/ui-main/Windows_PortForwarding.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/ui-main/Windows_PortForwarding.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](../img/ui-main/macOS_PortForwarding.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/ui-main/macOS_PortForwarding.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](../img/ui-main/Linux_PortForwarding.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/ui-main/Linux_PortForwarding.png)
 
 </TabItem>
 </Tabs>

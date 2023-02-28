@@ -65,7 +65,7 @@ The installation takes a few minutes to complete. After the installation, you ca
 * Installed through `container runtime`: [https://localhost:8443/](https://localhost:8443/) 
 * Installed through `helm` [https://rancher.rd.localhost/](https://rancher.rd.localhost/)
 
-![](/img/examples/rancherUiWelcomePage.png)
+![](../img/examples/rancherUiWelcomePage.png)
 
 
 <Tabs groupId="container-runtime">
@@ -108,6 +108,6 @@ docker logs [rancherContainerID] 2>&1 | grep "Bootstrap Password:"
 
 Follow the wizard instructions and click on `Continue` to land on the main Rancher UI page.
 
-![](/img/examples/rancherUiMainPage.png)
+![](../img/examples/rancherUiMainPage.png)
 
 From the Rancher UI, you can manage your local cluster, node, and more. For more information, see [Rancher Docs](https://ranchermanager.docs.rancher.com/).
