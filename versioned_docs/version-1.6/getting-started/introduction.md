@@ -5,7 +5,7 @@ slug: /
 
 Rancher Desktop is an app that provides container management and Kubernetes on the desktop. It is available for Mac (both on Intel and Apple Silicon), Windows, and Linux.
 
-![](/img/intro/intro.png)
+![](../img/intro/intro.png)
 _The above image shows Kubernetes settings on Mac on the left and Windows on the right._
 
 ## Container Management

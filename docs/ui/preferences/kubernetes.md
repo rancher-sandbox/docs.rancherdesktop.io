@@ -46,17 +46,17 @@ Disabling Traefik will not delete existing resources.
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](../../img/preferences/Windows_kubernetes.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Windows_kubernetes.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](../../img/preferences/macOS_kubernetes.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/macOS_kubernetes.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](../../img/preferences/Linux_kubernetes.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Linux_kubernetes.png)
 
 </TabItem>
 </Tabs>

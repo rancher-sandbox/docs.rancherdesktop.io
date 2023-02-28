@@ -12,17 +12,17 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](../img/ui-main/Windows_General.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/ui-main/Windows_General.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](../img/ui-main/macOS_General.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/ui-main/macOS_General.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](../img/ui-main/Linux_General.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/ui-main/Linux_General.png)
 
 </TabItem>
 </Tabs>
