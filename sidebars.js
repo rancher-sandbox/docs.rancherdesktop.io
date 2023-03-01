@@ -71,6 +71,7 @@ const sidebars = {
         "how-to-guides/rancher-on-rancher-desktop",
         "how-to-guides/skaffold-and-rancher-desktop",
         "how-to-guides/provisioning-scripts",
+        "how-to-guides/increasing-open-file-limit",
         "how-to-guides/running-air-gapped"
       ],
     },
