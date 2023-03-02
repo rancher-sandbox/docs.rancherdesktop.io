@@ -2,6 +2,10 @@
 title: 故障排除提示
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
+
 此页面提供了 Rancher Desktop 相关问题的故障排除提示。
 
 #### 问：为什么我在 Rancher Desktop 的 WSL 集成页面下看不到我的 WSL 发行版？
@@ -63,3 +67,33 @@ echo "export PATH=\$PATH:/home/$(whoami)/.local/bin" >> ~/.bashrc
 ```
 reg.exe delete HKLM\System\CurrentControlSet\Services\EventLog\Application\RancherDesktopPrivilegedService /reg:64 /f
 ```
+
+#### 问：为什么启动 Cluster Dashboard 时会出现空白屏幕？
+
+**答**：Cluster Dashboard 可能无法正常运行，因为你主机上的另一个进程正在使用 Dashboard 进程（`steve`）所依赖的 `9080` 或 `9443` 端口。要解决此问题，请识别并终止使用这些端口的进程。你可以使用下面的命令来识别使用主机上特定端口的进程。请注意，在 macOS 和 Linux 上，Rancher Dashboard 进程名为 `steve`，而在 Windows 上，它是 `steve.exe`。如果 `steve` 是唯一使用端口 9080 或 9443 的进程，请不要终止它。
+
+查找使用特定端口的进程的命令。
+
+<Tabs groupId="os">
+<TabItem value="Windows">
+
+```
+netstat -ano | findstr :9443
+```
+
+</TabItem>
+<TabItem value="macOS">
+
+```
+lsof -nP -iTCP -sTCP:LISTEN | grep 9443
+```
+
+</TabItem>
+<TabItem value="Linux">
+
+```
+lsof -nP -iTCP -sTCP:LISTEN | grep 9443
+```
+
+</TabItem>
+</Tabs>

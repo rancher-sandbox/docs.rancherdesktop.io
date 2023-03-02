@@ -9,6 +9,8 @@ import TabItem from '@theme/TabItem';
 
 本指南概述了使用 `container runtime` 或 `helm`（本地环境）在 Rancher Desktop 上安装 Rancher Dashboard 的步骤：
 
+**注意**：如果实用程序（例如：helm）或你的工作负载版本与会话中的 Kubernetes 版本不兼容，你可能会遇到问题。作为一个潜在的修复，你可以通过 [Preferences > Kubernetes](https://docs.rancherdesktop.io/getting-started/features/#kubernetes) 对话框切换到兼容的 Kubernetes 版本。[支持矩阵页面](https://www.suse.com/suse-rancher/support-matrix/all-supported-versions/rancher-v2-7-1/)上列出了 Rancher 支持的 Kubernetes 平台。
+
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
 

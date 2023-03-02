@@ -166,6 +166,17 @@ pass init 8D818FB37A9279E341F01506ED96AD27A40C9C73
 [此处]: https://www.passwordstore.org/
 
 
+### Traefik 端口绑定访问
+
+Rancher Desktop 使用 Traefik 作为默认 Ingress Controller。由于 Traefik Ingress 上的端口访问受限，用户在部署 Rancher Desktop 后可能会遇到 `permission denied` 错误。大多数 Linux 发行版（例如 Ubuntu 20.04）不允许非 root 用户监听 `1024` 以下的 TCP 和 UDP 端口。为了让 Traefik 监听本地主机上的特权端口，请运行以下命令：
+
+```
+sudo sysctl -w net.ipv4.ip_unprivileged_port_start=80
+```
+
+命令运行后，`80` 及以上的所有端口都将变为非特权端口，Traefik 将能够成功访问这些端口。
+
+
 ### 通过 .deb 包安装
 
 添加 Rancher Desktop 仓库并使用以下命令安装 Rancher Desktop：
@@ -192,7 +203,7 @@ sudo apt update
 
 ### 通过 .rpm 包安装
 
-注意：Rancher Desktop 在 Linux 上使用 QEMU，而 RHEL、Fedora 和相关发行版打包 QEMU 的方式与其他发行版不同。要在这些发行版上使用 Rancher Desktop，请使用 AppImage。
+**注意**：Rancher Desktop 在 Linux 上使用 QEMU，而 RHEL、Fedora 和相关发行版打包 QEMU 的方式与其他发行版不同。要在这些发行版上使用 Rancher Desktop，请使用 AppImage。
 
 在 openSUSE 上添加仓库并安装：
 
