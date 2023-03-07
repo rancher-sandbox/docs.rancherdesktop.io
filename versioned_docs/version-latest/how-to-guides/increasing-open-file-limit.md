@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
-Users may wish to increase their open file limit as Rancher Desktop's default `ulimit` setting for pods may be too low depending on your use case. This guide provides steps for increasing the open file limit using provisioning scripts alongside Rancher Desktop internal processes.
+You may wish to increase the open file limit as Rancher Desktop's default `ulimit` setting for pods may be too low, depending on your use case. This guide provides steps for increasing the open file limit using provisioning scripts alongside Rancher Desktop's internal processes.
 
 ## macOS & Linux Steps
 
@@ -44,7 +44,7 @@ provision:
     EOF
 ```
 
-If using the Elastic platform, please use the script below for updating the open file limit.
+If using the Elastic platform, please use the script below to set the `vm.max_map_count` parameter as well.
 
 ```
 provision:
@@ -62,11 +62,9 @@ Lastly, please stop and restart Rancher Desktop in order for the updated limits 
 
 ## Windows Steps
 
-First, be sure that you have ran Rancher Desktop at least once in order for the configurations to initialize.
+First, be sure that you have run Rancher Desktop at least once in order for the configurations to initialize.
 
-Users will then have access to the `%AppData%\rancher-desktop\provisioning` directory. Next, please create a file in this directory that will hold the script to update the open file limit by increasing the `max_map_count` inside the vm, ex: `%AppData%\rancher-desktop\provisioning\map_count.start`.
-
-Implement the script below in your created `*.start` file.
+You can then create a provisioning script, say `map_count.start`, at `%AppData%\rancher-desktop\provisioning` with the below code to update the open file limit by increasing the `max_map_count` parameter.
 
 ```
 #!/bin/sh
