@@ -1,0 +1,70 @@
+{
+  "tutorialSidebar": [
+    {
+      "type": "category",
+      "label": "Getting Started",
+      "items": [
+        "getting-started/introduction",
+        "getting-started/installation"
+      ],
+      "collapsed": false
+    },
+    {
+      "type": "category",
+      "label": "User Interface",
+      "items": [
+        "ui/general",
+        "ui/port-forwarding",
+        "ui/images",
+        "ui/troubleshooting",
+        "ui/diagnostics",
+        {
+          "type": "category",
+          "label": "Preferences",
+          "items": [
+            "ui/preferences/application",
+            "ui/preferences/virtual-machine",
+            "ui/preferences/wsl",
+            "ui/preferences/container-engine",
+            "ui/preferences/kubernetes"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Tutorials",
+      "items": [
+        "tutorials/working-with-images",
+        "tutorials/working-with-containers"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "How-to Guides",
+      "items": [
+        "how-to-guides/hello-world-example",
+        "how-to-guides/transfer-container-images",
+        "how-to-guides/create-multi-node-cluster",
+        "how-to-guides/setup-NGINX-Ingress-Controller",
+        "how-to-guides/vs-code-docker",
+        "how-to-guides/vs-code-remote-containers",
+        "how-to-guides/rancher-on-rancher-desktop",
+        "how-to-guides/skaffold-and-rancher-desktop",
+        "how-to-guides/provisioning-scripts",
+        "how-to-guides/running-air-gapped"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "References",
+      "items": [
+        "references/architecture",
+        "references/rdctl-command-reference",
+        "references/bundled-utilities"
+      ]
+    },
+    "faq",
+    "troubleshooting-tips"
+  ]
+}

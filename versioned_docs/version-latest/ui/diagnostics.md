@@ -18,17 +18,17 @@ On this tab you can mute/unmute individual checks if you have a non-standard set
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/ui-main/Windows_Diagnostics.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/ui-main/Windows_Diagnostics.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/ui-main/macOS_Diagnostics.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/ui-main/macOS_Diagnostics.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/ui-main/Linux_Diagnostics.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/ui-main/Linux_Diagnostics.png)
 
 </TabItem>
 </Tabs>

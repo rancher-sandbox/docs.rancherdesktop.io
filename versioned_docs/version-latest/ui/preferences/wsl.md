@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 The option to make the Rancher Desktop Kubernetes configuration accessible to any Linux distributions configured for WSL. Once enabled, you can communicate with the Rancher Desktop Kubernetes cluster using tools like `kubectl` from within the WSL distribution.
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Windows_wsl.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Windows_wsl.png)
 
 With WSL, memory and CPU allocation is configured globally across all Linux distributions. Refer to the [WSL documentation] for instructions.
 
