@@ -7,6 +7,24 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/ui-main/Windows_Troubleshooting.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/ui-main/macOS_Troubleshooting.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/ui-main/Linux_Troubleshooting.png)
+
+</TabItem>
+</Tabs>
+
 ### Show Logs
 
 Use this option to open the folder containing all Rancher Desktop log files.
@@ -36,20 +54,3 @@ To perform a factory reset:
 1. Click **Factory Reset** to proceed. Kubernetes stops and Rancher Desktop closes.
 1. Optional: start Rancher Desktop again.
 
-<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
-<TabItem value="Windows">
-
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/ui-main/Windows_Troubleshooting.png)
-
-</TabItem>
-<TabItem value="macOS">
-
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/ui-main/macOS_Troubleshooting.png)
-
-</TabItem>
-<TabItem value="Linux">
-
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/ui-main/Linux_Troubleshooting.png)
-
-</TabItem>
-</Tabs>

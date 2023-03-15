@@ -7,59 +7,62 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
-## General
+### General
 
 Set the [container runtime] for Rancher Desktop. Users have the option of [containerd] which provides namespaces for containers and the use of nerdctl or [dockerd (moby)] which enables the Docker API and the use of the Docker CLI. Only one container runtime will function at a time.
-
-When switching to a different container runtime:
-
-- Workloads and images that have been built or pulled using the existing container runtime are not available on the container runtime being switched to.
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Windows_containerEngine_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Windows_containerEngine_tabGeneral.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_containerEngine_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/macOS_containerEngine_tabGeneral.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_containerEngine_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Linux_containerEngine_tabGeneral.png)
 
 </TabItem>
 </Tabs>
 
-## Allowed Images
+#### Container Engine
+
+When switching to a different container runtime: Workloads and images that have been built or pulled using the current container runtime are not available on the container runtime being switched to.
+
+
+### Allowed Images
 
 The `Allowed Images` tab lets you control which registry artifacts you can access within Rancher Desktop. For example, you may want to pull container images only from your organization's private registry or only from your department-specific namespace in your organization's registry, etc. You can specify image name patterns to allow accessing images only from specific registries and/or repositories.
-
-Check the **Enable** checkbox to enable Rancher Desktop to apply the specified patterns while pulling or pushing images, which means only images whose names match at least one of the specified patterns will be allowed.
-
-You can use the **+** and **-** buttons to add/remove image name patterns. 
 
 <Tabs groupId="os">
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Windows_containerEngine_tabAllowedImages.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Windows_containerEngine_tabAllowedImages.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_containerEngine_tabAllowedImages.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/macOS_containerEngine_tabAllowedImages.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_containerEngine_tabAllowedImages.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Linux_containerEngine_tabAllowedImages.png)
 
 </TabItem>
 </Tabs>
 
-### How to specify Allowed Image patterns
+#### Allowed image patterns
+
+Check the **Enable** checkbox to enable Rancher Desktop to apply the specified patterns while pulling or pushing images, which means only images whose names match at least one of the specified patterns will be allowed.
+
+You can use the **+** and **-** buttons to add/remove image name patterns.
+
+##### How to specify Allowed Image patterns
 
 You can specify Allowed Image patterns using the format `[registry/][:port/][organization/]repository[:tag]`.
 
@@ -71,7 +74,7 @@ You can specify Allowed Image patterns using the format `[registry/][:port/][org
 
 **Note:** Filtering by `tag` does not actually work; the corresponding digests (`repository@digest`) will have to be added to the allow list as well, making this impractical. Please file a Github issue if you have a use-case that requires filtering based on tags!
 
-### Examples
+#### Examples
 
 | Pattern                   | Meaning                                                                                                                                                                                                             |
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
