@@ -21,8 +21,9 @@ Rancher Desktop settings are determined as follows:
 * If neither of them exist then load "user" deployment profile (again both "defaults" and "locked")
 * Load saved preferences from `settings.json` file
 * If there are no saved settings, use the "defaults" profile loaded earlier instead
-* If the "defaults" profile didn't exist either, show the first-run dialog
-* Otherwise set any missing values to the builtin application defaults
+* Copy values from commandline arguments used to launch the app into settings
+* If the settings are still completely empty, show the first-run dialog
+* Fill any missing values from the builtin application defaults
 * Copy values from the "locked" profile over the current settings
 
 The user cannot modify any settings (via GUI or CLI) that have been locked by the profile.
