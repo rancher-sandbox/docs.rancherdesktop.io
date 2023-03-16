@@ -21,7 +21,7 @@ Rancher Desktop settings are determined as follows:
 * If neither of them exist then load "user" deployment profile (again both "defaults" and "locked")
 * Load saved preferences from `settings.json` file
 * If there are no saved settings, use the "defaults" profile loaded earlier instead
-* Copy values from commandline arguments used to launch the app into settings
+* Copy values from command-line arguments used to launch the app into settings
 * If the settings are still completely empty, show the first-run dialog
 * Fill any missing values from the builtin application defaults
 * Copy values from the "locked" profile over the current settings
@@ -32,7 +32,7 @@ Rancher Desktop will refuse to load the application if a profile exists, but can
 
 Deployment profiles will not be modified or removed by Rancher Desktop. They will not be affected by a factory reset or uninstall.
 
-The structure of the profile data matches the application settins:
+The structure of the profile data matches the application settings:
 
 ```json title="rdctl list-settings"
 {
@@ -170,11 +170,12 @@ LOCKED=~/Library/Preferences/io.rancherdesktop.profile.locked.plist
 plutil -create xml1 "$LOCKED"
 
 plutil -insert containerEngine -dictionary "$LOCKED"
-plutil -insert containerEngine.enabled -bool true "$LOCKED"
+plutil -insert containerEngine.allowedImages -dictionary "$LOCKED"
+plutil -insert containerEngine.allowedImages.enabled -bool true "$LOCKED"
 
-plutil -insert containerEngine.patterns -array "$LOCKED"
-plutil -insert containerEngine.patterns -string busybox -append "$LOCKED"
-plutil -insert containerEngine.patterns -string nginx -append "$LOCKED"
+plutil -insert containerEngine.allowedImages.patterns -array "$LOCKED"
+plutil -insert containerEngine.allowedImages.patterns -string busybox -append "$LOCKED"
+plutil -insert containerEngine.allowedImages.patterns -string nginx -append "$LOCKED"
 ```
 
 #### Verify the plist files
@@ -205,13 +206,16 @@ plutil -insert containerEngine.patterns -string nginx -append "$LOCKED"
 <dict>
 	<key>containerEngine</key>
 	<dict>
-		<key>enabled</key>
-		<true/>
-		<key>patterns</key>
-		<array>
-			<string>busybox</string>
-			<string>nginx</string>
-		</array>
+		<key>allowedImages</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>patterns</key>
+			<array>
+				<string>busybox</string>
+				<string>nginx</string>
+			</array>
+		</dict>
 	</dict>
 </dict>
 </plist>
@@ -247,7 +251,7 @@ rdctl list-settings > ~/.config/rancher-desktop.defaults.json
     "name": "moby"
   },
   "kubernetes": {
-    "enabled": true
+    "enabled": false
   }
 }
 ```
