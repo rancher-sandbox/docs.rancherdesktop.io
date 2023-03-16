@@ -25,6 +25,7 @@ const sidebars = {
       items: [
         "getting-started/introduction",
         "getting-started/installation",
+        "getting-started/deployment",
       ],
       collapsed: false,
     },
