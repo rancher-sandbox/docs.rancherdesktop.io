@@ -52,7 +52,7 @@ Rancher Desktop 附带命令行实用程序，用于与其各种功能交互。�
 - **Automatic**：`PATH` 管理将通过修改你的 shell .rc 文件来将 `~/.rd/bin` 添加到 `PATH` 中。
 - **Manual**：`PATH` 管理不会改变任何东西 - 在这种模式下，你必须手动将 `~/.rd/bin` 添加到 `PATH` 中。
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/macOS_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabEnvironment.png)
 
 </TabItem>
 <TabItem value="Linux">
@@ -86,7 +86,7 @@ Rancher Desktop 附带命令行实用程序，用于与其各种功能交互。�
 - **Automatic**：`PATH` 管理将通过修改你的 shell .rc 文件来将 `~/.rd/bin` 添加到 `PATH` 中。
 - **Manual**：`PATH` 管理不会改变任何东西 - 在这种模式下，你必须手动将 `~/.rd/bin` 添加到 `PATH` 中。
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Linux_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabEnvironment.png)
 
 </TabItem>
 </Tabs>
