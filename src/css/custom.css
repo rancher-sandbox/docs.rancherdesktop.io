@@ -26,3 +26,10 @@
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+.img_ev3q {
+  box-shadow: 10px 10px 25px rgb(100, 100, 100);
+  -moz-box-shadow: 10px 10px 25px rgb(100, 100, 100);
+  -webkit-box-shadow: 10px 10px 25px rgb(100, 100, 100);
+  -khtml-box-shadow: 10px 10px 25px rgb(100, 100, 100);
+}
