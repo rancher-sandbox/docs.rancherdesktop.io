@@ -195,6 +195,13 @@ sudo sysctl -w net.ipv4.ip_unprivileged_port_start=80
 
 After the command is run, all ports `80` and above will become unprivileged and Traefik will be able to successfully access said ports.
 
+To persist this change in the next boot add the same directive in `/etc/sysctl.conf`.
+
+```
+net.ipv4.ip_unprivileged_port_start=80
+```
+
+Traefik will listen on an alternative network if it's unable to access the 
 
 ### Installation via .deb Package
 
