@@ -13,8 +13,8 @@ Rancher Desktop works with two container engines, [containerd](https://container
 
 #### Create a folder
 ```
-mkdir ../hello-world
-cd ../hello-world
+mkdir hello-world
+cd hello-world
 ```
 
 #### Create a blank Dockerfile
@@ -66,8 +66,8 @@ Make sure that you switch the **Container Runtime** setting in the **Kubernetes 
 
 #### Create a folder and add a sample index.html file as follows
 ```
-mkdir ../nginx
-cd ../nginx
+mkdir nginx
+cd nginx
 echo "<h1>Hello World from NGINX!!</h1>" > index.html
 ```
 
