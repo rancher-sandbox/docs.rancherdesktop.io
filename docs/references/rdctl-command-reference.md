@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 
 Run `rdctl` or `rdctl help` to see the list of available commands.
 
-```
+``` autoupdate=true
 > rdctl help
 The eventual goal of this CLI is to enable any UI-based operation to be done from the command-line as well.
 
@@ -49,10 +49,10 @@ Use "rdctl [command] --help" for more information about a command.
 
 ## rdctl api
 
-Run `rdctl api` to list all endpoints globally.
+Run `rdctl api /` to list all endpoints globally.
 
-```
-$ ../../../resources/darwin/bin/rdctl api / | jq -r .
+``` autoupdate=true
+$ rdctl api / | jq -r .[]
 [
   "GET /",
   "GET /v0",
@@ -63,10 +63,10 @@ $ ../../../resources/darwin/bin/rdctl api / | jq -r .
 ```
 ## rdctl api /vX
 
-Run `rdctl api /v0` to list all endpoints in a specified version.
+Run `rdctl api /v1` to list all endpoints in version 1.
 
-```
-$ rdctl api /v0 | jq -r .
+``` autoupdate=true
+$ rdctl api /v1 | jq -r .[]
 [
   "GET /v0",
   "GET /v0/settings",
@@ -97,7 +97,7 @@ but less concise and user-friendly.
 
 Run `rdctl list-settings` to see the current active configuration.
 
-```
+``` autoupdate=true
 > rdctl list-settings
 {
   "version": 4,
@@ -213,7 +213,7 @@ curl -s -H "Authorization: Basic $(echo -n "user:PASSWORD" | base64)"
 
 Run `rdctl version` to see the current rdctl CLI version.
 
-```
+``` autoupdate=true
 > rdctl version
 rdctl client version: 1.0.0, targeting server version: v0
 ```
