@@ -1,0 +1,160 @@
+#!/usr/bin/env perl
+
+=pod
+
+update-codeblocks
+
+The purpose of this tool is to updates console codeblocks in markdown files
+by re-running embedded shell commands and updating their output, to automatically
+update documentation to the latest versions of the utilities used.
+
+Updated content is written to STDOUT unless the --update option is used, in which
+case the existing file is updated in-place. Make sure the original content is
+stored in the repo, in case something goes wrong.
+
+Only codeblocks with the `autoupdate=true` attribute are updated:
+
+```console autoupdate=true comment="#"
+Any text before the first command is copied verbatim. Command start with
+either the '>' or '$' characters:
+
+> date
+Sun 26 Mar 2023 21:22:48 PDT
+
+
+$ ls
+If the first line after the command includes the yada yada yada symbol (...)
+then the output is not replaced. The command is still executed though.
+
+The sharp-eyed reader will have noticed that the empty lines in front of this
+command have been preserved even though they were not part of the `date` output.
+
+This tool understands continuation lines:
+
+$ bash -c \
+  "echo Hi there!"
+Oh, hello, this line will be updated when the command is re-run.
+
+# It is possible to define a "comment" character/string. Only the text before
+the first comment line is replaced with the new command output.
+
+Here-documents are also supported:
+
+$ cat <<EOT
+foobar
+EOT
+foobar
+```
+
+Note that the embedded example above can be updated with this tool as well:
+
+```
+./scripts/update-codeblocks --update ./scripts/update-codeblocks
+git diff
+```
+
+=cut
+
+use strict;
+use warnings;
+
+use constant {
+    COPY    => "copy",
+    UPDATE  => "update",
+    COMMAND => "command",
+    HEREDOC => "heredoc",
+    CAPTURE => "capture",
+    SKIP    => "SKIP",
+};
+
+my $command;
+my $comment;
+my $debug = 0;
+my $heredoc;
+my $newlines = 0;
+my $output = "";
+my $update;
+
+$update = shift if @ARGV && $ARGV[0] eq "--update";
+
+my $state = COPY;
+while (<>) {
+    if ($state eq COPY) {
+        if (/^```.*autoupdate=true/) {
+            $comment = /comment="(.*?)"/ ? $1 : "";
+            $state = UPDATE;
+        }
+    }
+    elsif ($state eq UPDATE || $state eq SKIP) {
+        # stop skipping lines once a comment is encountered
+        $state = UPDATE if $comment && /^\Q$comment/;
+        if (/^[>\$]\s*(.*)/) {
+            $command = $1;
+            $state = COMMAND;
+        }
+        if (/^```/) {
+            $state = COPY;
+        }
+        if ($state eq UPDATE || $state eq COMMAND) {
+            # preserve trailing newlines of skipped output
+            $output .= "\n" x $newlines;
+            $newlines = 0;
+        }
+        if ($state eq SKIP) {
+            if (/^\s*$/) {
+                $newlines++;
+            } else {
+                $newlines = 0;
+            }
+            next;
+        }
+    }
+    elsif ($state eq COMMAND) {
+        if ($command =~ /\\$/) {
+            # append continuation line
+            $command .= "\n$_";
+            chomp $command;
+        } else {
+            if ($command =~ /<<(\w+)/) {
+                # continue appending lines until we hit the heredoc delimiter
+                $heredoc = $1;
+                $state = HEREDOC;
+            } else {
+                $state = CAPTURE;
+            }
+            redo;
+        }
+    }
+    elsif ($state eq HEREDOC) {
+        $command .= "\n$_";
+        chomp $command;
+        if (/^$heredoc$/) {
+            $state = CAPTURE;
+        }
+    }
+    elsif ($state eq CAPTURE) {
+        $output .= ">>> $command <<<\n" if $debug;
+        my $capture = qx[$command];
+        if (/\.\.\./) {
+            # if first line after command contains "..." then don't replace the output
+            $state = UPDATE;
+        } else {
+            $output .= $capture;
+            $state = SKIP;
+            redo;
+        }
+    }
+    else {
+        die "Unexpected state $state\n";
+    }
+    $output .= "[$state]" if $debug;
+    $output .= $_;
+    if (eof) {
+        if ($update) {
+            # Overwrite the input file
+            open STDOUT, ">", $ARGV or die;
+        }
+        print $output;
+        $output = "";
+    }
+}
