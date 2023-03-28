@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 `rdctl` is a command-line tool, included in Rancher Desktop that enables command-line access to GUI features. `rdctl` is developed to help users with tasks such as scripting (for automation, CI/CD), troubleshooting, remote management, etc. The current version of `rdctl` supports the below commands (with support for more commands to be added in upcoming releases):
- 
+
 **:warning: As the current version of `rdctl` is experimental, all subcommands names, their arguments, and their output are still subjected to change.**
 
 **:warning: Rancher Desktop app must be running on your machine to use `rdctl` commands.**
@@ -16,6 +16,9 @@ import TabItem from '@theme/TabItem';
 ## rdctl or rdctl help
 
 Run `rdctl` or `rdctl help` to see the list of available commands.
+
+<details>
+<summary>Example Output</summary>
 
 ``` autoupdate=true
 > rdctl help
@@ -47,9 +50,14 @@ Flags:
 Use "rdctl [command] --help" for more information about a command.
 ```
 
+</details>
+
 ## rdctl api
 
 Run `rdctl api /` to list all endpoints globally.
+
+<details>
+<summary>Example Output</summary>
 
 ``` autoupdate=true
 $ rdctl api / | jq -r .[]
@@ -69,9 +77,15 @@ PUT /v1/shutdown
 GET /v1/transient_settings
 PUT /v1/transient_settings
 ```
+
+</details>
+
 ## rdctl api /vX
 
 Run `rdctl api /v1` to list all endpoints in version 1.
+
+<details>
+<summary>Example Output</summary>
 
 ``` autoupdate=true
 $ rdctl api /v1 | jq -r .[]
@@ -89,6 +103,9 @@ PUT /v1/shutdown
 GET /v1/transient_settings
 PUT /v1/transient_settings
 ```
+
+</details>
+
 ## rdctl api /v0/settings
 
 `rdctl api [endpoints]` are commands that are most useful for users working directly with the API itself, and therefore they would not be for everyday use, such as `rdctl set` might be. For example,
@@ -99,18 +116,23 @@ a command such as
 rdctl api /v0/settings --method PUT --body '{"kubernetes": {"enabled": false}}'
 ```
 
-is the same as 
+is the same as
+
 ```
 rdctl set --kubernetes-enabled=false
 ```
 
 but less concise and user-friendly.
+
 ## rdctl list-settings
 
 <Tabs groupId="command-reference">
   <TabItem value="CLI" default>
 
 Run `rdctl list-settings` to see the current active configuration.
+
+<details>
+<summary>Example Output</summary>
 
 ``` autoupdate=true
 > rdctl list-settings
@@ -195,15 +217,22 @@ Run `rdctl list-settings` to see the current active configuration.
   }
 }
 
-``` 
+```
+
+</details>
+
   </TabItem>
   <TabItem value="API" default>
 
 Run the following API call to see the current active configuration:
 
+<details>
+<summary>Example Output</summary>
+
 ```
 curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -X GET
 ```
+</details>
 
 **Note:** Using `-X GET` is optional. You could also just use the preceding command by itself.
 
@@ -217,18 +246,30 @@ curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -X GET
 
 Run `rdctl set [flags]` to set properties. In most of the cases, Kubernetes would be reset on running the `set` command. You can set multiple properties by chaining in a single command. See some examples below.
 
+<details>
+<summary>Example Output</summary>
+
 ```
 > rdctl set --kubernetes-enabled=false
 > rdctl set --container-engine docker --kubernetes-version 1.21.2
 ```
+
+</details>
+
   </TabItem>
   <TabItem value="API" default>
 
 Run the following API call to set properties:
 
+<details>
+<summary>Example Output</summary>
+
 ```
 curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -d '{ "kubernetes": { "containerEngine": "docker", "enabled": false, "version":"1.23.5" }}' -X PUT
 ```
+
+</details>
+
   </TabItem>
 </Tabs>
 
@@ -239,20 +280,29 @@ curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -d '{ 
 
 Run `rdctl shutdown` to gracefully shut down Rancher Desktop.
 
+<details>
+<summary>Example Output</summary>
+
 ```
 > rdctl shutdown
 Shutting down.
 ```
+</details>
 
   </TabItem>
   <TabItem value="API" default>
 
-
 Run the following API call to shut down Rancher Desktop:
+
+<details>
+<summary>Example Output</summary>
 
 ```
 shutdown: curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/shutdown -X PUT
 ```
+
+</details>
+
   </TabItem>
 </Tabs>
 
@@ -263,19 +313,29 @@ shutdown: curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/shutd
 
 Run `rdctl start` to ensure that Rancher Desktop is running and configured as requested.
 
+<details>
+<summary>Example Output</summary>
+
 ```
 > rdctl start --container-runtime dockerd -- kubernetes-version 1.19.3
 ```
 
+</details>
+
   </TabItem>
   <TabItem value="API" default>
 
-
 Run the following API call to ensure Rancher Desktop is running and configured, making sure to fill in your respective user and password values:
+
+<details>
+<summary>Example Output</summary>
 
 ```
 curl -s -H "Authorization: Basic $(echo -n "user:PASSWORD" | base64)"
 ```
+
+</details>
+
   </TabItem>
 </Tabs>
 
@@ -283,7 +343,12 @@ curl -s -H "Authorization: Basic $(echo -n "user:PASSWORD" | base64)"
 
 Run `rdctl version` to see the current rdctl CLI version.
 
+<details>
+<summary>Example Output</summary>
+
 ``` autoupdate=true
 > rdctl version
 rdctl client version: 1.1.0, targeting server version: v1
 ```
+
+</details>
