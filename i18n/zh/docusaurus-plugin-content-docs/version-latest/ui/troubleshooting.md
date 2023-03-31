@@ -7,6 +7,24 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/ui-main/Windows_Troubleshooting.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/ui-main/macOS_Troubleshooting.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/ui-main/Linux_Troubleshooting.png)
+
+</TabItem>
+</Tabs>
+
 ### Show Logs
 
 使用此选项打开包含所有 Rancher Desktop 日志文件的文件夹。
@@ -36,20 +54,3 @@ import TabsConstants from '@site/core/TabsConstants';
 1. 单击 **Factory Reset**。Kubernetes 会停止，Rancher Desktop 会关闭。
 1. 可选：再次启动 Rancher Desktop。
 
-<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
-<TabItem value="Windows">
-
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/ui-main/Windows_Troubleshooting.png)
-
-</TabItem>
-<TabItem value="macOS">
-
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/ui-main/macOS_Troubleshooting.png)
-
-</TabItem>
-<TabItem value="Linux">
-
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/ui-main/Linux_Troubleshooting.png)
-
-</TabItem>
-</Tabs>

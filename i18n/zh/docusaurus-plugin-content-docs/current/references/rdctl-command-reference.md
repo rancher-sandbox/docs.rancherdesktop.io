@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 
 运行 `rdctl` 或 `rdctl help` 查看可用命令的列表：
 
-```
+```autoupdate=true
 > rdctl help
 The eventual goal of this CLI is to enable any UI-based operation to be done from the command-line as well.
 
@@ -25,19 +25,19 @@ Usage:
   rdctl [command]
 
 Available Commands:
-  api           Runs API endpoints directly
-  api /vX       Enables you to see the endpoints for a particular version; e.g., v0
-  completion    Generates the autocompletion script for the specified shell
+  api           Run API endpoints directly
+  completion    Generate the autocompletion script for the specified shell
+  factory-reset Clear all the Rancher Desktop state and shut it down.
   help          Help about any command
-  list-settings Lists the current settings
-  set           Updates selected fields in the Rancher Desktop UI and restart the backend
+  list-settings Lists the current settings.
+  set           Update selected fields in the Rancher Desktop UI and restart the backend.
   shell         Run an interactive shell or a command in a Rancher Desktop-managed VM
   shutdown      Shuts down the running Rancher Desktop application
-  start         Start up Rancher Desktop or update its settings
-  version       Shows the CLI version
+  start         Start up Rancher Desktop, or update its settings.
+  version       Shows the CLI version.
 
 Flags:
-      --config-path string   config file (default C:\Users\GunasekharMatamalam\AppData\Roaming\rancher-desktop\rd-engine.json)
+      --config-path string   config file (default /Users/jan/Library/Application Support/rancher-desktop/rd-engine.json)
   -h, --help                 help for rdctl
       --host string          default is localhost; most useful for WSL
       --password string      overrides the password setting in the config file
@@ -49,30 +49,45 @@ Use "rdctl [command] --help" for more information about a command.
 
 ## rdctl api
 
-运行 `rdctl api` 全局列出所有端点：
+运行 `rdctl api /` 全局列出所有端点：
 
-```
-$ ../../../resources/darwin/bin/rdctl api / | jq -r .
-[
-  "GET /",
-  "GET /v0",
-  "GET /v0/settings",
-  "PUT /v0/settings",
-  "PUT /v0/shutdown"
-]
+```autoupdate=true
+$ rdctl api / | jq -r .[]
+GET /
+GET /v0
+GET /v1
+GET /v1/about
+GET /v1/diagnostic_categories
+GET /v1/diagnostic_checks
+POST /v1/diagnostic_checks
+GET /v1/diagnostic_ids
+PUT /v1/factory_reset
+PUT /v1/propose_settings
+GET /v1/settings
+PUT /v1/settings
+PUT /v1/shutdown
+GET /v1/transient_settings
+PUT /v1/transient_settings
 ```
 ## rdctl api /vX
 
-运行 `rdctl api /v0` 列出指定版本的所有端点：
+运行 `rdctl api /v1` 列出版本 1 中的所有端点：
 
-```
-$ rdctl api /v0 | jq -r .
-[
-  "GET /v0",
-  "GET /v0/settings",
-  "PUT /v0/settings",
-  "PUT /v0/shutdown"
-]
+```autoupdate=true
+$ rdctl api /v1 | jq -r .[]
+GET /v1
+GET /v1/about
+GET /v1/diagnostic_categories
+GET /v1/diagnostic_checks
+POST /v1/diagnostic_checks
+GET /v1/diagnostic_ids
+PUT /v1/factory_reset
+PUT /v1/propose_settings
+GET /v1/settings
+PUT /v1/settings
+PUT /v1/shutdown
+GET /v1/transient_settings
+PUT /v1/transient_settings
 ```
 ## rdctl api /v0/settings
 
@@ -97,21 +112,54 @@ rdctl set --kubernetes-enabled=false
 
 运行 `rdctl list-settings` 以查看当前的活动配置：
 
-```
+```autoupdate=true
 > rdctl list-settings
 {
-  "version": 4,
-  "kubernetes": {
-    "version": "1.22.7",
-    "memoryInGB": 2,
+  "version": 6,
+  "application": {
+    "adminAccess": false,
+    "pathManagementStrategy": "rcfiles",
+    "updater": {
+      "enabled": false
+    },
+    "debug": false,
+    "telemetry": {
+      "enabled": true
+    },
+    "autoStart": false,
+    "startInBackground": false,
+    "hideNotificationIcon": false,
+    "window": {
+      "quitOnClose": false
+    }
+  },
+  "virtualMachine": {
+    "memoryInGB": 6,
     "numberCPUs": 2,
+    "hostResolver": true
+  },
+  "WSL": {
+    "integrations": {}
+  },
+  "containerEngine": {
+    "allowedImages": {
+      "enabled": false,
+      "patterns": [
+        "docker.io"
+      ]
+    },
+    "name": "moby"
+  },
+  "kubernetes": {
+    "version": "",
     "port": 6443,
-    "containerEngine": "moby",
-    "checkForExistingKimBuilder": false,
-    "enabled": true,
-    "WSLIntegrations": {},
+    "enabled": false,
     "options": {
-      "traefik": true
+      "traefik": true,
+      "flannel": true
+    },
+    "ingress": {
+      "localhostOnly": false
     }
   },
   "portForwarding": {
@@ -121,10 +169,32 @@ rdctl set --kubernetes-enabled=false
     "showAll": true,
     "namespace": "k8s.io"
   },
-  "telemetry": true,
-  "updater": true,
-  "debug": false
+  "diagnostics": {
+    "showMuted": false,
+    "mutedChecks": {}
+  },
+  "experimental": {
+    "virtualMachine": {
+      "type": "qemu",
+      "useRosetta": false,
+      "socketVMNet": false,
+      "mount": {
+        "type": "reverse-sshfs",
+        "9p": {
+          "securityModel": "none",
+          "protocolVersion": "9p2000.L",
+          "msizeInKB": 128,
+          "cacheMode": "mmap"
+        }
+      },
+      "networkingTunnel": false
+    }
+  },
+  "extensions": {
+    "docker/logs-explorer-extension:0.2.2": true
+  }
 }
+
 ```
 </TabItem>
   <TabItem value="API" default>
@@ -213,7 +283,7 @@ curl -s -H "Authorization: Basic $(echo -n "user:PASSWORD" | base64)"
 
 运行 `rdctl version` 来查看当前 rdctl CLI 的版本：
 
-```
+```autoupdate=true
 > rdctl version
-rdctl client version: 1.0.0, targeting server version: v0
+rdctl client version: 1.1.0, targeting server version: v1
 ```

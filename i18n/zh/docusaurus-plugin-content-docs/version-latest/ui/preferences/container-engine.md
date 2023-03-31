@@ -7,13 +7,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
-## 通用
+### General
 
 为 Rancher Desktop 设置[容器运行时]。用户可以选择 [containerd] 为容器提供命名空间，也可以使用 nerdctl 或 [dockerd (moby)] 来启用 D​​ocker API 和 Docker CLI。一次只能运行一个容器运行时。
-
-切换到不同的容器运行时：
-
-- 使用现有容器运行时构建或拉取的工作负载和镜像在切换的容器运行时不可用。
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
@@ -33,13 +29,14 @@ import TabsConstants from '@site/core/TabsConstants';
 </TabItem>
 </Tabs>
 
-## Allowed Images
+#### Container Engine
+
+切换到不同容器运行时的时候：使用当前容器运行时构建或拉取的工作负载和镜像在切换的容器运行时不可用。
+
+
+### Allowed Images
 
 `Allowed Images` 选项卡用于控制可以在 Rancher Desktop 中访问的镜像仓库工件。例如，你可能只想从组织的私有镜像仓库，或仅从组织镜像仓库中特定部门的命名空间中拉取容器镜像。你可以指定镜像名称模式，从而仅允许访问特定镜像仓库和/或仓库的镜像。
-
-选中 **Enable** 复选框，这样，Rancher Desktop 在拉取或推送镜像时将应用指定的模式，这意味着只允许名称至少与指定模式之一匹配的镜像。
-
-你可以使用 **+** 和 **-** 按钮来添加/删除镜像名称模式。
 
 <Tabs groupId="os">
 <TabItem value="Windows">
@@ -59,7 +56,13 @@ import TabsConstants from '@site/core/TabsConstants';
 </TabItem>
 </Tabs>
 
-### 如何指定 Allowed Image Patterns
+#### Allowed image patterns
+
+选中 **Enable** 复选框，这样，Rancher Desktop 在拉取或推送镜像时将应用指定的模式，这意味着只允许名称至少与指定模式之一匹配的镜像。
+
+你可以使用 **+** 和 **-** 按钮来添加/删除镜像名称模式。
+
+##### 如何指定 Allowed Image Patterns
 
 你可以使用 `[registry/][:port/][organization/]repository[:tag]` 格式来指定 Allowed Image Pattern（允许的镜像模式）。
 
@@ -71,7 +74,7 @@ import TabsConstants from '@site/core/TabsConstants';
 
 **注意**：按 `tag` 过滤实际上不起作用；相应的摘要 (`repository@digest`) 也必须添加到允许列表中才行，因此不实用。如果你有需要根据标签进行过滤的用例，请提交 Github issue。
 
-### 示例
+#### 示例
 
 | 模式 | 意义 |
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
