@@ -13,8 +13,8 @@ Rancher Desktop 使用了两个容器引擎，分别是 [containerd](https://con
 
 #### 创建文件夹
 ```
-mkdir ../hello-world
-cd ../hello-world
+mkdir hello-world
+cd hello-world
 ```
 
 #### 创建一个空白的 Dockerfile
@@ -66,8 +66,8 @@ docker rmi helloworld:v1.0
 
 #### 创建一个文件夹并添加一个示例 index.html 文件，如下所示
 ```
-mkdir ../nginx
-cd ../nginx
+mkdir nginx
+cd nginx
 echo "<h1>Hello World from NGINX!!</h1>" > index.html
 ```
 
