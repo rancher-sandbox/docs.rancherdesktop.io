@@ -124,6 +124,81 @@ rdctl set --kubernetes-enabled=false
 
 but less concise and user-friendly.
 
+## rdctl extension install
+
+Installs a Rancher Desktop extension.
+
+```
+rdctl extension install <image-id>
+```
+
+<details>
+<summary>Options & Example Output</summary>
+
+**Options**
+
+```
+--force               Avoids any interactivity.
+<image-id>:<tag>      The <tag> is optional, e.g. splatform/epinio-docker-desktop:latest.
+```
+
+**Example**
+
+``` autoupdate=true
+$ rdctl extension install docker/logs-explorer-extension:0.2.2
+Installing image docker/logs-explorer-extension:0.2.2
+```
+
+</details>
+
+## rdctl extension ls
+
+Lists currently installed images.
+
+```
+rdctl extension ls
+```
+
+<details>
+<summary>Example Output</summary>
+
+**Example**
+
+``` autoupdate=true
+$ rdctl extension ls
+Extension IDs
+
+docker/logs-explorer-extension:0.2.2
+```
+
+</details>
+
+## rdctl extension uninstall
+
+Uninstalls a Rancher Desktop extension.
+
+```
+rdctl extension uninstall <image-id>
+```
+
+<details>
+<summary>Options & Example Output</summary>
+
+**Options**
+
+```
+<image-id>:<tag>      The <tag> is optional, e.g. splatform/epinio-docker-desktop:latest.
+```
+
+**Example**
+
+``` autoupdate=true
+$ rdctl extension uninstall docker/logs-explorer-extension:0.2.2
+Uninstalling image docker/logs-explorer-extension:0.2.2: Deleted docker/logs-explorer-extension:0.2.2
+```
+
+</details>
+
 ## rdctl list-settings
 
 <Tabs groupId="command-reference">
@@ -232,6 +307,7 @@ Run the following API call to see the current active configuration:
 ```
 curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -X GET
 ```
+
 </details>
 
 **Note:** Using `-X GET` is optional. You could also just use the preceding command by itself.
