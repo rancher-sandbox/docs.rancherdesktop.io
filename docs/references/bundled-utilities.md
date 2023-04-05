@@ -10,6 +10,7 @@ Rancher Desktop uses several utilities/subsystems as dependencies under the hood
 
 | Rancher Desktop Version | Dependency Versions |
 | ------------- | ---------------- |
+| v1.8.1 | There are no updated dependencies in the 1.8.1 release |
 | v1.8.0 | <Version180 /> |
 | v1.7.0 | <Version170 /> |
 | v1.6.2 | There are no updated dependencies in the 1.6.2 release |
