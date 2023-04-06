@@ -17,6 +17,9 @@ import TabItem from '@theme/TabItem';
 
 运行 `rdctl` 或 `rdctl help` 查看可用命令的列表：
 
+<details>
+<summary>示例输出</summary>
+
 ```autoupdate=true
 > rdctl help
 The eventual goal of this CLI is to enable any UI-based operation to be done from the command-line as well.
@@ -47,9 +50,14 @@ Flags:
 Use "rdctl [command] --help" for more information about a command.
 ```
 
+</details>
+
 ## rdctl api
 
 运行 `rdctl api /` 全局列出所有端点：
+
+<details>
+<summary>示例输出</summary>
 
 ```autoupdate=true
 $ rdctl api / | jq -r .[]
@@ -69,9 +77,15 @@ PUT /v1/shutdown
 GET /v1/transient_settings
 PUT /v1/transient_settings
 ```
+
+</details>
+
 ## rdctl api /vX
 
 运行 `rdctl api /v1` 列出版本 1 中的所有端点：
+
+<details>
+<summary>示例输出</summary>
 
 ```autoupdate=true
 $ rdctl api /v1 | jq -r .[]
@@ -89,6 +103,9 @@ PUT /v1/shutdown
 GET /v1/transient_settings
 PUT /v1/transient_settings
 ```
+
+</details>
+
 ## rdctl api /v0/settings
 
 `rdctl api [endpoints]` 是对直接使用 API 的用户最有用的命令，因此它们不适合像 `rdctl set` 一样日常使用。例如：
@@ -100,17 +117,22 @@ rdctl api /v0/settings --method PUT --body '{"kubernetes": {"enabled": false}}'
 ```
 
 与以下命令是一样的：
+
 ```
 rdctl set --kubernetes-enabled=false
 ```
 
 只是它没那么简洁和用户友好。
+
 ## rdctl list-settings
 
 <Tabs groupId="command-reference">
   <TabItem value="CLI" default>
 
 运行 `rdctl list-settings` 以查看当前的活动配置：
+
+<details>
+<summary>示例输出</summary>
 
 ```autoupdate=true
 > rdctl list-settings
@@ -196,14 +218,21 @@ rdctl set --kubernetes-enabled=false
 }
 
 ```
+
+</details>
+
 </TabItem>
   <TabItem value="API" default>
 
 调用以下 API 以查看当前的活动配置：
 
+<details>
+<summary>示例输出</summary>
+
 ```
 curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -X GET
 ```
+</details>
 
 **注意**：`-X GET` 是可选的。你也可以单独使用前面的命令。
 
@@ -217,18 +246,30 @@ curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -X GET
 
 运行 `rdctl set [flags]` 来设置属性。在大多数情况下，Kubernetes 会在运行 `set` 命令时重置。你可以通过在单个命令中使用链接来设置多个属性。下面是一些参考示例：
 
+<details>
+<summary>示例输出</summary>
+
 ```
 > rdctl set --kubernetes-enabled=false
 > rdctl set --container-engine docker --kubernetes-version 1.21.2
 ```
+
+</details>
+
 </TabItem>
   <TabItem value="API" default>
 
 调用以下 API 来设置属性：
 
+<details>
+<summary>示例输出</summary>
+
 ```
 curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -d '{ "kubernetes": { "containerEngine": "docker", "enabled": false, "version":"1.23.5" }}' -X PUT
 ```
+
+</details>
+
 </TabItem>
 </Tabs>
 
@@ -239,20 +280,29 @@ curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -d '{ 
 
 运行 `rdctl shutdown` 来正常关闭 Rancher Desktop：
 
+<details>
+<summary>示例输出</summary>
+
 ```
 > rdctl shutdown
 Shutting down.
 ```
+</details>
 
 </TabItem>
   <TabItem value="API" default>
 
-
 调用以下 API 来关闭 Rancher Desktop：
+
+<details>
+<summary>示例输出</summary>
 
 ```
 shutdown: curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/shutdown -X PUT
 ```
+
+</details>
+
 </TabItem>
 </Tabs>
 
@@ -263,19 +313,29 @@ shutdown: curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/shutd
 
 运行 `rdctl start` 来确保 Rancher Desktop 按照要求运行和配置：
 
+<details>
+<summary>示例输出</summary>
+
 ```
 > rdctl start --container-runtime dockerd -- kubernetes-version 1.19.3
 ```
 
+</details>
+
 </TabItem>
   <TabItem value="API" default>
 
-
 调用以下 API 来确保 Rancher Desktop 按照要求运行和配置，请填写你的用户和密码：
+
+<details>
+<summary>示例输出</summary>
 
 ```
 curl -s -H "Authorization: Basic $(echo -n "user:PASSWORD" | base64)"
 ```
+
+</details>
+
 </TabItem>
 </Tabs>
 
@@ -283,7 +343,12 @@ curl -s -H "Authorization: Basic $(echo -n "user:PASSWORD" | base64)"
 
 运行 `rdctl version` 来查看当前 rdctl CLI 的版本：
 
+<details>
+<summary>示例输出</summary>
+
 ```autoupdate=true
 > rdctl version
 rdctl client version: 1.1.0, targeting server version: v1
 ```
+
+</details>
