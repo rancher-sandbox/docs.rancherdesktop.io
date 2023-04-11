@@ -63,7 +63,8 @@
       "items": [
         "references/architecture",
         "references/rdctl-command-reference",
-        "references/bundled-utilities"
+        "references/bundled-utilities",
+        "references/glossary"
       ]
     },
     "faq",
