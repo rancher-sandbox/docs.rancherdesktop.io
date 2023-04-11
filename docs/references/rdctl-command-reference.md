@@ -7,11 +7,31 @@ import TabItem from '@theme/TabItem';
 
 `rdctl` is a command-line tool, included in Rancher Desktop that enables command-line access to GUI features. `rdctl` is developed to help users with tasks such as scripting (for automation, CI/CD), troubleshooting, remote management, etc. The current version of `rdctl` supports the below commands (with support for more commands to be added in upcoming releases):
 
-**:warning: As the current version of `rdctl` is experimental, all subcommands names, their arguments, and their output are still subjected to change.**
+:::info
 
-**:warning: Rancher Desktop app must be running on your machine to use `rdctl` commands.**
+As the current version of `rdctl` is experimental, all subcommand names, their arguments, and their output are still subject to change.
 
-**Note:** For many `rdctl` commands, there are corresponding `API` calls that can be applied. Listed below are the available commands shown in both formats. The `api` examples will assume `curl` as the tool being used to talk to the API.
+:::
+
+:::caution warning
+
+The Rancher Desktop application must be running for the following commands:
+
+<details>
+<summary>Command List</summary>
+
+* rdctl list-settings
+* rdctl set
+* rdctl shutdown
+
+</details>
+:::
+
+:::note
+
+For many `rdctl` commands, there are corresponding `API` calls that can be applied. Listed below are the available commands shown in both formats. The `api` examples will assume `curl` as the tool being used to talk to the API.
+
+:::
 
 ## rdctl or rdctl help
 
