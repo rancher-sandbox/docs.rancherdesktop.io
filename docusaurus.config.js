@@ -121,13 +121,17 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
-    plugins: [
-      [require.resolve('docusaurus-lunr-search'),
-          {
-              indexBaseUrl: true
-          }
-      ]
-    ],
+  plugins: [
+    [require.resolve('docusaurus-lunr-search'),
+        {
+            indexBaseUrl: true
+        }
+    ]
+  ],
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
 };
 
 module.exports = config;
