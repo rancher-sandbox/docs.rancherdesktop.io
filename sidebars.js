@@ -38,6 +38,7 @@ const sidebars = {
         "ui/images",
         "ui/troubleshooting",
         "ui/diagnostics",
+        "ui/extensions",
         {
           type: 'category',
           label: 'Preferences',
