@@ -47,6 +47,35 @@ flowchart TD
     end
     communication_layer --- WSL
 ```
+
+## Networking Layer
+
+```mermaid
+flowchart LR;
+    subgraph Host["HOST"]
+        subgraph hostSwitch["Host Switch"]
+        vsockHost["Host Daemon"]
+        Win32_API(("Win32 API"))
+        dhcp["DHCP"]
+        dns["DNS"]
+        api["API"]
+        portForwarding["Port Forwarding"]
+        vsockHost --system calls---- Win32_API
+        vsockHost ---- dhcp
+        vsockHost ---- dns
+        vsockHost ---- portForwarding
+        vsockHost ---- api
+        end
+    end
+    subgraph VM["VM"]
+        subgraph vmSwitch["VM Switch"]
+        vsockVM["VM Daemon"]
+        tapDevice("tap device")
+        tapDevice ---- vsockVM
+        end
+    end
+    vsockVM  --- |AF_VSOCK| vsockHost
+```
 </TabItem>
 
 <TabItem value="macOS">
