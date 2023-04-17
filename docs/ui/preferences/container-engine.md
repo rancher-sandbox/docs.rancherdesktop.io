@@ -14,17 +14,17 @@ Set the [container runtime] for Rancher Desktop. Users have the option of [conta
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Windows_containerEngine_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Windows_containerEngine_tabGeneral.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/macOS_containerEngine_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/macOS_containerEngine_tabGeneral.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Linux_containerEngine_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Linux_containerEngine_tabGeneral.png)
 
 </TabItem>
 </Tabs>
@@ -41,17 +41,17 @@ The `Allowed Images` tab lets you control which registry artifacts you can acces
 <Tabs groupId="os">
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Windows_containerEngine_tabAllowedImages.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Windows_containerEngine_tabAllowedImages.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/macOS_containerEngine_tabAllowedImages.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/macOS_containerEngine_tabAllowedImages.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Linux_containerEngine_tabAllowedImages.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Linux_containerEngine_tabAllowedImages.png)
 
 </TabItem>
 </Tabs>
