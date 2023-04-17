@@ -29,8 +29,6 @@ There are two ways in which you can install extensions, a method using the UI an
 
 ![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/how-to/Windows_Extensions-Details.png)
 
-3. Please shutdown and restart your Rancher Desktop application for changes to take effect.
-
 #### Using the Command Line
 
 We have also extended the `rdctl` command line in the `v1.9.0-tech-preview` release to install extensions. Please use the command below to install extensions:
@@ -58,8 +56,6 @@ rdctl extension install <image-id>:<tag>
 
 ![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/how-to/macOS_ExtensionsDetails.png)
 
-3. Please shutdown and restart your Rancher Desktop application for changes to take effect.
-
 #### Using the Command Line
 
 We have also extended the `rdctl` command line in the `v1.9.0-tech-preview` release to install extensions. Please use the command below to install extensions:
@@ -86,8 +82,6 @@ rdctl extension install <image-id>:<tag>
 2. When you find an extension you want to use, click on the extension to open the **Detail** view, then click on the **Install** button on the right hand side as seen in the image below. 
 
 ![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/how-to/Linux_Extensions-Details.png)
-
-3. Please shutdown and restart your Rancher Desktop application for changes to take effect.
 
 #### Using the Command Line
 
