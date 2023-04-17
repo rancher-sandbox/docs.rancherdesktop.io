@@ -7,11 +7,31 @@ import TabItem from '@theme/TabItem';
 
 `rdctl` is a command-line tool, included in Rancher Desktop that enables command-line access to GUI features. `rdctl` is developed to help users with tasks such as scripting (for automation, CI/CD), troubleshooting, remote management, etc. The current version of `rdctl` supports the below commands (with support for more commands to be added in upcoming releases):
 
-**:warning: As the current version of `rdctl` is experimental, all subcommands names, their arguments, and their output are still subjected to change.**
+:::info
 
-**:warning: Rancher Desktop app must be running on your machine to use `rdctl` commands.**
+As the current version of `rdctl` is experimental, all subcommand names, their arguments, and their output are still subject to change.
 
-**Note:** For many `rdctl` commands, there are corresponding `API` calls that can be applied. Listed below are the available commands shown in both formats. The `api` examples will assume `curl` as the tool being used to talk to the API.
+:::
+
+:::caution warning
+
+The Rancher Desktop application must be running for the following commands:
+
+<details>
+<summary>Command List</summary>
+
+* rdctl list-settings
+* rdctl set
+* rdctl shutdown
+
+</details>
+:::
+
+:::note
+
+For many `rdctl` commands, there are corresponding `API` calls that can be applied. Listed below are the available commands shown in both formats. The `api` examples will assume `curl` as the tool being used to talk to the API.
+
+:::
 
 ## rdctl or rdctl help
 
@@ -124,6 +144,81 @@ rdctl set --kubernetes-enabled=false
 
 but less concise and user-friendly.
 
+## rdctl extension install
+
+Installs a Rancher Desktop extension.
+
+```
+rdctl extension install <image-id>
+```
+
+<details>
+<summary>Options & Example Output</summary>
+
+**Options**
+
+```
+--force               Avoids any interactivity.
+<image-id>:<tag>      The <tag> is optional, e.g. splatform/epinio-docker-desktop:latest.
+```
+
+**Example**
+
+``` autoupdate=true
+$ rdctl extension install docker/logs-explorer-extension:0.2.2
+Installing image docker/logs-explorer-extension:0.2.2
+```
+
+</details>
+
+## rdctl extension ls
+
+Lists currently installed images.
+
+```
+rdctl extension ls
+```
+
+<details>
+<summary>Example Output</summary>
+
+**Example**
+
+``` autoupdate=true
+$ rdctl extension ls
+Extension IDs
+
+docker/logs-explorer-extension:0.2.2
+```
+
+</details>
+
+## rdctl extension uninstall
+
+Uninstalls a Rancher Desktop extension.
+
+```
+rdctl extension uninstall <image-id>
+```
+
+<details>
+<summary>Options & Example Output</summary>
+
+**Options**
+
+```
+<image-id>:<tag>      The <tag> is optional, e.g. splatform/epinio-docker-desktop:latest.
+```
+
+**Example**
+
+``` autoupdate=true
+$ rdctl extension uninstall docker/logs-explorer-extension:0.2.2
+Uninstalling image docker/logs-explorer-extension:0.2.2: Deleted docker/logs-explorer-extension:0.2.2
+```
+
+</details>
+
 ## rdctl list-settings
 
 <Tabs groupId="command-reference">
@@ -232,6 +327,7 @@ Run the following API call to see the current active configuration:
 ```
 curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -X GET
 ```
+
 </details>
 
 **Note:** Using `-X GET` is optional. You could also just use the preceding command by itself.
