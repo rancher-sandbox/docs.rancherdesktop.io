@@ -37,8 +37,9 @@ const config = {
               banner: "none",
               path: "/",
             },
-            1.8: {
-              path: "1.8",
+            "1.9-tech-preview": {
+              label: "1.9-tech-preview",
+              path: "1.9-tech-preview",
               banner: "none"
             }
           },
