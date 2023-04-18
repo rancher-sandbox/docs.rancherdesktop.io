@@ -12,7 +12,7 @@ import TabsConstants from '@site/core/TabsConstants';
 
 ### General
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Windows_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Windows_application_tabGeneral.png)
 
 #### Automatic Updates
 
@@ -24,7 +24,7 @@ This option allows Rancher Desktop to collect information on how you interact wi
 
 ### Behavior
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Windows_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Windows_application_tabBehavior.png)
 
 #### Startup
 
@@ -47,7 +47,7 @@ Rancher Desktop shows the application status with a notification icon. The conte
 
 ### General
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/macOS_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabGeneral.png)
 
 #### Administrative Access
 
@@ -64,7 +64,7 @@ This option allows Rancher Desktop to collect information on how you interact wi
 
 ### Behavior
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/macOS_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabBehavior.png)
 
 #### Startup
 
@@ -84,7 +84,7 @@ Rancher Desktop shows the application status with a notification icon in the men
 
 ### Environment
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/macOS_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabEnvironment.png)
 
 #### Configure PATH
 
@@ -102,7 +102,7 @@ There are two options for doing this:
 
 ### General
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Linux_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabGeneral.png)
 
 #### Administrative Access
 
@@ -118,7 +118,7 @@ This option allows Rancher Desktop to collect information on how you interact wi
 
 ### Behavior
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Linux_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabBehavior.png)
 
 #### Startup
 
@@ -138,7 +138,7 @@ Rancher Desktop shows the application status with a notification icon. The conte
 
 ### Environment
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Linux_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabEnvironment.png)
 
 #### Configure PATH
 
