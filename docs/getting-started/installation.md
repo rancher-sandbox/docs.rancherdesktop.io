@@ -197,6 +197,14 @@ After the command is run, all ports `80` and above will become unprivileged and 
 
 To preserve this change across reboots as a custom kernel parameter setting, add the same command inside your `/etc/sysctl.conf` file.
 
+### Installing via Repository
+
+Users can navigate to our [releases page] on GitHub to install or upgrade their Linux version of the Rancher Desktop application.
+
+- Upon clicking the above link, scroll down to the **Assets** dropdown to view the downloadable files.
+
+- The Linux installation files will be named `rancher-desktop-linux-vX.Y.Z.zip` or `rancher-desktop-linux-vX.Y.Z.zip.sha512sum`, where `X.Y.Z` represents the version number.
+
 ### Installation via .deb Package
 
 Add the Rancher Desktop repository and install Rancher Desktop with:
