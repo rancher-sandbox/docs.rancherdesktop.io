@@ -54,8 +54,8 @@ provision:
     cat <<'EOF' > /etc/security/limits.d/rancher-desktop.conf
     * soft     nofile         82920
     * hard     nofile         82920
-    sysctl -w vm.max_map_count=262144
     EOF
+    sysctl -w vm.max_map_count=262144
 ```
 
 最后，停止并重启 Rancher Desktop 来让新的限制生效。

@@ -14,22 +14,22 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Windows_containerEngine_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Windows_containerEngine_tabGeneral.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/macOS_containerEngine_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_containerEngine_tabGeneral.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Linux_containerEngine_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_containerEngine_tabGeneral.png)
 
 </TabItem>
 </Tabs>
 
-#### 容器引擎
+#### Container Engine
 
 切换到不同容器运行时的时候：使用当前容器运行时构建或拉取的工作负载和镜像在切换的容器运行时不可用。
 
@@ -41,17 +41,17 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os">
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Windows_containerEngine_tabAllowedImages.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Windows_containerEngine_tabAllowedImages.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/macOS_containerEngine_tabAllowedImages.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_containerEngine_tabAllowedImages.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.7/preferences/Linux_containerEngine_tabAllowedImages.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_containerEngine_tabAllowedImages.png)
 
 </TabItem>
 </Tabs>

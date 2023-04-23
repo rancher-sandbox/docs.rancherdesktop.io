@@ -12,7 +12,7 @@ import TabsConstants from '@site/core/TabsConstants';
 
 ### General
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Windows_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Windows_application_tabGeneral.png)
 
 #### Automatic Updates
 
@@ -24,7 +24,7 @@ import TabsConstants from '@site/core/TabsConstants';
 
 ### Behavior
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Windows_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Windows_application_tabBehavior.png)
 
 #### Startup
 
@@ -47,7 +47,7 @@ Rancher Desktop 通过通知图标来显示应用程序的状态。图标的右�
 
 ### General
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/macOS_application_tabGeneral.png)
 
 #### Administrative Access
 
@@ -64,7 +64,7 @@ Rancher Desktop 通过通知图标来显示应用程序的状态。图标的右�
 
 ### Behavior
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/macOS_application_tabBehavior.png)
 
 #### Startup
 
@@ -84,7 +84,7 @@ Rancher Desktop 通过菜单栏中的通知图标来显示应用程序状态。�
 
 ### Environment
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/macOS_application_tabEnvironment.png)
 
 #### 配置 PATH
 
@@ -102,7 +102,7 @@ Rancher Desktop 附带命令行实用程序，用于与其各种功能交互。�
 
 ### General
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Linux_application_tabGeneral.png)
 
 #### Administrative Access
 
@@ -118,7 +118,7 @@ Rancher Desktop 附带命令行实用程序，用于与其各种功能交互。�
 
 ### Behavior
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Linux_application_tabBehavior.png)
 
 #### Startup
 
@@ -138,7 +138,7 @@ Rancher Desktop 通过通知图标来显示应用程序的状态。图标的右�
 
 ### Environment
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Linux_application_tabEnvironment.png)
 
 #### 配置 PATH
 

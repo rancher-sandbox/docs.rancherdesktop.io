@@ -176,6 +176,7 @@ sudo sysctl -w net.ipv4.ip_unprivileged_port_start=80
 
 命令运行后，`80` 及以上的所有端口都将变为非特权端口，Traefik 将能够成功访问这些端口。
 
+要在重启后将此更改保留为自定义内核参数设置，请在 `/etc/sysctl.conf` 文件中添加相同的命令。
 
 ### 通过 .deb 包安装
 
