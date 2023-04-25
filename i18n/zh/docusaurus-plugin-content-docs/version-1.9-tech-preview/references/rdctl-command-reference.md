@@ -7,11 +7,31 @@ import TabItem from '@theme/TabItem';
 
 `rdctl` 是包含在 Rancher Desktop 中的命令行工具，它能让你通过命令行访问 GUI 功能。`rdctl` 旨在帮助用户完成脚本（用于自动化、CI/CD）、故障排除、远程管理等任务。当前版本的 `rdctl` 支持以下命令（即将发布的版本中将支持更多命令）：
 
-**:warning: 由于当前版本的 `rdctl` 是实验性的，因此所有子命令的名称、参数以及它们的输出可能会改变**。
+:::info
 
-**:warning: 你必须在主机上运行 Rancher Desktop 应用程序才能使用 `rdctl` 命令**。
+由于当前版本的 `rdctl` 是实验性的，因此所有子命令的名称、参数以及它们的输出可能会改变。
 
-**注意**：很多 `rdctl` 命令都有对应的 `API` 调用。下面列出了两种格式的可用命令。`api` 示例假定你使用 `curl` 作为与 API 对话的工具。
+:::
+
+:::caution 警告
+
+Rancher Desktop 应用程序必须为以下命令运行：
+
+<details>
+<summary>命令列表</summary>
+
+* rdctl list-settings
+* rdctl set
+* rdctl shutdown
+
+</details>
+:::
+
+:::note
+
+很多 `rdctl` 命令都有对应的 `API` 调用。下面列出了两种格式的可用命令。`api` 示例假定你使用 `curl` 作为与 API 对话的工具。
+
+:::
 
 ## rdctl 或 rdctl help
 
@@ -124,6 +144,81 @@ rdctl set --kubernetes-enabled=false
 
 只是它没那么简洁和用户友好。
 
+## rdctl extension install
+
+安装 Rancher Desktop 扩展。
+
+```
+rdctl extension install <image-id>
+```
+
+<details>
+<summary>选项 &amp; 示例输出</summary>
+
+**选项**
+
+```
+--force               Avoids any interactivity.
+<image-id>:<tag>      The <tag> is optional, e.g. splatform/epinio-docker-desktop:latest.
+```
+
+**示例**
+
+```autoupdate=true
+$ rdctl extension install docker/logs-explorer-extension:0.2.2
+Installing image docker/logs-explorer-extension:0.2.2
+```
+
+</details>
+
+## rdctl extension ls
+
+列出当前安装的镜像。
+
+```
+rdctl extension ls
+```
+
+<details>
+<summary>示例输出</summary>
+
+**示例**
+
+```autoupdate=true
+$ rdctl extension ls
+Extension IDs
+
+docker/logs-explorer-extension:0.2.2
+```
+
+</details>
+
+## rdctl extension uninstall
+
+卸载 Rancher Desktop 扩展。
+
+```
+rdctl extension uninstall <image-id>
+```
+
+<details>
+<summary>选项 &amp; 示例输出</summary>
+
+**选项**
+
+```
+<image-id>:<tag>      The <tag> is optional, e.g. splatform/epinio-docker-desktop:latest.
+```
+
+**示例**
+
+```autoupdate=true
+$ rdctl extension uninstall docker/logs-explorer-extension:0.2.2
+Uninstalling image docker/logs-explorer-extension:0.2.2: Deleted docker/logs-explorer-extension:0.2.2
+```
+
+</details>
+
 ## rdctl list-settings
 
 <Tabs groupId="command-reference">
@@ -232,6 +327,7 @@ rdctl set --kubernetes-enabled=false
 ```
 curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -X GET
 ```
+
 </details>
 
 **注意**：`-X GET` 是可选的。你也可以单独使用前面的命令。
