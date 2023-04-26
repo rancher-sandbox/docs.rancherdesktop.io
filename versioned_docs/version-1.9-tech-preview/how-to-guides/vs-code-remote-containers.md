@@ -28,7 +28,7 @@ The [Visual Studio Code Remote - Containers] extension lets you use a Docker con
 git clone https://github.com/microsoft/vscode-dev-containers.git
 ```
 
-6. Click on the button ![](../img/vscoderemotecontainers/vscode-remotedevelopment-commandbutton.png) at the lower left corner of the window and select `Open Folder in Container...` from the command palette. Browse to one of the samples in the cloned respository, e.g., `javascript-node`.
+6. Press `F1` to bring up a search bar on the command pallette to query for available commands. Begin to type in "Dev Containers: Open Folder in Container..." and click on the command `Dev Containers: Open Folder in Container...`. Browse to one of the samples in the cloned respository, e.g., `javascript-node`.
 
 ![](../img/vscoderemotecontainers/vscode-remotedevelopment-commandpalette.png)
 
