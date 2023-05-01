@@ -137,7 +137,7 @@ It is also recommended to have:
 Additional resources may be required depending on the workloads you plan to run.
 
 
-### Ensuring You Have Access to `/dev/kvm`
+#### Ensuring You Have Access to `/dev/kvm`
 
 On some distributions (Ubuntu 18.04 for example) the user has insufficient
 privileges to use `/dev/kvm`, which is required for Rancher Desktop.
@@ -157,7 +157,7 @@ sudo usermod -a -G kvm "$USER"
 Then reboot in order to make these changes take effect.
 
 
-### `pass` Setup
+#### `pass` Setup
 
 By default, Rancher Desktop uses `pass` to securely store credentials
 passed via `docker login` and `nerdctl login`. `pass` requires a small amount
@@ -185,7 +185,7 @@ For more information on `pass`, please see [its website].
 [its website]: https://www.passwordstore.org/
 
 
-### Traefik Port Binding Access
+#### Traefik Port Binding Access
 
 Rancher Desktop makes use of Traefik as the default ingress controller. Users may run into a `permission denied` error after deploying Rancher Desktop due to restricted port access on the Traefik ingress. Most Linux distributions (e.g. Ubuntu 20.04) do not allow non-root users to listen on TCP and UDP ports below `1024`. In order to allow Traefik to listen to privileged ports on the local host, please run the following command:
 
