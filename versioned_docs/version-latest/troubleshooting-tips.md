@@ -10,17 +10,7 @@ This page provides tips to troubleshoot issues you may have with Rancher Desktop
 
 #### Q: How can I fix the Docker error when starting a container using the VS Code dev-containers extension with version >`v0.266`?
 
-**A:** There is a current workaround for users experiencing a Docker error when starting a container using the dev-containers extension for VS code versioned `v0.266` or later and Rancher Desktop `v1.8.1`. Disabling Wayland in the user settings will allow the container to spin up successfully. This can be accomplished by either unchecking the box in the `Settings` > `Extensions` > `Dev Containers` tab labelled `Dev > Containers: Mount Wayland Socket (Applies to All Profiles)`, or by adding a customized setting to your VS code user `settings.json`. An example of the disabled setting is provided below:
-
-```
-"customizations": {
-   "vscode": {
-     "settings": {
-       "dev.containers.mountWaylandSocket": false
-     }
-   }
- }
- ```
+**A:** There is a current workaround for users experiencing a Docker error when starting a container using the dev-containers extension for VS code versioned `v0.266` or later and Rancher Desktop `v1.8.1`. Disabling Wayland in the user settings will allow the container to spin up successfully. This can be accomplished by unchecking the box in the `Settings` > `Extensions` > `Dev Containers` tab labelled `Dev > Containers: Mount Wayland Socket (Applies to All Profiles)`.
 
 #### Q: Why do I not see my WSL distro under Rancher Desktop's WSL Integration page?
 
