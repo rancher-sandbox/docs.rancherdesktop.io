@@ -93,6 +93,26 @@ const config = {
         },
         items: [
           {
+            type: `dropdown`,
+            label: `Quick Links`,
+            position: `right`,
+            items: [
+              {
+                href: 'https://rancherdesktop.io/',
+                label: 'Rancher Desktop Home',
+                target: '_self',
+              },
+              {
+                href: 'https://github.com/rancher-sandbox/rancher-desktop/',
+                label: 'GitHub',
+              },
+              {
+                href: 'https://github.com/rancher-sandbox/docs.rancherdesktop.io/',
+                label: 'Docs GitHub',
+              },
+            ]
+          },
+          {
             type: 'docsVersionDropdown',
             position: 'left',
             dropdownActiveClassDisabled: true,
@@ -100,22 +120,6 @@ const config = {
           {
             type: "localeDropdown",
             position: "right",
-          },
-          {
-            href: 'https://rancherdesktop.io/',
-            label: 'Rancher Desktop Home',
-            target: '_self',
-            position: 'right',
-          },
-          {
-            href: 'https://github.com/rancher-sandbox/rancher-desktop/',
-            label: 'GitHub',
-            position: 'right',
-          },
-          {
-            href: 'https://github.com/rancher-sandbox/docs.rancherdesktop.io/',
-            label: 'Docs GitHub',
-            position: 'right',
           },
         ],
       },
