@@ -7,10 +7,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
+### General
+
+Allows for enablement of automatic updates, as well as an optional field to allow Rancher Desktop to collect anonymous statistics to help improve the application.
+
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
-
-### General
 
 ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Windows_application_tabGeneral.png)
 
@@ -22,7 +24,49 @@ When an update is available, users are provided a notification and the release n
 
 This option allows Rancher Desktop to collect information on how you interact with the Rancher Desktop application. Information such as what workloads you run are not collected.
 
+</TabItem>
+<TabItem value="macOS">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabGeneral.png)
+
+#### Administrative Access
+
+Allows Rancher Desktop to acquire administrative access (sudo access) when starting for some operations. This allows for enhanced functionality, including bridged networking and default docker socket support. Changes will only be applied next time Rancher Desktop starts.
+
+#### Automatic Updates
+
+When an update is available, users are provided a notification and the release notes for the upgrade target. This happens whether automatic updates are enabled or not. If this option is enabled, the update is downloaded and then installed the next time Rancher Desktop is started.
+
+#### Statistics
+
+This option allows Rancher Desktop to collect information on how you interact with the Rancher Desktop application. Information such as what workloads you run are not collected.
+
+</TabItem>
+<TabItem value="Linux">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabGeneral.png)
+
+#### Administrative Access
+
+Allows Rancher Desktop to acquire administrative access (sudo access) when starting for some operations. This allows for enhanced functionality, including bridged networking and default docker socket support. Changes will only be applied next time Rancher Desktop starts.
+
+#### Automatic Updates
+
+When an update is available, users are provided a notification and the release notes for the upgrade target. This happens whether automatic updates are enabled or not. If this option is enabled, the update is downloaded and then installed the next time Rancher Desktop is started.
+
+#### Statistics
+
+This option allows Rancher Desktop to collect information on how you interact with the Rancher Desktop application. Information such as what workloads you run are not collected.
+
+</TabItem>
+</Tabs>
+
 ### Behavior
+
+Allows for configuration of application behavior upon startup, background process behavior, and notification icon display.
+
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
 
 ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Windows_application_tabBehavior.png)
 
@@ -45,25 +89,6 @@ Rancher Desktop shows the application status with a notification icon. The conte
 </TabItem>
 <TabItem value="macOS">
 
-### General
-
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabGeneral.png)
-
-#### Administrative Access
-
-Allows Rancher Desktop to acquire administrative access (sudo access) when starting for some operations. This allows for enhanced functionality, including bridged networking and default docker socket support. Changes will only be applied next time Rancher Desktop starts.
-
-#### Automatic Updates
-
-When an update is available, users are provided a notification and the release notes for the upgrade target. This happens whether automatic updates are enabled or not. If this option is enabled, the update is downloaded and then installed the next time Rancher Desktop is started.
-
-#### Statistics
-
-This option allows Rancher Desktop to collect information on how you interact with the Rancher Desktop application. Information such as what workloads you run are not collected.
-
-
-### Behavior
-
 ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabBehavior.png)
 
 #### Startup
@@ -82,41 +107,8 @@ Rancher Desktop normally remains running in the background even when the main ap
 
 Rancher Desktop shows the application status with a notification icon in the menu bar. The context menu of the icon provides more status information and provides quick access to other functionality of the application. This options will disable the creation of the notification icon.
 
-### Environment
-
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabEnvironment.png)
-
-#### Configure PATH
-
-A Rancher Desktop installation comes with command-line utilities that are used to interface with its various features. Some examples of these utilities are `docker`, `nerdctl`, `kubectl`, and `helm`. These utilities are located in `~/.rd/bin` - you may see which utilities are included in your installation by running `ls ~/.rd/bin`.
-
-In order to use the utilities, `~/.rd/bin` must be in the `PATH` variable in your shell.
-
-There are two options for doing this:
-
-- **Automatic**: `PATH` management will add `~/.rd/bin` to your `PATH` by modifying your shell .rc files for you.
-- **Manual**: `PATH` management does not change anything - in this mode, you must add `~/.rd/bin` to your `PATH` yourself.
-
 </TabItem>
 <TabItem value="Linux">
-
-### General
-
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabGeneral.png)
-
-#### Administrative Access
-
-Allows Rancher Desktop to acquire administrative access (sudo access) when starting for some operations. This allows for enhanced functionality, including bridged networking and default docker socket support. Changes will only be applied next time Rancher Desktop starts.
-
-#### Automatic Updates
-
-When an update is available, users are provided a notification and the release notes for the upgrade target. This happens whether automatic updates are enabled or not. If this option is enabled, the update is downloaded and then installed the next time Rancher Desktop is started.
-
-#### Statistics
-
-This option allows Rancher Desktop to collect information on how you interact with the Rancher Desktop application. Information such as what workloads you run are not collected.
-
-### Behavior
 
 ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabBehavior.png)
 
@@ -136,7 +128,31 @@ Rancher Desktop normally remains running in the background even when the main ap
 
 Rancher Desktop shows the application status with a notification icon. The context menu of the icon provides more status information and provides quick access to other functionality of the application. This options will disable the creation of the notification icon.
 
+</TabItem>
+</Tabs>
+
 ### Environment
+
+Allows for configuration of the `$PATH` variable in the users shell in order to interact with Rancher Desktop installed utilities.
+
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="macOS">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabEnvironment.png)
+
+#### Configure PATH
+
+A Rancher Desktop installation comes with command-line utilities that are used to interface with its various features. Some examples of these utilities are `docker`, `nerdctl`, `kubectl`, and `helm`. These utilities are located in `~/.rd/bin` - you may see which utilities are included in your installation by running `ls ~/.rd/bin`.
+
+In order to use the utilities, `~/.rd/bin` must be in the `PATH` variable in your shell.
+
+There are two options for doing this:
+
+- **Automatic**: `PATH` management will add `~/.rd/bin` to your `PATH` by modifying your shell .rc files for you.
+- **Manual**: `PATH` management does not change anything - in this mode, you must add `~/.rd/bin` to your `PATH` yourself.
+
+</TabItem>
+<TabItem value="Linux">
 
 ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabEnvironment.png)
 
