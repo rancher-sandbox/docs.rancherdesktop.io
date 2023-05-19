@@ -14,7 +14,7 @@ Allows for enablement of automatic updates, as well as an optional field to allo
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Windows_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Windows_application_tabGeneral.png)
 
 #### Automatic Updates
 
@@ -27,7 +27,7 @@ This option allows Rancher Desktop to collect information on how you interact wi
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/macOS_application_tabGeneral.png)
 
 #### Administrative Access
 
@@ -44,7 +44,7 @@ This option allows Rancher Desktop to collect information on how you interact wi
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Linux_application_tabGeneral.png)
 
 #### Administrative Access
 
@@ -68,7 +68,7 @@ Allows for configuration of application behavior upon startup, background proces
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Windows_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Windows_application_tabBehavior.png)
 
 #### Startup
 
@@ -89,7 +89,7 @@ Rancher Desktop shows the application status with a notification icon. The conte
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/macOS_application_tabBehavior.png)
 
 #### Startup
 
@@ -110,7 +110,7 @@ Rancher Desktop shows the application status with a notification icon in the men
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Linux_application_tabBehavior.png)
 
 #### Startup
 
@@ -138,7 +138,7 @@ Allows for configuration of the `$PATH` variable in the users shell in order to 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/macOS_application_tabEnvironment.png)
 
 #### Configure PATH
 
@@ -154,7 +154,7 @@ There are two options for doing this:
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/Linux_application_tabEnvironment.png)
 
 #### Configure PATH
 
