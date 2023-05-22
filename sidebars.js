@@ -60,7 +60,8 @@ const sidebars = {
               label: 'WSL',
               items:  [
                 "ui/preferences/wsl/integrations",
-                "ui/preferences/wsl/network"
+                "ui/preferences/wsl/network",
+                "ui/preferences/wsl/proxy"
               ]
             },
           ],
