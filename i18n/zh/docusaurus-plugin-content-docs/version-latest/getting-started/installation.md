@@ -2,7 +2,7 @@
 title: 安装
 ---
 
-Rancher Desktop 作为桌面应用程序交付，你可以从 [GitHub Releases 页面](https://github.com/rancher-sandbox/rancher-desktop/releases)下载它。
+Rancher Desktop 作为桌面应用程序交付，你可以从 [GitHub Releases 页面](https://github.com/rancher-sandbox/rancher-desktop/releases/latest)下载它。
 
 首次运行或更改版本时会下载 Kubernetes 容器镜像。因此，首次运行新的 Kubernetes 版本时可能需要一些时间来加载这些镜像。
 
@@ -126,7 +126,7 @@ Rancher Desktop 在 Linux 上运行需要以下条件：
 你要运行的工作负载可能还需要一些额外的资源。
 
 
-### 确保你可以访问 `/dev/kvm`
+#### 确保你可以访问 `/dev/kvm`
 
 Rancher Desktop 需要 `/dev/kvm` 的权限，而在某些发行版（例如 Ubuntu 18.04）上，用户没有足够的权限。
 要检查你是否具有所需的权限，请执行以下操作：
@@ -144,7 +144,7 @@ sudo usermod -a -G kvm "$USER"
 然后重新启动使更改生效。
 
 
-### `pass` 设置
+#### `pass` 设置
 
 默认情况下，Rancher Desktop 使用 `pass` 来安全地存储通过 `docker login` 和 `nerdctl login` 传递的凭证。在第一次在主机上使用时，`pass` 需要你进行少量的设置。如果你不打算使用 `docker login` 或 `nerdctl login`，你不需要设置 `pass`。但请记住，如果你以后需要使用它们，你必须设置它们，否则会出现错误。
 
@@ -166,7 +166,7 @@ pass init 8D818FB37A9279E341F01506ED96AD27A40C9C73
 [此处]: https://www.passwordstore.org/
 
 
-### Traefik 端口绑定访问
+#### Traefik 端口绑定访问
 
 Rancher Desktop 使用 Traefik 作为默认 Ingress Controller。由于 Traefik Ingress 上的端口访问受限，用户在部署 Rancher Desktop 后可能会遇到 `permission denied` 错误。大多数 Linux 发行版（例如 Ubuntu 20.04）不允许非 root 用户监听 `1024` 以下的 TCP 和 UDP 端口。为了让 Traefik 监听本地主机上的特权端口，请运行以下命令：
 
