@@ -21,13 +21,9 @@ There are two ways in which you can install extensions, a method using the UI an
 
 #### Using the UI
 
-1. Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use.
+Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use which can be downloaded using the **Install** button.
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/how-to/Windows_Extensions.png)
-
-2. When you find an extension you want to use, click on the extension to open the **Detail** view, then click on the **Install** button on the right hand side as seen in the image below. 
-
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/how-to/Windows_Extensions-Details.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_extensions.png) 
 
 #### Using the Command Line
 
@@ -48,13 +44,9 @@ rdctl extension install <image-id>:<tag>
 
 #### Using the UI
 
-1. Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use.
+Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use which can be downloaded using the **Install** button.
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/how-to/macOS_ExtensionsCatalog.png)
-
-2. When you find an extension you want to use, click on the extension to open the **Detail** view, then click on the **Install** button on the right hand side as seen in the image below. 
-
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/how-to/macOS_ExtensionsDetails.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_extensions.png)
 
 #### Using the Command Line
 
@@ -75,13 +67,9 @@ rdctl extension install <image-id>:<tag>
 
 #### Using the UI
 
-1. Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use.
+Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use which can be downloaded using the **Install** button.
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/how-to/Linux_Extensions.png)
-
-2. When you find an extension you want to use, click on the extension to open the **Detail** view, then click on the **Install** button on the right hand side as seen in the image below. 
-
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/how-to/Linux_Extensions-Details.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_extensions.png)
 
 #### Using the Command Line
 
@@ -109,11 +97,9 @@ Additionally, there are two ways in which you can uninstall extensions, a method
 
 #### Using the UI
 
-1. Click **Extensions** from the main UI to navigate to the **Catalog** tab, then click on the **Installed** tab.
+Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use, and extensions which have been downloaded can be uninstalled from this view by clicking the **Remove** button.
 
-2. Once under the **Installed** tab, you can uninstall extensions by clicking on the **Uninstall** button on the right hand side as pictured below.
-
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/how-to/Windows_Extensions-Installed.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_extensions.png)
 
 #### Using the Command Line
 
@@ -134,11 +120,9 @@ rdctl extension uninstall <image-id>:<tag>
 
 #### Using the UI
 
-1. Click **Extensions** from the main UI to navigate to the **Catalog** tab, then click on the **Installed** tab.
+Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use, and extensions which have been downloaded can be uninstalled from this view by clicking the **Remove** button.
 
-2. Once under the **Installed** tab, you can uninstall extensions by clicking on the **Uninstall** button on the right hand side as pictured below.
-
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/how-to/macOS_ExtensionsInstalled.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_extensions.png)
 
 #### Using the Command Line
 
@@ -159,11 +143,9 @@ rdctl extension uninstall <image-id>:<tag>
 
 #### Using the UI
 
-1. Click **Extensions** from the main UI to navigate to the **Catalog** tab, then click on the **Installed** tab.
+Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use, and extensions which have been downloaded can be uninstalled from this view by clicking the **Remove** button.
 
-2. Once under the **Installed** tab, you can uninstall extensions by clicking on the **Uninstall** button on the right hand side as pictured below.
-
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/how-to/Linux_Extensions-Installed.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_extensions.png)
 
 #### Using the Command Line
 
