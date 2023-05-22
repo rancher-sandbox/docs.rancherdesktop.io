@@ -1,23 +1,11 @@
 {
   "version.label": {
-    "message": "Next 🚧",
-    "description": "The label for version current"
+    "message": "1.9",
+    "description": "The label for version 1.9"
   },
   "sidebar.tutorialSidebar.category.Getting Started": {
     "message": "开始使用",
     "description": "The label for category Getting Started in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.Tutorials": {
-    "message": "教程",
-    "description": "The label for category Tutorials in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.How-to Guides": {
-    "message": "操作指南",
-    "description": "The label for category How-to Guides in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.References": {
-    "message": "参考",
-    "description": "The label for category References in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.User Interface": {
     "message": "用户界面",
@@ -34,5 +22,17 @@
   "sidebar.tutorialSidebar.category.WSL": {
     "message": "WSL",
     "description": "The label for category WSL in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tutorials": {
+    "message": "教程",
+    "description": "The label for category Tutorials in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.How-to Guides": {
+    "message": "操作指南",
+    "description": "The label for category How-to Guides in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.References": {
+    "message": "参考",
+    "description": "The label for category References in sidebar tutorialSidebar"
   }
 }

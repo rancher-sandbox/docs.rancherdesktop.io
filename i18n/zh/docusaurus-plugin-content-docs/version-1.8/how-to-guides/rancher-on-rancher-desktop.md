@@ -48,12 +48,17 @@ kubectl create namespace cert-manager
 helm install cert-manager jetstack/cert-manager --namespace cert-manager --version v1.7.1 --set installCRDs=true
 ```
 
-5：创建 cattle-system 命名空间：
+5：应用 CRD：
+```console
+kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.7.1/cert-manager.crds.yaml
+```
+
+6：创建 cattle-system 命名空间：
 ```console
 kubectl create namespace cattle-system
 ```
 
-6：安装 Rancher 应用程序：
+7：安装 Rancher 应用：
 ```console
 helm install rancher rancher-latest/rancher --namespace cattle-system --set hostname=rancher.rd.localhost --wait --timeout=10m
 ```

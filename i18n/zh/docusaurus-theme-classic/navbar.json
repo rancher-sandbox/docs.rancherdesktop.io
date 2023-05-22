@@ -10,5 +10,13 @@
   "item.label.Docs GitHub": {
     "message": "文档 GitHub",
     "description": "Navbar item with label Docs GitHub"
+  },
+  "logo.alt": {
+    "message": "Rancher Desktop Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Quick Links": {
+    "message": "快捷链接",
+    "description": "Navbar item with label Quick Links"
   }
 }
