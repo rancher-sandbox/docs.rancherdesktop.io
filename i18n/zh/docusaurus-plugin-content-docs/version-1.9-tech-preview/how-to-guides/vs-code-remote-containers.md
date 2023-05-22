@@ -28,7 +28,7 @@ title: VS Code Remote Containers
 git clone https://github.com/microsoft/vscode-dev-containers.git
 ```
 
-6. 单击窗口左下角的 ![](../img/vscoderemotecontainers/vscode-remotedevelopment-commandbutton.png) 按钮，然后从命令面板中选择 `Open Folder in Container...`。浏览克隆仓库中的其中一个示例，例如 `javascript-node`：
+6. 按 `F1` 在命令面板上调出搜索栏来查询可用命令。输入“Dev Containers: Open Folder in Container...”并单击命令 `Dev Containers: Open Folder in Container...`。浏览克隆仓库中的其中一个示例，例如 `javascript-node`：
 
 ![](../img/vscoderemotecontainers/vscode-remotedevelopment-commandpalette.png)
 

@@ -8,6 +8,10 @@ import TabsConstants from '@site/core/TabsConstants';
 
 此页面提供了 Rancher Desktop 相关问题的故障排除提示。
 
+#### 问：使用版本 >`v0.266` 的 VS Code dev-containers 扩展启动容器时出现 Docker 错误，如何修复？
+
+**答**：当前有一个解决方法，可以解决用户在使用 VS Code dev-containers 扩展 `v0.266` 或更高版本和 Rancher Desktop `v1.8.1` 启动容器时遇到的 Docker 错误。在用户设置中禁用 Wayland 将能让容器成功启动。你可以取消选中 `Settings` > `Extensions` > `Dev Containers` 选项卡中的 `Dev > Containers: Mount Wayland Socket (Applies to All Profiles)`。
+
 #### 问：为什么我在 Rancher Desktop 的 WSL 集成页面下看不到我的 WSL 发行版？
 
 **答**：你可能使用的是 WSL 1 发行版。Rancher Desktop 仅支持 WSL 2 发行版。你可以通过运行 `wsl --set-version <distro-name> 2` 命令将 WSL 1 发行版转换为 WSL 2 发行版。你还可以运行 `wsl --set-default-version 2` 命令来将你之后可能安装的所有发行版设置为使用 WSL 2。
