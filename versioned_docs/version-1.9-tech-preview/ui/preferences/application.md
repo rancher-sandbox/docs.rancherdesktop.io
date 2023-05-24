@@ -135,7 +135,7 @@ Rancher Desktop shows the application status with a notification icon. The conte
 
 Allows for configuration of the `$PATH` variable in the users shell in order to interact with Rancher Desktop installed utilities.
 
-<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<Tabs groupId="os">
 <TabItem value="macOS">
 
 ![](https://suse-rancher-media.s3.amazonaws.com/desktop/1.9-tech-preview/preferences/macOS_application_tabEnvironment.png)
