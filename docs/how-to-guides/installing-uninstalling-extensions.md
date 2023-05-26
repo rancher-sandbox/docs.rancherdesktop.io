@@ -21,7 +21,7 @@ There are two ways in which you can install extensions, a method using the UI an
 
 #### Using the UI
 
-Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use which can be downloaded using the **Install** button.
+Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use which can be downloaded and installed using the **Install** button.
 
 ![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_extensions.png) 
 
@@ -44,7 +44,7 @@ rdctl extension install <image-id>:<tag>
 
 #### Using the UI
 
-Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use which can be downloaded using the **Install** button.
+Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use which can be downloaded and installed using the **Install** button.
 
 ![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_extensions.png)
 
@@ -67,7 +67,7 @@ rdctl extension install <image-id>:<tag>
 
 #### Using the UI
 
-Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use which can be downloaded using the **Install** button.
+Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use which can be downloaded and installed using the **Install** button.
 
 ![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_extensions.png)
 
@@ -97,7 +97,7 @@ Additionally, there are two ways in which you can uninstall extensions, a method
 
 #### Using the UI
 
-Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use, and extensions which have been downloaded can be uninstalled from this view by clicking the **Remove** button.
+Click **Extensions** from the main UI to navigate to the **Catalog** tab. On this view, you can search through the available extensions, and uninstall the already installed extensions.
 
 ![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_extensions.png)
 
@@ -120,7 +120,7 @@ rdctl extension uninstall <image-id>:<tag>
 
 #### Using the UI
 
-Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use, and extensions which have been downloaded can be uninstalled from this view by clicking the **Remove** button.
+Click **Extensions** from the main UI to navigate to the **Catalog** tab. On this view, you can search through the available extensions, and uninstall the already installed extensions.
 
 ![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_extensions.png)
 
@@ -143,7 +143,7 @@ rdctl extension uninstall <image-id>:<tag>
 
 #### Using the UI
 
-Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use, and extensions which have been downloaded can be uninstalled from this view by clicking the **Remove** button.
+Click **Extensions** from the main UI to navigate to the **Catalog** tab. On this view, you can search through the available extensions, and uninstall the already installed extensions.
 
 ![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_extensions.png)
 
