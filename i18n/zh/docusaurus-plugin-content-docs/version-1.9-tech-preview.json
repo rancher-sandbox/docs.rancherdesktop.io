@@ -1,11 +1,19 @@
 {
   "version.label": {
-    "message": "1.8",
-    "description": "The label for version 1.8"
+    "message": "1.9-tech-preview",
+    "description": "The label for version 1.9-tech-preview"
   },
   "sidebar.tutorialSidebar.category.Getting Started": {
     "message": "开始使用",
     "description": "The label for category Getting Started in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.User Interface": {
+    "message": "用户界面",
+    "description": "The label for category User Interface in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Preferences": {
+    "message": "偏好设置",
+    "description": "The label for category Preferences in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Tutorials": {
     "message": "教程",
@@ -18,13 +26,5 @@
   "sidebar.tutorialSidebar.category.References": {
     "message": "参考",
     "description": "The label for category References in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.User Interface": {
-    "message": "用户界面",
-    "description": "The label for category User Interface in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.Preferences": {
-    "message": "偏好设置",
-    "description": "The label for category Preferences in sidebar tutorialSidebar"
   }
 }

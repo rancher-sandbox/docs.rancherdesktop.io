@@ -1,4 +1,4 @@
 ---
 sidebar_label: Integrations
-title: Integrations (Windows)
+title: Integrations
 ---
