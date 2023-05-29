@@ -38,6 +38,7 @@ const sidebars = {
         "ui/images",
         "ui/troubleshooting",
         "ui/diagnostics",
+        "ui/extensions",
         {
           type: 'category',
           label: 'Preferences',
@@ -81,6 +82,7 @@ const sidebars = {
       label: 'How-to Guides',
       items: [
         "how-to-guides/hello-world-example",
+        "how-to-guides/installing-uninstalling-extensions",
         "how-to-guides/transfer-container-images",
         "how-to-guides/create-multi-node-cluster",
         "how-to-guides/setup-NGINX-Ingress-Controller",
