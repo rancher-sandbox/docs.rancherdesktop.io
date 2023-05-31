@@ -13,7 +13,7 @@ Deployment profiles provide 2 features:
 
 They can be specified both by an "admin" or by the "user". If either the "defaults" or the "locked" settings exists in the "admin" context, then the "user" profile is ignored.
 
-### Preferences values at startup
+### Preferences Values at Startup
 
 Rancher Desktop settings are determined as follows:
 
@@ -50,7 +50,20 @@ The structure of the profile data matches the application settings:
 
 The platform-specific documentation below will show how to create a deployment profile that changes the default container engine to `moby`, disables Kubernetes, and locks down the list of allowed images to just `busybox` and `nginx`.
 
-### Profile format and location
+### Locked Preference Fields
+
+For versions `1.9` and later of Rancher Desktop, all preference field values can be locked by "admin" level contexts when configuring a deployment profile. This can be set from either an elevated shell or an "admin" user. Once pinned, the various locked fields will not be accessible from the application as seen below from UI examples:
+
+<details>
+<summary>Locked Fields UI Examples</summary>
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/getting-started/Linux_gettingStarted_tabApplication.png)
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/getting-started/Linux_gettingStarted_tabKubernetes.png)
+
+</details>
+
+### Profile Format and Location
 
 Deployment profiles are stored in a platform-specific format and location.
 
@@ -274,7 +287,6 @@ rdctl list-settings > ~/.config/rancher-desktop.defaults.json
 
 ### Known Issues and Limitations
 
-* The `containerEngine.allowedImages` settings are currently the only ones that can be locked.
 * On macOS incorrectly formatted profiles are ignored instead of preventing the app from loading.
 * There is no way to set `diagnostics.showMuted` (and on Windows `WSL.integrations`) via deployment profile.
 * On macOS and Linux an abbreviated first-run dialog is still shown if the "defaults" profile does not provide a value for `application.pathManagementStrategy`.
