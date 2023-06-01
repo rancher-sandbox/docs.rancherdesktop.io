@@ -52,7 +52,7 @@ The platform-specific documentation below will show how to create a deployment p
 
 ### Locked Preference Fields
 
-For versions `1.9` and later of Rancher Desktop, all preference field values can be locked by "admin" level contexts when configuring a deployment profile. This can be set from either an elevated shell or an "admin" user. Once pinned, the various locked fields will not be accessible from the application as seen below from UI examples:
+For versions `1.9` and later of Rancher Desktop, all preferences values can be locked by an "admin" account when configuring a deployment profile. This can be set from an elevated shell (Windows) or with super user permissions (MacOS/Linux). Once pinned, the various locked values will not be accessible from the application as seen in the UI examples below:
 
 <details>
 <summary>Locked Fields UI Examples</summary>
