@@ -13,7 +13,7 @@ Deployment profiles provide 2 features:
 
 They can be specified both by an "admin" or by the "user". If either the "defaults" or the "locked" settings exists in the "admin" context, then the "user" profile is ignored.
 
-### Preferences values at startup
+### Preferences Values at Startup
 
 Rancher Desktop settings are determined as follows:
 
@@ -50,7 +50,20 @@ The structure of the profile data matches the application settings:
 
 The platform-specific documentation below will show how to create a deployment profile that changes the default container engine to `moby`, disables Kubernetes, and locks down the list of allowed images to just `busybox` and `nginx`.
 
-### Profile format and location
+### Locked Preference Fields
+
+For versions `1.9` and later of Rancher Desktop, all preferences values can be locked when configuring a deployment profile. Depending on the directory or registry used for the lock file creation, users may need to have super user permissions for MacOS/Linux or execute from an admin shell for Windows in order to access priviliged paths. Once pinned, the various locked values will not be accessible from the application as seen in the UI examples below:
+
+<details>
+<summary>Locked Fields UI Examples</summary>
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/getting-started/Linux_gettingStarted_tabApplication.png)
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/getting-started/Linux_gettingStarted_tabKubernetes.png)
+
+</details>
+
+### Profile Format and Location
 
 Deployment profiles are stored in a platform-specific format and location.
 
@@ -62,10 +75,10 @@ On Windows the deployment profiles are stored in the registry and can be distrib
 The locations for the profiles are:
 
 ```
-HKEY_LOCAL_MACHINE\Software\Rancher Desktop\Profile\Defaults
-HKEY_LOCAL_MACHINE\Software\Rancher Desktop\Profile\Locked
-HKEY_CURRENT_USER\Software\Rancher Desktop\Profile\Defaults
-HKEY_CURRENT_USER\Software\Rancher Desktop\Profile\Locked
+HKEY_LOCAL_MACHINE\Software\Policies\Rancher Desktop\Profile\Defaults
+HKEY_LOCAL_MACHINE\Software\Policies\Rancher Desktop\Profile\Locked
+HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Defaults
+HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Locked
 ```
 
 The `reg` tool can be used to create a profile manually. To create an "admin" profile it will have to be executed from an elevated shell.
@@ -75,21 +88,21 @@ Boolean values are stored in `REG_DWORD` format, and lists in `REG_MULTI_SZ`.
 #### Delete existing profiles
 
 ```
-reg delete "HKCU\Software\Rancher Desktop\Profile" /f
+reg delete "HKCU\Software\Policies\Rancher Desktop\Profile" /f
 ```
 
 #### By default use the "moby" container engine and disable Kubernetes
 
 ```
-reg add "HKCU\Software\Rancher Desktop\Profile\Defaults\containerEngine" /v name /t REG_SZ -d moby
-reg add "HKCU\Software\Rancher Desktop\Profile\Defaults\kubernetes" /v enabled /t REG_DWORD -d 0
+reg add "HKCU\Software\Policies\Rancher Desktop\Profile\Defaults\containerEngine" /v name /t REG_SZ -d moby
+reg add "HKCU\Software\Policies\Rancher Desktop\Profile\Defaults\kubernetes" /v enabled /t REG_DWORD -d 0
 ```
 
 #### Lock allowed images list to only allow "busybox" and "nginx"
 
 ```
-reg add "HKCU\Software\Rancher Desktop\Profile\Locked\containerEngine\allowedImages" /v enabled /t REG_DWORD -d 1
-reg add "HKCU\Software\Rancher Desktop\Profile\Locked\containerEngine\allowedImages" /v patterns /t REG_MULTI_SZ -d busybox\0nginx
+reg add "HKCU\Software\Policies\Rancher Desktop\Profile\Locked\containerEngine\allowedImages" /v enabled /t REG_DWORD -d 1
+reg add "HKCU\Software\Policies\Rancher Desktop\Profile\Locked\containerEngine\allowedImages" /v patterns /t REG_MULTI_SZ -d busybox\0nginx
 ```
 
 #### Verify registry settings
@@ -97,30 +110,30 @@ reg add "HKCU\Software\Rancher Desktop\Profile\Locked\containerEngine\allowedIma
 The profile can be exported into a `*.reg` file
 
 ```
-C:\>reg export "HKCU\Software\Rancher Desktop\Profile" rd.reg
+C:\>reg export "HKCU\Software\Policies\Rancher Desktop\Profile" rd.reg
 The operation completed successfully.
 ```
 
 This file can be used to distribute the profile to other machines. Note that the `REG_MULTI_SZ` values are encoded in UTF16LE, so are not easily readable:
 
-```text title="HKCU\Software\Rancher Desktop\Profile"
+```text title="HKCU\Software\Policies\Rancher Desktop\Profile"
 Windows Registry Editor Version 5.00
 
-[HKEY_CURRENT_USER\Software\Rancher Desktop\Profile]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile]
 
-[HKEY_CURRENT_USER\Software\Rancher Desktop\Profile\Defaults]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Defaults]
 
-[HKEY_CURRENT_USER\Software\Rancher Desktop\Profile\Defaults\containerEngine]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Defaults\containerEngine]
 "name"="moby"
 
-[HKEY_CURRENT_USER\Software\Rancher Desktop\Profile\Defaults\kubernetes]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Defaults\kubernetes]
 "enabled"=dword:00000000
 
-[HKEY_CURRENT_USER\Software\Rancher Desktop\Profile\Locked]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Locked]
 
-[HKEY_CURRENT_USER\Software\Rancher Desktop\Profile\Locked\containerEngine]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Locked\containerEngine]
 
-[HKEY_CURRENT_USER\Software\Rancher Desktop\Profile\Locked\containerEngine\allowedImages]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Locked\containerEngine\allowedImages]
 "enabled"=dword:00000001
 "patterns"=hex(7):62,00,75,00,73,00,79,00,62,00,6f,00,78,00,00,00,6e,00,67,00,\
   69,00,6e,00,78,00,00,00,00,00
@@ -274,7 +287,6 @@ rdctl list-settings > ~/.config/rancher-desktop.defaults.json
 
 ### Known Issues and Limitations
 
-* The `containerEngine.allowedImages` settings are currently the only ones that can be locked.
 * On macOS incorrectly formatted profiles are ignored instead of preventing the app from loading.
 * There is no way to set `diagnostics.showMuted` (and on Windows `WSL.integrations`) via deployment profile.
 * On macOS and Linux an abbreviated first-run dialog is still shown if the "defaults" profile does not provide a value for `application.pathManagementStrategy`.
