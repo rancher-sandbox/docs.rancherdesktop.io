@@ -36,4 +36,10 @@ The steps below outline how to forward a port:
 
 ### Admin vs Non-Admin Port Mappings
 
-Rancher Desktop includes automated port forwarding for versions `1.9` and later. For a non-admin Rancher Desktop installation, the port mappings are configured to the localhost and ports > 1024. If you have an admin Rancher Desktop installation, then port mappings can be configured for priviliged ports <= 1024 as well.
+Rancher Desktop includes automated port forwarding for versions `1.9` and later. For non-admin port access, port mappings are configured to the localhost and unpriviliged ports > 1024. Priviliged port mappings can also be configured by users with admin permissions for ports <= 1024.
+
+:::note
+
+Please see [Traefik Port Binding Access](../getting-started/installation#traefik-port-binding-access) to configure ports at the operating system level.
+
+:::
