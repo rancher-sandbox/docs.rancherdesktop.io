@@ -8,6 +8,10 @@ import TabsConstants from '@site/core/TabsConstants';
 
 This page provides tips to troubleshoot issues you may have with Rancher Desktop.
 
+#### Q: Why is the tray icon still visible after checking the behavior tab preference `hide notification icon` on an Ubuntu operating system?
+
+**A:** This is a known issue for Ubuntu operating systems and specifically versions >= 20.04.5 LTS. Please see this [issue comment](https://github.com/rancher-sandbox/rancher-desktop/issues/4205#issuecomment-1533750167) for further information.
+
 #### Q: How can I fix the Docker error when starting a container using the VS Code dev-containers extension with version >`v0.266`?
 
 **A:** There is a current workaround for users experiencing a Docker error when starting a container using the dev-containers extension for VS code versioned `v0.266` or later and Rancher Desktop `v1.8.1`. Disabling Wayland in the user settings will allow the container to spin up successfully. This can be accomplished by unchecking the box in the `Settings` > `Extensions` > `Dev Containers` tab labelled `Dev > Containers: Mount Wayland Socket (Applies to All Profiles)`.
