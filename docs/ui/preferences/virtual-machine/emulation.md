@@ -15,7 +15,7 @@ The "[QEMU](https://www.qemu.org/documentation/)" option is enabled by default a
 
 :::caution warning
 
-This is an **experimental** setting available for macOS 13.0 (Ventura) or later versions.
+This is an **experimental** setting. The setting is available for ARM machines on  macOS 13.3 or later, and Intel machines on macOS 13.0 or later.
 
 :::
 
