@@ -43,9 +43,15 @@ const sidebars = {
           type: 'category',
           label: 'Preferences',
           items: [
-            "ui/preferences/application",
-            "ui/preferences/container-engine",
-            "ui/preferences/kubernetes",
+            {
+              type: 'category',
+              label: 'Application',
+              items:  [
+                "ui/preferences/application/general",
+                "ui/preferences/application/behavior",
+                "ui/preferences/application/environment"
+              ]
+            },
             {
               type: 'category',
               label: 'Virtual Machine',
@@ -65,6 +71,15 @@ const sidebars = {
                 "ui/preferences/wsl/proxy"
               ]
             },
+            {
+              type: 'category',
+              label: 'Container Engine',
+              items:  [
+                "ui/preferences/container-engine/general",
+                "ui/preferences/container-engine/allowed-images"
+              ]
+            },
+            "ui/preferences/kubernetes"
           ],
         },
       ],
