@@ -3,7 +3,7 @@ sidebar_label: Network
 title: Network (Windows)
 ---
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/wsl/Windows_WSL_tabNetwork_checked.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_wsl_tabNetwork.png)
 
 ### Networking Tunnel
 

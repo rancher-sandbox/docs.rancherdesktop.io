@@ -3,7 +3,7 @@ sidebar_label: Network
 title: Network (macOS)
 ---
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/virtual-machine/macOS_virtualMachine_tabNetwork.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_virtualMachine_tabNetwork.png)
 
 ### Enable socket-vmnet
 
