@@ -37,21 +37,11 @@ const config = {
               banner: "none",
               path: "/",
             },
-            "1.9-tech-preview": {
-              label: "1.9-tech-preview",
-              path: "1.9-tech-preview",
-              banner: "none"
-            },
             1.9: {
               label: "1.9",
               path: "1.9",
-              banner: "unreleased"
-            },
-            1.8: {
-              label: "1.8",
-              path: "1.8",
               banner: "none"
-            }
+            },
           },
         },
         blog: false,

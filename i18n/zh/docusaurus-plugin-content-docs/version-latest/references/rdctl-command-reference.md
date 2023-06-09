@@ -7,17 +7,40 @@ import TabItem from '@theme/TabItem';
 
 `rdctl` 是包含在 Rancher Desktop 中的命令行工具，它能让你通过命令行访问 GUI 功能。`rdctl` 旨在帮助用户完成脚本（用于自动化、CI/CD）、故障排除、远程管理等任务。当前版本的 `rdctl` 支持以下命令（即将发布的版本中将支持更多命令）：
 
-**:warning: 由于当前版本的 `rdctl` 是实验性的，因此所有子命令的名称、参数以及它们的输出可能会改变**。
+:::info
 
-**:warning: 你必须在主机上运行 Rancher Desktop 应用程序才能使用 `rdctl` 命令**。
+由于当前版本的 `rdctl` 是实验性的，因此所有子命令的名称、参数以及它们的输出可能会改变。
 
-**注意**：很多 `rdctl` 命令都有对应的 `API` 调用。下面列出了两种格式的可用命令。`api` 示例假定你使用 `curl` 作为与 API 对话的工具。
+:::
+
+:::caution 警告
+
+Rancher Desktop 应用程序必须为以下命令运行：
+
+<details>
+<summary>命令列表</summary>
+
+* rdctl list-settings
+* rdctl set
+* rdctl shutdown
+
+</details>
+:::
+
+:::note
+
+很多 `rdctl` 命令都有对应的 `API` 调用。下面列出了两种格式的可用命令。`api` 示例假定你使用 `curl` 作为与 API 对话的工具。
+
+:::
 
 ## rdctl 或 rdctl help
 
 运行 `rdctl` 或 `rdctl help` 查看可用命令的列表：
 
-```
+<details>
+<summary>示例输出</summary>
+
+```autoupdate=true
 > rdctl help
 The eventual goal of this CLI is to enable any UI-based operation to be done from the command-line as well.
 
@@ -25,19 +48,19 @@ Usage:
   rdctl [command]
 
 Available Commands:
-  api           Runs API endpoints directly
-  api /vX       Enables you to see the endpoints for a particular version; e.g., v0
-  completion    Generates the autocompletion script for the specified shell
+  api           Run API endpoints directly
+  completion    Generate the autocompletion script for the specified shell
+  factory-reset Clear all the Rancher Desktop state and shut it down.
   help          Help about any command
-  list-settings Lists the current settings
-  set           Updates selected fields in the Rancher Desktop UI and restart the backend
+  list-settings Lists the current settings.
+  set           Update selected fields in the Rancher Desktop UI and restart the backend.
   shell         Run an interactive shell or a command in a Rancher Desktop-managed VM
   shutdown      Shuts down the running Rancher Desktop application
-  start         Start up Rancher Desktop or update its settings
-  version       Shows the CLI version
+  start         Start up Rancher Desktop, or update its settings.
+  version       Shows the CLI version.
 
 Flags:
-      --config-path string   config file (default C:\Users\GunasekharMatamalam\AppData\Roaming\rancher-desktop\rd-engine.json)
+      --config-path string   config file (default /Users/jan/Library/Application Support/rancher-desktop/rd-engine.json)
   -h, --help                 help for rdctl
       --host string          default is localhost; most useful for WSL
       --password string      overrides the password setting in the config file
@@ -47,33 +70,62 @@ Flags:
 Use "rdctl [command] --help" for more information about a command.
 ```
 
+</details>
+
 ## rdctl api
 
-运行 `rdctl api` 全局列出所有端点：
+运行 `rdctl api /` 全局列出所有端点：
 
+<details>
+<summary>示例输出</summary>
+
+```autoupdate=true
+$ rdctl api / | jq -r .[]
+GET /
+GET /v0
+GET /v1
+GET /v1/about
+GET /v1/diagnostic_categories
+GET /v1/diagnostic_checks
+POST /v1/diagnostic_checks
+GET /v1/diagnostic_ids
+PUT /v1/factory_reset
+PUT /v1/propose_settings
+GET /v1/settings
+PUT /v1/settings
+PUT /v1/shutdown
+GET /v1/transient_settings
+PUT /v1/transient_settings
 ```
-$ ../../../resources/darwin/bin/rdctl api / | jq -r .
-[
-  "GET /",
-  "GET /v0",
-  "GET /v0/settings",
-  "PUT /v0/settings",
-  "PUT /v0/shutdown"
-]
-```
+
+</details>
+
 ## rdctl api /vX
 
-运行 `rdctl api /v0` 列出指定版本的所有端点：
+运行 `rdctl api /v1` 列出版本 1 中的所有端点：
 
+<details>
+<summary>示例输出</summary>
+
+```autoupdate=true
+$ rdctl api /v1 | jq -r .[]
+GET /v1
+GET /v1/about
+GET /v1/diagnostic_categories
+GET /v1/diagnostic_checks
+POST /v1/diagnostic_checks
+GET /v1/diagnostic_ids
+PUT /v1/factory_reset
+PUT /v1/propose_settings
+GET /v1/settings
+PUT /v1/settings
+PUT /v1/shutdown
+GET /v1/transient_settings
+PUT /v1/transient_settings
 ```
-$ rdctl api /v0 | jq -r .
-[
-  "GET /v0",
-  "GET /v0/settings",
-  "PUT /v0/settings",
-  "PUT /v0/shutdown"
-]
-```
+
+</details>
+
 ## rdctl api /v0/settings
 
 `rdctl api [endpoints]` 是对直接使用 API 的用户最有用的命令，因此它们不适合像 `rdctl set` 一样日常使用。例如：
@@ -85,11 +137,88 @@ rdctl api /v0/settings --method PUT --body '{"kubernetes": {"enabled": false}}'
 ```
 
 与以下命令是一样的：
+
 ```
 rdctl set --kubernetes-enabled=false
 ```
 
 只是它没那么简洁和用户友好。
+
+## rdctl extension install
+
+安装 Rancher Desktop 扩展。
+
+```
+rdctl extension install <image-id>
+```
+
+<details>
+<summary>选项 &amp; 示例输出</summary>
+
+**选项**
+
+```
+--force               Avoids any interactivity.
+<image-id>:<tag>      The <tag> is optional, e.g. splatform/epinio-docker-desktop:latest.
+```
+
+**示例**
+
+```autoupdate=true
+$ rdctl extension install docker/logs-explorer-extension:0.2.2
+Installing image docker/logs-explorer-extension:0.2.2
+```
+
+</details>
+
+## rdctl extension ls
+
+列出当前安装的镜像。
+
+```
+rdctl extension ls
+```
+
+<details>
+<summary>示例输出</summary>
+
+**示例**
+
+```autoupdate=true
+$ rdctl extension ls
+Extension IDs
+
+docker/logs-explorer-extension:0.2.2
+```
+
+</details>
+
+## rdctl extension uninstall
+
+卸载 Rancher Desktop 扩展。
+
+```
+rdctl extension uninstall <image-id>
+```
+
+<details>
+<summary>选项 &amp; 示例输出</summary>
+
+**选项**
+
+```
+<image-id>:<tag>      The <tag> is optional, e.g. splatform/epinio-docker-desktop:latest.
+```
+
+**示例**
+
+```autoupdate=true
+$ rdctl extension uninstall docker/logs-explorer-extension:0.2.2
+Uninstalling image docker/logs-explorer-extension:0.2.2: Deleted docker/logs-explorer-extension:0.2.2
+```
+
+</details>
+
 ## rdctl list-settings
 
 <Tabs groupId="command-reference">
@@ -97,21 +226,57 @@ rdctl set --kubernetes-enabled=false
 
 运行 `rdctl list-settings` 以查看当前的活动配置：
 
-```
+<details>
+<summary>示例输出</summary>
+
+```autoupdate=true
 > rdctl list-settings
 {
-  "version": 4,
-  "kubernetes": {
-    "version": "1.22.7",
-    "memoryInGB": 2,
+  "version": 6,
+  "application": {
+    "adminAccess": false,
+    "pathManagementStrategy": "rcfiles",
+    "updater": {
+      "enabled": false
+    },
+    "debug": false,
+    "telemetry": {
+      "enabled": true
+    },
+    "autoStart": false,
+    "startInBackground": false,
+    "hideNotificationIcon": false,
+    "window": {
+      "quitOnClose": false
+    }
+  },
+  "virtualMachine": {
+    "memoryInGB": 6,
     "numberCPUs": 2,
+    "hostResolver": true
+  },
+  "WSL": {
+    "integrations": {}
+  },
+  "containerEngine": {
+    "allowedImages": {
+      "enabled": false,
+      "patterns": [
+        "docker.io"
+      ]
+    },
+    "name": "moby"
+  },
+  "kubernetes": {
+    "version": "",
     "port": 6443,
-    "containerEngine": "moby",
-    "checkForExistingKimBuilder": false,
-    "enabled": true,
-    "WSLIntegrations": {},
+    "enabled": false,
     "options": {
-      "traefik": true
+      "traefik": true,
+      "flannel": true
+    },
+    "ingress": {
+      "localhostOnly": false
     }
   },
   "portForwarding": {
@@ -121,19 +286,49 @@ rdctl set --kubernetes-enabled=false
     "showAll": true,
     "namespace": "k8s.io"
   },
-  "telemetry": true,
-  "updater": true,
-  "debug": false
+  "diagnostics": {
+    "showMuted": false,
+    "mutedChecks": {}
+  },
+  "experimental": {
+    "virtualMachine": {
+      "type": "qemu",
+      "useRosetta": false,
+      "socketVMNet": false,
+      "mount": {
+        "type": "reverse-sshfs",
+        "9p": {
+          "securityModel": "none",
+          "protocolVersion": "9p2000.L",
+          "msizeInKB": 128,
+          "cacheMode": "mmap"
+        }
+      },
+      "networkingTunnel": false
+    }
+  },
+  "extensions": {
+    "docker/logs-explorer-extension:0.2.2": true
+  }
 }
+
 ```
+
+</details>
+
 </TabItem>
   <TabItem value="API" default>
 
 调用以下 API 以查看当前的活动配置：
 
+<details>
+<summary>示例输出</summary>
+
 ```
 curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -X GET
 ```
+
+</details>
 
 **注意**：`-X GET` 是可选的。你也可以单独使用前面的命令。
 
@@ -147,18 +342,30 @@ curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -X GET
 
 运行 `rdctl set [flags]` 来设置属性。在大多数情况下，Kubernetes 会在运行 `set` 命令时重置。你可以通过在单个命令中使用链接来设置多个属性。下面是一些参考示例：
 
+<details>
+<summary>示例输出</summary>
+
 ```
 > rdctl set --kubernetes-enabled=false
 > rdctl set --container-engine docker --kubernetes-version 1.21.2
 ```
+
+</details>
+
 </TabItem>
   <TabItem value="API" default>
 
 调用以下 API 来设置属性：
 
+<details>
+<summary>示例输出</summary>
+
 ```
 curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -d '{ "kubernetes": { "containerEngine": "docker", "enabled": false, "version":"1.23.5" }}' -X PUT
 ```
+
+</details>
+
 </TabItem>
 </Tabs>
 
@@ -169,20 +376,29 @@ curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -d '{ 
 
 运行 `rdctl shutdown` 来正常关闭 Rancher Desktop：
 
+<details>
+<summary>示例输出</summary>
+
 ```
 > rdctl shutdown
 Shutting down.
 ```
+</details>
 
 </TabItem>
   <TabItem value="API" default>
 
-
 调用以下 API 来关闭 Rancher Desktop：
+
+<details>
+<summary>示例输出</summary>
 
 ```
 shutdown: curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/shutdown -X PUT
 ```
+
+</details>
+
 </TabItem>
 </Tabs>
 
@@ -193,19 +409,29 @@ shutdown: curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/shutd
 
 运行 `rdctl start` 来确保 Rancher Desktop 按照要求运行和配置：
 
+<details>
+<summary>示例输出</summary>
+
 ```
 > rdctl start --container-runtime dockerd -- kubernetes-version 1.19.3
 ```
 
+</details>
+
 </TabItem>
   <TabItem value="API" default>
 
-
 调用以下 API 来确保 Rancher Desktop 按照要求运行和配置，请填写你的用户和密码：
+
+<details>
+<summary>示例输出</summary>
 
 ```
 curl -s -H "Authorization: Basic $(echo -n "user:PASSWORD" | base64)"
 ```
+
+</details>
+
 </TabItem>
 </Tabs>
 
@@ -213,7 +439,12 @@ curl -s -H "Authorization: Basic $(echo -n "user:PASSWORD" | base64)"
 
 运行 `rdctl version` 来查看当前 rdctl CLI 的版本：
 
-```
+<details>
+<summary>示例输出</summary>
+
+```autoupdate=true
 > rdctl version
-rdctl client version: 1.0.0, targeting server version: v0
+rdctl client version: 1.1.0, targeting server version: v1
 ```
+
+</details>
