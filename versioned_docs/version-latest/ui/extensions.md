@@ -14,17 +14,17 @@ The **Catalog** tab acts as a marketplace for available Rancher Desktop Extensio
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/ui-main/Windows_Extensions.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Windows_Extensions.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/ui-main/macOS_Extensions.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_Extensions.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/ui-main/Linux_Extensions.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Linux_Extensions.png)
 
 </TabItem>
 </Tabs>
@@ -40,17 +40,17 @@ The **Installed** tab is a view for all installed extensions on your Rancher Des
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/ui-main/Windows_Extensions-Installed.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Windows_Extensions-Installed.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/ui-main/macOS_Extensions-Installed.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_Extensions-Installed.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/1.9-tech-preview/ui-main/Linux_Extensions-Installed.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Linux_Extensions-Installed.png)
 
 </TabItem>
 </Tabs>

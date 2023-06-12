@@ -29,7 +29,7 @@ Users can enable the "reverse-sshfs" mount type from the `Volumes` tab. This exp
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_virtualMachine_tabVolumes_9p.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_virtualMachine_tabVolumes_9P.png)
 
 </TabItem>
 <TabItem value="Linux">
@@ -70,5 +70,11 @@ Users can select a supported security model with options being `[passthrough, ma
 </Tabs>
 
 ### virtiofs
+
+:::caution warning
+
+This is an **experimental** setting.
+
+:::
 
 Users can enable the "[virtiofs](https://virtio-fs.gitlab.io/)" mount type from the `Volumes` tab. This is implemented using the Apple `Virtualization.Framework` shared directory device.
