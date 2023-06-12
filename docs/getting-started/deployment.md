@@ -57,9 +57,29 @@ For versions `1.9` and later of Rancher Desktop, all preferences values can be l
 <details>
 <summary>Locked Fields UI Examples</summary>
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/getting-started/Linux_gettingStarted_tabApplication.png)
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/getting-started/Linux_gettingStarted_tabKubernetes.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_containerEngine_tabAllowedImages_lockedFields.png)
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_kubernetes_lockedFields.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_containerEngine_tabAllowedImages_lockedFields.png)
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_kubernetes_lockedFields.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_containerEngine_tabAllowedImages_lockedFields.png)
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_kubernetes_lockedFields.png)
+
+</TabItem>
+</Tabs>
 
 </details>
 
