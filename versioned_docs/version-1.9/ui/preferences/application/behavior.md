@@ -30,6 +30,10 @@ Rancher Desktop normally remains running in the background even when the main ap
 
 Rancher Desktop shows the application status with a notification icon. The context menu of the icon provides more status information and provides quick access to other functionality of the application. This options will disable the creation of the notification icon.
 
+#### Known Issues and Limitations
+
+* For Ubuntu operating systems and specifically versions >= 20.04.5 LTS, there is a known issue with hiding the tray icon in the preferences settings. Please see this [issue comment](https://github.com/rancher-sandbox/rancher-desktop/issues/4205#issuecomment-1533750167) for further information.
+
 </TabItem>
 <TabItem value="macOS">
 
@@ -51,6 +55,10 @@ Rancher Desktop normally remains running in the background even when the main ap
 
 Rancher Desktop shows the application status with a notification icon in the menu bar. The context menu of the icon provides more status information and provides quick access to other functionality of the application. This options will disable the creation of the notification icon.
 
+#### Known Issues and Limitations
+
+* For Ubuntu operating systems and specifically versions >= 20.04.5 LTS, there is a known issue with hiding the tray icon in the preferences settings. Please see this [issue comment](https://github.com/rancher-sandbox/rancher-desktop/issues/4205#issuecomment-1533750167) for further information.
+
 </TabItem>
 <TabItem value="Linux">
 
@@ -71,6 +79,10 @@ Rancher Desktop normally remains running in the background even when the main ap
 #### Notification Icon
 
 Rancher Desktop shows the application status with a notification icon. The context menu of the icon provides more status information and provides quick access to other functionality of the application. This options will disable the creation of the notification icon.
+
+#### Known Issues and Limitations
+
+* For Ubuntu operating systems and specifically versions >= 20.04.5 LTS, there is a known issue with hiding the tray icon in the preferences settings. Please see this [issue comment](https://github.com/rancher-sandbox/rancher-desktop/issues/4205#issuecomment-1533750167) for further information.
 
 </TabItem>
 </Tabs>
