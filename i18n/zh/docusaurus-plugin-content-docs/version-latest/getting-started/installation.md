@@ -2,7 +2,7 @@
 title: 安装
 ---
 
-Rancher Desktop 作为桌面应用程序交付，你可以从 [GitHub Releases 页面](https://github.com/rancher-sandbox/rancher-desktop/releases/latest)下载它。
+Rancher Desktop 作为桌面应用程序交付，你可以从 [GitHub Releases 页面](https://github.com/rancher-sandbox/rancher-desktop/releases)下载它。
 
 首次运行或更改版本时会下载 Kubernetes 容器镜像。因此，首次运行新的 Kubernetes 版本时可能需要一些时间来加载这些镜像。
 
