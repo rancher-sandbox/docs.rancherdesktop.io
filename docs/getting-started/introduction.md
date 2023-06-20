@@ -3,10 +3,31 @@ title: Introduction
 slug: /
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
+
 Rancher Desktop is an app that provides container management and Kubernetes on the desktop. It is available for Mac (both on Intel and Apple Silicon), Windows, and Linux.
 
-![](../img/intro/intro.png)
-_The above image shows Kubernetes settings on Mac on the left and Windows on the right._
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_kubernetes.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_kubernetes.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_kubernetes.png)
+
+</TabItem>
+</Tabs>
+
+_The above image shows Kubernetes settings on Windows, MacOS, and Linux, respectively._
 
 ## Container Management
 
