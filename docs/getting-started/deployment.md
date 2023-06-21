@@ -95,10 +95,10 @@ On Windows the deployment profiles are stored in the registry and can be distrib
 The locations for the profiles are:
 
 ```
-HKEY_LOCAL_MACHINE\Software\Policies\Rancher Desktop\Profile\Defaults
-HKEY_LOCAL_MACHINE\Software\Policies\Rancher Desktop\Profile\Locked
-HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Defaults
-HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Locked
+HKEY_LOCAL_MACHINE\Software\Policies\Rancher Desktop\Defaults
+HKEY_LOCAL_MACHINE\Software\Policies\Rancher Desktop\Locked
+HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Defaults
+HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Locked
 ```
 
 The `reg` tool can be used to create a profile manually. To create an "admin" profile it will have to be executed from an elevated shell.
@@ -108,21 +108,21 @@ Boolean values are stored in `REG_DWORD` format, and lists in `REG_MULTI_SZ`.
 #### Delete existing profiles
 
 ```
-reg delete "HKCU\Software\Policies\Rancher Desktop\Profile" /f
+reg delete "HKCU\Software\Policies\Rancher Desktop" /f
 ```
 
 #### By default use the "moby" container engine and disable Kubernetes
 
 ```
-reg add "HKCU\Software\Policies\Rancher Desktop\Profile\Defaults\containerEngine" /v name /t REG_SZ -d moby
-reg add "HKCU\Software\Policies\Rancher Desktop\Profile\Defaults\kubernetes" /v enabled /t REG_DWORD -d 0
+reg add "HKCU\Software\Policies\Rancher Desktop\Defaults\containerEngine" /v name /t REG_SZ -d moby
+reg add "HKCU\Software\Policies\Rancher Desktop\Defaults\kubernetes" /v enabled /t REG_DWORD -d 0
 ```
 
 #### Lock allowed images list to only allow "busybox" and "nginx"
 
 ```
-reg add "HKCU\Software\Policies\Rancher Desktop\Profile\Locked\containerEngine\allowedImages" /v enabled /t REG_DWORD -d 1
-reg add "HKCU\Software\Policies\Rancher Desktop\Profile\Locked\containerEngine\allowedImages" /v patterns /t REG_MULTI_SZ -d busybox\0nginx
+reg add "HKCU\Software\Policies\Rancher Desktop\Locked\containerEngine\allowedImages" /v enabled /t REG_DWORD -d 1
+reg add "HKCU\Software\Policies\Rancher Desktop\Locked\containerEngine\allowedImages" /v patterns /t REG_MULTI_SZ -d busybox\0nginx
 ```
 
 #### Verify registry settings
@@ -130,30 +130,30 @@ reg add "HKCU\Software\Policies\Rancher Desktop\Profile\Locked\containerEngine\a
 The profile can be exported into a `*.reg` file
 
 ```
-C:\>reg export "HKCU\Software\Policies\Rancher Desktop\Profile" rd.reg
+C:\>reg export "HKCU\Software\Policies\Rancher Desktop" rd.reg
 The operation completed successfully.
 ```
 
 This file can be used to distribute the profile to other machines. Note that the `REG_MULTI_SZ` values are encoded in UTF16LE, so are not easily readable:
 
-```text title="HKCU\Software\Policies\Rancher Desktop\Profile"
+```text title="HKCU\Software\Policies\Rancher Desktop"
 Windows Registry Editor Version 5.00
 
-[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop]
 
-[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Defaults]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Defaults]
 
-[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Defaults\containerEngine]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Defaults\containerEngine]
 "name"="moby"
 
-[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Defaults\kubernetes]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Defaults\kubernetes]
 "enabled"=dword:00000000
 
-[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Locked]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Locked]
 
-[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Locked\containerEngine]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Locked\containerEngine]
 
-[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Locked\containerEngine\allowedImages]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Locked\containerEngine\allowedImages]
 "enabled"=dword:00000001
 "patterns"=hex(7):62,00,75,00,73,00,79,00,62,00,6f,00,78,00,00,00,6e,00,67,00,\
   69,00,6e,00,78,00,00,00,00,00
