@@ -112,7 +112,7 @@ const config = {
             position: "right",
           },
           {
-            href: 'https://rancher.com',
+            href: 'https://www.rancher.com',
             label: 'Rancher Home',
             position: 'right',
           },
