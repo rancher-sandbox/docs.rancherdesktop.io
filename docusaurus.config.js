@@ -111,6 +111,11 @@ const config = {
             type: "localeDropdown",
             position: "right",
           },
+          {
+            href: 'https://www.rancher.com',
+            label: 'Rancher Home',
+            position: 'right',
+          },
         ],
       },
       colorMode: {

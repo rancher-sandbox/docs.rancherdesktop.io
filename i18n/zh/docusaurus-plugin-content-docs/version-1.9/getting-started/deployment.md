@@ -62,10 +62,10 @@ Rancher Desktop 不会修改或删除部署配置文件。它们不会受到恢�
 配置文件的位置是：
 
 ```
-HKEY_LOCAL_MACHINE\Software\Policies\Rancher Desktop\Profile\Defaults
-HKEY_LOCAL_MACHINE\Software\Policies\Rancher Desktop\Profile\Locked
-HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Defaults
-HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Locked
+HKEY_LOCAL_MACHINE\Software\Policies\Rancher Desktop\Defaults
+HKEY_LOCAL_MACHINE\Software\Policies\Rancher Desktop\Locked
+HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Defaults
+HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Locked
 ```
 
 `reg` 工具可用于手动创建配置文件。要创建 “admin” 配置文件，必须从提升的 shell 中执行。
@@ -75,21 +75,21 @@ HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Locked
 #### 删除现有配置文件
 
 ```
-reg delete "HKCU\Software\Policies\Rancher Desktop\Profile" /f
+reg delete "HKCU\Software\Policies\Rancher Desktop" /f
 ```
 
 #### 默认使用 “moby” 容器引擎并禁用 Kubernetes
 
 ```
-reg add "HKCU\Software\Policies\Rancher Desktop\Profile\Defaults\containerEngine" /v name /t REG_SZ -d moby
-reg add "HKCU\Software\Policies\Rancher Desktop\Profile\Defaults\kubernetes" /v enabled /t REG_DWORD -d 0
+reg add "HKCU\Software\Policies\Rancher Desktop\Defaults\containerEngine" /v name /t REG_SZ -d moby
+reg add "HKCU\Software\Policies\Rancher Desktop\Defaults\kubernetes" /v enabled /t REG_DWORD -d 0
 ```
 
 #### 将镜像列表锁定为仅允许 “busybox” 和 “nginx”
 
 ```
-reg add "HKCU\Software\Policies\Rancher Desktop\Profile\Locked\containerEngine\allowedImages" /v enabled /t REG_DWORD -d 1
-reg add "HKCU\Software\Policies\Rancher Desktop\Profile\Locked\containerEngine\allowedImages" /v patterns /t REG_MULTI_SZ -d busybox\0nginx
+reg add "HKCU\Software\Policies\Rancher Desktop\Locked\containerEngine\allowedImages" /v enabled /t REG_DWORD -d 1
+reg add "HKCU\Software\Policies\Rancher Desktop\Locked\containerEngine\allowedImages" /v patterns /t REG_MULTI_SZ -d busybox\0nginx
 ```
 
 #### 验证镜像仓库设置
@@ -97,30 +97,30 @@ reg add "HKCU\Software\Policies\Rancher Desktop\Profile\Locked\containerEngine\a
 配置文件可以导出到 `*.reg` 文件中
 
 ```
-C:\>reg export "HKCU\Software\Policies\Rancher Desktop\Profile" rd.reg
+C:\>reg export "HKCU\Software\Policies\Rancher Desktop" rd.reg
 The operation completed successfully.
 ```
 
 该文件可用于将配置文件分发到其他机器。请注意，`REG_MULTI_SZ` 值以 UTF16LE 编码，因此不易读取：
 
-```text title="HKCU\Software\Policies\Rancher Desktop\Profile"
+```text title="HKCU\Software\Policies\Rancher Desktop"
 Windows Registry Editor Version 5.00
 
-[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop]
 
-[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Defaults]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Defaults]
 
-[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Defaults\containerEngine]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Defaults\containerEngine]
 "name"="moby"
 
-[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Defaults\kubernetes]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Defaults\kubernetes]
 "enabled"=dword:00000000
 
-[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Locked]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Locked]
 
-[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Locked\containerEngine]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Locked\containerEngine]
 
-[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Profile\Locked\containerEngine\allowedImages]
+[HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Locked\containerEngine\allowedImages]
 "enabled"=dword:00000001
 "patterns"=hex(7):62,00,75,00,73,00,79,00,62,00,6f,00,78,00,00,00,6e,00,67,00,\
   69,00,6e,00,78,00,00,00,00,00
