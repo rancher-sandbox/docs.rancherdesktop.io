@@ -3,10 +3,6 @@ title: Introduction
 slug: /
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/getting-started/introduction"/>
-</head>
-
 Rancher Desktop is an app that provides container management and Kubernetes on the desktop. It is available for Mac (both on Intel and Apple Silicon), Windows, and Linux.
 
 ![](../img/intro/intro.png)

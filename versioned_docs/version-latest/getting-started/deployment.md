@@ -6,10 +6,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/getting-started/deployment"/>
-</head>
-
 Deployment profiles provide 2 features:
 
 * "Defaults" provide preference values that are applied on first run (or after a factory reset).

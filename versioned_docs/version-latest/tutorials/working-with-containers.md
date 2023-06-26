@@ -5,10 +5,6 @@ title: Working with Containers
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/tutorials/working-with-containers"/>
-</head>
-
 `nerdctl` is a Docker-compatible CLI for containerd. The primary goal of `nerdctl` is to facilitate experimenting with cutting-edge features of containerd that are not present in Docker.
 
 [Moby](https://github.com/moby/moby) is an open-source project that was created by Docker to enable and accelerate software containerization. Components include container build tools, a container registry, orchestration tools, and a runtime, and more. The Docker CLI uses the Moby runtime. 
