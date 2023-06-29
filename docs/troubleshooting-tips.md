@@ -6,6 +6,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/troubleshooting-tips"/>
+</head>
+
 This page provides tips to troubleshoot issues you may have with Rancher Desktop.
 
 #### Q: How can I fix the Docker error when starting a container using the VS Code dev-containers extension with version >`v0.266`?
