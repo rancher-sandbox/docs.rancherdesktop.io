@@ -26,5 +26,21 @@
   "sidebar.tutorialSidebar.category.Preferences": {
     "message": "偏好设置",
     "description": "The label for category Preferences in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Application": {
+    "message": "应用程序",
+    "description": "The label for category Application in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Virtual Machine": {
+    "message": "虚拟机",
+    "description": "The label for category Virtual Machine in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.WSL": {
+    "message": "WSL",
+    "description": "The label for category WSL in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Container Engine": {
+    "message": "容器引擎",
+    "description": "The label for category Container Engine in sidebar tutorialSidebar"
   }
 }

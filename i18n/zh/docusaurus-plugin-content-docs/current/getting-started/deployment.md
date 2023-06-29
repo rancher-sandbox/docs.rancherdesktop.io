@@ -50,6 +50,39 @@ Rancher Desktop 不会修改或删除部署配置文件。它们不会受到恢�
 
 下面针对各系统的文档说明了如何创建部署配置文件，该配置文件将默认容器引擎更改为 `moby`，禁用 Kubernetes，并将镜像列表锁定为仅允许 `busybox` 和 `nginx`。
 
+### 锁定的偏好字段
+
+如果你使用的是 Rancher Desktop `1.9` 及更高版本，你可以在配置部署配置文件时锁定所有首选项值。根据用于创建锁定文件的目录或镜像仓库，你可能需要具有 MacOS/Linux 的 super user 权限或使用 Windows 的 admin shell 才能访问特权路径。一旦固定，各种锁定值将无法从应用程序访问，如下面的 UI 示例所示：
+
+<details>
+<summary>锁定字段 UI 示例</summary>
+
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_containerEngine_tabAllowedImages_lockedFields.png)
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_kubernetes_lockedFields.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_containerEngine_tabAllowedImages_lockedFields.png)
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_kubernetes_lockedFields.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_containerEngine_tabAllowedImages_lockedFields.png)
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_kubernetes_lockedFields.png)
+
+</TabItem>
+</Tabs>
+
+</details>
+
 ### 配置文件格式和位置
 
 不同系统使用的部署配置文件存储格式和位置不同。
@@ -274,7 +307,6 @@ rdctl list-settings > ~/.config/rancher-desktop.defaults.json
 
 ### 已知问题和限制
 
-* `containerEngine.allowedImages` 是当前唯一可以锁定的设置。
 * 在 macOS 上，格式不正确的配置文件会被忽略，而不是阻止应用程序加载。
 * 无法通过部署配置文件设置 `diagnostics.showMuted`（Windows 上的 `WSL.integrations`）。
 * 在 macOS 和 Linux 上，如果 “defaults” 配置文件未为 `application.pathManagementStrategy` 配置值，则仍会显示一个简短的首次运行对话框。
