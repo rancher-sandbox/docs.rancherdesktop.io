@@ -18,5 +18,9 @@
   "item.label.Quick Links": {
     "message": "快捷链接",
     "description": "Navbar item with label Quick Links"
+  },
+  "item.label.Rancher Home": {
+    "message": "Rancher 主页",
+    "description": "Navbar item with label Rancher Home"
   }
 }

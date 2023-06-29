@@ -34,5 +34,13 @@
   "sidebar.tutorialSidebar.category.References": {
     "message": "参考",
     "description": "The label for category References in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Application": {
+    "message": "应用程序",
+    "description": "The label for category Application in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Container Engine": {
+    "message": "容器引擎",
+    "description": "The label for category Container Engine in sidebar tutorialSidebar"
   }
 }
