@@ -7,6 +7,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/"/>
+</head>
+
 Rancher Desktop is an app that provides container management and Kubernetes on the desktop. It is available for Mac (both on Intel and Apple Silicon), Windows, and Linux.
 
 ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/getting-started/introduction_preferences_tabKubernetes.png)
