@@ -5,6 +5,10 @@ title: Running When Offline
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/running-air-gapped"/>
+</head>
+
 Rancher Desktop can be run when offline, aka in air-gapped mode. This document covers requirements
 and possible problems when running in air-gapped mode.
 
