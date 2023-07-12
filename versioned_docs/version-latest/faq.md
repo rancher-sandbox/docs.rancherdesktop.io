@@ -196,3 +196,11 @@ containerd: /var/lib/nerdctl/dbb19c5e/volumes/<namespace>
 1. Perform `Troubleshooting > Factory Reset` from the current installation. Please make sure the `Keep cached Kubernetes images` box is *not* checked in the `Factory Reset` pop up dialog.
 2. Uninstall the current version by following [uninstallation instructions](https://docs.rancherdesktop.io/getting-started/installation) for your OS.
 3. Install the older version that you need.
+
+#### Q: Rancher Desktop becomes unresponsive after my Windows machine wakes up from hibernation. How can I get my Rancher Desktop session working again with out having to reboot my machine?
+
+**A:** This is because of a WSL [bug](https://github.com/microsoft/WSL/issues/8696) that makes WSL unresponsive after hibernation on some Windows configurations. While the WSL bug itself is not yet resolved, various workarounds discussed on the GitHub issue thread make the problem a bit less frustrating; you can at least avoid a machine restart to get WSL and Rancher Desktop working again. You can follow the below steps.
+
+1. Stop the WSL process using the command `taskkill /f /im wsl.exe`.
+2. Stop and Restart the LxssManager service. You can view the list of services running on your machine via the command `services.msc`.
+3. Exit and Restart Rancher Desktop. 
