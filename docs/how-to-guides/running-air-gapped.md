@@ -2,8 +2,6 @@
 title: Running When Offline
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
 Rancher Desktop can be run when offline, aka in air-gapped mode. This document covers requirements

@@ -2,9 +2,6 @@
 title: Create a Multi-Node Cluster with k3d
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/create-multi-node-cluster"/>
 </head>
