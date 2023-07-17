@@ -3,11 +3,11 @@ sidebar_label: Diagnostics
 title: Diagnostics
 ---
 
-import TabsConstants from '@site/core/TabsConstants';
-
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/ui/diagnostics"/>
 </head>
+
+import TabsConstants from '@site/core/TabsConstants';
 
 The **Diagnostics** feature runs several checks in the background to detect common problems such as missing minimum requirements, misconfigurations, etc., in your environment to help you self-troubleshoot and fix Rancher Desktop application issues.
 

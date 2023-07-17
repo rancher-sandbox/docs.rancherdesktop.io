@@ -3,11 +3,11 @@ sidebar_label: Troubleshooting
 title: Troubleshooting
 ---
 
-import TabsConstants from '@site/core/TabsConstants';
-
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/ui/troubleshooting"/>
 </head>
+
+import TabsConstants from '@site/core/TabsConstants';
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">

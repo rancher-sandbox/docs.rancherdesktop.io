@@ -3,8 +3,6 @@ sidebar_label: Volumes
 title: Volumes (macOS & Linux)
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
 ## Mount Type

@@ -3,8 +3,6 @@ sidebar_label: Behavior
 title: Behavior
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
 Allows for configuration of application behavior upon startup, background process behavior, and notification icon display.

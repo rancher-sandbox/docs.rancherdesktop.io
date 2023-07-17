@@ -3,8 +3,6 @@ sidebar_label: Hardware
 title: Hardware (macOS & Linux)
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
 <Tabs groupId="os">
