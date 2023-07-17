@@ -5,6 +5,10 @@ title: Extensions
 
 import TabsConstants from '@site/core/TabsConstants';
 
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/extensions"/>
+</head>
+
 ### Catalog
 
 The **Catalog** tab acts as a marketplace for available Rancher Desktop Extensions. Users can view and click on extensions for further description and the ability to install extensions directly through the UI.
