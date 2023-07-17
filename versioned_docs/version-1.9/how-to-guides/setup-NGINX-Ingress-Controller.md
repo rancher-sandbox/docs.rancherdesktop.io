@@ -5,6 +5,10 @@ title: Setup NGINX Ingress Controller
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/setup-NGINX-Ingress-Controller"/>
+</head>
+
 Rancher Desktop uses K3s under the hood, which in turn uses Traefik as the default ingress controller for your Kubernetes cluster. However, there are unique use cases where NGINX may be required or preferred. Below steps show how to use NGINX Ingress controller for a sample deployment.
 
 ### Steps

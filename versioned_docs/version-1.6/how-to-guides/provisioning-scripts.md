@@ -5,6 +5,10 @@ title: Provisioning Scripts
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/provisioning-scripts"/>
+</head>
+
 Provisioning scripts can be used to override some of Rancher Desktop's internal processes. For example, scripts can be used to provide certain command line parameters to K3s, add additional mounts, increase ulimit value etc. This guide will explain how to set up your provisioning scripts for macOS, Linux, and Windows.
 
 ## macOS & Linux
