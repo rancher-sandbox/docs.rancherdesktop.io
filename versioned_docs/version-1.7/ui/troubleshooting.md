@@ -7,6 +7,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/troubleshooting"/>
+</head>
+
 ### Show Logs
 
 Use this option to open the folder containing all Rancher Desktop log files.

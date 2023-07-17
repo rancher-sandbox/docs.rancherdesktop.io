@@ -7,6 +7,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/general"/>
+</head>
+
 The **General** tab provides information on communication channels where users can connect with the Rancher Desktop team and community to ask questions, report bugs, or discuss Rancher Desktop in general.
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
