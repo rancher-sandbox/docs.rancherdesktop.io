@@ -3,6 +3,10 @@ sidebar_label: Hardware
 title: Hardware (macOS & Linux)
 ---
 
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/virtual-machine/hardware"/>
+</head>
+
 import TabsConstants from '@site/core/TabsConstants';
 
 <Tabs groupId="os">

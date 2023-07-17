@@ -3,6 +3,10 @@ sidebar_label: Kubernetes
 title: Kubernetes
 ---
 
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/kubernetes"/>
+</head>
+
 import TabsConstants from '@site/core/TabsConstants';
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>

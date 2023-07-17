@@ -3,6 +3,10 @@ sidebar_label: Behavior
 title: Behavior
 ---
 
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/application/behavior"/>
+</head>
+
 import TabsConstants from '@site/core/TabsConstants';
 
 Allows for configuration of application behavior upon startup, background process behavior, and notification icon display.
