@@ -2,6 +2,10 @@
 title: FAQ
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
+
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/faq"/>
 </head>
@@ -205,6 +209,28 @@ containerd: /var/lib/nerdctl/dbb19c5e/volumes/<namespace>
 
 **A:** This is because of a WSL [bug](https://github.com/microsoft/WSL/issues/8696) that makes WSL unresponsive after hibernation on some Windows configurations. While the WSL bug itself is not yet resolved, various workarounds discussed on the GitHub issue thread make the problem a bit less frustrating; you can at least avoid a machine restart to get WSL and Rancher Desktop working again. You can follow the below steps.
 
-1. Stop the WSL process using the command `taskkill /f /im wsl.exe`.
-2. Stop and Restart the LxssManager service. You can view the list of services running on your machine via the command `services.msc`.
-3. Exit and Restart Rancher Desktop. 
+1. Shutdown WSL via the command `wsl --shutdown`. If the `wsl --shutdown` command is successful then jump to step 3.
+2. Stop and Restart the LxssManager service.
+
+<Tabs groupId="mode">
+  <TabItem value="Powershell" default>
+
+- Stop the LxssManager service.
+```
+stop-service lxssmanager
+```
+
+- Start the LxssManager service.
+```
+start-service lxssmanager
+```
+
+  </TabItem>
+  <TabItem value="GUI">
+
+Open the list of services running on your machine using the command `services.msc`. Locate the lxssmanager service in the list, right-click on it, and select `Stop`, `Start` to stop and start the service.
+
+  </TabItem>
+</Tabs>
+
+3. Exit and Restart Rancher Desktop.
