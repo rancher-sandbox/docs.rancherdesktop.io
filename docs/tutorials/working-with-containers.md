@@ -177,7 +177,7 @@ export CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.I
   </TabItem>
 </Tabs>
 
-4. Start a proxy container to forward traffic to the oroginal container.
+4. Start a proxy container to forward traffic to the original container.
 
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
