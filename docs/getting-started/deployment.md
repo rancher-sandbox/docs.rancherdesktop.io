@@ -2,13 +2,11 @@
 title: Deployment Profiles
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import TabsConstants from '@site/core/TabsConstants';
-
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/getting-started/deployment"/>
 </head>
+
+import TabsConstants from '@site/core/TabsConstants';
 
 Deployment profiles provide 2 features:
 

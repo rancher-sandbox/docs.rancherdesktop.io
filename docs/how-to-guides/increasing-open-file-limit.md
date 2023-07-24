@@ -2,13 +2,11 @@
 title: Increasing Open File Limit
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import TabsConstants from '@site/core/TabsConstants';
-
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/increasing-open-file-limit"/>
 </head>
+
+import TabsConstants from '@site/core/TabsConstants';
 
 You may wish to increase the open file limit as Rancher Desktop's default `ulimit` setting for pods may be too low, depending on your use case. This guide provides steps for increasing the open file limit using provisioning scripts alongside Rancher Desktop's internal processes.
 

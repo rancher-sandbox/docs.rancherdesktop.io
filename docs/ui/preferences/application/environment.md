@@ -3,8 +3,10 @@ sidebar_label: Environment
 title: Environment
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/application/environment"/>
+</head>
+
 import TabsConstants from '@site/core/TabsConstants';
 
 Allows for configuration of the `$PATH` variable in the users shell in order to interact with Rancher Desktop installed utilities.
