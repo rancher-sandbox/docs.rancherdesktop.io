@@ -2,9 +2,6 @@
 title: Setup NGINX Ingress Controller
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/setup-NGINX-Ingress-Controller"/>
 </head>

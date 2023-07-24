@@ -3,6 +3,10 @@ sidebar_label: Proxy
 title: Proxy
 ---
 
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/wsl/proxy"/>
+</head>
+
 ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_wsl_tabProxy.png)
 
 ### WSL Proxy

@@ -3,13 +3,11 @@ sidebar_label: Extensions
 title: Extensions
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import TabsConstants from '@site/core/TabsConstants';
-
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/ui/extensions"/>
 </head>
+
+import TabsConstants from '@site/core/TabsConstants';
 
 ### Catalog
 

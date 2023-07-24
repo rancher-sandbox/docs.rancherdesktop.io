@@ -2,9 +2,6 @@
 title: Working with Containers
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/tutorials/working-with-containers"/>
 </head>

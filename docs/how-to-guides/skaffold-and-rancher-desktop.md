@@ -2,9 +2,6 @@
 title: Skaffold and Rancher Desktop
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/skaffold-and-rancher-desktop"/>
 </head>
