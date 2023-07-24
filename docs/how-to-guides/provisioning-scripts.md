@@ -54,11 +54,11 @@ mounts:
     writable: true
 ```
 
-- Another example uses the `override.yaml` file to allow users to implement custom settings for [`K3s`](https://k3s.io/?ref=traefik.io) environments using Rancher Desktop's `K3S_EXEC` syntax as seen below.
+- Another example uses the `override.yaml` file to allow users to implement custom settings for [`K3s`](https://k3s.io/?ref=traefik.io) environments using Rancher Desktop's `K3S_EXEC` syntax (Similar to the `K3s` syntax [`INSTALL_K3S_EXEC`](https://docs.k3s.io/reference/env-variables#:~:text=as%20the%20default.-,INSTALL_K3S_EXEC,-Command%20with%20flags)). Please see the [agent](https://docs.k3s.io/cli/agent) and [server](https://docs.k3s.io/cli/server) command line flags documentation for further installation options. Below is an example setting using the [`--tls-san value`](https://docs.k3s.io/cli/server#:~:text=of%20the%20cluster-,%2D%2Dtls%2Dsan%20value,-N/A) flag to add additional hostnames as Subject Alternative Names on the TLS certification:
 
 ```
 env:
-  K3S_EXEC: --tls-san x.x.x.x
+  K3S_EXEC: --tls-san value
 ```
 
 ## Windows
