@@ -123,7 +123,7 @@ netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 conne
 
 If you forgot to expose the port as part of the `run` command, you can follow the steps below to start a proxy container that forwards traffic to the original container. This hack helps you avoid restarting the container and is especially useful when dealing with containerized services with longer startup times. With full disclosure, this hack is based on the suggestions in this [stackoverflow discussion](https://stackoverflow.com/questions/19897743/exposing-a-port-on-a-live-docker-container) and this [blog post](https://iximiuz.com/en/posts/docker-publish-port-of-running-container/).
 
-1. Let's say you ran a container with out publishing the port (by mistake).
+1. Let's say you ran a container without publishing the port (by mistake).
 
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
