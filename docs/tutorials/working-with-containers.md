@@ -152,7 +152,7 @@ export HOST_PORT=8080
 export CONTAINER_PORT=80
 ```
 
-3. Get the container IP address. If you did not give a name to the container at the time of starting it, you can pass the container id in place of the container name in the commands below.
+3. Get the container IP address. If you did not give a name to the container at the time of starting it, you can pass the container id in place of the container name `rd-nginx` in the commands below.
 
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
