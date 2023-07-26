@@ -152,6 +152,16 @@ export HOST_PORT=8080
 export CONTAINER_PORT=80
 ```
 
+:::note
+If you choose to set a priviliged port, most Linux distributions (e.g. Ubuntu 20.04) do not allow non-root users to listen on TCP and UDP ports below 1024. To listen to privileged ports on the local host, please run the following command on macOS/Linux:
+
+```
+sudo sysctl -w net.ipv4.ip_unprivileged_port_start=80
+```
+
+To preserve this change across reboots as a custom kernel parameter setting, add the same command inside your `/etc/sysctl.conf file`.
+:::note
+
 3. Get the container IP address. If you did not give a name to the container at the time of starting it, you can pass the container id in place of the container name `rd-nginx` in the commands below.
 
 <Tabs groupId="container-runtime">
