@@ -3,6 +3,10 @@ sidebar_label: Emulation
 title: Emulation (macOS)
 ---
 
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/virtual-machine/emulation"/>
+</head>
+
  ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_virtualMachine_tabEmulation.png)
 
 ### QEMU

@@ -3,13 +3,11 @@ sidebar_label: Images
 title: Images
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import TabsConstants from '@site/core/TabsConstants';
-
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/ui/images"/>
 </head>
+
+import TabsConstants from '@site/core/TabsConstants';
 
 The **Images** tab, allows you to manage the images on your virtual machine.
 

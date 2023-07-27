@@ -3,8 +3,10 @@ sidebar_label: General
 title: General
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/container-engine/general"/>
+</head>
+
 import TabsConstants from '@site/core/TabsConstants';
 
 Set the [container runtime] for Rancher Desktop. Users have the option of [containerd] which provides namespaces for containers and the use of nerdctl or [dockerd (moby)] which enables the Docker API and the use of the Docker CLI. Only one container runtime will function at a time.

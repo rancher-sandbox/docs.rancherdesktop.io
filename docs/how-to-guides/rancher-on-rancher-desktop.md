@@ -2,9 +2,6 @@
 title: Rancher on Rancher Desktop
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/rancher-on-rancher-desktop"/>
 </head>

@@ -3,8 +3,10 @@ sidebar_label: General
 title: General
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/application/general"/>
+</head>
+
 import TabsConstants from '@site/core/TabsConstants';
 
 Allows for enablement of automatic updates, as well as an optional field to allow Rancher Desktop to collect anonymous statistics to help improve the application.

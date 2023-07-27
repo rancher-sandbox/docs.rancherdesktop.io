@@ -3,8 +3,9 @@ sidebar_label: Integrations
 title: Integrations
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/wsl/integrations"/>
+</head>
 
 The Integrations tab allows for the option to make the Rancher Desktop Kubernetes configuration accessible to any Linux distributions configured for WSL. Once enabled, you can communicate with the Rancher Desktop Kubernetes cluster using tools like `kubectl` from within the WSL distribution.
 

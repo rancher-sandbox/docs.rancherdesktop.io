@@ -2,9 +2,6 @@
 title: "Command Reference: rdctl"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/references/rdctl-command-reference"/>
 </head>
