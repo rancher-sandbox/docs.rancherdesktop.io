@@ -6,11 +6,9 @@ title: ODO and Rancher Desktop
 
 ## Prerequisites
 
-We will use the [express-sample node.js application](https://github.com/rancher-sandbox/docs.rancherdesktop.io/tree/main/assets/express-sample) in the [Rancher Desktop documentation](https://github.com/rancher-sandbox/docs.rancherdesktop.io) repository as a way to demonstrate the use of `odo` and Rancher Desktop. Either runtime (`dockerd (moby)` or `containerd`) can be used to work with the CLI tool to help orchestrate clusters.
+For this guide you will use the [express-sample node.js application](https://github.com/rancher-sandbox/docs.rancherdesktop.io/tree/main/assets/express-sample) in the [Rancher Desktop documentation](https://github.com/rancher-sandbox/docs.rancherdesktop.io) repository as a way to demonstrate the use of `odo` and Rancher Desktop. Either runtime (`dockerd (moby)` or `containerd`) can be used to work with the CLI tool to help orchestrate clusters.
 
-Additionally, in order to use `odo deploy`, users will need to be able to build and push an image to a registry.
-
-Login to the container registry that the application will be pushed to:
+Please ensure that Kubernetes is enabled for your application. Additionally, in order to use `odo deploy`, you will need to be able to build and push an image to a registry. Login to the container registry that the application will be pushed to:
 
 <Tabs>
 <TabItem value="Docker">
@@ -23,13 +21,13 @@ Login Succeeded!
 ```
 
 </TabItem>
-<TabItem value="Podman">
+<TabItem value="Nerdctl">
 
 ```
-$ podman login quay.io
-Username:
-Password:
-Login Succeeded!
+$ nerdctl login -u <USERNAME>
+Enter Password:
+
+Login Succeeded
 ```
 
 </TabItem>
@@ -37,7 +35,7 @@ Login Succeeded!
 
 ## Installation
 
-Install `odo` by visiting https://odo.dev/docs/overview/installation and perform the appropriate install for your platform. The tool can be used both as a [CLI tool](https://odo.dev/docs/overview/installation#cli-installation) or an [IDE plugin](https://odo.dev/docs/overview/installation#ide-installation), as well as a few [alternative install methods](https://odo.dev/docs/overview/installation#alternative-installation-methods) depending on your preference. This guide will focus on using the tool throught the CLI.
+Install `odo` by visiting https://odo.dev/docs/overview/installation and perform the appropriate install for your platform. The tool can be used both as a [CLI tool](https://odo.dev/docs/overview/installation#cli-installation) or an [IDE plugin](https://odo.dev/docs/overview/installation#ide-installation), as well as a few [alternative install methods](https://odo.dev/docs/overview/installation#alternative-installation-methods) depending on your preference. This guide will focus on using the tool through the CLI.
 
 ## Example: `odo dev`
 
@@ -115,7 +113,7 @@ Changes will be directly reflected on the cluster.
 4. Now, you can run the command [`odo dev`](https://odo.dev/docs/command-reference/dev) to continuously deploy applications as you make changes to your code through your preferred IDE.
 
 :::caution
-Users may run into an `ErrImagePull` error as their image may not be covered by Rancher Desktop's allowed images list. To resolve the error, users will need to add their image in *Preferences* > *Container Enginer* > *Allowed Images* and hit apply to update allowed images immediately.
+You may run into an `ErrImagePull` error as the image may not be covered by Rancher Desktop's allowed images list. To resolve the error, please add the necessary image in *Preferences* > *Container Engine* > *Allowed Images* and hit apply to update allowed images immediately.
 :::
 
 ```
@@ -163,24 +161,17 @@ The `express-sample` application can now be accessed by the local port (127.0.0.
 1. Be sure to be logged into the container registry necessary to push the application to, and set your container image build arguments to be the same as your container architecture using the [`ODO_IMAGE_BUILD_ARGS`](https://odo.dev/docs/overview/configure/#environment-variables-controlling-odo-behavior:~:text=ODO_IMAGE_BUILD_ARGS) environment variable:
 
 <Tabs>
-<TabItem value="macOS/Linux (AMD64)">
+<TabItem value="AMD64">
 
 ```
 export ODO_IMAGE_BUILD_ARGS="--platform=linux/amd64"
 ```
 
 </TabItem>
-<TabItem value="macOS/Linux (ARM)">
+<TabItem value="ARM">
 
 ```
 export ODO_IMAGE_BUILD_ARGS="--platform=linux/arm64"
-```
-
-</TabItem>
-<TabItem value="Windows (AMD64)">
-
-```
-export ODO_IMAGE_BUILD_ARGS="--platform=windows/amd64"
 ```
 
 </TabItem>
@@ -430,7 +421,7 @@ variables:
 4. Now, you can run the command [`odo deploy`](https://odo.dev/docs/command-reference/deploy) to deploy the application to the cluster:
 
 :::caution
-Users may run into an `unauthorized: image` error as their image may not be covered by Rancher Desktop's allowed images list. To resolve the error, users will need to add their image in *Preferences* > *Container Enginer* > *Allowed Images* and hit apply to update allowed images immediately.
+You may run into an `unauthorized: image` error as the image may not be covered by Rancher Desktop's allowed images list. To resolve the error, please add the necessary image in *Preferences* > *Container Engine* > *Allowed Images* and hit apply to update allowed images immediately.
 :::
 
 <details>
