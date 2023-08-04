@@ -240,10 +240,143 @@ variables:
 schemaVersion: 2.2.0
 ```
 
-* Below is a sample `devfile.yaml` that helps to illustrate command and variable settings changes:
+* The commands seen below are used for deployment activities:
 
 <details>
-<summary>Sample Devfile</summary>
+<summary>Deployment Commands</summary>
+
+```
+# This is the main "composite" command that will run all below commands
+commands:
+- id: deploy
+  composite:
+    commands:
+    - build-image
+    - k8s-deployment
+    - k8s-service
+    - k8s-url
+    group:
+      isDefault: true
+      kind: deploy
+
+# Below are the commands and their respective components that they are "linked" to deploy
+- id: build-image
+  apply:
+    component: outerloop-build
+- id: k8s-deployment
+  apply:
+    component: outerloop-deployment
+- id: k8s-service
+  apply:
+    component: outerloop-service
+- id: k8s-url
+  apply:
+    component: outerloop-url
+```
+
+</details>
+
+* The commands seen below are used for adding the Docker image location, K8s deployment and services to `components`:
+
+<details>
+<summary>Component Commands</summary>
+
+```
+# This will build the container image before deployment
+- name: outerloop-build
+  image:
+    dockerfile:
+      buildContext: ${PROJECT_SOURCE}
+      rootRequired: false
+      uri: ./Dockerfile
+    imageName: "{{CONTAINER_IMAGE}}"
+# This will create a Deployment in order to run your container image across
+# the cluster.
+- name: outerloop-deployment
+  kubernetes:
+    inlined: |
+      kind: Deployment
+      apiVersion: apps/v1
+      metadata:
+        name: {{RESOURCE_NAME}}
+      spec:
+        replicas: 1
+        selector:
+          matchLabels:
+            app: {{RESOURCE_NAME}}
+        template:
+          metadata:
+            labels:
+              app: {{RESOURCE_NAME}}
+          spec:
+            containers:
+              - name: {{RESOURCE_NAME}}
+                image: {{CONTAINER_IMAGE}}
+                ports:
+                  - name: http
+                    containerPort: {{CONTAINER_PORT}}
+                    protocol: TCP
+                resources:
+                  limits:
+                    memory: "1024Mi"
+                    cpu: "500m"
+
+# This will create a Service so your Deployment is accessible.
+# Depending on your cluster, you may modify this code so it's a
+# NodePort, ClusterIP or a LoadBalancer service.
+- name: outerloop-service
+  kubernetes:
+    inlined: |
+      apiVersion: v1
+      kind: Service
+      metadata:
+        name: {{RESOURCE_NAME}}
+      spec:
+        ports:
+        - name: "{{CONTAINER_PORT}}"
+          port: {{CONTAINER_PORT}}
+          protocol: TCP
+          targetPort: {{CONTAINER_PORT}}
+        selector:
+          app: {{RESOURCE_NAME}}
+        type: NodePort
+```
+
+</details>
+
+* The last addition to our Devfile is adding the Kubernetes ingress component as noted below:
+
+<details>
+<summary>Ingress Commands</summary>
+
+```
+- name: outerloop-url
+  kubernetes:
+    inlined: |
+      apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      metadata:
+        name: {{RESOURCE_NAME}}
+      spec:
+        rules:
+          - host: "{{DOMAIN_NAME}}"
+            http:
+              paths:
+                - path: "/"
+                  pathType: Prefix
+                  backend:
+                    service:
+                      name: {{RESOURCE_NAME}}
+                      port:
+                        number: {{CONTAINER_PORT}}
+```
+
+</details>
+
+* Below is the example `devfile.yaml` that you can use to help illustrate command and variable settings after they are all put together. Please review your Devfile to match or update the appropriate variables as noted below:
+
+<details>
+<summary>Final Devfile</summary>
 
 ```
 commands:
