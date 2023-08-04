@@ -6,12 +6,13 @@ title: ODO and Rancher Desktop
 
 ## Prerequisites
 
-For this guide you will use the [express-sample node.js application](https://github.com/rancher-sandbox/docs.rancherdesktop.io/tree/main/assets/express-sample) in the [Rancher Desktop documentation](https://github.com/rancher-sandbox/docs.rancherdesktop.io) repository as a way to demonstrate the use of `odo` and Rancher Desktop. Either runtime (`dockerd (moby)` or `containerd`) can be used to work with the CLI tool to help orchestrate clusters.
+For this guide you will use the [express-sample node.js application](https://github.com/rancher-sandbox/docs.rancherdesktop.io/tree/main/assets/express-sample) in the [Rancher Desktop documentation](https://github.com/rancher-sandbox/docs.rancherdesktop.io) repository as a way to demonstrate the use of `odo` and Rancher Desktop.
 
-Please ensure that Kubernetes is enabled for your application. Additionally, in order to use `odo deploy`, you will need to be able to build and push an image to a registry. Login to the container registry that the application will be pushed to:
+:::note
+`odo` works with the `dockerd (moby)` runtime, be sure to have it selected from the preferences dialog location *Preferences* > *Container Engine* > *Allowed Images*.
+:::
 
-<Tabs>
-<TabItem value="Docker">
+Please ensure that Kubernetes is enabled for your application. Additionally, in order to use `odo deploy`, you will need to be able to build and push an image to a Docker container registry. Log in using your Docker credentials as noted below:
 
 ```
 $ docker login docker.io
@@ -20,29 +21,17 @@ Password:
 Login Succeeded!
 ```
 
-</TabItem>
-<TabItem value="Nerdctl">
-
-```
-$ nerdctl login -u <USERNAME>
-Enter Password:
-
-Login Succeeded
-```
-
-</TabItem>
-</Tabs>
-
-## Installation
+### Installation
 
 Install `odo` by visiting https://odo.dev/docs/overview/installation and perform the appropriate install for your platform. The tool can be used both as a [CLI tool](https://odo.dev/docs/overview/installation#cli-installation) or an [IDE plugin](https://odo.dev/docs/overview/installation#ide-installation), as well as a few [alternative install methods](https://odo.dev/docs/overview/installation#alternative-installation-methods) depending on your preference. This guide will focus on using the tool through the CLI.
 
-## Example: `odo dev`
+## Example: `odo init`
 
 1. Clone the [Rancher Desktop documentation](https://github.com/rancher-sandbox/docs.rancherdesktop.io) repository and change your directory to the [sample-express](https://github.com/rancher-sandbox/docs.rancherdesktop.io/tree/main/assets/express-sample) application.
 
 ```
-cd docs.rancherdesktop.io/assets/express-sample
+$ git clone https://github.com/rancher-sandbox/docs.rancherdesktop.io.git
+$ cd docs.rancherdesktop.io/assets/express-sample
 ```
 
 2. Before initializing, you must connect `odo` to your cluster via a namespace, which can be created with the command [`odo create namespace <name>`](https://odo.dev/docs/command-reference/create-namespace):
@@ -63,7 +52,32 @@ $ odo create namespace odo-dev
 
 </details>
 
-3. Run the command [`odo init`](https://odo.dev/docs/command-reference/init). This command will auto-detect your project framework and choose the appropriate `devfile.yaml` to be used for deployment of your application. The command will allow you to confirm the file and enter a component name.
+3. The command [`odo init`](https://odo.dev/docs/command-reference/init) can now be used and will auto-detect your project framework and choose the appropriate `devfile.yaml` to be used for deployment of your application. The command will allow you to confirm the Devfile (Y/n), select a container to change configuration (choose none for this example), and enter a component name (e.g. my-nodejs-app).
+
+  Additionally, the following command has necessary flags (`--devfile-version 2.2.0`) for the use of `odo deploy` and can be used to quickly initialize `odo` for this example application as well:
+
+```
+odo init --name my-nodejs-app --devfile nodejs --devfile-registry DefaultDevfileRegistry --devfile-version 2.2.0
+```
+
+<details>
+<summary>Sample Output</summary>
+
+```
+  __
+ /  \__     Initializing a new component
+ \__/  \    
+ /  \__/    odo version: v3.13.0
+ \__/
+
+ ✓  Downloading devfile "nodejs:2.2.0" from registry "DefaultDevfileRegistry" [1s]
+
+Your new component 'my-nodejs-app' is ready in the current directory.
+To start editing your component, use 'odo dev' and open this folder in your favorite IDE.
+Changes will be directly reflected on the cluster.
+```
+
+</details>
 
 ```
 odo init
@@ -110,7 +124,9 @@ Changes will be directly reflected on the cluster.
 
 </details>
 
-4. Now, you can run the command [`odo dev`](https://odo.dev/docs/command-reference/dev) to continuously deploy applications as you make changes to your code through your preferred IDE.
+## Example: `odo dev`
+
+Now, you can run the command [`odo dev`](https://odo.dev/docs/command-reference/dev) to continuously deploy applications as you make changes to your code through your preferred IDE.
 
 :::caution
 You may run into an `ErrImagePull` error as the image may not be covered by Rancher Desktop's allowed images list. To resolve the error, please add the necessary image in *Preferences* > *Container Engine* > *Allowed Images* and hit apply to update allowed images immediately.
@@ -154,11 +170,11 @@ I0728 13:50:53.115137   92567 starterserver.go:123] API Server started at localh
 
 </details>
 
-The `express-sample` application can now be accessed by the local port (127.0.0.1:2001) created by `odo dev`.
+The `express-sample` application can now be accessed by the local port (127.0.0.1:20001) created by `odo dev`. As an example, you can make a text change to the `index.jade` file in the *views* folder to see a real-time update to the application.
 
 ## Example: `odo deploy`
 
-1. Be sure to be logged into the container registry necessary to push the application to, and set your container image build arguments to be the same as your container architecture using the [`ODO_IMAGE_BUILD_ARGS`](https://odo.dev/docs/overview/configure/#environment-variables-controlling-odo-behavior:~:text=ODO_IMAGE_BUILD_ARGS) environment variable:
+1. Be sure to be logged into the Docker container registry to push the application to, and set your container image build arguments to be the same as your container architecture using the [`ODO_IMAGE_BUILD_ARGS`](https://odo.dev/docs/overview/configure/#environment-variables-controlling-odo-behavior:~:text=ODO_IMAGE_BUILD_ARGS) environment variable:
 
 <Tabs>
 <TabItem value="AMD64">
@@ -183,10 +199,8 @@ export ODO_IMAGE_BUILD_ARGS="--platform=linux/arm64"
 <summary>Sample Dockerfile</summary>
 
 ```
-# Sample copied from https://github.com/nodeshift-starters/devfile-sample/blob/main/Dockerfile
-
-# Install the app dependencies in a full Node docker image
-FROM registry.access.redhat.com/ubi8/nodejs-14:latest
+# Install the app dependencies in a full SLE Node image
+FROM registry.suse.com/bci/nodejs:16
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -194,11 +208,7 @@ COPY package*.json ./
 # Install app dependencies
 RUN npm install --production
 
-# Copy the dependencies into a Slim Node docker image
-FROM registry.access.redhat.com/ubi8/nodejs-14-minimal:latest
-
 # Install app dependencies
-COPY --from=0 /opt/app-root/src/node_modules /opt/app-root/src/node_modules
 COPY . /opt/app-root/src
 
 ENV NODE_ENV production
@@ -209,7 +219,7 @@ CMD ["npm", "start"]
 
 </details>
 
-3. Modify the `devfile.yaml` to the sample noted below for your container cluster.
+3. Modify the `devfile.yaml` to the example noted below for your container cluster.
 
 * Update the variables to access your container registry:
 
@@ -223,7 +233,7 @@ variables:
   DOMAIN_NAME: nodejs.example.com
 ```
 
-* Update the Devfile schema to `2.2.0` as `odo deploy` makes use of this version:
+* Update the Devfile schema to `2.2.0` as `odo deploy` makes use of this version. Additionally, there is a command to initialize `odo` with the correct `schemaVersion: 2.2.0` noted above in the installation:
 
 ```
 # Deploy "kind" ID's use schema 2.2.0+
@@ -308,7 +318,7 @@ components:
     env:
     - name: DEBUG_PORT
       value: "5858"
-    image: registry.access.redhat.com/ubi8/nodejs-16:latest
+    image: registry.suse.com/bci/nodejs:16:latest
     memoryLimit: 1024Mi
     mountSources: true
   name: runtime
@@ -437,35 +447,33 @@ $ odo deploy
 
 ↪ Building & Pushing Image: docker.io/arjsin/nodejs-odo-example
  •  Building image locally  ...
-[+] Building 0.3s (12/12) FINISHED                                                                     
- => [internal] load .dockerignore                                                                 0.0s
- => => transferring context: 343B                                                                 0.0s
- => [internal] load build definition from Dockerfile                                              0.0s
- => => transferring dockerfile: 714B                                                              0.0s
- => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-14-minimal:latest         0.3s
- => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-14:latest                 0.3s
- => [stage-0 1/3] FROM registry.access.redhat.com/ubi8/nodejs-14:latest@sha256:0ce527f238f159549  0.0s
- => [internal] load build context                                                                 0.0s
- => => transferring context: 689B                                                                 0.0s
- => [stage-1 1/3] FROM registry.access.redhat.com/ubi8/nodejs-14-minimal:latest@sha256:53f54b463  0.0s
- => CACHED [stage-0 2/3] COPY package*.json ./                                                    0.0s
- => CACHED [stage-0 3/3] RUN npm install --production                                             0.0s
- => CACHED [stage-1 2/3] COPY --from=0 /opt/app-root/src/node_modules /opt/app-root/src/node_mod  0.0s
- => CACHED [stage-1 3/3] COPY . /opt/app-root/src                                                 0.0s
- => exporting to image                                                                            0.0s
- => => exporting layers                                                                           0.0s
- => => writing image sha256:7d9287f323e9b1ae22f0fec22292932a4449acd67f3a817389efc06ce494f233      0.0s
- => => naming to docker.io/arjsin/nodejs-odo-example                                              0.0s
- ✓  Building image locally [676ms]
+[+] Building 2.7s (9/9) FINISHED                                                
+ => [internal] load build definition from Dockerfile                       0.0s
+ => => transferring dockerfile: 405B                                       0.0s
+ => [internal] load .dockerignore                                          0.0s
+ => => transferring context: 364B                                          0.0s
+ => [internal] load metadata for registry.suse.com/bci/nodejs:16           2.2s
+ => [1/4] FROM registry.suse.com/bci/nodejs:16@sha256:dda0e616a0fcb3dc589  0.0s
+ => [internal] load build context                                          0.0s
+ => => transferring context: 5.14kB                                        0.0s
+ => CACHED [2/4] COPY package*.json ./                                     0.0s
+ => CACHED [3/4] RUN npm install --production                              0.0s
+ => [4/4] COPY . /opt/app-root/src                                         0.0s
+ => exporting to image                                                     0.4s
+ => => exporting layers                                                    0.4s
+ => => writing image sha256:c6d3ed7d9fb4736d3c4e95b54054533f79d64d3a01e65  0.0s
+ => => naming to docker.io/arjsin/nodejs-odo-example                       0.0s
+ ✓  Building image locally [3s]
  •  Pushing image to container registry  ...
 Using default tag: latest
 The push refers to repository [docker.io/arjsin/nodejs-odo-example]
-c981dd66801d: Layer already exists 
-1302f3758604: Layer already exists 
-55e121420bfa: Layer already exists 
-a7192762d366: Layer already exists 
-latest: digest: sha256:bb13120fff0e08adbd88193add0a606c3ade39490793f7ff7eb19e240b984496 size: 1161
- ✓  Pushing image to container registry [4s]
+20658d9b13ba: Pushed 
+7b1ee26c3aea: Pushed 
+067890bef08d: Pushed 
+d08e96dfc7bc: Pushed 
+174c0e293bd0: Pushed 
+latest: digest: sha256:ca598fc0c5278e8d00cba41e14914f1d3f7a3561bd4a324f2ffcd33b166135ad size: 1368
+ ✓  Pushing image to container registry [30s]
 
 ↪ Deploying Kubernetes Component: my-node-app
  ✓  Creating resource Deployment/my-node-app 
@@ -481,7 +489,9 @@ Your Devfile has been successfully deployed
 
 </details>
 
-5. Now, the command [`odo describe component`](https://odo.dev/docs/command-reference/describe-component) can be used to view information from the Devfile such as Kubernetes components, ingresses, and the URL to access the application:
+### Example: `odo describe component`
+
+Now, the command [`odo describe component`](https://odo.dev/docs/command-reference/describe-component) can be used to view information from the Devfile such as Kubernetes components, ingresses, and the URL to access the application:
 
 ```
 odo describe component
@@ -492,22 +502,19 @@ odo describe component
 
 ```
 $ odo describe component
-Name: my-node-app
+Name: my-nodejs-app
 Display Name: Node.js Runtime
 Project Type: Node.js
 Language: JavaScript
-Version: 2.1.1
-Description: Stack with Node.js 16
+Version: 2.2.0
+Description: Node.js 18 application
 Tags: Node.js, Express, ubi8
 
-Running in: Deploy
-
-Running on:
- •  cluster: Deploy
+Running in: None
 
 Supported odo features:
  •  Dev: true
- •  Deploy: true
+ •  Deploy: false
  •  Debug: true
 
 Commands:
@@ -535,43 +542,17 @@ Commands:
       Command Line: "npm test"
       Component: runtime
       Component Type: container
- •  deploy
-      Type: composite
-      Group: deploy
- •  build-image
-      Type: apply
-      Component: outerloop-build
-      Component Type: image
-      Image Name: docker.io/arjsin/nodejs-odo-example
- •  k8s-deployment
-      Type: apply
-      Component: outerloop-deployment
-      Component Type: kubernetes
- •  k8s-service
-      Type: apply
-      Component: outerloop-service
-      Component Type: kubernetes
- •  k8s-url
-      Type: apply
-      Component: outerloop-url
-      Component Type: kubernetes
 
 Container components:
  •  runtime
     Source Mapping: /projects
-
-Kubernetes components:
- •  outerloop-deployment
- •  outerloop-service
- •  outerloop-url
-
-Kubernetes Ingresses:
- •  my-node-app: node.example.com/
 ```
 
 </details>
 
-6. After you have completed testing, you can free the resources used by `odo` by using the command [`odo delete component`](https://odo.dev/docs/command-reference/delete-component):
+## Example: `odo delete component`
+
+After you have completed testing, you can free the resources used by `odo` by using the command [`odo delete component`](https://odo.dev/docs/command-reference/delete-component):
 
 ```
 odo delete component
@@ -590,7 +571,7 @@ This will delete "my-node-app" from the namespace "odo-dev".
  •  	- Ingress: my-node-app
 
 ? Are you sure you want to delete "my-node-app" and all its resources? Yes
- ✓  Deleting resources from cluster [69ms]
+ ✓  Deleting resources from cluster [52ms]
 The component "my-node-app" is successfully deleted from namespace "odo-dev"
 ```
 
