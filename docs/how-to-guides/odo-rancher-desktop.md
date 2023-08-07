@@ -14,7 +14,7 @@ For this guide you will use the [express-sample node.js application](https://git
 
 Please ensure that Kubernetes is enabled for your application. Additionally, in order to use `odo deploy`, you will need to be able to build and push an image to a Docker container registry. Log in using your Docker credentials as noted below:
 
-```
+```console
 $ docker login docker.io
 Username:
 Password:
@@ -25,25 +25,27 @@ Login Succeeded!
 
 Install `odo` by visiting https://odo.dev/docs/overview/installation and perform the appropriate install for your platform. The tool can be used both as a [CLI tool](https://odo.dev/docs/overview/installation#cli-installation) or an [IDE plugin](https://odo.dev/docs/overview/installation#ide-installation), as well as a few [alternative install methods](https://odo.dev/docs/overview/installation#alternative-installation-methods) depending on your preference. This guide will focus on using the tool through the CLI.
 
-## Example: `odo init`
+## Steps: `odo init`
+
+This command will initialize the application by creating a `devfile.yaml` for deployments.
 
 1. Clone the [Rancher Desktop documentation](https://github.com/rancher-sandbox/docs.rancherdesktop.io) repository and change your directory to the [sample-express](https://github.com/rancher-sandbox/docs.rancherdesktop.io/tree/main/assets/express-sample) application.
 
-```
-$ git clone https://github.com/rancher-sandbox/docs.rancherdesktop.io.git
-$ cd docs.rancherdesktop.io/assets/express-sample
+```console
+git clone https://github.com/rancher-sandbox/docs.rancherdesktop.io.git
+cd docs.rancherdesktop.io/assets/express-sample
 ```
 
 2. Before initializing, you must connect `odo` to your cluster via a namespace, which can be created with the command [`odo create namespace <name>`](https://odo.dev/docs/command-reference/create-namespace):
 
-```
+```console
 odo create namespace odo-dev
 ```
 
 <details>
 <summary>Sample Output</summary>
 
-```
+```console
 $ odo create namespace odo-dev
  ✓  Creating the namespace "odo-dev" [5ms]
  ✓  Namespace "odo-dev" is ready for use
@@ -52,18 +54,18 @@ $ odo create namespace odo-dev
 
 </details>
 
-3. The command [`odo init`](https://odo.dev/docs/command-reference/init) can now be used and will auto-detect your project framework and choose the appropriate `devfile.yaml` to be used for deployment of your application. The command will allow you to confirm the Devfile (Y/n), select a container to change configuration (choose none for this example), and enter a component name (e.g. my-nodejs-app).
+3. The command [`odo init`](https://odo.dev/docs/command-reference/init) will auto-detect your project framework and choose the appropriate `devfile.yaml` to be used for deployment of your application. The command will allow you to confirm the Devfile (Y/n), select a container to change configuration (choose none for this example), and enter a component name (e.g. my-nodejs-app).
 
-  Additionally, the following command has necessary flags (`--devfile-version 2.2.0`) for the use of `odo deploy` and can be used to quickly initialize `odo` for this example application as well:
+  Alternatively, the following command with the additional flags (e.g. `--devfile-version 2.2.0`) can be used to initialize `odo` and allow your application to be deployed:
 
-```
+```console
 odo init --name my-nodejs-app --devfile nodejs --devfile-registry DefaultDevfileRegistry --devfile-version 2.2.0
 ```
 
 <details>
 <summary>Sample Output</summary>
 
-```
+```console
   __
  /  \__     Initializing a new component
  \__/  \    
@@ -79,14 +81,14 @@ Changes will be directly reflected on the cluster.
 
 </details>
 
-```
+```console
 odo init
 ```
 
 <details>
 <summary>Sample Output</summary>
 
-```
+```console
 $ odo init
   __
  /  \__     Initializing a new component
@@ -124,7 +126,7 @@ Changes will be directly reflected on the cluster.
 
 </details>
 
-## Example: `odo dev`
+## Steps: `odo dev`
 
 Now, you can run the command [`odo dev`](https://odo.dev/docs/command-reference/dev) to continuously deploy applications as you make changes to your code through your preferred IDE.
 
@@ -132,14 +134,14 @@ Now, you can run the command [`odo dev`](https://odo.dev/docs/command-reference/
 You may run into an `ErrImagePull` error as the image may not be covered by Rancher Desktop's allowed images list. To resolve the error, please add the necessary image in *Preferences* > *Container Engine* > *Allowed Images* and hit apply to update allowed images immediately.
 :::
 
-```
+```console
 odo dev
 ```
 
 <details>
 <summary>Sample Output</summary>
 
-```
+```console
 $ odo dev
   __
  /  \__     Developing using the "my-nodejs-app" Devfile
@@ -170,23 +172,25 @@ I0728 13:50:53.115137   92567 starterserver.go:123] API Server started at localh
 
 </details>
 
-The `express-sample` application can now be accessed by the local port (127.0.0.1:20001) created by `odo dev`. As an example, you can make a text change to the `index.jade` file in the *views* folder to see a real-time update to the application.
+The `express-sample` application can now be accessed by the local port (127.0.0.1:20001). As an example, you can make a text change to the `index.jade` file in the *views* folder to see a real-time update to the application.
 
-## Example: `odo deploy`
+## Steps: `odo deploy`
+
+This command will deploy your application to your cluster with instructions from your `devfile.yaml`.
 
 1. Be sure to be logged into the Docker container registry to push the application to, and set your container image build arguments to be the same as your container architecture using the [`ODO_IMAGE_BUILD_ARGS`](https://odo.dev/docs/overview/configure/#environment-variables-controlling-odo-behavior:~:text=ODO_IMAGE_BUILD_ARGS) environment variable:
 
 <Tabs>
 <TabItem value="AMD64">
 
-```
+```console
 export ODO_IMAGE_BUILD_ARGS="--platform=linux/amd64"
 ```
 
 </TabItem>
 <TabItem value="ARM">
 
-```
+```console
 export ODO_IMAGE_BUILD_ARGS="--platform=linux/arm64"
 ```
 
@@ -198,7 +202,7 @@ export ODO_IMAGE_BUILD_ARGS="--platform=linux/arm64"
 <details>
 <summary>Sample Dockerfile</summary>
 
-```
+```text
 # Install the app dependencies in a full SLE Node image
 FROM registry.suse.com/bci/nodejs:16
 
@@ -223,7 +227,7 @@ CMD ["npm", "start"]
 
 * Update the variables to access your container registry:
 
-```
+```yaml
 # Add the following variables code anywhere in devfile.yaml
 # This MUST be a container registry you are able to access
 variables:
@@ -235,7 +239,7 @@ variables:
 
 * Update the Devfile schema to `2.2.0` as `odo deploy` makes use of this version. Additionally, there is a command to initialize `odo` with the correct `schemaVersion: 2.2.0` noted above in the installation:
 
-```
+```yaml
 # Deploy "kind" ID's use schema 2.2.0+
 schemaVersion: 2.2.0
 ```
@@ -245,7 +249,7 @@ schemaVersion: 2.2.0
 <details>
 <summary>Deployment Commands</summary>
 
-```
+```yaml
 # This is the main "composite" command that will run all below commands
 commands:
 - id: deploy
@@ -281,7 +285,7 @@ commands:
 <details>
 <summary>Component Commands</summary>
 
-```
+```yaml
 # This will build the container image before deployment
 - name: outerloop-build
   image:
@@ -349,7 +353,7 @@ commands:
 <details>
 <summary>Ingress Commands</summary>
 
-```
+```yaml
 - name: outerloop-url
   kubernetes:
     inlined: |
@@ -378,7 +382,7 @@ commands:
 <details>
 <summary>Final Devfile</summary>
 
-```
+```yaml
 commands:
 - exec:
     commandLine: npm install
@@ -570,7 +574,7 @@ You may run into an `unauthorized: image` error as the image may not be covered 
 <details>
 <summary>Sample Output</summary>
 
-```
+```console
 $ odo deploy
   __
  /  \__     Running the application in Deploy mode using my-node-app Devfile
@@ -622,18 +626,18 @@ Your Devfile has been successfully deployed
 
 </details>
 
-### Example: `odo describe component`
+### Steps: `odo describe component`
 
 Now, the command [`odo describe component`](https://odo.dev/docs/command-reference/describe-component) can be used to view information from the Devfile such as Kubernetes components, ingresses, and the URL to access the application:
 
-```
+```console
 odo describe component
 ```
 
 <details>
 <summary>Sample Output</summary>
 
-```
+```console
 $ odo describe component
 Name: my-nodejs-app
 Display Name: Node.js Runtime
@@ -683,18 +687,18 @@ Container components:
 
 </details>
 
-## Example: `odo delete component`
+## Steps: `odo delete component`
 
 After you have completed testing, you can free the resources used by `odo` by using the command [`odo delete component`](https://odo.dev/docs/command-reference/delete-component):
 
-```
+```console
 odo delete component
 ```
 
 <details>
 <summary>Sample Output</summary>
 
-```
+```console
 $ odo delete component
 Searching resources to delete, please wait...
 This will delete "my-node-app" from the namespace "odo-dev".
