@@ -2,13 +2,12 @@
 title: 配置脚本
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
 配置脚本可以覆盖 Rancher Desktop 的一些内部流程。例如，脚本可用于向 K3s 提供某些命令行参数、添加额外的挂载、增加 ulimit 值等。本指南将介绍如何为 macOS、Linux 和 Windows 主机设置脚本。
 
 ## macOS & Linux
+
 在 macOS 和 Linux 上，你可以使用 lima override.yaml 来编写配置脚本。
 
 - 在以下路径创建 `override.yaml` 文件。
@@ -42,14 +41,24 @@ provision:
     * hard     nofile         82920
     EOF
 ```
+
 - 你还可以使用 `override.yaml` 来覆盖/修改 lima 配置设置。下面的示例创建了额外的挂载：
+
 ```
 mounts:
   - location: /some/path
     writable: true
 ```
 
+- 另一个示例使用 `override.yaml` 文件允许用户通过 Rancher Desktop 的 `K3S_EXEC` 语法（类似 `K3s` 语法 [`INSTALL_K3S_EXEC`](https://docs.k3s.io/reference/env-variables#:~:text=as%20the%20default.-,INSTALL_K3S_EXEC,-Command%20with%20flags)）来实现 [`K3s`](https://k3s.io/?ref=traefik.io) 环境的自定义设置。请参阅 [agent](https://docs.k3s.io/cli/agent) 和 [server](https://docs.k3s.io/cli/server) 命令行标志文档了解更多安装选项。以下是使用 [`--tls-san value`](https://docs.k3s.io/cli/server#:~:text=of%20the%20cluster-,%2D%2Dtls%2Dsan%20value,-N/A) 标志来将其他主机名添加为 TLS 认证上的 Subject Alternative Name 的示例设置：
+
+```
+env:
+  K3S_EXEC: --tls-san value
+```
+
 ## Windows
+
 **注意**：在 Windows 上，你只能为 1.1.0 或更高版本的 Rancher Desktop 使用这些配置脚本。
 
 - 你需要至少运行 Rancher Desktop 一次以允许它创建配置。
