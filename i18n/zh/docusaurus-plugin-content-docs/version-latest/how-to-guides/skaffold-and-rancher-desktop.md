@@ -2,9 +2,6 @@
 title: Skaffold 与 Rancher Desktop
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 Skaffold 是一个命令行工具，用于 Kubernetes 原生应用程序的持续开发。Skaffold 处理构建、推送和部署应用程序的工作流，并提供用于创建 CI/CD 流水线的构建块。它能让你专注于在本地迭代你的应用程序，Skaffold 则能持续部署到你的本地或远程 Kubernetes 集群。要了解有关 Skaffold 的更多信息，请参阅 [Skaffold 项目文档](https://skaffold.dev/docs/)。
 
 为了演示使用 Rancher Desktop 设置 Skaffold 的步骤，Rancher Desktop 文档在[此处](https://github.com/rancher-sandbox/docs.rancherdesktop.io/tree/main/assets/express-sample)提供了一个 nodejs 应用程序示例。
@@ -28,7 +25,7 @@ Skaffold 是一个命令行工具，用于 Kubernetes 原生应用程序的持�
 
 1. 回到你的终端，你会注意到你有两个选项，分别是 `skaffold run`（允许你构建和部署）和 `skaffold dev` （允许你进入开发模式自动重新部署）。在此示例中，我们将使用 `skaffold dev`。
 
-   由于你需要对镜像仓库具有推送访问权限，因此你可以使用 docker 登录，也可以设置本地镜像仓库：
+   你需要具有向镜像仓库推送的权限。你可以使用 Docker 登录、设置本地镜像仓库或在本地构建仓库，而不需要推送到镜像仓库：
 
   <Tabs>
     <TabItem value="docker-hub" label="Docker Hub" default>
@@ -48,6 +45,27 @@ Skaffold 是一个命令行工具，用于 Kubernetes 原生应用程序的持�
     ```
     skaffold dev --default-repo=localhost:5000
     ```
+    </TabItem>
+    <TabItem value="local-build" label="本地构建">
+
+    你可以通过在 manifests.yaml 文件中将工作负载 imagePullPolicy 设置为 IfNotPresent 在本地进行构建，而无需推送到镜像仓库。你还需要使用以下变量更新 skaffold.yaml 以实现此更改，如下所示：
+
+    <details>
+    <summary>示例 YAML</summary>
+
+    ```yaml
+    apiVersion: skaffold/v2beta29
+    kind: Config
+    metadata:
+      name: skaffold
+    build:
+      local:
+        push: false
+        useDockerCLI: true
+    ```
+
+    </details>
+
     </TabItem>
   </Tabs>
 
