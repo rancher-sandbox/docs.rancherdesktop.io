@@ -2,6 +2,10 @@
 title: 常见问题
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import TabsConstants from '@site/core/TabsConstants';
+
 本文包含了用户常见的 Rancher Desktop 问题和解答。
 
 #### **问：Rancher Desktop 是 Rancher 的桌面版吗？**
@@ -192,3 +196,33 @@ containerd: /var/lib/nerdctl/dbb19c5e/volumes/<namespace>
 1. 执行 `Troubleshooting > Factory Reset`。请确保*没有*在 `Factory Reset` 对话框中选中 `Keep cached Kubernetes images`。
 2. 按照适用于你操作系统的[卸载说明](https://docs.rancherdesktop.io/getting-started/installation)卸载当前版本。
 3. 安装你所需的旧版本。
+
+#### 问：从休眠状态唤醒 Windows 计算机后，Rancher Desktop 无响应。如何在不重启机器的情况下让 Rancher Desktop 会话再次运行？
+
+**答**：WSL [bug](https://github.com/microsoft/WSL/issues/8696) 导致 WSL 在某些 Windows 配置上休眠后无响应。虽然 WSL bug 尚未解决，但 GitHub issue 上也讨论了各种解决方法，你可以在不重启机器的情况下使 WSL 和 Rancher Desktop 再次工作。你可以按照以下步骤操作。
+
+1. 通过 `wsl --shutdown` 命令关闭 WSL。如果 `wsl --shutdown` 命令成功，则跳转到步骤 3。
+2. 停止并重启 LxssManager 服务。
+
+<Tabs groupId="mode">
+  <TabItem value="Powershell" default>
+
+- 停止 LxssManager 服务。
+```
+stop-service lxssmanager
+```
+
+- 启动 LxssManager 服务。
+```
+start-service lxssmanager
+```
+
+</TabItem>
+  <TabItem value="GUI">
+
+使用命令 `services.msc` 打开计算机上运行的服务列表。在列表中找到 lxssmanager 服务，右键单击它，然后选择 `Stop`、`Start` 来停止和启动该服务。
+
+</TabItem>
+</Tabs>
+
+3. 退出并重新启动 Rancher Desktop。

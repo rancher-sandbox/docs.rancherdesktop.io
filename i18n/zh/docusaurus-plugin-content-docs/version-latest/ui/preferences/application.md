@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
-### 通用
+### General
 
 允许启用自动更新，以及提供可选字段来允许 Rancher Desktop 收集匿名统计数据以改进应用程序。
 
