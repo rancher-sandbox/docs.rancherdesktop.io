@@ -76,6 +76,19 @@ const config = {
           autoCollapseCategories: true,
         },
       },
+      algolia: {
+        // The application ID provided by Algolia
+        appId: 'LLF7X2GYUC',
+  
+        // Public API key: it is safe to commit it
+        apiKey: 'd6a776aab735c97bf947305429450c53',
+  
+        indexName: 'rancherdesktop',
+  
+        // Optional: see doc section below
+        contextualSearch: true,
+  
+        },
       navbar: {
         logo: {
           alt: 'Rancher Desktop Logo',
@@ -132,11 +145,6 @@ const config = {
       },
     }),
     plugins: [
-      [require.resolve('docusaurus-lunr-search'),
-          {
-              indexBaseUrl: true
-          }
-      ]
     ],
 };
 
