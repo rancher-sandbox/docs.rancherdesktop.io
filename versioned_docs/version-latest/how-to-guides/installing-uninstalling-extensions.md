@@ -97,9 +97,20 @@ Additionally, there are two ways in which you can uninstall extensions, a method
 
 #### Using the UI
 
-Click **Extensions** from the main UI to navigate to the **Catalog** tab. On this view, you can search through the available extensions, and uninstall the already installed extensions.
+Click **Extensions** from the main UI to navigate to the **Catalog** tab. On this view, you can search through the available extensions, and uninstall the already installed extensions. Extensions can also be uninstalled from the **Installed** tab by clicking the **Uninstall** button.
+
+<Tabs>
+<TabItem value="Catalog">
 
 ![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Windows_Extensions.png)
+
+</TabItem>
+<TabItem value="Installed">
+
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Windows_Extensions-Installed.png)
+
+</TabItem>
+</Tabs>
 
 #### Using the Command Line
 
@@ -120,9 +131,20 @@ rdctl extension uninstall <image-id>:<tag>
 
 #### Using the UI
 
-Click **Extensions** from the main UI to navigate to the **Catalog** tab. On this view, you can search through the available extensions, and uninstall the already installed extensions.
+Click **Extensions** from the main UI to navigate to the **Catalog** tab. On this view, you can search through the available extensions, and uninstall the already installed extensions. Extensions can also be uninstalled from the **Installed** tab by clicking the **Uninstall** button.
+
+<Tabs>
+<TabItem value="Catalog">
 
 ![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_Extensions.png)
+
+</TabItem>
+<TabItem value="Installed">
+
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_Extensions-Installed.png)
+
+</TabItem>
+</Tabs>
 
 #### Using the Command Line
 
@@ -143,9 +165,20 @@ rdctl extension uninstall <image-id>:<tag>
 
 #### Using the UI
 
-Click **Extensions** from the main UI to navigate to the **Catalog** tab. On this view, you can search through the available extensions, and uninstall the already installed extensions.
+Click **Extensions** from the main UI to navigate to the **Catalog** tab. On this view, you can search through the available extensions, and uninstall the already installed extensions. Extensions can also be uninstalled from the **Installed** tab by clicking the **Uninstall** button.
+
+<Tabs>
+<TabItem value="Catalog">
 
 ![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Linux_Extensions.png)
+
+</TabItem>
+<TabItem value="Installed">
+
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Linux_Extensions-Installed.png)
+
+</TabItem>
+</Tabs>
 
 #### Using the Command Line
 
