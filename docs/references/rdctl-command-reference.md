@@ -147,7 +147,7 @@ but less concise and user-friendly.
 
 ## rdctl create-profile
 
-Generates a deployment profile in either macOS plist or Windows registry format.
+Generates a deployment profile for Rancher Desktop settings in either macOS `.plist` or Windows `.reg` format.
 
 ```console
 rdctl create-profile <options> <options-input>
@@ -159,10 +159,10 @@ rdctl create-profile <options> <options-input>
 **Options**
 
 ```console
---input [FILE]              Input from file.
---body [JSON]               Input from JSON.
---from-settings             Default if no --input or --body specified, from user settings.
---output [plist, reg]       An output of plist files for macOS and reg files for Windows.
+--input [FILE]              File containing a JSON document.
+--body [JSON]               Command-line option containing a JSON document
+--from-settings             Use current settings.
+--output [plist, reg]       An output of .plist files for macOS and .reg files for Windows.
 
 Additional options for --output reg:
 --type [locked, defaults]   The locked field is set as default, otherwise the default type can be specified.
