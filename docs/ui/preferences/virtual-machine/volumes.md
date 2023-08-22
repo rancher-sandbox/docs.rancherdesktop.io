@@ -14,12 +14,12 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_virtualMachine_tabVolumes.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_virtualMachine_tabVolumes.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_virtualMachine_tabVolumes.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Linux_virtualMachine_tabVolumes.png)
 
 </TabItem>
 </Tabs>
@@ -31,12 +31,12 @@ Users can enable the "reverse-sshfs" mount type from the `Volumes` tab. This exp
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_virtualMachine_tabVolumes_9P.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_virtualMachine_tabVolumes_9P.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_virtualMachine_tabVolumes_9P.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Linux_virtualMachine_tabVolumes_9P.png)
 
 </TabItem>
 </Tabs>
@@ -66,7 +66,7 @@ Users can select a supported security model with options being `[passthrough, ma
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_virtualMachine_tabVolumes_virtiofs.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_virtualMachine_tabVolumes_virtiofs.png)
 
 </TabItem>
 </Tabs>
