@@ -7,13 +7,13 @@ title: Emulation (macOS)
   <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/virtual-machine/emulation"/>
 </head>
 
- ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_virtualMachine_tabEmulation.png)
+ ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_virtualMachine_tabEmulation.png)
 
 ### QEMU
 
 The "[QEMU](https://www.qemu.org/documentation/)" option is enabled by default and is used to run a guest operating system.
 
- ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_virtualMachine_tabEmulation_vz.png)
+ ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_virtualMachine_tabEmulation_vz.png)
 
 ### VZ
 
