@@ -269,3 +269,14 @@ https://github.com/TheAssassin/AppImageLauncher
 ### Uninstalling AppImage
 
 Simply delete the AppImage. That's it!
+
+## Proxy Environments: Important URL Patterns
+
+There are situations where you may be using a secured, locked down internet environment and need to configure necessary Rancher Desktop dependencies through a proxy. Here is a list of key URL patterns you will need to allow through your proxy:
+
+- Get available K3s releases for download: https://api.github.com/repos/k3s-io/k3s/releases
+- Download K3s releases: https://github.com/k3s-io/k3s/releases/download
+- `kubectl` releases downloaded by `kuberlr`: https://storage.googleapis.com/kubernetes-release/release
+- Get available Upgrade Responder versions: https://github.com/longhorn/upgrade-responder/releases
+
+These dependencies are applicable to Rancher Desktop and does not represent a standard list across the Rancher platform.
