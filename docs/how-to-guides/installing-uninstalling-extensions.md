@@ -109,7 +109,7 @@ Click **Extensions** from the main UI to navigate to the **Catalog** tab. On thi
 </TabItem>
 <TabItem value="Installed">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Windows_Extensions-Installed.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/Windows_Extensions-Installed.png)
 
 </TabItem>
 </Tabs>
@@ -143,7 +143,7 @@ Click **Extensions** from the main UI to navigate to the **Catalog** tab. On thi
 </TabItem>
 <TabItem value="Installed">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_Extensions-Installed.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/macOS_Extensions-Installed.png)
 
 </TabItem>
 </Tabs>
@@ -177,7 +177,7 @@ Click **Extensions** from the main UI to navigate to the **Catalog** tab. On thi
 </TabItem>
 <TabItem value="Installed">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Linux_Extensions-Installed.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/Linux_Extensions-Installed.png)
 
 </TabItem>
 </Tabs>
