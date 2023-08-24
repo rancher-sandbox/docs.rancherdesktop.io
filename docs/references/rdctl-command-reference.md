@@ -260,7 +260,35 @@ Uninstalling image docker/logs-explorer-extension:0.2.2: Deleted docker/logs-exp
 Run `rdctl list-settings` to see the current active configuration.
 
 <details>
-<summary>Example Output</summary>
+<summary>Options & Example Output</summary>
+
+**Options**
+
+```autoupdate=true
+> rdctl list-settings --help 
+Lists the current settings in JSON or Windows registry-file format.
+The default output format is JSON.
+To convert the current settings into a registry file, run the following command:
+rdctl list-commands --output reg --reg-hive=X --profile=Y
+where X is either "hkcu" or "hklm", depending on whether you want to update HKEY_LOCAL_MACHINE
+or HKEY_CURRENT_USER respectively (default: "hklm"),
+and Y is either "defaults" or "locked", depending on which deployment profile you want to populate (default: "defaults").
+
+Usage:
+  rdctl list-settings [flags]
+
+Flags:
+  -h, --help   help for list-settings
+
+Global Flags:
+      --config-path string   config file (default /Users/{username}/Library/Application Support/rancher-desktop/rd-engine.json)
+      --host string          default is localhost; most useful for WSL
+      --password string      overrides the password setting in the config file
+      --port string          overrides the port setting in the config file
+      --user string          overrides the user setting in the config file
+```
+
+**Example**
 
 ``` autoupdate=true
 > rdctl list-settings
