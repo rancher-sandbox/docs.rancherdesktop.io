@@ -2,9 +2,6 @@
 title: Hello World 示例
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 本教程通过演示如何将应用推送到本地 Kubernetes 集群来介绍如何使用 Rancher Desktop。
 
 Rancher Desktop 使用了两个容器引擎，分别是 [containerd](https://containerd.io/) 和 [Moby](https://mobyproject.org/)，它们是 Docker 生态系统的开源组件。对于 `nerdctl`，使用 **containerd** 运行时。对于 `docker`，使用 **dockerd(moby)** 运行时。

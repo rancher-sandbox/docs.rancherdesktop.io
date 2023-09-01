@@ -2,8 +2,6 @@
 title: 故障排除提示
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
 此页面提供了 Rancher Desktop 相关问题的故障排除提示。

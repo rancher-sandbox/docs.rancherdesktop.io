@@ -2,9 +2,6 @@
 title: 设置 NGINX Ingress Controller
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 Rancher Desktop 在后台使用 K3s，而 K3s 又使用 Traefik 作为 Kubernetes 集群的默认 Ingress Controller。但是，某些用例可能需要或更适合使用 NGINX。以下示例步骤展示了如何使用 NGINX Ingress Controller 进行部署。
 
 ### 步骤

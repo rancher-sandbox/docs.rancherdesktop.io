@@ -3,24 +3,22 @@ sidebar_label: 故障排除
 title: 故障排除
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/ui-main/Windows_Troubleshooting.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/Windows_Troubleshooting.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/ui-main/macOS_Troubleshooting.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/macOS_Troubleshooting.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/ui-main/Linux_Troubleshooting.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/Linux_Troubleshooting.png)
 
 </TabItem>
 </Tabs>

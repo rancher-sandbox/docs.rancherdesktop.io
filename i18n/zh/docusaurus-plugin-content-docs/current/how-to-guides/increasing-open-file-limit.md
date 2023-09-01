@@ -2,8 +2,6 @@
 title: 增加打开文件限制
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
 由于 Rancher Desktop 为 Pod 设置的默认 `ulimit` 可能太低，因此你可能想增加打开文件的限制。本指南介绍了如何使用配置脚本和 Rancher Desktop 内部进程来增加打开文件限制。

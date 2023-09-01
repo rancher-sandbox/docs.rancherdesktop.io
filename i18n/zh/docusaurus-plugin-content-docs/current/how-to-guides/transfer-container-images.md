@@ -2,9 +2,6 @@
 title: 传输容器镜像
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 Rancher Desktop 提供 `dockerd` 和 `containerd` 容器引擎选项来管理容器。有时候，你可能希望将镜像从一个容器引擎环境传输到另一个容器引擎环境。你也可能已经从不同的容器管理应用程序迁移到 Rancher Desktop，并且希望将本地镜像从以前的应用程序环境带到 Rancher Desktop 环境中。本指南介绍了使用 `save` 和 `load` 命令传输镜像的步骤。
 
 ### 步骤

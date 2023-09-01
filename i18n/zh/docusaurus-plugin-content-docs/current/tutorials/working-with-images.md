@@ -2,9 +2,6 @@
 title: 使用镜像
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 Rancher Desktop 通过 [NERDCTL](https://github.com/containerd/nerdctl) 项目和 Docker CLI 来提供构建，推送和拉取镜像的功能。
 
 请注意，`nerdctl` 和 `docker` 都会自动放入路径中。在 Windows 上，这发生在安装程序期间，而在 macOS 和 Linux 上，这发生在首次运行的时候。
