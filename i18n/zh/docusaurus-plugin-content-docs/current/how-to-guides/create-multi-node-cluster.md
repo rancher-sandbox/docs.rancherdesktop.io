@@ -2,9 +2,6 @@
 title: 使用 k3d 创建多节点集群
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 Rancher Desktop 支持**单节点集群**设置，这满足大多数本地开发场景。但是，在某些用例中，你可能需要创建多节点集群，或启动多个集群并灵活地在集群之间切换。尽管 Rancher Desktop 没有内置的多节点/集群功能，但你可以同时使用 [k3d](https://k3d.io) 与 Rancher Desktop 来实现同样的功能。k3d 是一个轻量级的包装器，用于在 Docker 中运行 k3s（一个最小化的 Kubernetes 发行版，Rancher Desktop 也使用它）。k3d 能让你轻松在 Docker 中创建单节点和多节点 k3s 集群（例如用于 Kubernetes 上的本地开发）。
 
 ### 启动多节点集群的步骤

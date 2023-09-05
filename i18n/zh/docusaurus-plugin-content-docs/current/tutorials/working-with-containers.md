@@ -2,9 +2,6 @@
 title: 使用容器
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 `nerdctl` 是一个与 Docker 兼容的容器 CLI。`nerdctl` 主要用于对 Docker 中不存在的 containerd 尖端功能进行试验。
 
 [Moby](https://github.com/moby/moby) 是一个由 Docker 创建的开源项目，用于启用和加速软件容器化。组件包括容器构建工具、容器镜像仓库、编排工具和运行时等。Docker CLI 使用 Moby 运行时。
@@ -115,6 +112,82 @@ docker run -d -p 8000:80 nginx
 ```
 netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=8080 connectaddress=localhost
 ```
+### 暴露正在运行的容器端口
+
+如果你忘记在 `run` 命令中公开端口，你可以按照以下步骤启动代理容器，将流量转发到原始容器。此技巧可以帮助你避免重启容器，并且在处理启动时间较长的容器化服务时特别有用。此技巧来自此 [stackoverflow 讨论](https://stackoverflow.com/questions/19897743/exposing-a-port-on-a-live-docker-container)和此[博客文章](https://iximiuz.com/en/posts/docker-publish-port-of-running-container/)。
+
+1. 假设你在没有发布端口的情况下（错误地）运行了一个容器。
+
+<Tabs groupId="container-runtime">
+  <TabItem value="nerdctl" default>
+
+```
+nerdctl run -d --name rd-nginx nginx
+```
+</TabItem>
+  <TabItem value="docker" default>
+
+```
+docker run -d --name rd-nginx nginx
+```
+</TabItem>
+</Tabs>
+
+2. 设置要在后续命令中使用的端口变量。
+
+```
+# Powershell
+$HOST_PORT=8080
+$CONTAINER_PORT=80
+
+# Bash
+export HOST_PORT=8080
+export CONTAINER_PORT=80
+```
+
+3. 获取容器 IP 地址。如果你在启动时没有为容器指定名称，则可以在下面的命令中通过传递容器 id 来代替容器名称 `rd-nginx` 。
+
+<Tabs groupId="container-runtime">
+  <TabItem value="nerdctl" default>
+
+```
+# Powershell
+$CONTAINER_IP=$(nerdctl inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rd-nginx)
+
+# Bash
+export CONTAINER_IP=$(nerdctl inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rd-nginx)
+```
+</TabItem>
+  <TabItem value="docker" default>
+
+```
+# Powershell
+$CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rd-nginx)
+
+# Bash
+export CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rd-nginx)
+```
+</TabItem>
+</Tabs>
+
+4. 启动代理容器，从而将流量转发到原始容器。
+
+<Tabs groupId="container-runtime">
+  <TabItem value="nerdctl" default>
+
+```
+nerdctl run --rm -p ${HOST_PORT}:${CONTAINER_PORT} alpine/socat TCP-LISTEN:${CONTAINER_PORT},fork TCP-CONNECT:${CONTAINER_IP}:${CONTAINER_PORT}
+```
+</TabItem>
+  <TabItem value="docker" default>
+
+```
+docker run --rm -p ${HOST_PORT}:${CONTAINER_PORT} alpine/socat TCP-LISTEN:${CONTAINER_PORT},fork TCP-CONNECT:${CONTAINER_IP}:${CONTAINER_PORT}
+```
+</TabItem>
+</Tabs>
+
+5. 代理容器成功运行后，你可以从主机通过 `localhost:8080` 访问 NGINX 服务器。
 
 ## 定位 Kubernetes 命名空间
 

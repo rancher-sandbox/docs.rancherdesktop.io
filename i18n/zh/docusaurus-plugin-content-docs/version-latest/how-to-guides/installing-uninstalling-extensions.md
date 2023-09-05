@@ -97,9 +97,20 @@ rdctl extension install <image-id>:<tag>
 
 #### 使用 UI
 
-单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。在此视图中，你可以搜索可用的扩展，并卸载已安装的扩展。
+单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。在此视图中，你可以搜索可用的扩展，并卸载已安装的扩展。你还可以通过单击 **Uninstall** 按钮从 **Installed** 选项卡卸载扩展。
+
+<Tabs>
+<TabItem value="Catalog">
 
 ![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Windows_Extensions.png)
+
+</TabItem>
+<TabItem value="Installed">
+
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Windows_Extensions-Installed.png)
+
+</TabItem>
+</Tabs>
 
 #### 使用命令行
 
@@ -120,9 +131,20 @@ rdctl extension uninstall <image-id>:<tag>
 
 #### 使用 UI
 
-单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。在此视图中，你可以搜索可用的扩展，并卸载已安装的扩展。
+单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。在此视图中，你可以搜索可用的扩展，并卸载已安装的扩展。你还可以通过单击 **Uninstall** 按钮从 **Installed** 选项卡卸载扩展。
+
+<Tabs>
+<TabItem value="Catalog">
 
 ![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_Extensions.png)
+
+</TabItem>
+<TabItem value="Installed">
+
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_Extensions-Installed.png)
+
+</TabItem>
+</Tabs>
 
 #### 使用命令行
 
@@ -143,9 +165,20 @@ rdctl extension uninstall <image-id>:<tag>
 
 #### 使用 UI
 
-单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。在此视图中，你可以搜索可用的扩展，并卸载已安装的扩展。
+单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。在此视图中，你可以搜索可用的扩展，并卸载已安装的扩展。你还可以通过单击 **Uninstall** 按钮从 **Installed** 选项卡卸载扩展。
+
+<Tabs>
+<TabItem value="Catalog">
 
 ![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Linux_Extensions.png)
+
+</TabItem>
+<TabItem value="Installed">
+
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Linux_Extensions-Installed.png)
+
+</TabItem>
+</Tabs>
 
 #### 使用命令行
 
