@@ -3,8 +3,6 @@ sidebar_label: 诊断
 title: 诊断
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
 **Diagnostics** 功能通过在后台运行多项检查来检测环境中的常见问题（例如不满足最低要求、配置错误等），帮助你自行排除和修复 Rancher Desktop 应用程序的问题。
@@ -14,17 +12,17 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/ui-main/Windows_Diagnostics.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/Windows_Diagnostics.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/ui-main/macOS_Diagnostics.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/macOS_Diagnostics.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/ui-main/Linux_Diagnostics.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/Linux_Diagnostics.png)
 
 </TabItem>
 </Tabs>

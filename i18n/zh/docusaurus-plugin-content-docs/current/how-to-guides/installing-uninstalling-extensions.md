@@ -2,8 +2,6 @@
 title: 安装和卸载 Rancher Desktop 扩展
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
 `v1.9.0-tech-preview` 版本引入了 **Extension** 功能，让你能够在 Rancher Desktop 中使用 **Docker Desktop 扩展**。有了该功能，你可以通过扩展 Rancher Desktop 的功能来满足额外的需求。本指南将演示如何在 Rancher Desktop 中安装和卸载 Docker 扩展。
@@ -23,7 +21,7 @@ Rancher Desktop 扩展在 `v1.9.0-tech-preview` 或更高版本中提供。
 
 单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。你可以在此处搜索可用的扩展，并单击 **Install** 按钮进行下载和安装。
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Windows_Extensions.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/Windows_Extensions.png)
 
 #### 使用命令行
 
@@ -46,7 +44,7 @@ rdctl extension install <image-id>:<tag>
 
 单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。你可以在此处搜索可用的扩展，并单击 **Install** 按钮进行下载和安装。
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_Extensions.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/macOS_Extensions.png)
 
 #### 使用命令行
 
@@ -69,7 +67,7 @@ rdctl extension install <image-id>:<tag>
 
 单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。你可以在此处搜索可用的扩展，并单击 **Install** 按钮进行下载和安装。
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Linux_Extensions.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/Linux_Extensions.png)
 
 #### 使用命令行
 
@@ -97,9 +95,20 @@ rdctl extension install <image-id>:<tag>
 
 #### 使用 UI
 
-单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。在此视图中，你可以搜索可用的扩展，并卸载已安装的扩展。
+单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。在此视图中，你可以搜索可用的扩展，并卸载已安装的扩展。你还可以通过单击 **Remove** 按钮从 **Installed** 选项卡卸载扩展。
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Windows_Extensions.png)
+<Tabs>
+<TabItem value="Catalog">
+
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/Windows_Extensions.png)
+
+</TabItem>
+<TabItem value="Installed">
+
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/Windows_Extensions-Installed.png)
+
+</TabItem>
+</Tabs>
 
 #### 使用命令行
 
@@ -120,9 +129,20 @@ rdctl extension uninstall <image-id>:<tag>
 
 #### 使用 UI
 
-单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。在此视图中，你可以搜索可用的扩展，并卸载已安装的扩展。
+单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。在此视图中，你可以搜索可用的扩展，并卸载已安装的扩展。你还可以通过单击 **Remove** 按钮从 **Installed** 选项卡卸载扩展。
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_Extensions.png)
+<Tabs>
+<TabItem value="Catalog">
+
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/macOS_Extensions.png)
+
+</TabItem>
+<TabItem value="Installed">
+
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/macOS_Extensions-Installed.png)
+
+</TabItem>
+</Tabs>
 
 #### 使用命令行
 
@@ -143,9 +163,20 @@ rdctl extension uninstall <image-id>:<tag>
 
 #### 使用 UI
 
-单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。在此视图中，你可以搜索可用的扩展，并卸载已安装的扩展。
+单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。在此视图中，你可以搜索可用的扩展，并卸载已安装的扩展。你还可以通过单击 **Remove** 按钮从 **Installed** 选项卡卸载扩展。
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Linux_Extensions.png)
+<Tabs>
+<TabItem value="Catalog">
+
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/Linux_Extensions.png)
+
+</TabItem>
+<TabItem value="Installed">
+
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/Linux_Extensions-Installed.png)
+
+</TabItem>
+</Tabs>
 
 #### 使用命令行
 

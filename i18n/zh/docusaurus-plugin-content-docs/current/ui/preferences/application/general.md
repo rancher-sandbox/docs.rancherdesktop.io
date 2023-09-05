@@ -3,8 +3,6 @@ sidebar_label: 通用
 title: 通用
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
 允许启用自动更新，以及提供可选字段来允许 Rancher Desktop 收集匿名统计数据以改进应用程序。
@@ -12,7 +10,7 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Windows_application_tabGeneral.png)
 
 #### Automatic Updates
 
@@ -25,7 +23,7 @@ import TabsConstants from '@site/core/TabsConstants';
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_application_tabGeneral.png)
 
 #### Administrative Access
 
@@ -42,7 +40,7 @@ import TabsConstants from '@site/core/TabsConstants';
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Linux_application_tabGeneral.png)
 
 #### Administrative Access
 

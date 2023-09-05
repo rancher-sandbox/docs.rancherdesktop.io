@@ -3,8 +3,6 @@ sidebar_label: 环境
 title: 环境
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
 允许在用户 shell 中配置 `$PATH` 变量，以便与 Rancher Desktop 安装的实用程序进行交互。
@@ -12,7 +10,7 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_application_tabEnvironment.png)
 
 #### 配置 PATH
 
@@ -28,7 +26,7 @@ Rancher Desktop 附带命令行实用程序，用于与其各种功能交互。�
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Linux_application_tabEnvironment.png)
 
 #### 配置 PATH
 
