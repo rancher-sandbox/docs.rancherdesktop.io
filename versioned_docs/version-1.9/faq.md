@@ -172,15 +172,6 @@ From versions 1.3.0 and above, we no longer create symlinks in `/usr/local/bin` 
 
 **A:** No, but there are plans to add compatibility.
 
-#### **Q: How can I add Rancher Desktop to the startup programs list on Windows?**
-
-**A:** On Windows, you can add a program to startup programs list in a number of ways. For example, you can use the following steps.
-
-1. Press Windows+R to open the Run dialog box.
-2. Type `shell:startup` and then hit Enter to open the Startup folder.
-3. Copy "Rancher Desktop" shortcut from Desktop and paste in Startup folder.
-4. Restart your machine.
-
 #### **Q: Where does Rancher Desktop actually put the data volumes?**
 
 **A:**
