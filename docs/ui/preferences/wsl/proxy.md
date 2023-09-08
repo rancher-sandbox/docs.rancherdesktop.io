@@ -26,3 +26,7 @@ Users can input their proxy IP address and port number in the `Proxy address` fi
 ### Authentication information
 
 If your proxy requires authentication then users can input their username and password in the `Authentication information` fields.
+
+### No proxy hostname list
+
+Default hostnames that should not be proxied will be displayed in this text area.
