@@ -108,7 +108,8 @@ const sidebars = {
         "how-to-guides/provisioning-scripts",
         "how-to-guides/increasing-open-file-limit",
         "how-to-guides/running-air-gapped",
-        "how-to-guides/odo-rancher-desktop"
+        "how-to-guides/odo-rancher-desktop",
+        "how-to-guides/traefik-ingress-example"
       ],
     },
     {
