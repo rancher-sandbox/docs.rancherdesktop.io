@@ -140,6 +140,9 @@ It is also recommended to have:
 
 Additional resources may be required depending on the workloads you plan to run.
 
+:::note
+Some Linux distributions such as Ubuntu and Fedora that make use of Gnome do not support a system tray out of the box, and therefore no tray icon will be displayed for Rancher Desktop in these environments.
+:::
 
 #### Ensuring You Have Access to `/dev/kvm`
 
