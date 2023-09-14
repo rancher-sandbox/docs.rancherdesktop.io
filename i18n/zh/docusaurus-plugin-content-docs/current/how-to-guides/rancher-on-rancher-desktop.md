@@ -2,9 +2,6 @@
 title: Rancher Desktop 上的 Rancher
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 虽然 [Rancher](https://rancher.com/) 和 [Rancher Desktop](https://rancherdesktop.io/) 的名字里都包含 _Rancher_，但它们的功能是有差别的。Rancher Desktop 不是桌面版 Rancher。Rancher 是管理 Kubernetes 集群的强大解决方案，而 Rancher Desktop 运行本地 Kubernetes 和容器管理平台，这两种解决方案相辅相成。例如，你可以将 Rancher 作为工作负载安装在 Rancher Desktop 中。
 
 本指南概述了使用 `container runtime` 或 `helm`（本地环境）在 Rancher Desktop 上安装 Rancher Dashboard 的步骤：

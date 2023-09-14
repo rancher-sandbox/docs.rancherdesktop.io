@@ -3,7 +3,11 @@ sidebar_label: Network
 title: Network (macOS)
 ---
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_virtualMachine_tabNetwork.png)
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/virtual-machine/network"/>
+</head>
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_virtualMachine_tabNetwork.png)
 
 ### Enable socket-vmnet
 

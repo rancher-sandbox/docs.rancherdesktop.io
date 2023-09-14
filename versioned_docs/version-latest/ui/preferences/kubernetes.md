@@ -3,24 +3,26 @@ sidebar_label: Kubernetes
 title: Kubernetes
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/kubernetes"/>
+</head>
+
 import TabsConstants from '@site/core/TabsConstants';
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_kubernetes.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Windows_kubernetes.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_kubernetes.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_kubernetes.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_kubernetes.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Linux_kubernetes.png)
 
 </TabItem>
 </Tabs>

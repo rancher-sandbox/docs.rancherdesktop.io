@@ -3,8 +3,10 @@ sidebar_label: Allowed Images
 title: Allowed Images
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/container-engine/allowed-images"/>
+</head>
+
 import TabsConstants from '@site/core/TabsConstants';
 
 The `Allowed Images` tab lets you control which registry artifacts you can access within Rancher Desktop. For example, you may want to pull container images only from your organization's private registry or only from your department-specific namespace in your organization's registry, etc. You can specify image name patterns to allow accessing images only from specific registries and/or repositories.
@@ -12,17 +14,17 @@ The `Allowed Images` tab lets you control which registry artifacts you can acces
 <Tabs groupId="os">
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_containerEngine_tabAllowedImages.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Windows_containerEngine_tabAllowedImages.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_containerEngine_tabAllowedImages.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_containerEngine_tabAllowedImages.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_containerEngine_tabAllowedImages.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Linux_containerEngine_tabAllowedImages.png)
 
 </TabItem>
 </Tabs>

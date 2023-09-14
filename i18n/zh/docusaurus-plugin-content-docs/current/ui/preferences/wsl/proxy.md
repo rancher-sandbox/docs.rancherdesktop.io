@@ -3,7 +3,7 @@ sidebar_label: 代理
 title: 代理
 ---
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_wsl_tabProxy.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Windows_wsl_tabProxy.png)
 
 ### WSL Proxy
 

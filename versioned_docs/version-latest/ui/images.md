@@ -3,8 +3,10 @@ sidebar_label: Images
 title: Images
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/images"/>
+</head>
+
 import TabsConstants from '@site/core/TabsConstants';
 
 The **Images** tab, allows you to manage the images on your virtual machine.
@@ -14,17 +16,17 @@ To manage your images using nerdctl instead, refer to the [Images](../tutorials/
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/ui-main/Windows_Images.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/Windows_Images.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/ui-main/macOS_Images.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/macOS_Images.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/ui-main/Linux_Images.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/Linux_Images.png)
 
 </TabItem>
 </Tabs>

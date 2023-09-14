@@ -2,8 +2,6 @@
 title: 离线运行
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
 Rancher Desktop 可以在离线模式下运行。本文介绍了离线运行的要求以及可能出现的问题。

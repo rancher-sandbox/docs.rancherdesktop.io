@@ -3,8 +3,10 @@ sidebar_label: Diagnostics
 title: Diagnostics
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/diagnostics"/>
+</head>
+
 import TabsConstants from '@site/core/TabsConstants';
 
 The **Diagnostics** feature runs several checks in the background to detect common problems such as missing minimum requirements, misconfigurations, etc., in your environment to help you self-troubleshoot and fix Rancher Desktop application issues.
@@ -14,17 +16,17 @@ The **Diagnostics** feature runs several checks in the background to detect comm
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/ui-main/Windows_Diagnostics.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/Windows_Diagnostics.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/ui-main/macOS_Diagnostics.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/macOS_Diagnostics.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/ui-main/Linux_Diagnostics.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/Linux_Diagnostics.png)
 
 </TabItem>
 </Tabs>

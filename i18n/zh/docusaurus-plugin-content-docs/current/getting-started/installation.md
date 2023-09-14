@@ -241,3 +241,14 @@ dnf install pass gnupg2
 ### 卸载 AppImage
 
 只需删除 AppImage。
+
+## 代理环境：重要的 URL 模式
+
+在某些情况下，你可能会使用安全、锁定的互联网环境，并且需要通过代理配置必要的 Rancher Desktop 依赖项。以下是你需要通过代理允许的关键 URL 模式列表：
+
+- 获取可用的 K3s 版本供下载：https://api.github.com/repos/k3s-io​​/k3s/releases
+- 下载 K3s 版本：https://github.com/k3s-io​​/k3s/releases/download
+- 由 `kuberlr`下载的 `kubectl` 版本：https://storage.googleapis.com/kubernetes-release/release
+- 获取可用的升级响应程序版本：https://github.com/longhorn/upgrade-responder/releases
+
+这些依赖项适用于 Rancher Desktop，并是整个 Rancher 平台的标准列表。

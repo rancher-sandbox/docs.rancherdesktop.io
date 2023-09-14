@@ -7,7 +7,7 @@ title: Proxy
   <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/wsl/proxy"/>
 </head>
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_wsl_tabProxy.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Windows_wsl_tabProxy.png)
 
 ### WSL Proxy
 
@@ -26,3 +26,7 @@ Users can input their proxy IP address and port number in the `Proxy address` fi
 ### Authentication information
 
 If your proxy requires authentication then users can input their username and password in the `Authentication information` fields.
+
+### No proxy hostname list
+
+Default hostnames that should not be proxied will be displayed in this text area.

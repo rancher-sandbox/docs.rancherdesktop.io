@@ -3,8 +3,6 @@ sidebar_label: 行为
 title: 行为
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
 允许配置应用程序启动时的行为、后台进程行为和通知图标显示。
@@ -12,7 +10,7 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Windows_application_tabBehavior.png)
 
 #### Startup
 
@@ -37,7 +35,7 @@ Rancher Desktop 通过通知图标来显示应用程序的状态。图标的右�
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_application_tabBehavior.png)
 
 #### Startup
 
@@ -62,7 +60,7 @@ Rancher Desktop 通过菜单栏中的通知图标来显示应用程序状态。�
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Linux_application_tabBehavior.png)
 
 #### Startup
 

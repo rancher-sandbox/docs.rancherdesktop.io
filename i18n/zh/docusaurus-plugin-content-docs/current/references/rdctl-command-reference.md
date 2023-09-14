@@ -2,9 +2,6 @@
 title: "命令参考：rdctl"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 `rdctl` 是包含在 Rancher Desktop 中的命令行工具，它能让你通过命令行访问 GUI 功能。`rdctl` 旨在帮助用户完成脚本（用于自动化、CI/CD）、故障排除、远程管理等任务。当前版本的 `rdctl` 支持以下命令（即将发布的版本中将支持更多命令）：
 
 :::info
@@ -144,6 +141,38 @@ rdctl set --kubernetes-enabled=false
 
 只是它没那么简洁和用户友好。
 
+## rdctl create-profile
+
+以 macOS `.plist` 或 Windows `.reg` 格式为 Rancher Desktop 设置生成部署配置文件。
+
+```console
+rdctl create-profile <options> <options-input>
+```
+
+<details>
+<summary>选项和示例命令</summary>
+
+**选项**
+
+```console
+--input [FILE]              File containing a JSON document.
+--body [JSON]               Command-line option containing a JSON document
+--from-settings             Use current settings.
+--output [plist, reg]       An output of .plist files for macOS and .reg files for Windows.
+
+Additional options for --output reg:
+--type [locked, defaults]   The locked field is set as default, otherwise the default type can be specified.
+--hive [hklm, hkcu]         The hklm field is set as default, otherwise hkcu can be specified.
+```
+
+**示例**
+
+```console
+rdctl create-profile --output reg --hive=Hkcu --from-settings
+```
+
+</details>
+
 ## rdctl extension install
 
 安装 Rancher Desktop 扩展。
@@ -227,7 +256,29 @@ Uninstalling image docker/logs-explorer-extension:0.2.2: Deleted docker/logs-exp
 运行 `rdctl list-settings` 以查看当前的活动配置：
 
 <details>
-<summary>示例输出</summary>
+<summary>选项 &amp; 示例输出</summary>
+
+**选项**
+
+```autoupdate=true
+> rdctl list-settings --help
+Lists the current settings in JSON format.
+
+Usage:
+  rdctl list-settings [flags]
+
+Flags:
+  -h, --help   help for list-settings
+
+Global Flags:
+      --config-path string   config file (default /Users/{username}/Library/Application Support/rancher-desktop/rd-engine.json)
+      --host string          default is localhost; most useful for WSL
+      --password string      overrides the password setting in the config file
+      --port string          overrides the port setting in the config file
+      --user string          overrides the user setting in the config file
+```
+
+**示例**
 
 ```autoupdate=true
 > rdctl list-settings
@@ -410,9 +461,60 @@ shutdown: curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/shutd
 运行 `rdctl start` 来确保 Rancher Desktop 按照要求运行和配置：
 
 <details>
-<summary>示例输出</summary>
+<summary>选项和示例命令</summary>
 
+**选项**：
+
+```console
+Usage:
+  rdctl start [flags]
+
+Flags:
+      --application.admin-access                                        enable privileged operations
+      --application.auto-start                                          start app when logging in
+      --application.debug                                               generate more verbose logging
+      --application.hide-notification-icon                              don't show notification icon
+      --application.path-management-strategy string                     update PATH to include ~/.rd/bin (allowed values: [manual, rcfiles])
+      --application.start-in-background                                 start app without window
+      --application.telemetry.enabled                                   allow collection of anonymous statistics
+      --application.updater.enabled                                     automatically update to the latest release
+      --application.window.quit-on-close                                terminate app when the main window is closed
+      --container-engine.allowed-images.enabled                         only allow images to be pulled that match the allowed patterns
+      --container-engine.name string                                    set engine (allowed values: [containerd, docker, moby])
+      --diagnostics.show-muted                                          unhide muted diagnostics
+      --experimental.virtual-machine.mount.9p.cache-mode string         (allowed values: [none, loose, fscache, mmap])
+      --experimental.virtual-machine.mount.9p.msize-in-kib int          maximum packet size
+      --experimental.virtual-machine.mount.9p.protocol-version string   (allowed values: [9p2000, 9p2000.u, 9p2000.L])
+      --experimental.virtual-machine.mount.9p.security-model string     (allowed values: [passthrough, mapped-xattr, mapped-file, none])
+      --experimental.virtual-machine.mount.type string                  how directories are shared (allowed values: [reverse-sshfs, 9p, virtiofs])
+      --experimental.virtual-machine.socket-vmnet                       use socket-vmnet instead of vde-vmnet
+      --experimental.virtual-machine.type string                        (allowed values: [qemu, vz])
+      --experimental.virtual-machine.use-rosetta
+      -h, --help                                                        help for start
+      --images.namespace string                                         select only images from this namespace (containerd only)
+      --images.show-all                                                 show system images on Images page
+      --kubernetes.enabled                                              run Kubernetes
+      --kubernetes.options.flannel                                      use flannel networking; disable to install your own CNI
+      --kubernetes.options.traefik                                      install and run traefik
+      --kubernetes.port int                                             apiserver port
+      --kubernetes.version string                                       choose which version of Kubernetes to run
+      --no-modal-dialogs                                                avoid displaying dialog boxes
+      -p, --path string                                                 path to main executable
+      --port-forwarding.include-kubernetes-services                     show Kubernetes system services on Port Forwarding page
+      --virtual-machine.memory-in-gb int                                reserved RAM size
+      --virtual-machine.number-cpus int                                 reserved number of CPUs
+
+Global Flags:
+      --config-path string   config file (default /Users/{username}/Library/Application Support/rancher-desktop/rd-engine.json)
+      --host string          default is localhost; most useful for WSL
+      --password string      overrides the password setting in the config file
+      --port string          overrides the port setting in the config file
+      --user string          overrides the user setting in the config file
 ```
+
+**示例**：
+
+```console
 > rdctl start --container-runtime dockerd -- kubernetes-version 1.19.3
 ```
 

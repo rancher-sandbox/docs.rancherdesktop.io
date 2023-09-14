@@ -3,43 +3,45 @@ sidebar_label: Volumes
 title: Volumes (macOS & Linux)
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/virtual-machine/volumes"/>
+</head>
+
 import TabsConstants from '@site/core/TabsConstants';
 
 ## Mount Type
 
-<Tabs groupId="os">
-<TabItem value="macOS">
-
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_virtualMachine_tabVolumes.png)
-
-</TabItem>
-<TabItem value="Linux">
-
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_virtualMachine_tabVolumes.png)
-
-</TabItem>
-</Tabs>
-
 ### reverse-sshfs
 
-Users can enable the "reverse-sshfs" mount type from the `Volumes` tab. This exposes the filesystem by running an SFTP server on the host. The host instance will then intitiate an SSH connection into the guest allowing it to connect to the SFTP server. This is the default mount type used in the application.
-
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_virtualMachine_tabVolumes_9P.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_virtualMachine_tabVolumes.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_virtualMachine_tabVolumes_9P.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Linux_virtualMachine_tabVolumes.png)
 
 </TabItem>
 </Tabs>
 
+Users can enable the "[reverse-sshfs](https://github.com/lima-vm/lima/blob/master/docs/mount.md#reverse-sshfs)" mount type from the `Volumes` tab. This exposes the filesystem by running an SFTP server on the host. The host instance will then intitiate an SSH connection into the guest allowing it to connect to the SFTP server. This is the default mount type used in the application.
+
 ### 9p
+
+<Tabs groupId="os">
+<TabItem value="macOS">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_virtualMachine_tabVolumes_9P.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Linux_virtualMachine_tabVolumes_9P.png)
+
+</TabItem>
+</Tabs>
 
 :::caution warning
 
@@ -61,15 +63,20 @@ Users can select the "9p" protocol version. The options include `[9p2000, 9p2000
 * Security Model:
 Users can select a supported security model with options being `[passthrough, mapped-xattr, mapped-file, none]`. The default security setting value is `none`.
 
+### virtiofs
+
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_virtualMachine_tabVolumes_virtiofs.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_virtualMachine_tabVolumes_virtiofs.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Linux_virtualMachine_tabVolumes_virtiofs.png)
 
 </TabItem>
 </Tabs>
-
-### virtiofs
 
 :::caution warning
 
