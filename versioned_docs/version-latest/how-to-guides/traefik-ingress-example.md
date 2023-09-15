@@ -225,19 +225,19 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 
 1. Open a powershell session and set the node IP to your local address:
 
-  ```powershell
+  ```shell
   $IP = (kubectl get node/$env:COMPUTERNAME -o jsonpath='{.status.addresses[?(@.type=="InternalIP")].address}')
   ```
 
 1. Create a namespace called demo:
 
-  ```powershell
+  ```shell
   kubectl create ns demo
   ```
 
 1. Create a `whoami` example with basic deployment, service, and Ingress objects defined:
 
-  ```powershell
+  ```shell
   echo @"
   ---
   apiVersion: apps/v1
@@ -296,13 +296,13 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 
 1. Verify the ingress works by calling `curl`:
 
-  ```powershell
+  ```shell
   curl whoami.$IP.nip.io
   ```
 
 1. Delete the resources:
 
-  ```powershell
+  ```shell
   kubectl delete all,ingress --all -n demo
   ```
 
