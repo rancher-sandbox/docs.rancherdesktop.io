@@ -18,7 +18,7 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 1. Open a bash session and set the node IP to your localhost address:
 
   ```bash
-  IP=localhost
+  IP=127.0.0.1
   ```
 
 1. Create a namespace called demo:
@@ -125,7 +125,7 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 1. Open a bash session and set the node IP to your localhost address:
 
   ```bash
-  IP=localhost
+  IP=127.0.0.1
   ```
 
 1. Create a namespace called demo:
@@ -226,7 +226,7 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 1. Open a powershell session and set the node IP to your local address:
 
   ```powershell
-  $IP = kubectl get node/$env:COMPUTERNAME -o jsonpath='{.status.addresses[?(@.type=="InternalIP")].address}'
+  $IP = (kubectl get node/$env:COMPUTERNAME -o jsonpath='{.status.addresses[?(@.type=="InternalIP")].address}')
   ```
 
 1. Create a namespace called demo:

@@ -15,15 +15,15 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Linux">
 
-1. Set the node IP to your localhost address:
+1. Open a bash session and set the node IP to your localhost address:
 
-  ```console
-  IP=localhost
+  ```bash
+  IP=127.0.0.1
   ```
 
 1. Create a namespace called demo:
 
-  ```console
+  ```bash
   kubectl create ns demo
   ```
 
@@ -33,7 +33,7 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
   Some Linux distributions don't allow listening to priviliged ports by default, please see the documentation on [Traefik port binding access](https://docs.rancherdesktop.io/getting-started/installation/#traefik-port-binding-access) to authorize ports if necessary.
   :::
 
-  ```console
+  ```bash
   cat << EOF | kubectl apply -n demo -f -
   ---
   apiVersion: apps/v1
@@ -92,7 +92,7 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 
 1. Verify the ingress works by calling `curl`:
 
-  ```console
+  ```bash
   curl whoami.$IP.nip.io
   Hostname: whoami-6ff6dcfdc8-74mwq
   IP: 127.0.0.1
@@ -115,28 +115,28 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 
 1. Delete the resources:
 
-  ```console
+  ```bash
   kubectl delete all,ingress --all -n demo
   ```
 
 </TabItem>
 <TabItem value="macOS">
 
-1. Set the node IP to your localhost address:
+1. Open a bash session and set the node IP to your localhost address:
 
-  ```console
-  IP=localhost
+  ```bash
+  IP=127.0.0.1
   ```
 
 1. Create a namespace called demo:
 
-  ```console
+  ```bash
   kubectl create ns demo
   ```
 
 1. Create a `whoami` example with basic deployment, service, and Ingress objects defined:
 
-  ```console
+  ```bash
   cat << EOF | kubectl apply -n demo -f -
   ---
   apiVersion: apps/v1
@@ -195,7 +195,7 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 
 1. Verify the ingress works by calling `curl`:
 
-  ```console
+  ```bash
   curl whoami.$IP.nip.io
   Hostname: whoami-6ff6dcfdc8-74mwq
   IP: 127.0.0.1
@@ -216,28 +216,28 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 
 1. Delete the resources:
 
-  ```console
+  ```bash
   kubectl delete all,ingress --all -n demo
   ```
 
 </TabItem>
 <TabItem value="Windows">
 
-1. Set the node IP to your local address:
+1. Open a powershell session and set the node IP to your local address:
 
-  ```console
-  IP = kubectl get node/$env:COMPUTERNAME -o jsonpath='{.status.addresses[?(@.type=="InternalIP")].address}'
+  ```powershell
+  $IP = (kubectl get node/$env:COMPUTERNAME -o jsonpath='{.status.addresses[?(@.type=="InternalIP")].address}')
   ```
 
 1. Create a namespace called demo:
 
-  ```console
+  ```powershell
   kubectl create ns demo
   ```
 
 1. Create a `whoami` example with basic deployment, service, and Ingress objects defined:
 
-  ```console
+  ```powershell
   echo @"
   ---
   apiVersion: apps/v1
@@ -296,13 +296,13 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 
 1. Verify the ingress works by calling `curl`:
 
-  ```console
+  ```powershell
   curl whoami.$IP.nip.io
   ```
 
 1. Delete the resources:
 
-  ```console
+  ```powershell
   kubectl delete all,ingress --all -n demo
   ```
 
