@@ -237,4 +237,4 @@ Open the list of services running on your machine using the command `services.ms
 
 #### **Q: What is `rancher-desktop-data` and why is it in a stopped state?**
 
-**A:** This is a persistent volume used for storage, such as container images. It is used for implementation purposes and can be ignored by users. When running, the volume will be mounted inside the `rancher-desktop` distribution and it will never run by itself.
+**A:** `rancher-desktop-data` is a persistent volume used for storage, such as container images. When running, the volume is mounted inside the `rancher-desktop` distribution and it will never run by itself. It is used for implementation purposes and can be ignored by endusers.
