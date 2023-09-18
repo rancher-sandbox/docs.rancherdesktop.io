@@ -234,3 +234,7 @@ Open the list of services running on your machine using the command `services.ms
 </Tabs>
 
 3. Exit and Restart Rancher Desktop.
+
+#### **Q: What is `rancher-desktop-data` and why is it in a stopped state?**
+
+**A:** `rancher-desktop-data` is a persistent volume used for storage, such as container images. When running, the volume is mounted inside the `rancher-desktop` distribution and it will never run by itself. It is for implementation purposes and can be ignored by Rancher Desktop users.
