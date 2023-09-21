@@ -42,6 +42,6 @@ Rancher Desktop includes automated port forwarding for versions `1.9` and later.
 
 :::note
 
-Please see [Traefik Port Binding Access](../getting-started/installation#traefik-port-binding-access) to configure ports at the operating system level.
+Please see [Traefik Port Binding Access](https://docs.rancherdesktop.io/getting-started/installation/#traefik-port-binding-access) to configure ports at the operating system level.
 
 :::
