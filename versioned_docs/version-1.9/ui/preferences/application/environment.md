@@ -1,6 +1,6 @@
 ---
 sidebar_label: Environment
-title: Environment(macOS & Linux)
+title: Environment (macOS & Linux)
 ---
 
 import Tabs from '@theme/Tabs';
