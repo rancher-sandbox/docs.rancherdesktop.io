@@ -10,7 +10,7 @@ While [Rancher](https://rancher.com/) and [Rancher Desktop](https://rancherdeskt
 
 This guide outlines steps to install Rancher Dashboard on Rancher Desktop using `container runtime` or `helm` (local environment):
 
-**Note:** You may encounter issues if the supporting utilities (ex: helm), or your workload versions are incompatible with the Kubernetes version in your session. As a potential fix, you can switch to a compatible Kubernetes version via the [Preferences > Kubernetes](https://docs.rancherdesktop.io/getting-started/features/#kubernetes) dialog. Supported Kubernetes platforms for Rancher are available on the [support matrix page](https://www.suse.com/suse-rancher/support-matrix/all-supported-versions/rancher-v2-7-1/).
+**Note:** You may encounter issues if the supporting utilities (ex: helm), or your workload versions are incompatible with the Kubernetes version in your session. As a potential fix, you can switch to a compatible Kubernetes version via the [Preferences > Kubernetes](../ui/preferences/kubernetes.md) dialog. Supported Kubernetes platforms for Rancher are available on the [support matrix page](https://www.suse.com/suse-rancher/support-matrix/all-supported-versions/rancher-v2-7-1/).
 
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
