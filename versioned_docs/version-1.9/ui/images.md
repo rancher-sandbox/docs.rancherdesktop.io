@@ -13,7 +13,7 @@ import TabsConstants from '@site/core/TabsConstants';
 
 The **Images** tab, allows you to manage the images on your virtual machine.
 
-To manage your images using nerdctl instead, refer to the [Images](../tutorials/working-with-images) section.
+To manage your images using nerdctl instead, refer to the [Images](../tutorials/working-with-images.md) section.
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">

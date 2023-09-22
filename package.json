@@ -23,7 +23,10 @@
     "js-yaml": "^4.1.0",
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "remark-cli": "^11.0.0",
+    "remark-lint-no-dead-urls": "^1.1.0",
+    "remark-validate-links": "^12.1.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.3.1",

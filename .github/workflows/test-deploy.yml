@@ -14,7 +14,9 @@ jobs:
         with:
           node-version: 16.x
           cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Check links
+        run: yarn run remark --use remark-validate-links --use remark-lint-no-dead-urls=skipUrlPatterns:[\'https://rancher.rd.localhost\'],skipLocalhost:true --quiet --frail ./docs/ ./versioned_docs/
       - name: Test build
-        run: |
-          yarn install --frozen-lockfile
-          yarn build
+        run: yarn build
