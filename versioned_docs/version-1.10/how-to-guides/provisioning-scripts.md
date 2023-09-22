@@ -12,7 +12,13 @@ Provisioning scripts can be used to override some of Rancher Desktop's internal 
 
 ## macOS & Linux
 
-On macOS and Linux, you can use lima override.yaml to write provisioning scripts. 
+On macOS and Linux, you can use lima override.yaml to write provisioning scripts.
+
+- Run Rancher Desktop at least once to allow it to create the `_config` directory.
+
+:::note
+Please note that the directory will be deleted during a factory-reset, so ensure a backup for your provisioning scripts in case you need them after a factory-reset.
+:::
 
 - Create `override.yaml` file at below path
 
@@ -65,7 +71,11 @@ env:
 
 **Caution:** You can only utilize these provisioning scripts for Rancher Desktop, version 1.1.0 or later, on Windows.
 
-- Run Rancher Desktop at least once to allow it to create its configuration.
+- Run Rancher Desktop at least once to allow it to create the configuration `provisioning` directory.
+
+:::note
+Please note that the directory will be deleted during a factory-reset, so ensure a backup for your provisioning scripts in case you need them after factory-reset.
+:::
 
 - Open the `%AppData%\rancher-desktop\provisioning` directory. An example of the full path: `C:\Users\Joe\AppData\Roaming\rancher-desktop\provisioning`.
 
