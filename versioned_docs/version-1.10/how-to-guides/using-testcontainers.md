@@ -42,7 +42,7 @@ Currently, workarounds are needed for using Testcontainers on macOS M1 machines.
 <details>
 <summary>Workaround Summary</summary>
 
-This runtime can be used with administrative access enabled which can be set via the [**Preferences > Application > General**](../ui/preferences/application/general.md) dialog. This will ensure that routable IP's are allocated.
+This runtime can be used with administrative access enabled which can be set via the [**Preferences > Application > General**](https://docs.rancherdesktop.io/ui/preferences/application/general) dialog. This will ensure that routable IP's are allocated.
 
 Next, export the virtual machine port explicitly using the command below:
 
@@ -52,12 +52,12 @@ export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl shell ip a show rd0 | awk '/inet / {
 
 </details>
 
-#### [VZ](https://docs.rancherdesktop.io/ui/preferences/virtual-machine/emulation#qemu)
+#### [VZ](https://docs.rancherdesktop.io/ui/preferences/virtual-machine/emulation#vz)
 
 <details>
 <summary>Workaround Summary</summary>
 
-This runtime can be used with administrative access enabled which can be set via the [**Preferences > Application > General**](../ui/preferences/application/general.md) dialog. This will ensure that routable IP's are allocated.
+This runtime can be used with administrative access enabled which can be set via the [**Preferences > Application > General**](https://docs.rancherdesktop.io/ui/preferences/application/general) dialog. This will ensure that routable IP's are allocated.
 
 Next, export the virtual machine port explicitly using the command below:
 
