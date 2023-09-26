@@ -37,7 +37,7 @@ You can download a sample test repository in the `testcontainers-java-repro` loc
 
 Currently, workarounds are needed for using Testcontainers on macOS M1 machines. Below are methods for using Testcontainers on either runtime, depending on administrative access.
 
-#### [QEMU](../ui/preferences/virtual-machine/emulation#qemu.md)
+#### [QEMU](https://docs.rancherdesktop.io/ui/preferences/virtual-machine/emulation#qemu)
 
 <details>
 <summary>Workaround Summary</summary>
@@ -52,7 +52,7 @@ export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl shell ip a show rd0 | awk '/inet / {
 
 </details>
 
-#### [VZ](../ui/preferences/virtual-machine/emulation#vz.md)
+#### [VZ](https://docs.rancherdesktop.io/ui/preferences/virtual-machine/emulation#qemu)
 
 <details>
 <summary>Workaround Summary</summary>
