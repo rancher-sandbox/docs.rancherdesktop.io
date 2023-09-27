@@ -12,7 +12,13 @@ Rancher Desktop can be used with [Testcontainers](https://testcontainers.com/) t
 
 ### Prerequisites
 
-[Testcontainers](https://testcontainers.com/) can only be used with the `moby (dockerd)` runtime as it requires a Docker-API compatible container runtime. Kubernetes must be disabled (which can be accomplished via the **Preferences > Kubernetes** dialog) for machines on Apple Silicon. Please also ensure that [Apache Maven](https://maven.apache.org/install.html) is installed on your machine in order to make use of the [`mvn verify`](https://maven.apache.org/run-maven/index.html) command.
+[Testcontainers](https://testcontainers.com/) can only be used with the `moby (dockerd)` runtime as it requires a Docker-API compatible container runtime. Kubernetes must be disabled for machines on Apple Silicon. The setting can be disabled via the **Preferences > Kubernetes** dialog, or by using the `rdctl` command below:
+
+```bash
+rdctl set --kubernetes-enabled=false
+```
+
+ Please also ensure that [Apache Maven](https://maven.apache.org/install.html) is installed on your machine in order to make use of the [`mvn verify`](https://maven.apache.org/run-maven/index.html) command.
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Linux">
