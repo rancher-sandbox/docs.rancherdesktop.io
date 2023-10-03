@@ -60,3 +60,7 @@ The **Installed** tab is a view for all installed extensions on your Rancher Des
 #### Name
 
 A list of names of installed extensions. Users can directly uninstall extensions by clicking the **Remove** button for the respective extension on the right hand side.
+
+### Remote Debugging Extensions
+
+The Chrome remote debugger allows you to debug Electron apps using Chrome Developer Tools. This tool can be used to also debug Docker extensions in Rancher Desktop. Please follow these instructions on [remote debugging an extension](https://github.com/rancher-sandbox/rancher-desktop/#remote-debugging-an-extension) installed in the application.
