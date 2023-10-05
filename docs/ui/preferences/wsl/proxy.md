@@ -33,7 +33,9 @@ Default hostnames that should not be proxied will be displayed in this text area
 
 ### Known Issues
 
-There is a known issue with using Rancher Desktop and the `wsl-vpnkit` distribution for WSL, and while the distro is installed Rancher Desktop will be unable to run. Please uninstall the distribution in order to run Rancher Desktop. This can be achieved by the command below in a powershell terminal:
+There is a known issue with using Rancher Desktop and the `wsl-vpnkit` distribution for WSL. If the distro is installed, Rancher Desktop will be unable to run.
+
+As a workaround while this issue is being investigated, please uninstall the distribution in order to run Rancher Desktop. This can be achieved by the command below in a powershell terminal:
 
 ```shell
 wsl --unregister wsl-vpnkit
