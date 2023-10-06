@@ -110,7 +110,8 @@ const sidebars = {
         "how-to-guides/running-air-gapped",
         "how-to-guides/odo-rancher-desktop",
         "how-to-guides/traefik-ingress-example",
-        "how-to-guides/using-testcontainers"
+        "how-to-guides/using-testcontainers",
+        "how-to-guides/mirror-private-registry"
       ],
     },
     {
