@@ -116,18 +116,66 @@ const config = {
             ]
           },
           {
+            type: `dropdown`,
+            label: `More from SUSE`,
+            position: `right`,
+            items: [
+              {
+                href: 'https://www.rancher.com',
+                label: 'Rancher',
+                target: '_self',
+                logo: {
+                  alt: 'Rancher Logo',
+                  src: 'img/icon-rancher.svg',
+                },
+              },
+              {
+                type: 'html',
+                value: '<hr style="margin: 0.3rem 0;">',
+              },
+              {
+                href: 'https://epinio.io/',
+                label: 'Epinio',
+                target: '_self',
+              },
+              {
+                href: 'https://harvesterhci.io/',
+                label: 'Harvester',
+                target: '_self',
+              },
+              {
+                href: 'https://www.kubewarden.io/',
+                label: 'Kubewarden',
+                target: '_self',
+              },
+              {
+                href: 'https://opni.io/',
+                label: 'Opni',
+                target: '_self',
+              },
+              {
+                type: 'html',
+                value: '<hr style="margin: 0.3rem 0;">',
+              },
+              {
+                href: 'https://opensource.suse.com/',
+                label: 'More Projects...',
+                target: '_self',
+              },
+            ]
+          },
+          {
             type: 'docsVersionDropdown',
             position: 'left',
             dropdownActiveClassDisabled: true,
           },
           {
             type: "localeDropdown",
-            position: "right",
+            position: "left",
           },
           {
-            href: 'https://www.rancher.com',
-            label: 'Rancher Home',
-            position: 'right',
+            type: 'search',
+            position: 'left',
           },
         ],
       },
@@ -137,7 +185,7 @@ const config = {
       },
       footer: {
         style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} SUSE. Rancher Desktop is an open source project of the SUSE Rancher Engineering group. This docs site is built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} SUSE Rancher. All Rights Reserved.`,
       },
       prism: {
         theme: lightCodeTheme,
