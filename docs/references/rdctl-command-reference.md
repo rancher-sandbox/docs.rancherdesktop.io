@@ -457,6 +457,49 @@ shutdown: curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/shutd
   </TabItem>
 </Tabs>
 
+## rdctl snapshot
+
+Run `rdctl snapshot` to store the current configuration of your virtual machine and all associated settings as a snapshot.
+
+<details>
+<summary>Options & Example Commands</summary>
+
+**Options**
+
+```text
+Usage:
+  rdctl snapshot [command]
+
+Available Commands:
+  create      Create a snapshot
+  delete      Delete a snapshot
+  list        List snapshots
+  restore     Restore a snapshot
+  unlock      Remove snapshot lock
+
+Flags:
+  -h, --help   help for snapshot
+
+Global Flags:
+      --config-path string   config file (default /Users/[username]/Library/Application Support/rancher-desktop/rd-engine.json)
+      --host string          default is 127.0.0.1; most useful for WSL
+      --password string      overrides the password setting in the config file
+      --port string          overrides the port setting in the config file
+      --user string          overrides the user setting in the config file
+
+Use "rdctl snapshot [command] --help" for more information about a command.
+```
+
+**Example**
+
+```autoupdate=true
+$ rdctl snapshot create example_snapshot
+$ rdctl snapshot delete example_snapshot
+$ rdctl snapshot list --json
+```
+
+</details>
+
 ## rdctl start
 
 <Tabs groupId="command-reference">
