@@ -124,9 +124,22 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 
 1. Open a bash session and set the node IP to your localhost address:
 
+  <Tabs>
+  <TabItem value="Default">
+
   ```bash
   IP=127.0.0.1
   ```
+
+  </TabItem>
+  <TabItem value="socket-vmnet Enabled">
+
+  ```bash
+  IP=`kubectl get node/lima-rancher-desktop -o jsonpath='{.status.addresses[?(@.type=="ExternalIP")].address}'`
+  ```
+
+  </TabItem>
+</Tabs>
 
 1. Create a namespace called demo:
 
