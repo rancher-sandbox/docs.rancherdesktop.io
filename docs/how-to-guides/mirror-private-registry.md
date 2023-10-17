@@ -15,6 +15,8 @@ Rancher Desktop can be configured to mirror private registries using either cont
 
 Below is an example [provisioning script](https://docs.rancherdesktop.io/how-to-guides/provisioning-scripts) that can be used to mirror private registries.
 
+Check if you have the `override.yaml` file in the path below, otherwise you can create the file in the path with the suggested provisioning commands:
+
 Override File Path:
 `$HOME/.local/share/rancher-desktop/lima/_config/override.yaml`
 
@@ -38,6 +40,8 @@ provision:
 <TabItem value="macOS">
 
 Below is an example [provisioning script](https://docs.rancherdesktop.io/how-to-guides/provisioning-scripts) that can be used to mirror private registries.
+
+Check if you have the `override.yaml` file in the path below, otherwise you can create the file in the path with the suggested provisioning commands:
 
 Override File Path:
 `$HOME/Library/Application Support/rancher-desktop/lima/_config/override.yaml`
@@ -68,7 +72,7 @@ wsl -d rancher-desktop mkdir -p /etc/rancher/k3s
 wsl -d rancher-desktop cp registries.yaml /etc/rancher/k3s
 ```
 
-Here is an example of the mirror private registries configuration in your `registries.yaml` file:
+Here is an example of the mirrored private registries configuration in your `registries.yaml` file:
 
 ```yaml
 mirrors:
