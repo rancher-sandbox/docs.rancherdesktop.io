@@ -37,6 +37,7 @@ const sidebars = {
         "ui/port-forwarding",
         "ui/images",
         "ui/troubleshooting",
+        "ui/snapshots",
         "ui/diagnostics",
         "ui/extensions",
         {
