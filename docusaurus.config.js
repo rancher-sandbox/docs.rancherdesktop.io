@@ -103,7 +103,6 @@ const config = {
               {
                 href: 'https://rancherdesktop.io/',
                 label: 'Rancher Desktop Home',
-                target: '_self',
               },
               {
                 href: 'https://github.com/rancher-sandbox/rancher-desktop/',
@@ -123,35 +122,26 @@ const config = {
               {
                 href: 'https://www.rancher.com',
                 label: 'Rancher',
-                target: '_self',
-                logo: {
-                  alt: 'Rancher Logo',
-                  src: 'img/icon-rancher.svg',
-                },
               },
               {
                 type: 'html',
                 value: '<hr style="margin: 0.3rem 0;">',
               },
               {
+                href: 'https://elemental.docs.rancher.com/',
+                label: 'Elemental',
+              },
+              {
                 href: 'https://epinio.io/',
                 label: 'Epinio',
-                target: '_self',
               },
               {
                 href: 'https://harvesterhci.io/',
                 label: 'Harvester',
-                target: '_self',
-              },
-              {
-                href: 'https://www.kubewarden.io/',
-                label: 'Kubewarden',
-                target: '_self',
               },
               {
                 href: 'https://opni.io/',
                 label: 'Opni',
-                target: '_self',
               },
               {
                 type: 'html',
@@ -160,7 +150,6 @@ const config = {
               {
                 href: 'https://opensource.suse.com/',
                 label: 'More Projects...',
-                target: '_self',
               },
             ]
           },
