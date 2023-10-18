@@ -34,6 +34,7 @@ const sidebars = {
       label: 'User Interface',
       items: [
         "ui/general",
+        "ui/containers",
         "ui/port-forwarding",
         "ui/images",
         "ui/troubleshooting",
