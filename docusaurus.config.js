@@ -136,8 +136,16 @@ const config = {
                 label: 'Epinio',
               },
               {
+                href: 'https://fleet.rancher.io/',
+                label: 'Fleet',
+              },
+              {
                 href: 'https://harvesterhci.io/',
                 label: 'Harvester',
+              },
+              {
+                href: 'https://www.kubewarden.io/',
+                label: 'Kubewarden',
               },
               {
                 href: 'https://opni.io/',
