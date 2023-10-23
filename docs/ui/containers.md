@@ -45,7 +45,11 @@ The listed information can be sorted in ascending or descending order. Container
 
 ### Container Management
 
-These buttons are located at the top of the page and allow you to perform the following actions below only after selecting a container. Upon selection, the button(s) will be highlighted if the action is applicable to your container state. Bulk selection and actions can also be performed on instances with the same state.
+The buttons located at the top of the page will be highlighted when a container is selected and depend on the container's state.
+
+Bulk selection and actions can also be performed on instances with the same state.
+
+The following actions are available:
 
 - `Stop`:
   You can terminate container instances using the `Stop` button.
