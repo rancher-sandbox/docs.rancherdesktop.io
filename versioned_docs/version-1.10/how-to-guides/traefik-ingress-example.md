@@ -77,7 +77,7 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
       traefik.ingress.kubernetes.io/router.entrypoints: web
   spec:
     rules:
-      - host: whoami.$IP.nip.io
+      - host: whoami.$IP.sslip.io
         http:
           paths:
             - path: /
@@ -93,7 +93,7 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 1. Verify the ingress works by calling `curl`:
 
   ```bash
-  curl whoami.$IP.nip.io
+  curl whoami.$IP.sslip.io
   Hostname: whoami-6ff6dcfdc8-74mwq
   IP: 127.0.0.1
   IP: ::1
@@ -101,12 +101,12 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
   IP: fe80::e804:41ff:feac:7eef
   RemoteAddr: 10.42.0.45:35392
   GET / HTTP/1.1
-  Host: whoami.127.0.0.1.nip.io
+  Host: whoami.127.0.0.1.sslip.io
   User-Agent: curl/7.64.1
   Accept: */*
   Accept-Encoding: gzip
   X-Forwarded-For: 10.42.0.1
-  X-Forwarded-Host: whoami.127.0.0.1.nip.io
+  X-Forwarded-Host: whoami.127.0.0.1.sslip.io
   X-Forwarded-Port: 80
   X-Forwarded-Proto: http
   X-Forwarded-Server: traefik-d497b4cb6-4vkg9
@@ -193,7 +193,7 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
       traefik.ingress.kubernetes.io/router.entrypoints: web
   spec:
     rules:
-      - host: whoami.$IP.nip.io
+      - host: whoami.$IP.sslip.io
         http:
           paths:
             - path: /
@@ -209,18 +209,18 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 1. Verify the ingress works by calling `curl`:
 
   ```bash
-  curl whoami.$IP.nip.io
+  curl whoami.$IP.sslip.io
   Hostname: whoami-6ff6dcfdc8-74mwq
   IP: 127.0.0.1
   IP: 10.42.0.4
   RemoteAddr: 10.42.0.250:54102
   GET / HTTP/1.1
-  Host: whoami.127.0.0.1.nip.io
+  Host: whoami.127.0.0.1.sslip.io
   User-Agent: curl/8.1.1
   Accept: */*
   Accept-Encoding: gzip
   X-Forwarded-For: 10.42.0.246
-  X-Forwarded-Host: whoami.127.0.0.1.nip.io
+  X-Forwarded-Host: whoami.127.0.0.1.sslip.io
   X-Forwarded-Port: 80
   X-Forwarded-Proto: http
   X-Forwarded-Server: traefik-64b96ccbcd-26wcv
@@ -239,7 +239,7 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 1. Open a powershell session and set the node IP to your local address:
 
   ```shell
-  $IP = (kubectl get node/$env:COMPUTERNAME -o jsonpath='{.status.addresses[?(@.type=="InternalIP")].address}')
+  $IP = (kubectl get node/$env:COMPUTERNAME -o=jsonpath="{range .status.addresses[?(@.type == 'InternalIP')]}{.address}{end}")
   ```
 
 1. Create a namespace called demo:
@@ -294,7 +294,7 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
       traefik.ingress.kubernetes.io/router.entrypoints: web
   spec:
     rules:
-      - host: whoami.$IP.nip.io
+      - host: whoami.$IP.sslip.io
         http:
           paths:
             - path: /
@@ -310,7 +310,7 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 1. Verify the ingress works by calling `curl`:
 
   ```shell
-  curl whoami.$IP.nip.io
+  curl whoami.$IP.sslip.io
   ```
 
 1. Delete the resources:
