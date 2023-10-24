@@ -15,14 +15,14 @@ Rancher Desktop can be configured to mirror private registries using either cont
 
 Below is an example [provisioning script](https://docs.rancherdesktop.io/how-to-guides/provisioning-scripts/#macos--linux) that can be used to mirror private registries.
 
-Check if you have the `override.yaml` file in the path below, otherwise you can create the file in the path with the suggested provisioning commands:
+Check if you have the `override.yaml` file in the path below, otherwise you can create the file in the path with the suggested provisioning commands.
 
 Override File Path:
 `$HOME/.local/share/rancher-desktop/lima/_config/override.yaml`
 
+Example Script:
 ```bash
 provision:
-...
   - mode: system
     script: |
       #!/bin/sh
@@ -47,14 +47,15 @@ rdctl shell -- cat /etc/rancher/k3s/registries.yaml
 
 Below is an example [provisioning script](https://docs.rancherdesktop.io/how-to-guides/provisioning-scripts/#macos--linux) that can be used to mirror private registries.
 
-Check if you have the `override.yaml` file in the path below, otherwise you can create the file in the path with the suggested provisioning commands:
+Check if you have the `override.yaml` file in the path below, otherwise you can create the file in the path with the suggested provisioning commands.
 
 Override File Path:
 `$HOME/Library/Application Support/rancher-desktop/lima/_config/override.yaml`
 
+Example Script:
+
 ```bash
 provision:
-...
   - mode: system
     script: |
       #!/bin/sh
@@ -81,13 +82,10 @@ Ensure that you have initialized the application with a first run in order to cr
 
 The file path and example provisioning script are provided below. After you have created the file with the appropriate configuration, restart the Rancher Desktop application for the provisioning script to take effect.
 
-File Path:
+`.start` File Path:
+`$HOME\AppData\Roaming\rancher-desktop\provisioning\mirror-registry.start`
 
-```shell
-$HOME\AppData\Roaming\rancher-desktop\provisioning\mirror-registry.start
-```
-
-Example `mirror-registry.start` file configuration:
+Example Script:
 
 ```shell
 #!/bin/sh
