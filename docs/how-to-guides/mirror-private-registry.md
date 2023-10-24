@@ -13,7 +13,7 @@ Rancher Desktop can be configured to mirror private registries using either cont
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Linux">
 
-Below is an example [provisioning script](https://docs.rancherdesktop.io/how-to-guides/provisioning-scripts) that can be used to mirror private registries.
+Below is an example [provisioning script](https://docs.rancherdesktop.io/how-to-guides/provisioning-scripts/#macos--linux) that can be used to mirror private registries.
 
 Check if you have the `override.yaml` file in the path below, otherwise you can create the file in the path with the suggested provisioning commands:
 
@@ -36,10 +36,16 @@ provision:
       EOF
 ```
 
+After restarting the applicaition, you can verify the script being applied using the `rdctl shell` command below:
+
+```bash
+rdctl shell -- cat /etc/rancher/k3s/registries.yaml
+```
+
 </TabItem>
 <TabItem value="macOS">
 
-Below is an example [provisioning script](https://docs.rancherdesktop.io/how-to-guides/provisioning-scripts) that can be used to mirror private registries.
+Below is an example [provisioning script](https://docs.rancherdesktop.io/how-to-guides/provisioning-scripts/#macos--linux) that can be used to mirror private registries.
 
 Check if you have the `override.yaml` file in the path below, otherwise you can create the file in the path with the suggested provisioning commands:
 
@@ -62,23 +68,46 @@ provision:
       EOF
 ```
 
+After restarting the applicaition, you can verify the script being applied using the `rdctl shell` command below:
+
+```bash
+rdctl shell -- cat /etc/rancher/k3s/registries.yaml
+```
+
 </TabItem>
 <TabItem value="Windows">
 
-Check if you have the directory below that may have been created upon `k3s` spinning up. If not, create the directory and `registries.yaml` file using the powershell commands below:
+Ensure that you have initialized the application with a first run in order to create the `\provisioning\` directory. Once created, [provisioning scripts](https://docs.rancherdesktop.io/how-to-guides/provisioning-scripts/#windows) can be utilized to mirror private registries using a `.start` file.
+
+The file path and example provisioning script are provided below. After you have created the file with the appropriate configuration, restart the Rancher Desktop application for the provisioning script to take effect.
+
+File Path:
 
 ```shell
-wsl -d rancher-desktop mkdir -p /etc/rancher/k3s
-wsl -d rancher-desktop cp registries.yaml /etc/rancher/k3s
+$HOME\AppData\Roaming\rancher-desktop\provisioning\mirror-registry.start
 ```
 
-Here is an example of the mirrored private registries configuration in your `registries.yaml` file:
+Example `mirror-registry.start` file configuration:
 
-```yaml
+```shell
+#!/bin/sh
+
+set -eux
+
+mkdir -p /etc/rancher/k3s
+
+cat <<EOF >/etc/rancher/k3s/registries.yaml
 mirrors:
-  "docker.io":
-    endpoint:
-      - https://<my-private-registry>:5000
+  "localhost:5000":
+  endpoint:
+    - http://localhost:5000
+EOF
+```
+
+Verify using the `rdctl shell` command below that the script is applied:
+
+```shell
+rdctl shell -- cat /etc/rancher/k3s/registries.yaml
 ```
 
 </TabItem>
