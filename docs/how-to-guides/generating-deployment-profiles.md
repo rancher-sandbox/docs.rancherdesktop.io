@@ -1,34 +1,41 @@
-# A guide to generating deployment profiles
+---
+title: Generating Deployment Profiles
+---
+<head>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/generating-deployment-profiles"/>
+</head>
 
 Deployment Profiles are a way of both providing first-time default settings for Rancher Desktop,
 and locking down any or all of the application settings.
+The purpose of this guide is to demonstrate how to create deployment profiles.
+General information about deployment profiles are further detailed
+in [Getting Started > Deployment Profiles](https://docs.rancherdesktop.io/getting-started/deployment).
 
-They are well documented at https://docs.rancherdesktop.io/getting-started/deployment/ . That document
-discusses how they work and mentions using a group policy system to distribute them, but doesn't cover
-how to actually create them. That's the job of this document.
-
-We assume your organization has its own methods of remotely configuring users' systems. In any case,
-that part is out of the scope of this document.
+:::note
+If your organization has its own methods of remotely configuring users' systems,
+it is out of the scope of this document.
+:::
 
 ## Where do deployment profiles get installed?
 
-The file-generation step will refer to these locations. So while this information
-is also at the `getting-started` story, it's worth going over it here.
+The profile locations vary for each platform.
+We'll cover them from the simplest to most complex, 
+and it is worth noting the file generation steps below will refer to these locations:
 
-The profile locations vary for each platform. We'll cover them from the simplest to most complex:
 
 ### Linux
 
 User deployments are stored in
-```
+```bash
 ~/.config/rancher-desktop.defaults.json
 ~/.config/rancher-desktop.locked.json
 ```
 
-If the `XDG_CONFIG_HOME` environment variable is set, they go in there instead of in `~/.config`.
+If the `XDG_CONFIG_HOME` environment variable is set, the user deployments are stored there
+instead of in `~/.config/…`.
 
 System deployments always go in
-```
+```bash
 /etc/rancher-desktop/defaults.json
 /etc/rancher-desktop/locked.json
 ```
@@ -38,13 +45,13 @@ As is apparent from the filenames' extensions, they are `json` files.
 ### macOS
 
 User deployments are stored in
-```
+```bash
 ~/Library/Preferences/io.rancherdesktop.profile.defaults.plist
 ~/Library/Preferences/io.rancherdesktop.profile.locked.plist
 ```
 
 System deployments always go in
-```
+```bash
 /Library/Preferences/io.rancherdesktop.profile.defaults.plist
 /Library/Preferences/io.rancherdesktop.profile.locked.plist
 ```
@@ -61,13 +68,13 @@ more easily for organizations that don't have deep plist file-format expertise.
 ### Windows
 
 The Windows deployments are stored in the registry. User deployments are stored at:
-```
+```text
 HKEY_CURRENT_USER\SOFTWARE\Policies\Rancher Desktop\Defaults
 HKEY_CURRENT_USER\SOFTWARE\Policies\Rancher Desktop\Locked
 ```
 
 And the system deployments are stored at:
-```
+```text
 HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Rancher Desktop\Defaults
 HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Rancher Desktop\Locked
 ```
@@ -150,21 +157,24 @@ container images that match the supplied patterns. They will also be constrained
 If you're on a Linux system, you can quickly test these files with the following steps:
 ```bash
 # Shut down Rancher Desktop
+# Do the following to keep your current settings after testing deployments:
+cp ~/.config/rancher-desktop/settings.json /tmp/
+ 
 rdctl factory-reset
 cp working-defaults.txt ~/.config/rancher-desktop.defaults.json
 cp working-locked.txt ~/.config/rancher-desktop.locked.json
 ```
 
-Now bring up Rancher Desktop, and bring up the Preferences window. Verify that the fields you entered
+Now start Rancher Desktop, and open the Preferences window. Verify that the fields you entered
 in the `locked` file have the specified values, appear with a padlock icon in the UI, and can't be
 changed. Verify that the fields from the `defaults` value appear with the specified values in the UI,
-and can be changed (as expected, if a field appears in both the `defaults` and `locked` deployment
-profile, the `locked` value takes precedence).
+and can be changed. Keep in mind that if a field appears in both the `defaults` and `locked` deployment
+profiles, the `locked` value takes precedence.
 
 ### Targeting other systems
 
 If all your users are on Linux systems, you're done, but if not, the rest is straightforward.
-`rdctl` can take a JSON file and generate a deployment for either macOS or Windows. Now Windows
+`rdctl` can take a JSON file and generate a deployment for either macOS or Windows. Windows
 uses the registry, so we generate *registry import files*, and you can then use the `reg` command
 in a terminal to install them.
 
@@ -181,8 +191,8 @@ And the `io.*.plist` files just need to be deployed to the users' systems, as de
 
 #### Windows
 
-Windows differs from the other platforms - for `Linux` and `macOS`. Here you specify the type of profile
-("locked" or "defaults") and hive (`HKLM` or `HKCU`) on the command-line, and let the `run.exe` command
+Windows differs from the other platforms. Here you specify the type of profile
+("locked" or "defaults") and hive (`HKLM` or `HKCU`) on the command-line, and let the `reg` command
 decide which part of the registry to update:
 
 ```bash
@@ -193,7 +203,7 @@ rdctl create-profile --output reg --hive hkcu --type locked working-locked.txt >
 ```
 
 The above commands generate four different files, but as explained before, system takes precedence over
-user profiles, so there's no need to generate at most two files.
+user profiles, so there's no need to generate more than two files, one for defaults and one for locked fields.
 
 You would then deploy the files to the target Windows systems, and in a shell with administrative privileges,
 run
