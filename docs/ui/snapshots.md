@@ -9,25 +9,29 @@ title: Snapshots
 
 import TabsConstants from '@site/core/TabsConstants';
 
-
-<!--- insert snapshot image -->
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-Windows_Image_TBD
+![Snapshots_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/Windows_Snapshots-List.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![Containers_Example](../img/Snapshot_Example.png)
+![Snapshots_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/macOS_Snapshots-List.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-Linux_Image_TBD
+![Snapshots_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/Linux_Snapshots-List.png)
 
 </TabItem>
 </Tabs>
+
+:::caution warning
+
+This is an **experimental** feature.
+
+:::
 
 A snapshot can be used to store the current configuration of your virtual machine and all associated settings. Snapshots are stored in a `snapshots` directory which are created at the below paths respective to your operating system:
 

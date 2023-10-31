@@ -13,20 +13,26 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-Windows_Image_TBD
+![Containers_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/Windows_Containers.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![Containers_Example](../img/Containers_Example.png)
+![Containers_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/macOS_Containers.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-Linux_Image_TBD
+![Containers_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/Linux_Containers.png)
 
 </TabItem>
 </Tabs>
+
+:::caution warning
+
+This is an **experimental** feature.
+
+:::
 
 The **Containers** tab offers quick access to manage containers and view key information such as:
 
