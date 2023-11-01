@@ -128,10 +128,6 @@ const config = {
                 value: '<hr style="margin: 0.3rem 0;">',
               },
               {
-                href: 'https://elemental.docs.rancher.com/',
-                label: 'Elemental',
-              },
-              {
                 href: 'https://epinio.io/',
                 label: 'Epinio',
               },
@@ -142,10 +138,6 @@ const config = {
               {
                 href: 'https://harvesterhci.io/',
                 label: 'Harvester',
-              },
-              {
-                href: 'https://www.kubewarden.io/',
-                label: 'Kubewarden',
               },
               {
                 href: 'https://opni.io/',
