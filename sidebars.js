@@ -34,8 +34,10 @@ const sidebars = {
       label: 'User Interface',
       items: [
         "ui/general",
+        "ui/containers",
         "ui/port-forwarding",
         "ui/images",
+        "ui/snapshots",
         "ui/troubleshooting",
         "ui/diagnostics",
         "ui/extensions",
@@ -110,8 +112,7 @@ const sidebars = {
         "how-to-guides/running-air-gapped",
         "how-to-guides/odo-rancher-desktop",
         "how-to-guides/traefik-ingress-example",
-        "how-to-guides/using-testcontainers",
-        "how-to-guides/generating-deployment-profiles"
+        "how-to-guides/using-testcontainers"
       ],
     },
     {
