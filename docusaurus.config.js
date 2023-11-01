@@ -37,9 +37,9 @@ const config = {
               banner: "none",
               path: "/",
             },
-            "1.10": {
-              label: "1.10",
-              path: "1.10",
+            "1.11": {
+              label: "1.11",
+              path: "1.11",
               banner: "none"
             },
           },
