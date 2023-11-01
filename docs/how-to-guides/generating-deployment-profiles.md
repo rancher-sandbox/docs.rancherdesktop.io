@@ -54,7 +54,7 @@ System deployments always go in:
 
 These two lists look similar but differ in permissions. The user-deployments go under the user's home directory, while the system deployments are in the common `/Library/` tree, and cannot be modified by users without root privileges.
 
-These files are all in a plain-text form of Apple's `plist` format, an XML-based language. It is possible to manually create these files, and the process is described below in generating deployments.
+These files are all in a plain-text form of Apple's `plist` format, an XML-based language. It is possible to manually create these files, and the process is described below in "Generating Deployments".
 
 ### Windows
 
