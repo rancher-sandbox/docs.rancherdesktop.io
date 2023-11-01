@@ -309,6 +309,4 @@ rdctl list-settings > ~/.config/rancher-desktop.defaults.json
 
 ### Known Issues and Limitations
 
-* On macOS incorrectly formatted profiles are ignored instead of preventing the app from loading.
-* There is no way to set `diagnostics.showMuted` (and on Windows `WSL.integrations`) via deployment profile.
-* On macOS and Linux an abbreviated first-run dialog is still shown if the "defaults" profile does not provide a value for `application.pathManagementStrategy`.
+* You can set default values for `diagnostics.showMuted` (and on Windows `WSL.integrations`) via deployment profile, but currently can't lock them.
