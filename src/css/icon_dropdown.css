@@ -1,0 +1,75 @@
+.navbar__icon {
+    font-family: poppins,sans-serif;
+    font-size: 16px;
+  }
+
+  .navbar__icon:before {
+    content: "";
+    display: inline-flex;
+    height: 20px;
+    width: 20px;
+    margin-right: 4px;
+    background-color: var(--ifm-navbar-link-color);
+  }
+
+  .navbar__rancher:before {
+    mask: url(/static/img/icon-rancher-mask.png) no-repeat 100% 100%;
+    mask-size: cover;
+    width: 35px;
+    padding-bottom: 10px;
+    background-color: #2e68e9;
+  }
+
+  .navbar__rd:before {
+    mask: url(/static/img/icon-rd-mask.png) no-repeat 100% 100%;
+    mask-size: cover;
+    width: 35px;
+    height: 22px;
+    padding-bottom: 7px;
+    background-color: #0081be;
+  }
+
+  .navbar__epinio:before {
+    mask: url(/static/img/icon-epinio-mask.png) no-repeat 100% 100%;
+    mask-size: cover;
+    width: 35px;
+    height: 22px;
+    padding-bottom: 7px;
+    background-color: #004d93;
+  }
+
+  .navbar__fleet:before {
+    mask: url(/static/img/icon-fleet-mask.png) no-repeat 100% 100%;
+    mask-size: cover;
+    width: 35px;
+    height: 22px;
+    padding-bottom: 7px;
+    background-color: #00b056;
+  }
+
+  .navbar__harvester:before {
+    mask: url(/static/img/icon-harvester-mask.png) no-repeat 100% 100%;
+    mask-size: cover;
+    width: 35px;
+    height: 22px;
+    padding-bottom: 7px;
+    background-color: #00a580;
+  }
+
+  .navbar__opni:before {
+    mask: url(/static/img/icon-opni-mask.png) no-repeat 100% 100%;
+    mask-size: cover;
+    width: 35px;
+    height: 22px;
+    padding-bottom: 7px;
+    background-color: #b536c3e2;
+  }
+
+  .navbar__suse:before {
+    mask: url(/static/img/icon-suse-mask.png) no-repeat 100% 100%;
+    mask-size: cover;
+    width: 35px;
+    height: 13px;
+    padding-bottom: 7px;
+    background-color: #30ba78;
+  }
