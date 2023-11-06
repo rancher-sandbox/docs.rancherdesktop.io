@@ -122,6 +122,7 @@ const config = {
               {
                 href: 'https://www.rancher.com',
                 label: 'Rancher',
+                className: 'navbar__icon navbar__rancher',
               },
               {
                 type: 'html',
@@ -130,18 +131,22 @@ const config = {
               {
                 href: 'https://epinio.io/',
                 label: 'Epinio',
+                className: 'navbar__icon navbar__epinio',
               },
               {
                 href: 'https://fleet.rancher.io/',
                 label: 'Fleet',
+                className: 'navbar__icon navbar__fleet',
               },
               {
                 href: 'https://harvesterhci.io/',
                 label: 'Harvester',
+                className: 'navbar__icon navbar__harvester',
               },
               {
                 href: 'https://opni.io/',
                 label: 'Opni',
+                className: 'navbar__icon navbar__opni',
               },
               {
                 type: 'html',
@@ -150,6 +155,7 @@ const config = {
               {
                 href: 'https://opensource.suse.com/',
                 label: 'More Projects...',
+                className: 'navbar__icon navbar__suse',
               },
             ]
           },
