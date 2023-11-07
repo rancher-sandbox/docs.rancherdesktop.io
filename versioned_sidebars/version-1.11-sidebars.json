@@ -59,7 +59,9 @@
               "label": "Container Engine",
               "items": [
                 "ui/preferences/container-engine/general",
-                "ui/preferences/container-engine/allowed-images"
+                "ui/preferences/container-engine/allowed-images",
+                "tutorials/using-persistent-storage"
+
               ]
             },
             "ui/preferences/kubernetes"

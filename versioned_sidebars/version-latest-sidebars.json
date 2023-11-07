@@ -72,7 +72,8 @@
       "label": "Tutorials",
       "items": [
         "tutorials/working-with-images",
-        "tutorials/working-with-containers"
+        "tutorials/working-with-containers",
+        "tutorials/using-persistent-storage"
       ]
     },
     {
