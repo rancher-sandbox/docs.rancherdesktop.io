@@ -9,10 +9,6 @@ title: Images
 
 import TabsConstants from '@site/core/TabsConstants';
 
-The **Images** tab, allows you to manage the images on your virtual machine.
-
-To manage your images using nerdctl instead, refer to the [Images](../tutorials/working-with-images.md) section.
-
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
@@ -30,6 +26,18 @@ To manage your images using nerdctl instead, refer to the [Images](../tutorials/
 
 </TabItem>
 </Tabs>
+
+The **Images** tab allows you to handle image management activities on your virtual machine from the application user interface. Depending on your container engine, these options include deleting, adding, and building images from your registry. To view how to manage your images using the command line, refer to the [Images section](../tutorials/working-with-images.md) in the Tutorials.
+
+### Image Management Options
+
+- `Delete`: This option is only available using the container engine `dockerd (moby)`. Images can be selected from the display view and deleted using the `Delete` button.
+
+- `All Images`: This option is only available using the container engine `containerd (nerdctl)` and `k8s.io` namespace. This checkbox can be marked to enable all images including default application images in the `Rancher` resource group to display.
+
+- `Namespace`: This option is only available using the container engine `containerd (nerdctl)`. You can select a specific namespace in the cluster via the dropdown, which will then display the associated images.
+
+- `Filter`: Accepts either text or numbered input to display filtered images.
 
 ### Scanning Images
 
@@ -53,7 +61,7 @@ Use this option to pull images from a registry to your virtual machine.
 
 To pull an image:
 
-1. Click the **+** button in the top-right corner.
+1. Click the **Add Image** button in the top-right corner.
 1. Click on the **Pull** tab.
 1. Enter the name of the image to pull.
     > Note: By default, images are pulled from [Docker Hub] which uses the `repo/image[:tag]` format. To pull from other registries, include the hostname `registry.example.com/repo/image[:tag]`.
@@ -68,7 +76,7 @@ Use this option to build an image and add it to your virtual machine.
 
 To build an image:
 
-1. Click the **+** button in the top-right corner.
+1. Click the **Add Image** button in the top-right corner.
 1. Click on the **Build** tab.
 1. Enter a name for the image being built. E.g., `repo/image`, `repo/image:tag`, `registry.example.com/repo/image`, or `registry.example.com/repo/image:tag`.
 1. Click **Build**.
