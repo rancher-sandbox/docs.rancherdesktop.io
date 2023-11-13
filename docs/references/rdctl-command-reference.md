@@ -49,21 +49,24 @@ Usage:
   rdctl [command]
 
 Available Commands:
-  api           Run API endpoints directly
-  completion    Generate the autocompletion script for the specified shell
-  factory-reset Clear all the Rancher Desktop state and shut it down.
-  help          Help about any command
-  list-settings Lists the current settings.
-  set           Update selected fields in the Rancher Desktop UI and restart the backend.
-  shell         Run an interactive shell or a command in a Rancher Desktop-managed VM
-  shutdown      Shuts down the running Rancher Desktop application
-  start         Start up Rancher Desktop, or update its settings.
-  version       Shows the CLI version.
+  api            Run API endpoints directly
+  completion     Generate the autocompletion script for the specified shell
+  create-profile Generate a deployment profile in either macOS plist or Windows registry format
+  extension      Manage extensions
+  factory-reset  Clear all the Rancher Desktop state and shut it down.
+  help           Help about any command
+  list-settings  Lists the current settings.
+  set            Update selected fields in the Rancher Desktop UI and restart the backend.
+  shell          Run an interactive shell or a command in a Rancher Desktop-managed VM
+  shutdown       Shuts down the running Rancher Desktop application
+  snapshot       Manage Rancher Desktop snapshots
+  start          Start up Rancher Desktop, or update its settings.
+  version        Shows the CLI version.
 
 Flags:
-      --config-path string   config file (default /Users/jan/Library/Application Support/rancher-desktop/rd-engine.json)
+      --config-path string   config file (default /Users/ssingh/Library/Application Support/rancher-desktop/rd-engine.json)
   -h, --help                 help for rdctl
-      --host string          default is localhost; most useful for WSL
+      --host string          default is 127.0.0.1; most useful for WSL
       --password string      overrides the password setting in the config file
       --port string          overrides the port setting in the config file
       --user string          overrides the user setting in the config file
@@ -86,15 +89,25 @@ GET /
 GET /v0
 GET /v1
 GET /v1/about
+GET /v1/backend_state
+PUT /v1/backend_state
 GET /v1/diagnostic_categories
 GET /v1/diagnostic_checks
 POST /v1/diagnostic_checks
 GET /v1/diagnostic_ids
+GET /v1/extensions
+POST /v1/extensions/install
+POST /v1/extensions/uninstall
 PUT /v1/factory_reset
 PUT /v1/propose_settings
 GET /v1/settings
 PUT /v1/settings
+GET /v1/settings/locked
 PUT /v1/shutdown
+POST /v1/snapshot/restore
+GET /v1/snapshots
+DELETE /v1/snapshots
+POST /v1/snapshots
 GET /v1/transient_settings
 PUT /v1/transient_settings
 ```
@@ -112,29 +125,39 @@ Run `rdctl api /v1` to list all endpoints in version 1.
 $ rdctl api /v1 | jq -r .[]
 GET /v1
 GET /v1/about
+GET /v1/backend_state
+PUT /v1/backend_state
 GET /v1/diagnostic_categories
 GET /v1/diagnostic_checks
 POST /v1/diagnostic_checks
 GET /v1/diagnostic_ids
+GET /v1/extensions
+POST /v1/extensions/install
+POST /v1/extensions/uninstall
 PUT /v1/factory_reset
 PUT /v1/propose_settings
 GET /v1/settings
 PUT /v1/settings
+GET /v1/settings/locked
 PUT /v1/shutdown
+POST /v1/snapshot/restore
+GET /v1/snapshots
+DELETE /v1/snapshots
+POST /v1/snapshots
 GET /v1/transient_settings
 PUT /v1/transient_settings
 ```
 
 </details>
 
-## rdctl api /v0/settings
+## rdctl api /v1/settings
 
 `rdctl api [endpoints]` are commands that are most useful for users working directly with the API itself, and therefore they would not be for everyday use, such as `rdctl set` might be. For example,
 
 a command such as
 
 ```
-rdctl api /v0/settings --method PUT --body '{"kubernetes": {"enabled": false}}'
+rdctl api /v1/settings --method PUT --body '{"kubernetes": {"enabled": false}}'
 ```
 
 is the same as
@@ -199,7 +222,7 @@ rdctl extension install <image-id>
 
 ``` autoupdate=true
 $ rdctl extension install docker/logs-explorer-extension:0.2.2
-Installing image docker/logs-explorer-extension:0.2.2
+Installing image docker/logs-explorer-extension:0.2.2: Created
 ```
 
 </details>
@@ -208,7 +231,7 @@ Installing image docker/logs-explorer-extension:0.2.2
 
 Lists currently installed images.
 
-```
+```console
 rdctl extension ls
 ```
 
@@ -264,7 +287,8 @@ Run `rdctl list-settings` to see the current active configuration.
 
 **Options**
 
-```autoupdate=true
+``` autoupdate=true
+
 > rdctl list-settings --help 
 Lists the current settings in JSON format.
 
@@ -275,8 +299,8 @@ Flags:
   -h, --help   help for list-settings
 
 Global Flags:
-      --config-path string   config file (default /Users/{username}/Library/Application Support/rancher-desktop/rd-engine.json)
-      --host string          default is localhost; most useful for WSL
+      --config-path string   config file (default /Users/ssingh/Library/Application Support/rancher-desktop/rd-engine.json)
+      --host string          default is 127.0.0.1; most useful for WSL
       --password string      overrides the password setting in the config file
       --port string          overrides the port setting in the config file
       --user string          overrides the user setting in the config file
@@ -287,15 +311,22 @@ Global Flags:
 ``` autoupdate=true
 > rdctl list-settings
 {
-  "version": 6,
+  "version": 10,
   "application": {
-    "adminAccess": false,
-    "pathManagementStrategy": "rcfiles",
-    "updater": {
-      "enabled": false
-    },
+    "adminAccess": true,
     "debug": false,
+    "extensions": {
+      "allowed": {
+        "enabled": false,
+        "list": []
+      },
+      "installed": {}
+    },
+    "pathManagementStrategy": "rcfiles",
     "telemetry": {
+      "enabled": true
+    },
+    "updater": {
       "enabled": true
     },
     "autoStart": false,
@@ -305,27 +336,26 @@ Global Flags:
       "quitOnClose": false
     }
   },
+  "containerEngine": {
+    "allowedImages": {
+      "enabled": false,
+      "patterns": [],
+      "locked": false
+    },
+    "name": "containerd"
+  },
   "virtualMachine": {
-    "memoryInGB": 6,
+    "memoryInGB": 4,
     "numberCPUs": 2,
     "hostResolver": true
   },
   "WSL": {
     "integrations": {}
   },
-  "containerEngine": {
-    "allowedImages": {
-      "enabled": false,
-      "patterns": [
-        "docker.io"
-      ]
-    },
-    "name": "moby"
-  },
   "kubernetes": {
-    "version": "",
+    "version": "1.28.2",
     "port": 6443,
-    "enabled": false,
+    "enabled": true,
     "options": {
       "traefik": true,
       "flannel": true
@@ -342,28 +372,44 @@ Global Flags:
     "namespace": "k8s.io"
   },
   "diagnostics": {
-    "showMuted": false,
-    "mutedChecks": {}
+    "showMuted": true,
+    "mutedChecks": {
+      "STATIC_FALSE": true
+    }
   },
   "experimental": {
     "virtualMachine": {
-      "type": "qemu",
+      "type": "vz",
       "useRosetta": false,
-      "socketVMNet": false,
+      "socketVMNet": true,
       "mount": {
         "type": "reverse-sshfs",
         "9p": {
           "securityModel": "none",
           "protocolVersion": "9p2000.L",
-          "msizeInKB": 128,
+          "msizeInKib": 128,
           "cacheMode": "mmap"
         }
       },
-      "networkingTunnel": false
+      "networkingTunnel": false,
+      "proxy": {
+        "enabled": false,
+        "address": "",
+        "password": "",
+        "port": 3128,
+        "username": "",
+        "noproxy": [
+          "0.0.0.0/8",
+          "10.0.0.0/8",
+          "127.0.0.0/8",
+          "169.254.0.0/16",
+          "172.16.0.0/12",
+          "192.168.0.0/16",
+          "224.0.0.0/4",
+          "240.0.0.0/4"
+        ]
+      }
     }
-  },
-  "extensions": {
-    "docker/logs-explorer-extension:0.2.2": true
   }
 }
 
@@ -380,7 +426,7 @@ Run the following API call to see the current active configuration:
 <summary>Example Output</summary>
 
 ```
-curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -X GET
+curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v1/settings -X GET
 ```
 
 </details>
@@ -416,7 +462,7 @@ Run the following API call to set properties:
 <summary>Example Output</summary>
 
 ```
-curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/settings -d '{ "kubernetes": { "containerEngine": "docker", "enabled": false, "version":"1.23.5" }}' -X PUT
+curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v1/settings -d '{ "kubernetes": { "containerEngine": "docker", "enabled": false, "version":"1.23.5" }}' -X PUT
 ```
 
 </details>
@@ -449,7 +495,7 @@ Run the following API call to shut down Rancher Desktop:
 <summary>Example Output</summary>
 
 ```
-shutdown: curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v0/shutdown -X PUT
+shutdown: curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v1/shutdown -X PUT
 ```
 
 </details>
@@ -492,10 +538,15 @@ Use "rdctl snapshot [command] --help" for more information about a command.
 
 **Example**
 
-```autoupdate=true
+``` autoupdate=true
+
+
+
 $ rdctl snapshot create example_snapshot
 $ rdctl snapshot delete example_snapshot
 $ rdctl snapshot list --json
+{"created":"2023-10-23T13:11:45.311273-07:00","name":"Snap_2023-10-23_13_11_25","description":""}
+{"created":"2023-10-23T13:13:34.439465-07:00","name":"Example_Snapshot_1","description":"Snapshot descriptions can be entered in this field."}
 ```
 
 </details>
