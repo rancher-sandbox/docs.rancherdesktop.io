@@ -27,13 +27,19 @@ import TabsConstants from '@site/core/TabsConstants';
 </TabItem>
 </Tabs>
 
-The **Images** tab allows you to handle image management activities on your virtual machine from the application user interface. Depending on your container engine, these options include deleting, adding, and building images from your registry. To view how to manage your images using the command line, refer to the [Images section](../tutorials/working-with-images.md) in the Tutorials.
+The **Images** tab allows you to manage local container images via the application Graphical User Interface. Depending on the container engine selected, the options include:
+
+- Building container images from a local Dockerfile.
+- Pull images from a registry and push images to a registry.
+- Delete, and scan local images.
+
+To view how to manage container images using the command line, refer to the [Images section](../tutorials/working-with-images.md) in the Tutorials.
 
 ### Image Management Options
 
 - `Delete`: This option is only available using the container engine `dockerd (moby)`. Images can be selected from the display view and deleted using the `Delete` button.
 
-- `All Images`: This option is only available using the container engine `containerd (nerdctl)` and `k8s.io` namespace. This checkbox can be marked to enable all images including default application images in the `Rancher` resource group to display.
+- `All Images`: This option is only available using the container engine `containerd (nerdctl)` and `k8s.io` namespace. This checkbox can be marked to list all images including default application images in the `Rancher` resource group.
 
 - `Namespace`: This option is only available using the container engine `containerd (nerdctl)`. You can select a specific namespace in the cluster via the dropdown, which will then display the associated images.
 
