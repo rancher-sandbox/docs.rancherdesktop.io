@@ -36,7 +36,7 @@ import TabsConstants from '@site/core/TabsConstants';
 
 ### Admin 与非 Admin 端口映射
 
-Rancher Desktop `1.9` 及更高版本包括了自动端口转发。对于非 admin 端口访问，端口映射配置为 > 1024 的 localhost 和非特权端口。具有 admin 权限的用户也可以为 <= 1024 的端口配置特权端口映射。
+Rancher Desktop `1.9` 及更高版本包括了自动端口转发。对于非 admin 端口访问，端口映射配置为 `> 1024` 的 localhost 和非特权端口。具有 admin 权限的用户也可以为 `<= 1024` 的端口配置特权端口映射。
 
 :::note
 

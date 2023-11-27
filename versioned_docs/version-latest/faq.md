@@ -161,7 +161,7 @@ This will allow you to run just `containerd` or `dockerd` by without allocating 
 **A:** For Rancher Desktop, `nerdctl` must run inside the VM and not on the host. The host version distributed with Rancher Desktop is just a shell wrapper to execute the command inside the VM.
 
 <!-- #1155 -->
-#### **Q: The tools on the Support Utilities page (in Rancher Desktop <1.3.0) are not installed and I see an `Insufficient permission to manipulate /usr/local/bin` error, how do I fix it?**
+#### **Q: The tools on the Support Utilities page (in Rancher Desktop `<1.3.0`) are not installed and I see an `Insufficient permission to manipulate /usr/local/bin` error, how do I fix it?**
 
 **A:** This occurs when you do not have ownership of `/usr/local/bin`. A long-term solution to improve the handling of permissions is in the works. In the meantime, a temporary workaround is to change ownership of `/usr/local/bin` by running `sudo chown $USER /usr/local/bin`. When you are able to write to the directory, Rancher Desktop should be able to create the symlinks.
 

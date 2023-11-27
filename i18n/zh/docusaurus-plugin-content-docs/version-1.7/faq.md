@@ -43,7 +43,7 @@ Rancher Desktop 在桌面上提供容器管理和 Kubernetes 实例，用于支�
 <!-- #640 -->
 #### **问：如何彻底卸载 Rancher Desktop？**
 
-**答**：首先，执行[恢复出厂设置](ui/troubleshooting.md#factory-reset)，然后卸载该应用程序。卸载过程因操作系统而异。如需更多信息，请参阅[此处](./getting-started/installation.md)。
+**答**：首先，执行[恢复出厂设置](ui/troubleshooting.md#factory-reset)，然后卸载该应用程序。卸载过程因操作系统而异。如需更多信息，请参阅[此处](https://docs.rancherdesktop.io/getting-started/installation)。
 
 #### **问：Windows 上的 DNS VPN 有哪些支持（如果有）？**
 
@@ -149,7 +149,7 @@ New-NetFirewallRule -DisplayName "WSL" -Direction Inbound -InterfaceAlias "vEthe
 **答**：对于 Rancher Desktop，`nerdctl` 必须在 VM 内部而不是在主机上运行。与 Rancher Desktop 一起打包的主机版本只是一个 shell wrapper，用于在 VM 内执行命令。
 
 <!-- #1155 -->
-#### **问：Support Utilities 页面（Rancher Desktop <1.3.0）上的工具未安装，我看到 `Insufficient permission to modify /usr/local/bin` 错误，我该如何解决？**
+#### **问：Support Utilities 页面（Rancher Desktop `<1.3.0`）上的工具未安装，我看到 `Insufficient permission to modify /usr/local/bin` 错误，我该如何解决？**
 
 **答**：当你没有 `/usr/local/bin` 的权限时就会发生这种情况。改善权限处理的长期解决方案正在开发中。同时，一个临时的解决方法是通过运行 `sudo chown $USER /usr/local/bin` 来更改 `/usr/local/bin` 的权限。当你能够写入目录时，Rancher Desktop 就能够创建符号链接。
 
