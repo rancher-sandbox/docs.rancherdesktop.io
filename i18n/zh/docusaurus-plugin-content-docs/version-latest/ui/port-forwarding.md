@@ -3,24 +3,22 @@ sidebar_label: 端口转发
 title: 端口转发
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/ui-main/Windows_PortForwarding.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/Windows_PortForwarding.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/ui-main/macOS_PortForwarding.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/macOS_PortForwarding.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/ui-main/Linux_PortForwarding.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/Linux_PortForwarding.png)
 
 </TabItem>
 </Tabs>
@@ -36,7 +34,7 @@ import TabsConstants from '@site/core/TabsConstants';
 
 ### Admin 与非 Admin 端口映射
 
-Rancher Desktop `1.9` 及更高版本包括了自动端口转发。对于非 admin 端口访问，端口映射配置为 > 1024 的 localhost 和非特权端口。具有 admin 权限的用户也可以为 <= 1024 的端口配置特权端口映射。
+Rancher Desktop `1.9` 及更高版本包括了自动端口转发。对于非 admin 端口访问，端口映射配置为 `> 1024` 的 localhost 和非特权端口。具有 admin 权限的用户也可以为 `<= 1024` 的端口配置特权端口映射。
 
 :::note
 

@@ -12,17 +12,17 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/Windows_PortForwarding.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/Windows_PortForwarding.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/macOS_PortForwarding.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/macOS_PortForwarding.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/ui-main/Linux_PortForwarding.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/Linux_PortForwarding.png)
 
 </TabItem>
 </Tabs>
@@ -38,7 +38,7 @@ The steps below outline how to forward a port:
 
 ### Admin vs Non-Admin Port Mappings
 
-Rancher Desktop includes automated port forwarding for versions `1.9` and later. For non-admin port access, port mappings are configured to the localhost and unpriviliged ports > 1024. Priviliged port mappings can also be configured by users with admin permissions for ports <= 1024.
+Rancher Desktop includes automated port forwarding for versions `1.9` and later. For non-admin port access, port mappings are configured to the localhost and unpriviliged ports `> 1024`. Priviliged port mappings can also be configured by users with admin permissions for ports `<= 1024`.
 
 :::note
 

@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require('prism-react-renderer').themes.github;
+const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -37,9 +37,9 @@ const config = {
               banner: "none",
               path: "/",
             },
-            "1.10": {
-              label: "1.10",
-              path: "1.10",
+            "1.11": {
+              label: "1.11",
+              path: "1.11",
               banner: "none"
             },
           },
@@ -103,7 +103,6 @@ const config = {
               {
                 href: 'https://rancherdesktop.io/',
                 label: 'Rancher Desktop Home',
-                target: '_self',
               },
               {
                 href: 'https://github.com/rancher-sandbox/rancher-desktop/',
@@ -123,11 +122,7 @@ const config = {
               {
                 href: 'https://www.rancher.com',
                 label: 'Rancher',
-                target: '_self',
-                logo: {
-                  alt: 'Rancher Logo',
-                  src: 'img/icon-rancher.svg',
-                },
+                className: 'navbar__icon navbar__rancher',
               },
               {
                 type: 'html',
@@ -136,22 +131,22 @@ const config = {
               {
                 href: 'https://epinio.io/',
                 label: 'Epinio',
-                target: '_self',
+                className: 'navbar__icon navbar__epinio',
+              },
+              {
+                href: 'https://fleet.rancher.io/',
+                label: 'Fleet',
+                className: 'navbar__icon navbar__fleet',
               },
               {
                 href: 'https://harvesterhci.io/',
                 label: 'Harvester',
-                target: '_self',
-              },
-              {
-                href: 'https://www.kubewarden.io/',
-                label: 'Kubewarden',
-                target: '_self',
+                className: 'navbar__icon navbar__harvester',
               },
               {
                 href: 'https://opni.io/',
                 label: 'Opni',
-                target: '_self',
+                className: 'navbar__icon navbar__opni',
               },
               {
                 type: 'html',
@@ -160,7 +155,7 @@ const config = {
               {
                 href: 'https://opensource.suse.com/',
                 label: 'More Projects...',
-                target: '_self',
+                className: 'navbar__icon navbar__suse',
               },
             ]
           },

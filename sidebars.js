@@ -37,8 +37,8 @@ const sidebars = {
         "ui/containers",
         "ui/port-forwarding",
         "ui/images",
-        "ui/troubleshooting",
         "ui/snapshots",
+        "ui/troubleshooting",
         "ui/diagnostics",
         "ui/extensions",
         {
@@ -92,6 +92,7 @@ const sidebars = {
       items: [
         "tutorials/working-with-images",
         "tutorials/working-with-containers",
+        "tutorials/using-persistent-storage",
       ],
     },
     {
@@ -112,7 +113,8 @@ const sidebars = {
         "how-to-guides/running-air-gapped",
         "how-to-guides/odo-rancher-desktop",
         "how-to-guides/traefik-ingress-example",
-        "how-to-guides/using-testcontainers"
+        "how-to-guides/using-testcontainers",
+        "how-to-guides/mirror-private-registry"
       ],
     },
     {

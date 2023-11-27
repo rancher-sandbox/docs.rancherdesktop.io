@@ -8,6 +8,7 @@ import Version180 from '../bundled-utilities-version-info/v1.8.0.md';
 import Version190 from '../bundled-utilities-version-info/v1.9.0.md';
 import Version191 from '../bundled-utilities-version-info/v1.9.1.md';
 import Version110 from '../bundled-utilities-version-info/v1.10.0.md';
+import Version111 from '../bundled-utilities-version-info/v1.11.0.md';
 
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/references/bundled-utilities"/>
@@ -17,6 +18,7 @@ Rancher Desktop uses several utilities/subsystems as dependencies under the hood
 
 | Rancher Desktop Version | Dependency Versions |
 | ------------- | ---------------- |
+| v1.11.0 | <Version111 /> |
 | v1.10.0 | <Version110 /> |
 | v1.9.1 | <Version191 /> |
 | v1.9.0 | <Version190 /> |
