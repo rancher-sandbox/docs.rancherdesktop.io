@@ -40,7 +40,7 @@ The steps below outline how to forward a port:
 
 ### Admin vs Non-Admin Port Mappings
 
-Rancher Desktop includes automated port forwarding for versions `1.9` and later. For non-admin port access, port mappings are configured to the localhost and unpriviliged ports > 1024. Priviliged port mappings can also be configured by users with admin permissions for ports <= 1024.
+Rancher Desktop includes automated port forwarding for versions `1.9` and later. For non-admin port access, port mappings are configured to the localhost and unpriviliged ports `> 1024`. Priviliged port mappings can also be configured by users with admin permissions for ports `<= 1024`.
 
 :::note
 

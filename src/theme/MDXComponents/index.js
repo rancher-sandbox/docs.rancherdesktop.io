@@ -1,7 +1,7 @@
 import React from 'react';
-import MDXHead from '@theme/MDXComponents/Head';
-import MDXCode from '@theme/MDXComponents/Code';
+import Head from '@docusaurus/Head';
 import MDXA from '@theme/MDXComponents/A';
+import MDXCode from '@theme/MDXComponents/Code';
 import MDXPre from '@theme/MDXComponents/Pre';
 import MDXDetails from '@theme/MDXComponents/Details';
 import MDXHeading from '@theme/MDXComponents/Heading';
@@ -13,11 +13,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 const MDXComponents = {
-  head: MDXHead,
+  Head,
+  details: MDXDetails,
+  Details: MDXDetails,
   code: MDXCode,
   a: MDXA,
   pre: MDXPre,
-  details: MDXDetails,
   ul: MDXUl,
   img: MDXImg,
   h1: (props) => <MDXHeading as="h1" {...props} />,
