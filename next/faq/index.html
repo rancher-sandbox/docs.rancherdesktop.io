@@ -9,7 +9,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Rancher Desktop Docs" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.e9629121.css">
-<script src="/assets/js/runtime~main.41444daf.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.615ac772.js" defer="defer"></script>
 <script src="/assets/js/main.5ce77197.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -86,6 +86,7 @@ Navigate to the path provided below in the (lima) VM, depending on the active co
 <p><strong>A:</strong> We strongly recommend you use the current release version as it has the latest features and bug fixes included. However, if you want to downgrade to an earlier version, please follow the steps below.</p>
 <ol>
 <li>Perform <code>Troubleshooting &gt; Factory Reset</code> from the current installation. Please make sure the <code>Keep cached Kubernetes images</code> box is <em>not</em> checked in the <code>Factory Reset</code> pop up dialog.</li>
+<li>For downgrading on Windows platforms, please shutdown WSL before installing an older version of Rancher Desktop with <code>wsl --shutdown</code> in a PowerShell command prompt.</li>
 <li>Uninstall the current version by following <a href="https://docs.rancherdesktop.io/getting-started/installation" target="_blank" rel="noopener noreferrer">uninstallation instructions</a> for your OS.</li>
 <li>Install the older version that you need.</li>
 </ol>
