@@ -193,8 +193,9 @@ containerd: /var/lib/nerdctl/dbb19c5e/volumes/<namespace>
 **A:** We strongly recommend you use the current release version as it has the latest features and bug fixes included. However, if you want to downgrade to an earlier version, please follow the steps below.
 
 1. Perform `Troubleshooting > Factory Reset` from the current installation. Please make sure the `Keep cached Kubernetes images` box is *not* checked in the `Factory Reset` pop up dialog.
-2. Uninstall the current version by following [uninstallation instructions](https://docs.rancherdesktop.io/getting-started/installation) for your OS.
-3. Install the older version that you need.
+2. For downgrading on Windows platforms, please shutdown WSL before installing an older version of Rancher Desktop with `wsl --shutdown` in a PowerShell command prompt.
+3. Uninstall the current version by following [uninstallation instructions](https://docs.rancherdesktop.io/getting-started/installation) for your OS.
+4. Install the older version that you need.
 
 #### Q: Rancher Desktop becomes unresponsive after my Windows machine wakes up from hibernation. How can I get my Rancher Desktop session working again with out having to reboot my machine?
 
