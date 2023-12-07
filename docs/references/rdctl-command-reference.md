@@ -9,9 +9,15 @@ title: "Command Reference: rdctl"
 `rdctl` is a command-line tool, included in Rancher Desktop that enables command-line access to GUI features. `rdctl` is developed to help users with tasks such as scripting (for automation, CI/CD), troubleshooting, remote management, etc. The current version of `rdctl` supports the below commands (with support for more commands to be added in upcoming releases):
 
 :::info
-
 As the current version of `rdctl` is experimental, all subcommand names, their arguments, and their output are still subject to change.
 
+For many `rdctl` commands, there are corresponding `API` calls that can be applied. Listed below are the available commands shown in both formats. The `api` examples will assume `curl` as the tool being used to talk to the API.
+
+Additionally, some examples make use of `$AUTH` or `PASSWORD` credentials which can be found in these locations across platforms:
+
+- Linux: ~/.local/share/rancher-desktop/rd-engine.json
+- macOS: ~/Library/Application Support/rancher-desktop/rd-engine.json
+- Windows: %LOCALAPPDATA%\rancher-desktop\rd-engine.json
 :::
 
 :::caution warning
@@ -26,12 +32,6 @@ The Rancher Desktop application must be running for the following commands:
 * rdctl shutdown
 
 </details>
-:::
-
-:::note
-
-For many `rdctl` commands, there are corresponding `API` calls that can be applied. Listed below are the available commands shown in both formats. The `api` examples will assume `curl` as the tool being used to talk to the API.
-
 :::
 
 ## rdctl or rdctl help
@@ -156,13 +156,13 @@ PUT /v1/transient_settings
 
 a command such as
 
-```
+```console
 rdctl api /v1/settings --method PUT --body '{"kubernetes": {"enabled": false}}'
 ```
 
 is the same as
 
-```
+```console
 rdctl set --kubernetes-enabled=false
 ```
 
@@ -204,7 +204,7 @@ rdctl create-profile --output reg --hive=Hkcu --from-settings
 
 Installs a Rancher Desktop extension.
 
-```
+```console
 rdctl extension install <image-id>
 ```
 
@@ -213,7 +213,7 @@ rdctl extension install <image-id>
 
 **Options**
 
-```
+```console
 --force               Avoids any interactivity.
 <image-id>:<tag>      The <tag> is optional, e.g. splatform/epinio-docker-desktop:latest.
 ```
@@ -253,7 +253,7 @@ docker/logs-explorer-extension:0.2.2
 
 Uninstalls a Rancher Desktop extension.
 
-```
+```console
 rdctl extension uninstall <image-id>
 ```
 
@@ -262,7 +262,7 @@ rdctl extension uninstall <image-id>
 
 **Options**
 
-```
+```console
 <image-id>:<tag>      The <tag> is optional, e.g. splatform/epinio-docker-desktop:latest.
 ```
 
@@ -423,9 +423,9 @@ Global Flags:
 Run the following API call to see the current active configuration:
 
 <details>
-<summary>Example Output</summary>
+<summary>Example Command</summary>
 
-```
+```console
 curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v1/settings -X GET
 ```
 
@@ -444,9 +444,9 @@ curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v1/settings -X GET
 Run `rdctl set [flags]` to set properties. In most of the cases, Kubernetes would be reset on running the `set` command. You can set multiple properties by chaining in a single command. See some examples below.
 
 <details>
-<summary>Example Output</summary>
+<summary>Example Command</summary>
 
-```
+```console
 > rdctl set --kubernetes-enabled=false
 > rdctl set --container-engine docker --kubernetes-version 1.21.2
 ```
@@ -459,9 +459,9 @@ Run `rdctl set [flags]` to set properties. In most of the cases, Kubernetes woul
 Run the following API call to set properties:
 
 <details>
-<summary>Example Output</summary>
+<summary>Example Command</summary>
 
-```
+```console
 curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v1/settings -d '{ "kubernetes": { "containerEngine": "docker", "enabled": false, "version":"1.23.5" }}' -X PUT
 ```
 
@@ -480,10 +480,11 @@ Run `rdctl shutdown` to gracefully shut down Rancher Desktop.
 <details>
 <summary>Example Output</summary>
 
-```
+```console
 > rdctl shutdown
 Shutting down.
 ```
+
 </details>
 
   </TabItem>
@@ -492,10 +493,10 @@ Shutting down.
 Run the following API call to shut down Rancher Desktop:
 
 <details>
-<summary>Example Output</summary>
+<summary>Example Command</summary>
 
-```
-shutdown: curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v1/shutdown -X PUT
+```shell
+curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v1/shutdown -X PUT
 ```
 
 </details>
@@ -624,9 +625,9 @@ Global Flags:
 Run the following API call to ensure Rancher Desktop is running and configured, making sure to fill in your respective user and password values:
 
 <details>
-<summary>Example Output</summary>
+<summary>Example Command</summary>
 
-```
+```shell
 curl -s -H "Authorization: Basic $(echo -n "user:PASSWORD" | base64)"
 ```
 
