@@ -49,6 +49,8 @@ The **Containers** tab offers quick access to manage containers and view key inf
 
 The listed information can be sorted in ascending or descending order. Containers can also be filtered with input text in the `Filter` field located at the top right. Bulk selection is available for managing multiple instances at once.
 
+Additionally, when using the `containerd` engine, you can use the `Namespace` dropdown selector to help with filtering containers. The dropdown will be located next to the `Filter` field and shows namespaces in your cluster when clicked.
+
 ### Container Management
 
 The buttons located at the top of the page will be highlighted when a container is selected and depend on the container's state.
