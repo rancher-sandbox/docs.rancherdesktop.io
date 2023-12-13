@@ -13,11 +13,12 @@ As the current version of `rdctl` is experimental, all subcommand names, their a
 
 For many `rdctl` commands, there are corresponding `API` calls that can be applied. Listed below are the available commands shown in both formats. The `api` examples will assume `curl` as the tool being used to talk to the API.
 
-Additionally, some examples make use of `$AUTH` or `PASSWORD` credentials which can be found in these locations across platforms:
+Additionally, some examples make use of credentials which can be found in these locations across platforms:
 
-- Linux: ~/.local/share/rancher-desktop/rd-engine.json
-- macOS: ~/Library/Application Support/rancher-desktop/rd-engine.json
-- Windows: %LOCALAPPDATA%\rancher-desktop\rd-engine.json
+- Linux: ~/.local/share/rancher-desktop/
+- macOS: ~/Library/Application Support/rancher-desktop/
+- Windows: %LOCALAPPDATA%\rancher-desktop\
+
 :::
 
 :::caution warning
@@ -64,7 +65,7 @@ Available Commands:
   version        Shows the CLI version.
 
 Flags:
-      --config-path string   config file (default /Users/ssingh/Library/Application Support/rancher-desktop/rd-engine.json)
+      --config-path string   config file (default ~/$HOME/rancher-desktop/rd-engine.json)
   -h, --help                 help for rdctl
       --host string          default is 127.0.0.1; most useful for WSL
       --password string      overrides the password setting in the config file
@@ -299,14 +300,14 @@ Flags:
   -h, --help   help for list-settings
 
 Global Flags:
-      --config-path string   config file (default /Users/ssingh/Library/Application Support/rancher-desktop/rd-engine.json)
+      --config-path string   config file (default ~/HOME/rancher-desktop/rd-engine.json)
       --host string          default is 127.0.0.1; most useful for WSL
       --password string      overrides the password setting in the config file
       --port string          overrides the port setting in the config file
       --user string          overrides the user setting in the config file
 ```
 
-**Example**
+**Example Output Using macOS Environment**
 
 ``` autoupdate=true
 > rdctl list-settings
