@@ -99,6 +99,7 @@ const sidebars = {
       type: 'category',
       label: 'How-to Guides',
       items: [
+        "how-to-guides/generating-deployment-profiles",
         "how-to-guides/hello-world-example",
         "how-to-guides/installing-uninstalling-extensions",
         "how-to-guides/transfer-container-images",
