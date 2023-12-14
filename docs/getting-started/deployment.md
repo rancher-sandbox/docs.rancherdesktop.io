@@ -307,6 +307,68 @@ rdctl list-settings > ~/.config/rancher-desktop.defaults.json
 </TabItem>
 </Tabs>
 
+### `version` Field
+
+Rancher Desktop version 1.12 introduces an explicit deployment profile `version` field in generated profiles using `rdctl`.
+
+If you are using deployment profiles created in previous Rancher Desktop versions, please either regenerate the file with the latest installation, or explicitly add the `version` field to your existing file. See below for updating instructions for various operating systems:
+
+#### Linux
+
+User deployments are stored in:
+
+```console
+~/.config/rancher-desktop.defaults.json
+~/.config/rancher-desktop.locked.json
+```
+
+If the `XDG_CONFIG_HOME` environment variable is set, the user deployments are stored there instead of in `~/.config/....`.
+
+System deployments are stored in:
+
+```console
+/etc/rancher-desktop/defaults.json
+/etc/rancher-desktop/locked.json
+```
+
+Then add `"version": 10` at the very start of your JSON-formatted file immediately after the initial open brace `(})`.
+
+#### macOS
+
+User deployments are stored in:
+
+```console
+~/Library/Preferences/io.rancherdesktop.profile.defaults.plist
+~/Library/Preferences/io.rancherdesktop.profile.locked.plist
+```
+
+System deployments are stored in:
+
+```console
+/Library/Preferences/io.rancherdesktop.profile.defaults.plist
+/Library/Preferences/io.rancherdesktop.profile.locked.plist
+```
+
+Then add `<key>Version</key><integer>10</integer>` after the initial `<dict>` tag into your respective `.plist` file.
+
+#### Windows
+
+The Windows deployments are stored in the registry. User deployments are stored at:
+
+```console
+HKEY_CURRENT_USER\SOFTWARE\Policies\Rancher Desktop\Defaults
+HKEY_CURRENT_USER\SOFTWARE\Policies\Rancher Desktop\Locked
+```
+
+And the system deployments are stored at:
+
+```console
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Rancher Desktop\Defaults
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Rancher Desktop\Locked
+```
+
+Then add a `DWORD` value named `version`, with value `10` (hexadecimal a) at the top level of each profile that needs updating.
+
 ### Known Issues and Limitations
 
 * You can set default values for `diagnostics.showMuted` (and on Windows `WSL.integrations`) via deployment profile, but currently can't lock them.
