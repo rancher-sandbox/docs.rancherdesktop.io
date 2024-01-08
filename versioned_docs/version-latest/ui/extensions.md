@@ -26,7 +26,7 @@ The **Catalog** tab acts as a marketplace for available Rancher Desktop Extensio
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.11/ui-main/Linux_Extensions.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.12/ui-main/Linux_Extensions.png)
 
 </TabItem>
 </Tabs>
@@ -52,7 +52,7 @@ The **Installed** tab is a view for all installed extensions on your Rancher Des
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.11/ui-main/Linux_Extensions-Installed.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.12/ui-main/Linux_Extensions-Installed.png)
 
 </TabItem>
 </Tabs>

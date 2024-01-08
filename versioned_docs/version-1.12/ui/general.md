@@ -24,7 +24,7 @@ The **General** tab provides information on communication channels where users c
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/Linux_General.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/ui-main/Linux_General.png)
 
 </TabItem>
 </Tabs>

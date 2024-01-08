@@ -17,7 +17,7 @@ import TabsConstants from '@site/core/TabsConstants';
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/preferences/Linux_virtualMachine_tabHardware.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/Linux_virtualMachine_tabHardware.png)
 
 </TabItem>
 </Tabs>
