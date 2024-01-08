@@ -48,7 +48,7 @@ This option allows Rancher Desktop to collect information on how you interact wi
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/preferences/Linux_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/Linux_application_tabGeneral.png)
 
 #### Administrative Access
 

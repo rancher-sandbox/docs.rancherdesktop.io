@@ -21,7 +21,7 @@ import TabsConstants from '@site/core/TabsConstants';
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/preferences/Linux_virtualMachine_tabVolumes.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/Linux_virtualMachine_tabVolumes.png)
 
 </TabItem>
 </Tabs>
@@ -38,7 +38,7 @@ Users can enable the "[reverse-sshfs](https://github.com/lima-vm/lima/blob/maste
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/preferences/Linux_virtualMachine_tabVolumes_9P.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/Linux_virtualMachine_tabVolumes_9P.png)
 
 </TabItem>
 </Tabs>
@@ -73,7 +73,7 @@ Users can select a supported security model with options being `[passthrough, ma
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/preferences/Linux_virtualMachine_tabVolumes.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/Linux_virtualMachine_tabVolumes.png)
 
 </TabItem>
 </Tabs>

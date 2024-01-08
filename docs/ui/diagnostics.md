@@ -26,7 +26,7 @@ The **Diagnostics** feature runs several checks in the background to detect comm
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/Linux_Diagnostics.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/ui-main/Linux_Diagnostics.png)
 
 </TabItem>
 </Tabs>

@@ -64,7 +64,7 @@ Rancher Desktop shows the application status with a notification icon in the men
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/preferences/Linux_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/Linux_application_tabBehavior.png)
 
 #### Startup
 
