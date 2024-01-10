@@ -15,7 +15,7 @@ The [**QEMU**](https://www.qemu.org/documentation/) option is enabled by default
 
 ### VZ
 
- ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_virtualMachine_tabEmulation_vz.png)
+ ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_virtualMachine_tabEmulation.png)
 
 :::caution warning
 

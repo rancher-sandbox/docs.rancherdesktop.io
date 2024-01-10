@@ -68,7 +68,7 @@ Users can select a supported security model with options being `[passthrough, ma
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_virtualMachine_tabVolumes_virtiofs.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_virtualMachine_tabVolumes.png)
 
 </TabItem>
 <TabItem value="Linux">
