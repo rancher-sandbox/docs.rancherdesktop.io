@@ -14,7 +14,7 @@ Allows for configuration of the `$PATH` variable in the users shell in order to 
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/preferences/macOS_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_application_tabEnvironment.png)
 
 #### Configure PATH
 

@@ -29,7 +29,7 @@ This option allows Rancher Desktop to collect information on how you interact wi
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/preferences/macOS_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_application_tabGeneral.png)
 
 #### Administrative Access
 

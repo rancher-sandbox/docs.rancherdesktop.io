@@ -21,7 +21,7 @@ The **Diagnostics** feature runs several checks in the background to detect comm
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/macOS_Diagnostics.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/ui-main/macOS_Diagnostics.png)
 
 </TabItem>
 <TabItem value="Linux">

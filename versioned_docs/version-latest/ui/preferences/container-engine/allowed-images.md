@@ -19,7 +19,7 @@ The `Allowed Images` tab lets you control which registry artifacts you can acces
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/preferences/macOS_containerEngine_tabAllowedImages.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_containerEngine_tabAllowedImages.png)
 
 </TabItem>
 <TabItem value="Linux">

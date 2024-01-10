@@ -18,7 +18,7 @@ import TabsConstants from '@site/core/TabsConstants';
 </TabItem>
 <TabItem value="macOS">
 
-![Containers_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/macOS_Containers.png)
+![Containers_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/ui-main/macOS_Containers.png)
 
 </TabItem>
 <TabItem value="Linux">

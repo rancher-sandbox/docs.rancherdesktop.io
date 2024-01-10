@@ -17,12 +17,12 @@ import TabsConstants from '@site/core/TabsConstants';
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/preferences/macOS_kubernetes.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_kubernetes.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/preferences/Linux_kubernetes.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/Linux_kubernetes.png)
 
 </TabItem>
 </Tabs>

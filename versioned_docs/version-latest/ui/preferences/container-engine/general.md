@@ -19,7 +19,7 @@ Set the [container runtime] for Rancher Desktop. Users have the option of [conta
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/preferences/macOS_containerEngine_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_containerEngine_tabGeneral.png)
 
 </TabItem>
 <TabItem value="Linux">

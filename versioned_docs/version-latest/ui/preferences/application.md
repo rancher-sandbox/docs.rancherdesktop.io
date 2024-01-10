@@ -27,7 +27,7 @@ This option allows Rancher Desktop to collect information on how you interact wi
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_application_tabGeneral.png)
 
 #### Administrative Access
 
@@ -89,7 +89,7 @@ Rancher Desktop shows the application status with a notification icon. The conte
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_application_tabBehavior.png)
 
 #### Startup
 
@@ -138,7 +138,7 @@ Allows for configuration of the `$PATH` variable in the users shell in order to 
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabEnvironment.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_application_tabEnvironment.png)
 
 #### Configure PATH
 
