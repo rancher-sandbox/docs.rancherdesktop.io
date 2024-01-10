@@ -12,7 +12,7 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![Snapshots_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/Windows_Snapshots-List.png)
+![Snapshots_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/ui-main/Windows_Snapshots-List.png)
 
 </TabItem>
 <TabItem value="macOS">

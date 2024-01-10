@@ -42,7 +42,7 @@ The **Installed** tab is a view for all installed extensions on your Rancher Des
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.11/ui-main/Windows_Extensions-Installed.png)
+![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.12/ui-main/Windows_Extensions-Installed.png)
 
 </TabItem>
 <TabItem value="macOS">

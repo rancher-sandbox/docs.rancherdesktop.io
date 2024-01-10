@@ -14,7 +14,7 @@ Allows for enablement of automatic updates, as well as an optional field to allo
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/preferences/Windows_application_tabGeneral.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/Windows_application_tabGeneral.png)
 
 #### Automatic Updates
 
