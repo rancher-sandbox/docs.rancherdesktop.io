@@ -16,17 +16,17 @@ The **Diagnostics** feature runs several checks in the background to detect comm
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/Windows_Diagnostics.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/ui-main/Windows_Diagnostics.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/macOS_Diagnostics.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/ui-main/macOS_Diagnostics.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/Linux_Diagnostics.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/ui-main/Linux_Diagnostics.png)
 
 </TabItem>
 </Tabs>

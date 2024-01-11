@@ -13,17 +13,17 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![Containers_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/Windows_Containers.png)
+![Containers_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/ui-main/Windows_Containers.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![Containers_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/macOS_Containers.png)
+![Containers_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/ui-main/macOS_Containers.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![Containers_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/Linux_Containers.png)
+![Containers_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/ui-main/Linux_Containers.png)
 
 </TabItem>
 </Tabs>
@@ -48,6 +48,8 @@ The **Containers** tab offers quick access to manage containers and view key inf
   Container start-up times will be listed in this field and can be sorted.
 
 The listed information can be sorted in ascending or descending order. Containers can also be filtered with input text in the `Filter` field located at the top right. Bulk selection is available for managing multiple instances at once.
+
+Additionally, when using the `containerd` engine, you can use the `Namespace` dropdown selector to help with filtering containers. The dropdown will be located next to the `Filter` field and shows namespaces in your cluster when clicked.
 
 ### Container Management
 

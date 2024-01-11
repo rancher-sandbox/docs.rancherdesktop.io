@@ -9,13 +9,13 @@ title: Emulation (macOS)
 
 ### QEMU
 
- ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/preferences/macOS_virtualMachine_tabEmulation.png)
+ ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_virtualMachine_tabEmulation.png)
 
 The [**QEMU**](https://www.qemu.org/documentation/) option is enabled by default and turns on a guest operating system. You can switch the virtual machine type after the first run.
 
 ### VZ
 
- ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/preferences/macOS_virtualMachine_tabEmulation_vz.png)
+ ![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_virtualMachine_tabEmulation.png)
 
 :::caution warning
 
