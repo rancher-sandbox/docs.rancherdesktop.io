@@ -280,7 +280,7 @@ There are situations where you may be using a secured, locked down internet envi
 - Get available K3s releases for download: https://api.github.com/repos/k3s-io/k3s/releases
 - Download K3s releases: https://github.com/k3s-io/k3s/releases/download
 - `kubectl` releases downloaded by `kuberlr`: https://storage.googleapis.com/kubernetes-release/release
-- Get available Upgrade Responder versions: https://github.com/longhorn/upgrade-responder/releases
-- Get the documentation URL for the application help menu and help buttons in the Preferences dialog: https://docs.rancherdesktop.io
+- Check available upgrade versions: https://desktop.version.rancher.io/v1/checkupgrade
+- Access the documentation from the application help menu and help buttons; also used to check online status: https://docs.rancherdesktop.io
 
-These dependencies are applicable to Rancher Desktop and does not represent a standard list across the Rancher platform.
+These dependencies are specific to Rancher Desktop and do not represent a standard list across the Rancher platform.
