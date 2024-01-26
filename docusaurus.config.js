@@ -129,9 +129,9 @@ const config = {
                 value: '<hr style="margin: 0.3rem 0;">',
               },
               {
-                href: 'https://epinio.io/',
-                label: 'Epinio',
-                className: 'navbar__icon navbar__epinio',
+                href: 'https://elemental.docs.rancher.com/',
+                label: 'Elemental',
+                className: 'navbar__icon navbar__elemental',
               },
               {
                 href: 'https://fleet.rancher.io/',
@@ -142,11 +142,6 @@ const config = {
                 href: 'https://harvesterhci.io/',
                 label: 'Harvester',
                 className: 'navbar__icon navbar__harvester',
-              },
-              {
-                href: 'https://opni.io/',
-                label: 'Opni',
-                className: 'navbar__icon navbar__opni',
               },
               {
                 type: 'html',
