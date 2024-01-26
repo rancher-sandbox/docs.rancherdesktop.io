@@ -364,7 +364,7 @@ System deployments are stored in:
 /Library/Preferences/io.rancherdesktop.profile.locked.plist
 ```
 
-Then add `<key>Version</key><integer>10</integer>` after the initial `<dict>` tag into your respective `.plist` file.
+Then add `<key>version</key><integer>10</integer>` after the initial `<dict>` tag into your respective `.plist` file.
 
 #### Windows
 
