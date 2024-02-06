@@ -55,7 +55,7 @@ The platform-specific documentation below will show how to create a deployment p
 
 ### Locked Preference Fields
 
-For versions `1.9` and later of Rancher Desktop, all preferences values can be locked when configuring a deployment profile. Depending on the directory or registry used for the lock file creation, users may need to have super user permissions for MacOS/Linux or execute from an admin shell for Windows in order to access priviliged paths. Once pinned, the various locked values will not be accessible from the application as seen in the UI examples below:
+For versions `1.9` and later of Rancher Desktop, all preferences values can be locked when configuring a deployment profile. Depending on the directory or registry used for the lock file creation, users may need to have super user permissions for MacOS/Linux or execute from an admin shell for Windows in order to access privileged paths. Once pinned, the various locked values will not be accessible from the application as seen in the UI examples below:
 
 <details>
 <summary>Locked Fields UI Examples</summary>
@@ -63,23 +63,23 @@ For versions `1.9` and later of Rancher Desktop, all preferences values can be l
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Windows_containerEngine_tabAllowedImages_lockedFields.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/Windows_containerEngine_tabAllowedImages_lockedFields.png)
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Windows_kubernetes_lockedFields.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/Windows_kubernetes_lockedFields.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_containerEngine_tabAllowedImages_lockedFields.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_containerEngine_tabAllowedImages_lockedFields.png)
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_kubernetes_lockedFields.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_kubernetes_lockedFields.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Linux_containerEngine_tabAllowedImages_lockedFields.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/Linux_containerEngine_tabAllowedImages_lockedFields.png)
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Linux_kubernetes_lockedFields.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/Linux_kubernetes_lockedFields.png)
 
 </TabItem>
 </Tabs>
