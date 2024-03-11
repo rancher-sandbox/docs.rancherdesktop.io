@@ -14,7 +14,7 @@ Allows for configuration of application behavior upon startup, background proces
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/Windows_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.13/preferences/Windows_application_tabBehavior.png)
 
 #### Startup
 
@@ -39,7 +39,7 @@ Rancher Desktop shows the application status with a notification icon. The conte
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/macOS_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.13/preferences/macOS_application_tabBehavior.png)
 
 #### Startup
 
@@ -64,7 +64,7 @@ Rancher Desktop shows the application status with a notification icon in the men
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/Linux_application_tabBehavior.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.13/preferences/Linux_application_tabBehavior.png)
 
 #### Startup
 

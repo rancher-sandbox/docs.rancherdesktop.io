@@ -7,7 +7,7 @@ title: Network (Windows)
   <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/wsl/network"/>
 </head>
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.12/preferences/Windows_wsl_tabNetwork.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.13/preferences/Windows_wsl_tabNetwork.png)
 
 ### Networking Tunnel
 
