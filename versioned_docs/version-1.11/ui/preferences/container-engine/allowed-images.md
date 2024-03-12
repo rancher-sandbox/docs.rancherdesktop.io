@@ -41,7 +41,7 @@ You can specify Allowed Image patterns using the format `[registry/][:port/][org
 
 > If not specified in an Allowed Image pattern,
 > * `registry` defaults to Docker Hub (`docker.io`).
-> * `port` defaults to 433. 
+> * `port` defaults to 443. 
 > * `organization` for Docker Hub defaults to `library`, and does not apply to other registries.
 > * `tag` defaults to anything and **not** just to `latest`.
 
