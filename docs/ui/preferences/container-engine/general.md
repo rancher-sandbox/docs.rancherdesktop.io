@@ -33,6 +33,18 @@ Set the [container runtime] for Rancher Desktop. Users have the option of [conta
 
 When switching to a different container runtime: Workloads and images that have been built or pulled using the current container runtime are not available on the container runtime being switched to.
 
+#### WebAssembly (wasm)
+
+The WASM feature allows running WebAssembly application as containers, either directly with the container engine, or via Kubernetes. Details are available in the [Working with WebAssembly](../../../tutorials/working-with-webassembly.md) tutorial.
+
+:::caution warning
+Note that when using the `moby` container engine, enabling the WASM feature switches to a different image store, so previously built or downloaded images will not be available and must be built or downloaded again. The images are not lost; Rancher Desktop will switch back to the old image store when WASM is disabled again.
+:::
+
+:::info
+If the machine has a [Locked Deployment Profile](../../../getting-started/deployment.md) installed, then the WASM feature will be disabled and locked unless the profile uses schema version `11` or later.
+:::
+
 [container runtime]:
 https://kubernetes.io/docs/setup/production-environment/container-runtimes/
 
