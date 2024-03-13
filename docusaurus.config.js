@@ -55,19 +55,6 @@ const config = {
     ],
   ],
 
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "zh"],
-    localeConfigs: {
-      en: {
-        label: "English",
-      },
-      zh: {
-        label: "简体中文",
-      },
-    },
-  },
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -158,10 +145,6 @@ const config = {
             type: 'docsVersionDropdown',
             position: 'left',
             dropdownActiveClassDisabled: true,
-          },
-          {
-            type: "localeDropdown",
-            position: "left",
           },
           {
             type: 'search',
