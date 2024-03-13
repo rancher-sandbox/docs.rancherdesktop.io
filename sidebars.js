@@ -92,6 +92,7 @@ const sidebars = {
       items: [
         "tutorials/working-with-images",
         "tutorials/working-with-containers",
+        "tutorials/working-with-webassembly",
         "tutorials/using-persistent-storage",
       ],
     },
