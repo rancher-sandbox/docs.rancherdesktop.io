@@ -6,15 +6,15 @@ title: Working with WebAssembly
   <link rel="canonical" href="https://docs.rancherdesktop.io/tutorials/working-with-webassembly"/>
 </head>
 
-Rancher Desktop 1.13.0 added experimental support for running WebAssembly (WASM) applications. This feature needs to be enabled in  [Preferences > Container Engine > General](../ui/preferences/container-engine/general.md).
+Rancher Desktop 1.13.0 added experimental support for running WebAssembly (Wasm) applications. This feature needs to be enabled in  [Preferences > Container Engine > General](../ui/preferences/container-engine/general.md).
 
 :::caution warning
-Note that when using the `moby` container engine, enabling the WASM feature switches to a different image store, so previously built or downloaded images will not be available and must be built or downloaded again. The images are not lost; Rancher Desktop will switch back to the old image store when WASM is disabled again.
+Note that when using the `moby` container engine, enabling the Wasm feature switches to a different image store, so previously built or downloaded images will not be available and must be built or downloaded again. The images are not lost; Rancher Desktop will switch back to the old image store when Wasm is disabled again.
 :::
 
-## Managing containerd WASM shims
+## Managing containerd Wasm shims
 
-Running WebAssembly applications on a container runtime requires a specific containerd "shim" for each WASM runtime/framework used.
+Running WebAssembly applications on a container runtime requires a specific containerd "shim" for each Wasm runtime/framework used.
 
 Rancher Desktop 1.13 comes bundled with the `containerd-spin-shim-v2` shim preinstalled. Future releases are expected to download additional shims automatically when the feature is enabled.
 
@@ -26,7 +26,7 @@ For now additional shims can be installed by the user into the `containerd-shims
 
 Any shim installed there will automatically be copied into the VM and configured for the container engine when Rancher Desktop is started (installing a newer version of the `spin` shim will override the bundled version).
 
-## Running WASM apps with the container engine
+## Running Wasm apps with the container engine
 
 Running WebAssembly applications directly is currently only supported with the `moby` container engine; there is a bug in `nerdctl` that prevents it from working with `containerd`.
 
@@ -50,7 +50,7 @@ $ curl http://localhost:8080/hello
 Hello world from Spin!
 ```
 
-## Running WASM apps with Kubernetes
+## Running Wasm apps with Kubernetes
 
 Running WebAssembly applications on Kubernetes is currently only supported with the `containerd` runtime; it doesn't work with the `cri-dockerd` shim used to run Kubernetes on top of `moby`.
 
