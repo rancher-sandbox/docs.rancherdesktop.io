@@ -30,7 +30,7 @@ Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://
 1. Create a `whoami` example with basic deployment, service, and Ingress objects defined:
 
   :::note
-  Some Linux distributions don't allow listening to priviliged ports by default, please see the documentation on [Traefik port binding access](https://docs.rancherdesktop.io/getting-started/installation/#traefik-port-binding-access) to authorize ports if necessary.
+  Some Linux distributions don't allow listening to privileged ports by default, please see the documentation on [Traefik port binding access](../getting-started/installation#traefik-port-binding-access) to authorize ports if necessary.
   :::
 
   ```bash
