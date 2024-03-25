@@ -60,4 +60,4 @@ The following actions can be taken on the tab:
 
 ### Command Line - `rdctl snapshot`
 
-All commands available through the user interface are also available using the `rdctl snapshot` command. Please see the [reference page](../references/rdctl-command-reference) for more information.
+All commands available through the user interface are also available using the `rdctl snapshot` command. Please see the [reference page](../references/rdctl-command-reference.md) for more information.

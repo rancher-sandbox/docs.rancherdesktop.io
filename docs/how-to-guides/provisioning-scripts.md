@@ -10,7 +10,7 @@ import TabsConstants from '@site/core/TabsConstants';
 
 Provisioning scripts can be used to override some of Rancher Desktop's internal processes. For example, scripts can be used to provide certain command line parameters to K3s, add additional mounts, increase ulimit value etc. This guide will explain how to set up your provisioning scripts for macOS, Linux, and Windows.
 
-## macOS & Linux {#macos--linux}
+## macOS & Linux
 
 On macOS and Linux, you can use lima override.yaml to write provisioning scripts.
 
@@ -67,7 +67,7 @@ env:
   K3S_EXEC: --tls-san value
 ```
 
-## Windows {#windows}
+## Windows
 
 **Caution:** You can only utilize these provisioning scripts for Rancher Desktop, version 1.1.0 or later, on Windows.
 
