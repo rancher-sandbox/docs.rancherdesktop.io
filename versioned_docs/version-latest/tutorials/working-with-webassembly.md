@@ -141,16 +141,29 @@ docker buildx build \
 
 Push the image to the container registry
 
+<Tabs groupId="container-runtime">
+  <TabItem value="nerdctl" default>
+
+```
+nerdctl push ghcr.io/rancher-sandbox/rd-spin-hello-world:0.1.0
+```
+
+  </TabItem>
+  <TabItem value="docker">
+
 ```
 docker push ghcr.io/rancher-sandbox/rd-spin-hello-world:0.1.0
 ```
+
+  </TabItem>
+</Tabs>
 
 ### Running the Wasm container
 
 Running a Wasm container directly is currently only supported with the `moby` container engine; there is a bug in `nerdctl` that prevents it from working with `containerd`. Ensure you have selected `dockerd(moby)` as the container engine under [Preferences > Container Engine > General](../ui/preferences/container-engine/general.md) to work through the steps in this section.
 
 
-The following command runs the `spin-rust-hello` sample `spin` application on the `moby` engine (note the final `/` on the last line; it is the command to run, and `docker run` will fail if it is omitted):
+The following command runs the `rd-spin-hello-world` sample `spin` application, built in the previous section, on the `moby` engine (note the final `/` on the last line; it is the command to run, and `docker run` will fail if it is omitted):
 
 ```
 docker run \
