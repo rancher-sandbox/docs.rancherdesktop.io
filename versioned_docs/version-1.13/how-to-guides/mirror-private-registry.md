@@ -13,7 +13,7 @@ Rancher Desktop can be configured to mirror private registries using either cont
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Linux">
 
-Below is an example [provisioning script](https://docs.rancherdesktop.io/how-to-guides/provisioning-scripts/#macos--linux) that can be used to mirror private registries.
+Below is an example [provisioning script](../how-to-guides/provisioning-scripts.md#macos--linux) that can be used to mirror private registries.
 
 Check if you have the `override.yaml` file in the path below, otherwise you can create the file in the path with the suggested provisioning commands.
 
@@ -36,7 +36,7 @@ provision:
       EOF
 ```
 
-After restarting the applicaition, you can verify the script being applied using the `rdctl shell` command below:
+After restarting the application, you can verify the script being applied using the `rdctl shell` command below:
 
 ```bash
 rdctl shell -- cat /etc/rancher/k3s/registries.yaml
@@ -45,7 +45,7 @@ rdctl shell -- cat /etc/rancher/k3s/registries.yaml
 </TabItem>
 <TabItem value="macOS">
 
-Below is an example [provisioning script](https://docs.rancherdesktop.io/how-to-guides/provisioning-scripts/#macos--linux) that can be used to mirror private registries.
+Below is an example [provisioning script](../how-to-guides/provisioning-scripts.md#macos--linux) that can be used to mirror private registries.
 
 Check if you have the `override.yaml` file in the path below, otherwise you can create the file in the path with the suggested provisioning commands.
 
@@ -69,7 +69,7 @@ provision:
       EOF
 ```
 
-After restarting the applicaition, you can verify the script being applied using the `rdctl shell` command below:
+After restarting the application, you can verify the script being applied using the `rdctl shell` command below:
 
 ```bash
 rdctl shell -- cat /etc/rancher/k3s/registries.yaml
@@ -78,7 +78,7 @@ rdctl shell -- cat /etc/rancher/k3s/registries.yaml
 </TabItem>
 <TabItem value="Windows">
 
-Ensure that you have initialized the application with a first run in order to create the `\provisioning\` directory. Once created, [provisioning scripts](https://docs.rancherdesktop.io/how-to-guides/provisioning-scripts/#windows) can be utilized to mirror private registries using a `.start` file.
+Ensure that you have initialized the application with a first run in order to create the `\provisioning\` directory. Once created, [provisioning scripts](../how-to-guides/provisioning-scripts.md#windows) can be utilized to mirror private registries using a `.start` file.
 
 The file path and example provisioning script are provided below. After you have created the file with the appropriate configuration, restart the Rancher Desktop application for the provisioning script to take effect.
 
