@@ -151,7 +151,7 @@ nerdctl push ghcr.io/rancher-sandbox/rd-spin-hello-world:0.1.0
   </TabItem>
   <TabItem value="docker">
 
-```
+```console
 docker push ghcr.io/rancher-sandbox/rd-spin-hello-world:0.1.0
 ```
 
