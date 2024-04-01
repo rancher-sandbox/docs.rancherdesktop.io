@@ -107,7 +107,7 @@ Once the build command ran successfully, you should see the `rd-spin-hello-world
 
 Create a `Dockerfile` with below code to package the `Wasm` module as a docker image.
 
-```
+```console
 FROM scratch
 COPY spin.toml /spin.toml
 COPY /target/rd-spin-hello-world.wasm /target/rd-spin-hello-world.wasm
