@@ -165,7 +165,7 @@ Running a Wasm container directly is currently only supported with the `moby` co
 
 The following command runs the `rd-spin-hello-world` sample `spin` application, built in the previous section, on the `moby` engine (note the final `/` on the last line; it is the command to run, and `docker run` will fail if it is omitted):
 
-```
+```console
 docker run \
     --detach \
     --name spin-demo \
