@@ -128,7 +128,7 @@ nerdctl build \
   </TabItem>
   <TabItem value="docker">
 
-```
+```console
 docker buildx build \
   --load \
   --platform wasi/wasm \
