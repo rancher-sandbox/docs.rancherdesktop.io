@@ -82,7 +82,7 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 }
 ```
 
-Change to the app diretory and run the `spin build` command to compile the app code into a Wasm module.
+Change to the app directory and run the `spin build` command to compile the app code into a Wasm module.
 
 ```
 $spin build
