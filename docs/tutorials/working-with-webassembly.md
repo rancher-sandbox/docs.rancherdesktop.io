@@ -144,7 +144,7 @@ Push the image to the container registry
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
 
-```
+```console
 nerdctl push ghcr.io/rancher-sandbox/rd-spin-hello-world:0.1.0
 ```
 
