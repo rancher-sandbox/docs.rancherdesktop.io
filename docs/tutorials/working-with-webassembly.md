@@ -70,7 +70,7 @@ Once the command ran successfully, you should see a directory created with the b
 
 Update the `index.ts` file to return a different message than the default.
 
-```
+```console
 import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
 
 export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
