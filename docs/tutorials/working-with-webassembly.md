@@ -58,7 +58,7 @@ Enter a name for your new application: rd-spin-hello-world
 ```
 
 Provide an optional description and leave the API route path to default
-```
+```console
 $spin new
 Pick a template to start your application with: http-ts (HTTP request handler using Typescript)
 Enter a name for your new application: rd-spin-hello-world
