@@ -178,7 +178,7 @@ docker run \
 
 The internal port `80` has been mapped to `8080` and can be tested from the host:
 
-```
+```console
 $ curl http://localhost:8080/
 Hello from Wasm container!
 ```
