@@ -103,7 +103,7 @@ Finished building all Spin components
 
 Once the build command ran successfully, you should see the `rd-spin-hello-world.wasm` module created inside the `target` directory.
 
-### Package the Wasm module as a OCI contianer image and push to a container registry
+### Package the Wasm Module as an OCI Container Image and Push to a Container Registry
 
 Create a `Dockerfile` with below code to package the `Wasm` module as a docker image.
 
