@@ -51,7 +51,7 @@ Pick a template to start your application with:
 ```
 
 Give a name to your app
-```
+```console
 $spin new
 Pick a template to start your application with: http-ts (HTTP request handler using Typescript)
 Enter a name for your new application: rd-spin-hello-world
