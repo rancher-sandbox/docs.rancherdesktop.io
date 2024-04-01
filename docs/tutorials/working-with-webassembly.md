@@ -26,7 +26,7 @@ For now additional shims can be installed by the user into the `containerd-shims
 
 Any shim installed there will automatically be copied into the VM and configured for the container engine when Rancher Desktop is started (installing a newer version of the `spin` shim will override the bundled version).
 
-## Developing Wasm applications with Rancher Desktop
+## Developing Wasm Applications with Rancher Desktop
 
 Developing Wasm applications on your local machine on top of Rancher Desktop typically involves below steps:
 
