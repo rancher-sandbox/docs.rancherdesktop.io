@@ -43,7 +43,7 @@ You can use the Spin framework from Fermyon to quickly bootstrap a simple Wasm a
 Once you have successfully installed Spin, create a new app via the command `spin new`. 
 
 Select the language you would like to use for development.  
-```
+```console
 $spin new
 Pick a template to start your application with:
   http-js (HTTP request handler using Javascript)
