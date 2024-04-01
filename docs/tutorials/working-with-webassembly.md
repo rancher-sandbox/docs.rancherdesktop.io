@@ -32,7 +32,7 @@ Developing Wasm applications on your local machine on top of Rancher Desktop typ
 
 - Create an application in your programming language of choice. You can compile code written in many languages, such as C, C++, Rust, Go, and others, into Wasm modules
 - Compile the code into a Wasm module
-- Package the Wasm module as a OCI contianer image and push to a container registry
+- Package the Wasm module as a OCI container image and push to a container registry
 - Run the Wasm container and/or
 - Deploy the Wasm container into Kubernetes
 
