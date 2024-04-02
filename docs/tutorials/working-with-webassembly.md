@@ -36,7 +36,7 @@ Developing Wasm applications on your local machine on top of Rancher Desktop typ
 - Run the Wasm container and/or
 - Deploy the Wasm container into Kubernetes
 
-### Creating a simple app and compiling it into a Wasm module
+### Creating a Simple App and Compiling It Into a Wasm Module
 
 You can use the Spin framework from Fermyon to quickly bootstrap a simple Wasm app. Install Spin on your machine following the instructions on the [Installing Spin](https://developer.fermyon.com/spin/v2/install) page.
 
@@ -118,7 +118,7 @@ Run the command below to package the Wasm module as a container image.
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
 
-```
+```console
 nerdctl build \
   --namespace k8s.io \
   --platform wasi/wasm \
@@ -158,7 +158,7 @@ docker push ghcr.io/rancher-sandbox/rd-spin-hello-world:0.1.0
   </TabItem>
 </Tabs>
 
-### Running the Wasm container
+### Running the Wasm Container
 
 Running a Wasm container directly is currently only supported with the `moby` container engine; there is a bug in `nerdctl` that prevents it from working with `containerd`. Ensure you have selected `dockerd(moby)` as the container engine under [Preferences > Container Engine > General](../ui/preferences/container-engine/general.md) to work through the steps in this section.
 
@@ -183,7 +183,7 @@ $ curl http://localhost:8080/
 Hello from Wasm container!
 ```
 
-### Running Wasm apps with Kubernetes
+### Running Wasm Apps with Kubernetes
 
 Running WebAssembly applications on Kubernetes is currently only supported with the `containerd` runtime; it doesn't work with the `cri-dockerd` shim used to run Kubernetes on top of `moby`.
 
