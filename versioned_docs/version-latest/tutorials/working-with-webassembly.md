@@ -26,24 +26,24 @@ For now additional shims can be installed by the user into the `containerd-shims
 
 Any shim installed there will automatically be copied into the VM and configured for the container engine when Rancher Desktop is started (installing a newer version of the `spin` shim will override the bundled version).
 
-## Developing Wasm applications with Rancher Desktop
+## Developing Wasm Applications with Rancher Desktop
 
 Developing Wasm applications on your local machine on top of Rancher Desktop typically involves below steps:
 
 - Create an application in your programming language of choice. You can compile code written in many languages, such as C, C++, Rust, Go, and others, into Wasm modules
 - Compile the code into a Wasm module
-- Package the Wasm module as a OCI contianer image and push to a container registry
+- Package the Wasm module as a OCI container image and push to a container registry
 - Run the Wasm container and/or
 - Deploy the Wasm container into Kubernetes
 
-### Creating a simple app and compiling it into a Wasm module
+### Creating a Simple App and Compiling It Into a Wasm Module
 
 You can use the Spin framework from Fermyon to quickly bootstrap a simple Wasm app. Install Spin on your machine following the instructions on the [Installing Spin](https://developer.fermyon.com/spin/v2/install) page.
 
 Once you have successfully installed Spin, create a new app via the command `spin new`. 
 
-Select the lanaguage you would like to use for development.  
-```
+Select the language you would like to use for development.  
+```console
 $spin new
 Pick a template to start your application with:
   http-js (HTTP request handler using Javascript)
@@ -51,14 +51,14 @@ Pick a template to start your application with:
 ```
 
 Give a name to your app
-```
+```console
 $spin new
 Pick a template to start your application with: http-ts (HTTP request handler using Typescript)
 Enter a name for your new application: rd-spin-hello-world
 ```
 
 Provide an optional description and leave the API route path to default
-```
+```console
 $spin new
 Pick a template to start your application with: http-ts (HTTP request handler using Typescript)
 Enter a name for your new application: rd-spin-hello-world
@@ -70,7 +70,7 @@ Once the command ran successfully, you should see a directory created with the b
 
 Update the `index.ts` file to return a different message than the default.
 
-```
+```console
 import { HandleRequest, HttpRequest, HttpResponse } from "@fermyon/spin-sdk"
 
 export const handleRequest: HandleRequest = async function (request: HttpRequest): Promise<HttpResponse> {
@@ -82,9 +82,9 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
 }
 ```
 
-Change to the app diretory and run the `spin build` command to compile the app code into a Wasm module.
+Change to the app directory and run the `spin build` command to compile the app code into a Wasm module.
 
-```
+```console
 $spin build
 Building component rd-spin-hello-world with `npm run build`
 
@@ -103,11 +103,11 @@ Finished building all Spin components
 
 Once the build command ran successfully, you should see the `rd-spin-hello-world.wasm` module created inside the `target` directory.
 
-### Package the Wasm module as a OCI contianer image and push to a container registry
+### Package the Wasm Module as an OCI Container Image and Push to a Container Registry
 
 Create a `Dockerfile` with below code to package the `Wasm` module as a docker image.
 
-```
+```console
 FROM scratch
 COPY spin.toml /spin.toml
 COPY /target/rd-spin-hello-world.wasm /target/rd-spin-hello-world.wasm
@@ -118,7 +118,7 @@ Run the command below to package the Wasm module as a container image.
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
 
-```
+```console
 nerdctl build \
   --namespace k8s.io \
   --platform wasi/wasm \
@@ -128,7 +128,7 @@ nerdctl build \
   </TabItem>
   <TabItem value="docker">
 
-```
+```console
 docker buildx build \
   --load \
   --platform wasi/wasm \
@@ -144,28 +144,28 @@ Push the image to the container registry
 <Tabs groupId="container-runtime">
   <TabItem value="nerdctl" default>
 
-```
+```console
 nerdctl push ghcr.io/rancher-sandbox/rd-spin-hello-world:0.1.0
 ```
 
   </TabItem>
   <TabItem value="docker">
 
-```
+```console
 docker push ghcr.io/rancher-sandbox/rd-spin-hello-world:0.1.0
 ```
 
   </TabItem>
 </Tabs>
 
-### Running the Wasm container
+### Running the Wasm Container
 
 Running a Wasm container directly is currently only supported with the `moby` container engine; there is a bug in `nerdctl` that prevents it from working with `containerd`. Ensure you have selected `dockerd(moby)` as the container engine under [Preferences > Container Engine > General](../ui/preferences/container-engine/general.md) to work through the steps in this section.
 
 
 The following command runs the `rd-spin-hello-world` sample `spin` application, built in the previous section, on the `moby` engine (note the final `/` on the last line; it is the command to run, and `docker run` will fail if it is omitted):
 
-```
+```console
 docker run \
     --detach \
     --name spin-demo \
@@ -178,12 +178,12 @@ docker run \
 
 The internal port `80` has been mapped to `8080` and can be tested from the host:
 
-```
+```console
 $ curl http://localhost:8080/
 Hello from Wasm container!
 ```
 
-### Running Wasm apps with Kubernetes
+### Running Wasm Apps with Kubernetes
 
 Running WebAssembly applications on Kubernetes is currently only supported with the `containerd` runtime; it doesn't work with the `cri-dockerd` shim used to run Kubernetes on top of `moby`.
 
