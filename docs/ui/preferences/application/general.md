@@ -20,7 +20,7 @@ Allows for enablement of automatic updates, as well as an optional field to allo
 
 Ensure you have the setting checked and enabled on the `Preferences > Application > General` tab. You will need to click `Apply` once selected, and then manually restart the application for the settings to update.
 
-If a new release is available, it will be downloaded upon restart and you will see a section denoted `Update Available` from the main [General](https://docs.rancherdesktop.io/ui/general) tab with a `Restart` button that can be clicked to have the newest version applied. A copy of the latest version’s release notes will be displayed via dropdown as well.
+If a new release is available, it will be downloaded upon restart and you will see a section denoted `Update Available` from the main [General](../../../ui/general.md) tab with a `Restart` button that can be clicked to have the newest version applied. A copy of the latest version’s release notes will be displayed via dropdown as well.
 
 #### Statistics
 
@@ -39,7 +39,7 @@ Allows Rancher Desktop to acquire administrative access (sudo access) when start
 
 Ensure you have the setting checked and enabled on the `Preferences > Application > General` tab. You will need to click `Apply` once selected, and then manually restart the application for the settings to update.
 
-If a new release is available, it will be downloaded upon restart and you will see a section denoted `Update Available` from the main [General](https://docs.rancherdesktop.io/ui/general) tab with a `Restart` button that can be clicked to have the newest version applied. A copy of the latest version’s release notes will be displayed via dropdown as well.
+If a new release is available, it will be downloaded upon restart and you will see a section denoted `Update Available` from the main [General](../../../ui/general.md) tab with a `Restart` button that can be clicked to have the newest version applied. A copy of the latest version’s release notes will be displayed via dropdown as well.
 
 #### Statistics
 
@@ -58,7 +58,7 @@ Allows Rancher Desktop to acquire administrative access (sudo access) when start
 
 Ensure you have the setting checked and enabled on the `Preferences > Application > General` tab. You will need to click `Apply` once selected, and then manually restart the application for the settings to update.
 
-If a new release is available, it will be downloaded upon restart and you will see a section denoted `Update Available` from the main [General](https://docs.rancherdesktop.io/ui/general) tab with a `Restart` button that can be clicked to have the newest version applied. A copy of the latest version’s release notes will be displayed via dropdown as well.
+If a new release is available, it will be downloaded upon restart and you will see a section denoted `Update Available` from the main [General](../../../ui/general.md) tab with a `Restart` button that can be clicked to have the newest version applied. A copy of the latest version’s release notes will be displayed via dropdown as well.
 
 #### Statistics
 

@@ -26,7 +26,7 @@ Rancher Desktop provides container management and a Kubernetes instance on the d
 
 **A:** Yes, the Rancher Dashboard is included as a feature preview in the release 1.2.1. Invoke the dashboard by clicking on **Dashboard** option in the system tray menu.
 
-Learn more about [Rancher Desktop](https://docs.rancherdesktop.io/).
+Learn more about [Rancher Desktop](./getting-started/introduction.md).
 Learn more about [Rancher](https://rancher.com/why-rancher).
 
 [Rancher]:
@@ -194,7 +194,7 @@ containerd: /var/lib/nerdctl/dbb19c5e/volumes/<namespace>
 
 1. Perform `Troubleshooting > Factory Reset` from the current installation. Please make sure the `Keep cached Kubernetes images` box is *not* checked in the `Factory Reset` pop up dialog.
 2. For downgrading on Windows platforms, please shutdown WSL before installing an older version of Rancher Desktop with `wsl --shutdown` in a PowerShell command prompt.
-3. Uninstall the current version by following [uninstallation instructions](https://docs.rancherdesktop.io/getting-started/installation) for your OS.
+3. Uninstall the current version by following [uninstallation instructions](./getting-started/installation.md) for your OS.
 4. Install the older version that you need.
 
 #### Q: Rancher Desktop becomes unresponsive after my Windows machine wakes up from hibernation. How can I get my Rancher Desktop session working again with out having to reboot my machine?
