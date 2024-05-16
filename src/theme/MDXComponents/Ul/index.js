@@ -2,6 +2,10 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 function transformUlClassName(className) {
+  // Fix https://github.com/facebook/docusaurus/issues/9098
+  if (typeof className === 'undefined') {
+    return undefined;
+  }
   return clsx(
     className,
     // This class is set globally by GitHub/MDX. We keep the global class, and
