@@ -11,6 +11,7 @@ import Version110 from '../bundled-utilities-version-info/v1.10.0.md';
 import Version111 from '../bundled-utilities-version-info/v1.11.0.md';
 import Version112 from '../bundled-utilities-version-info/v1.12.0.md';
 import Version113 from '../bundled-utilities-version-info/v1.13.0.md';
+import Version114 from '../bundled-utilities-version-info/v1.14.0.md';
 
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/references/bundled-utilities"/>
@@ -20,6 +21,7 @@ Rancher Desktop uses several utilities/subsystems as dependencies under the hood
 
 | Rancher Desktop Version | Dependency Versions |
 | ------------- | ---------------- |
+| v1.14.0 | <Version114 /> |
 | v1.13.0 | <Version113 /> |
 | v1.12.0 | <Version112 /> |
 | v1.11.0 | <Version111 /> |
