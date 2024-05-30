@@ -57,8 +57,28 @@ To switch versions:
 
 Set the port Kubernetes is exposed on. Use this setting to avoid port collisions if multiple instances of K3s are running.
 
-#### Enable Traefik
+#### Options
+
+##### Enable Traefik
 
 This option allows you to enable or disable Traefik. By disabling Traefik, you can free up port 80 and 443 for alternate ingress configuration. By default, Traefik is enabled.
 
 Disabling Traefik will not delete existing resources.
+
+##### Install Spin Operator
+
+:::caution warning
+
+This is an **experimental** setting.
+
+:::
+
+This option will install the [spinkube](https://www.spinkube.dev/) operator with the `cert-manager` prerequisite, and configure it with the `spin` RuntimeClass.
+
+This option requires that the [WebAssembly](./container-engine/general.md) support is enabled.
+
+:::note
+
+Rancher Desktop automatically installs the [spin cli](https://developer.fermyon.com/spin/v2/index) and the [kube plugin](https://github.com/spinkube/spin-plugin-kube) to help develop and deploy Spin applications on Kubernetes.
+
+:::
