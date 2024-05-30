@@ -33,7 +33,13 @@ Set the [container runtime] for Rancher Desktop. Users have the option of [conta
 
 When switching to a different container runtime: Workloads and images that have been built or pulled using the current container runtime are not available on the container runtime being switched to.
 
-#### WebAssembly (wasm)
+#### WebAssembly (Wasm)
+
+:::caution warning
+
+This is an **experimental** setting.
+
+:::
 
 The Wasm feature allows running WebAssembly application as containers, either directly with the container engine, or via Kubernetes. Details are available in the [Working with WebAssembly](../../../tutorials/working-with-webassembly.md) tutorial.
 
