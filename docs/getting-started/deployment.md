@@ -63,23 +63,23 @@ For versions `1.9` and later of Rancher Desktop, all preferences values can be l
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.13/preferences/Windows_containerEngine_tabAllowedImages_lockedFields.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.14/preferences/Windows_containerEngine_tabAllowedImages_lockedFields.png)
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.13/preferences/Windows_kubernetes_lockedFields.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.14/preferences/Windows_kubernetes_lockedFields.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.13/preferences/macOS_containerEngine_tabAllowedImages_lockedFields.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.14/preferences/macOS_containerEngine_tabAllowedImages_lockedFields.png)
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.13/preferences/macOS_kubernetes_lockedFields.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.14/preferences/macOS_kubernetes_lockedFields.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.13/preferences/Linux_containerEngine_tabAllowedImages_lockedFields.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.14/preferences/Linux_containerEngine_tabAllowedImages_lockedFields.png)
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.13/preferences/Linux_kubernetes_lockedFields.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.14/preferences/Linux_kubernetes_lockedFields.png)
 
 </TabItem>
 </Tabs>
