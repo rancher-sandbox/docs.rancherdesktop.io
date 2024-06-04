@@ -183,8 +183,8 @@ sudo sysctl -w net.ipv4.ip_unprivileged_port_start=80
 添加 Rancher Desktop 仓库并使用以下命令安装 Rancher Desktop：
 
 ```
-curl -s https://download.opensuse.org/repositories/isv:/Rancher:/stable/deb/Release.key | gpg --dearmor | sudo dd status=none of=/usr/share/keyrings/isv-rancher-stable-archive-keyring.gpg
-echo 'deb [signed-by=/usr/share/keyrings/isv-rancher-stable-archive-keyring.gpg] https://download.opensuse.org/repositories/isv:/Rancher:/stable/deb/ ./' | sudo dd status=none of=/etc/apt/sources.list.d/isv-rancher-stable.list
+curl -s https://download.opensuse.org/repositories/isv:/Rancher:/stable/deb/Release.key | gpg --dearmor | sudo dd status=none of=/etc/apt/keyrings/isv-rancher-stable-archive-keyring.gpg
+echo 'deb [signed-by=/etc/apt/keyrings/isv-rancher-stable-archive-keyring.gpg] https://download.opensuse.org/repositories/isv:/Rancher:/stable/deb/ ./' | sudo dd status=none of=/etc/apt/sources.list.d/isv-rancher-stable.list
 sudo apt update
 sudo apt install rancher-desktop
 ```
@@ -197,7 +197,7 @@ sudo apt install rancher-desktop
 ```
 sudo apt remove --autoremove rancher-desktop
 sudo rm /etc/apt/sources.list.d/isv-rancher-stable.list
-sudo rm /usr/share/keyrings/isv-rancher-stable-archive-keyring.gpg
+sudo rm /etc/apt/keyrings/isv-rancher-stable-archive-keyring.gpg
 sudo apt update
 ```
 
