@@ -58,9 +58,9 @@ const sidebars = {
               type: 'category',
               label: 'Virtual Machine',
               items:  [
-                "ui/preferences/virtual-machine/emulation",
                 "ui/preferences/virtual-machine/hardware",
-                "ui/preferences/virtual-machine/volumes"
+                "ui/preferences/virtual-machine/volumes",
+                "ui/preferences/virtual-machine/emulation"
               ]
             },
             {
