@@ -12,12 +12,12 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.14/preferences/macOS_virtualMachine_tabHardware.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.15/preferences/macOS_virtualMachine_tabHardware.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.14/preferences/Linux_virtualMachine_tabHardware.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.15/preferences/Linux_virtualMachine_tabHardware.png)
 
 </TabItem>
 </Tabs>
