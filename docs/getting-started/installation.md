@@ -71,7 +71,10 @@ After Rancher Desktop is installed, users will have access to these supporting u
 
 Rancher Desktop requires the following on Windows:
 
-- Windows 10 build 1909 or higher. The Home edition is supported.
+- One of
+  - Windows 10 with latest updates. The Home edition is supported.
+  - Windows 11 with latest updates. The Home edition is supported.
+  - Windows 2022 Server with latest updates.
 - Running on a machine with [virtualization capabilities].
 - Persistent internet connection.
 
