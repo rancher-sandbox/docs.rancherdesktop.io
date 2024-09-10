@@ -85,7 +85,7 @@ vi Dockerfile
 #### Populate the Dockerfile with the command below
 ```
 FROM nginx:alpine
-COPY . /usr/share/nginx/html
+COPY ./index.html /usr/share/nginx/html
 ```
 
 #### Build image from code locally
