@@ -67,7 +67,7 @@ env:
 
 - Run Rancher Desktop at least once to allow it to create its configuration.
 
-- Open the `%AppData%\rancher-desktop\provisioning` directory. An example of the full path: `C:\Users\Joe\AppData\Roaming\rancher-desktop\provisioning`.
+- Open the `%LOCALAPPDATA%\rancher-desktop\provisioning` directory. An example of the full path: `C:\Users\Joe\AppData\Local\rancher-desktop\provisioning`.
 
 - Note that any files with a file extension of `.start`, such as `k3s-overrides.start`, can be executed when _Rancher Desktop starts its Kubernetes backend_ (if enabled). Such files will run within the Rancher Desktop WSL context.
 
@@ -77,7 +77,7 @@ Example flow for `.start` files:
 - Enable `dockerd` or `containerd` in the UI
 - Kubernetes (K3s)
 
-As an example, using `%AppData%\rancher-desktop\provisioning\insecure-registry.start` will allow `nerdctl` to use insecure registries by default:
+As an example, using `%LOCALAPPDATA%\rancher-desktop\provisioning\insecure-registry.start` will allow `nerdctl` to use insecure registries by default:
 
 ```
 #!/bin/sh
