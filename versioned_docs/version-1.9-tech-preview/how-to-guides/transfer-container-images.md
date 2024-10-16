@@ -107,7 +107,7 @@ nerdctl load < local-images.tar
   <TabItem value="docker">
 
 ```
-docker load < local-images.tar
+docker load -i local-images.tar
 ```
 
   </TabItem>
