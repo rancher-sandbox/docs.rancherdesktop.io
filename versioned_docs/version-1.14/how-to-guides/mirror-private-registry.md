@@ -83,7 +83,7 @@ Ensure that you have initialized the application with a first run in order to cr
 The file path and example provisioning script are provided below. After you have created the file with the appropriate configuration, restart the Rancher Desktop application for the provisioning script to take effect.
 
 `.start` File Path:
-`$HOME\AppData\Roaming\rancher-desktop\provisioning\mirror-registry.start`
+`$HOME\AppData\Local\rancher-desktop\provisioning\mirror-registry.start`
 
 Example Script:
 

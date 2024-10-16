@@ -41,7 +41,7 @@ Available Commands:
   version       Shows the CLI version
 
 Flags:
-      --config-path string   config file (default C:\Users\GunasekharMatamalam\AppData\Roaming\rancher-desktop\rd-engine.json)
+      --config-path string   config file (default C:\Users\GunasekharMatamalam\AppData\Local\rancher-desktop\rd-engine.json)
   -h, --help                 help for rdctl
       --host string          default is localhost; most useful for WSL
       --password string      overrides the password setting in the config file

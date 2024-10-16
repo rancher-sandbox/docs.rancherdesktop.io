@@ -64,7 +64,7 @@ Lastly, please stop and restart Rancher Desktop in order for the updated limits 
 
 First, be sure that you have run Rancher Desktop at least once in order for the configurations to initialize.
 
-You can then create a provisioning script, say `map_count.start`, at `%AppData%\rancher-desktop\provisioning` with the below code to update the open file limit by increasing the `max_map_count` parameter.
+You can then create a provisioning script, say `map_count.start`, at `%LOCALAPPDATA%\rancher-desktop\provisioning` with the below code to update the open file limit by increasing the `max_map_count` parameter.
 
 ```
 #!/bin/sh

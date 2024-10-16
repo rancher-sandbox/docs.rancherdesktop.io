@@ -54,7 +54,7 @@ mounts:
 
 - 你需要至少运行 Rancher Desktop 一次以允许它创建配置。
 
-- 打开 `%AppData%\\rancher-desktop\\provisioning` 目录。完整路径的示例：`C:\\Users\\Joe\\AppData\\Roaming\\rancher-desktop\\provisioning`。
+- 打开 `%LOCALAPPDATA%\\rancher-desktop\\provisioning` 目录。完整路径的示例：`C:\\Users\\Joe\\AppData\\Local\\rancher-desktop\\provisioning`。
 
 - 请注意，任何文件扩展名为 `.start` 的文件（例如 `k3s-overrides.start`）都可以在 _Rancher Desktop 启动 Kubernetes 后端（如果启用）_ 时执行。此类文件将在 Rancher Desktop WSL 上下文中运行。
 
@@ -64,7 +64,7 @@ mounts:
 - 在 UI 中启用 `dockerd` 或 `containerd`
 - Kubernetes (K3s)
 
-例如，使用 `%AppData%\\rancher-desktop\\provisioning\\insecure-registry.start` 将允许 `nerdctl` 默认使用不安全的镜像仓库：
+例如，使用 `%LOCALAPPDATA%\\rancher-desktop\\provisioning\\insecure-registry.start` 将允许 `nerdctl` 默认使用不安全的镜像仓库：
 
 ```
 #!/bin/sh
