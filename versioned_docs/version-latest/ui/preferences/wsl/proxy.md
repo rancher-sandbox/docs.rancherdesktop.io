@@ -7,7 +7,7 @@ title: Proxy
   <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/wsl/proxy"/>
 </head>
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.14/preferences/Windows_wsl_tabProxy.png)
+![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.16/preferences/Windows_wsl_tabProxy.png)
 
 ### WSL Proxy
 

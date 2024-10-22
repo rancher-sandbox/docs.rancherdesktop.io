@@ -58,10 +58,9 @@ const sidebars = {
               type: 'category',
               label: 'Virtual Machine',
               items:  [
-                "ui/preferences/virtual-machine/emulation",
                 "ui/preferences/virtual-machine/hardware",
-                "ui/preferences/virtual-machine/network",
-                "ui/preferences/virtual-machine/volumes"
+                "ui/preferences/virtual-machine/volumes",
+                "ui/preferences/virtual-machine/emulation"
               ]
             },
             {
@@ -69,7 +68,6 @@ const sidebars = {
               label: 'WSL',
               items:  [
                 "ui/preferences/wsl/integrations",
-                "ui/preferences/wsl/network",
                 "ui/preferences/wsl/proxy"
               ]
             },

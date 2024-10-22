@@ -64,7 +64,7 @@ provision:
 
 首先，确保 Rancher Desktop 至少运行过一次来初始化配置。
 
-然后，使用以下代码在 `%AppData%\rancher-desktop\provisioning` 中创建一个配置脚本，比如 `map_count.start`，这样能通过增加 `max_map_count` 参数的值来更新打开文件的限制。
+然后，使用以下代码在 `%LOCALAPPDATA%\rancher-desktop\provisioning` 中创建一个配置脚本，比如 `map_count.start`，这样能通过增加 `max_map_count` 参数的值来更新打开文件的限制。
 
 ```
 #!/bin/sh
