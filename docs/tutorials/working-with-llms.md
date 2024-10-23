@@ -2,14 +2,12 @@
 title: Working with LLMs using Open WebUI
 ---
 
-The **Rancher Desktop's Open WebUI extension**  enables you to work with Large Language Models (LLMs) on your machine.
+The **Rancher Desktop's Open WebUI extension** provides an easy-to-install setup comprising the components listed below for local GenAI use and development.
 
-The Open WebUI extension installs and configures the components listed below:
-
-- [Ollama](https://ollama.com/) to pull, run, fine tune, and share open source LLMs
-- [Open WebUI](https://openwebui.com/) to interact with the LLMs via a feature rich Graphical User Interface (GUI)
+- [Ollama](https://ollama.com/) to pull, run, fine tune open source LLMs
+- [Open WebUI](https://openwebui.com/) to interact with the LLMs and more via a feature rich Graphical User Interface (GUI)
 - A light weight LLM called [tinyllama](https://ollama.com/library/tinyllama) to enable you kickstart your LLM exploration
-- [searxng](https://github.com/searxng/searxng) for web search to enhance retrieval augmented generation (RAG) results
+- [SearXNG](https://github.com/searxng/searxng) for web search to enhance retrieval augmented generation (RAG) results
 
 ## Installing the Open WebUI extension
 
@@ -52,22 +50,104 @@ rdctl extension install ghcr.io/rancher-sandbox/rancher-desktop-rdx-open-webui:l
 
 :::note
 Ollama installation will be skipped by the extension if Ollama is already available on your machine. Otherwise, the extension downloads and installs Ollama into the extension directory. 
-
-Ollama, if installed by the extension, will be removed as part of the extension uninstallation process.
-:::
-
-:::note
-Ollama model files are stored at the locations listed below. The model files are not removed as part of the extension uninstallation process. If you want to delete the model files then you need to manually delete the models folders.
 :::
 
 :::note
 If you have NVIDIA GPUs and the respective drivers on the host machine then Ollama makes use of the host machine's GPU for running inferences.
 :::
 
-## Interesting things you can do/build with Open WebUI
+## Using Open WebUI
 
-### Pull Open Source LLMs
+This section provides information and instructions to help you navigate through some of the most commonly used features of Open WebUI. For an up to date information about the full capabilities and usage instructions, please refer to the [Open WebUI's documentation](https://docs.openwebui.com/).
 
-The extension provides a light weight LLM called [tinyllama](https://ollama.com/library/tinyllama) out of the box that you can use to start your LLM exploration. The tinyllama is a basic lanaguage model good enough to try out simpler text generation, summarization, translations tasks. If you want to perform more advanced tasks then you need to download bigger models such as llama, mistral, gemma etc.
+### Pulling Ollama Open Source LLMs
 
-You can pull Ollama models via the `Admin Settings > Models` page. Simply enter the name:tag of the model you want to pull and click on the `pull` button. You can find the full list of available models on the [Ollama Models Library page](https://ollama.com/library).
+The extension provides a light weight LLM called [tinyllama](https://ollama.com/library/tinyllama) out of the box that you can use to start your LLM exploration. The tinyllama is a basic language model good enough to try out simpler text generation, summarization tasks. If you want to perform more advanced tasks then you need to download bigger models such as llama, mistral, gemma etc.
+
+You can pull Ollama models via the `Admin Panel > Settings > Models` page. Simply enter the name:tag of the model you want to pull and click on the `pull` button. You can find the full list of available models on the [Ollama Models Library page](https://ollama.com/library).
+
+![](../img/working-with-open-webui/pulling-models.png)
+
+### Interacting with the local LLMs
+
+Open WebUI provides a couple of GUI features to let you interact with the local LLMs.
+
+#### Chat Interface
+
+Open WebUI provides a ChatGPT style chat interface to interact with the local LLMs. 
+
+- Select the LLM you want to interact with in the LLM selector drop down.
+
+:::tip
+Set your preferred LLM model as default to persist the model selection between Rancher Desktop's restarts.
+:::
+
+- You can now chat with the LLM using the chat interface.
+
+#### Playground Interface
+
+The Playground functionality provides Chat and Text Completion features to interact with the local LLMs. You can select a LLM to interact with in the LLM selector dropdown on the Playground screen.
+
+Using the Playground's Chat feature, you can provide a system prompt to let the LLM generate responses in a certain way or in a specific context.
+
+Using the Playground's Sentence Completion feature, you can provide the initial prompt text and let the LLM complete the provided prompt.
+
+### Adjusting LLM parameters
+
+Ollama provides flexibility for adjusting LLM parameters to fine-tune model performance for specific tasks. Open WebUI makes it easy to apply the LLM parameters and customize the system prompt at different levels (per-chat basis, per-model basis, and per-account basis) as Chat Parameters. Refer to the [Open WebUI's Chat Parameters documentation](https://docs.openwebui.com/tutorials/features/chat-params) to learn about the different levels you can apply the chat parameters and their overriding behavior.
+
+:::info
+Please refer to [Ollama Model File documentation](https://github.com/ollama/ollama/blob/main/docs/modelfile.md#parameter) for the full list of LLM parameters, their intended purpose, and example usage.
+:::
+
+For example, you can set the system prompt and adjust LLM parameters at the individual chat level using the right hand side sliding control panel.
+
+![](../img/working-with-open-webui/setting-chat-parameters.png)
+
+### Augmenting LLMs with Custom Knowledge & Web Search
+
+Open WebUI provides features to augment LLMs responses using the Retrieval Augmented Generation technique. You can provide custom knowledge to the LLMs via.  Knowledge Collections and/or Web Search.
+
+#### Knowledge Collections
+You can create knowledge collections by uploading documents containing your custom knowledge. You can access the Knowledge Collections management page via `Workspace > Knowledge`.
+
+![](../img/working-with-open-webui/knowedge-collections.png)
+
+#### Web Search
+
+In addition to the local knowledge collections, Open WebUI also provides options to perform LIVE web search to retrieve relevant information to generate better responses. You can use a variety of web search providers as listed in the [Open WebUI's documentation](https://docs.openwebui.com/tutorials/features/web_search).
+
+Rancher Desktop's Open WebUI extension installs and configures [SearXNG](https://docs.searxng.org/), a free internet metasearch engine, to enable you use web search out of the box. 
+
+#### Using Knowledge Collections and/or Web Search in chats
+
+To use a Knowledge Collection in the chat, simple type `#` in the chat input field which shows the available knowledge collections on your machine. You can pick one or more knowledge collections as knowledge source(s) for retrieving relevant context.
+
+![](../img/working-with-open-webui/selecting-knowedge-collections.png)
+
+To use the web search in the chat, click the `+` button to the left of the chat input field and enable the web search feature. This allows the chat to perform a web search to get relevant information to frame a response.
+
+You can use both Knowledge Collections and Web Search to augment the the LLMs response on a single question.
+
+:::tip
+Open WebUI provides advanced configuration to fine tune the Retrieval Augmentated Generation process where you can use alternate embedding models, provide a more suitable prompt template, configure the chunk parameters, and much more. You can perform this advanced configuration on the `Admin Panel > Settings > Documents` page. To learn more, refer to the [Open WebUI's Retrieval Augmented Generation documentation](https://docs.openwebui.com/tutorials/features/rag).
+:::
+
+### Customizing Models
+
+Open WebUI provides features to let you customize the downloaded models for your specific domain, use cases etc. You can customize models on the page `Workspace > Models`. You can create a model by extending one of the existing models and then providing custom set of parameters, prompts, knowedge collections etc. The custom models created here can then be used with the Chat and the Playground features.
+
+## Uninstalling the extension
+
+You can uninstall the Open WebUI extension via the [Extensions Catalog](../ui/extensions#catalog) GUI or via the [rdctl CLI](../references/rdctl-command-reference#rdctl-extension-install).
+
+:::note
+Ollama, if installed by the extension, will be removed as part of the extension uninstallation process.
+:::
+
+:::note
+Ollama model files are stored at the locations listed below are not removed as part of the extension uninstallation process. If you want to delete the model files then you need to manually delete the models folders.
+
+- macOS & Linux: ~/.ollama/models
+- Windows: %USERPROFILE%/.ollama/models
+:::
