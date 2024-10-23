@@ -139,6 +139,10 @@ If you want to change the behavior of the mounts, that will also require [additi
 New-NetFirewallRule -DisplayName "WSL" -Direction Inbound -InterfaceAlias "vEthernet (WSL)" -Action Allow
 ```
 
+#### **Q: Can I map `host.docker.internal` or `host.rancher-desktop.internal` to `host-gateway` with the flag `--add-host`?
+
+**A:** No, the special value host-gateway is specific to Docker Desktop and is not yet supported in Rancher Desktop. However, you can access services running on the host machine from within a container using host.docker.internalor host.rancher-desktop.internal without passing the --add-host flag.
+
 <!-- #985 -->
 #### **Q: I don't need the Kubernetes cluster deployed by Rancher Desktop; how do I disable it to save resources?**
 
