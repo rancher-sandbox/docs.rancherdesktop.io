@@ -25,7 +25,7 @@ In addition to the general Rancher Desktop [installation requirements](../gettin
 
 ### Steps to install
 
-You can install the Open WebUI extension via the [Extensions Catalog](../ui/extensions#catalog) GUI or via the [rdctl CLI](../references/rdctl-command-reference#rdctl-extension-install).
+You can install the Open WebUI extension via the [Extensions Catalog](../ui/extensions.md#catalog) GUI or via the [rdctl CLI](../references/rdctl-command-reference.md#rdctl-extension-install).
 
 :::caution
 Please note that the installation process can take several minutes depending on your internet speed, machine performance etc. 
@@ -180,7 +180,7 @@ Open WebUI provides features to let you customize the downloaded models for your
 
 ## Uninstalling the extension
 
-You can uninstall the Open WebUI extension via the [Extensions Catalog](../ui/extensions#catalog) GUI or using the [rdctl CLI](../references/rdctl-command-reference#rdctl-extension-install).
+You can uninstall the Open WebUI extension via the [Extensions Catalog](../ui/extensions.md#catalog) GUI or using the [rdctl CLI](../references/rdctl-command-reference.md#rdctl-extension-install).
 
 :::note
 - Ollama, if installed by the extension, will be removed as part of the extension uninstallation process.
