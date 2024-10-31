@@ -88,6 +88,22 @@ Pick the `Q4_K_M` quantization of the `GGUF` models on Huggingface, as this vari
 
 ![](../img/working-with-open-webui/download-gguf-from-hf.png)
 
+### Using OpenAI-compatible APIs
+
+You can use OpenAI-compatible APIs from a local server such as [localai](https://localai.io/), [llamafile](https://github.com/Mozilla-Ocho/llamafile), or cloud providers such as [Groq](https://groq.com/), [OpenAI](https://openai.com/api/), etc.
+
+For example, you can set up the OpenAI-compatible API from [Groq](https://groq.com/) by following the steps below:
+
+- Create a Groq cloud account at https://console.groq.com.
+- Create an API key at https://console.groq.com/keys.
+- Navigate to `Admin Panel > Settings > Connections` in the Open WebUI extension and add Groq as an OpenAI-compatible API provider. Use `https://api.groq.com/openai/v1` as the base URL and use the API key generated in the previous step.
+
+You should be able to see the available models from Groq in the model selector drop-down.
+
+![](../img/working-with-open-webui/openai-api-setting.png)
+
+![](../img/working-with-open-webui/groq-models-list.png)
+
 ### Interacting with the local LLMs
 
 Open WebUI provides a couple of GUI features to let you interact with the local LLMs.
