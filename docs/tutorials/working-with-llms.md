@@ -90,7 +90,7 @@ Pick the `Q4_K_M` quantization of the `GGUF` models on Huggingface, as this vari
 
 ### Using OpenAI-compatible APIs
 
-You can use OpenAI-compatible APIs from a local server such as [localai](https://localai.io/), [llamafile](https://github.com/Mozilla-Ocho/llamafile), or cloud providers such as [Groq](https://groq.com/), OpenAI, etc.
+You can use OpenAI-compatible APIs from a local server such as [localai](https://localai.io/), [llamafile](https://github.com/Mozilla-Ocho/llamafile), or cloud providers such as [Groq](https://groq.com/), [OpenAI](https://openai.com/api/), etc.
 
 For example, you can set up the OpenAI-compatible API from [Groq](https://groq.com/) by following the steps below:
 
