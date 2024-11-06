@@ -49,6 +49,11 @@ Run the command below to install the extension.
 ```
 rdctl extension install ghcr.io/rancher-sandbox/rancher-desktop-rdx-open-webui:latest
 ```
+
+:::caution
+It is recommended to use a specific release tag of the extension instead of the `latest` tag as your Rancher Desktop version may not have features that the `latest` tag depends on. You can find the release tag names on the [GitHub Tags page](https://github.com/rancher-sandbox/rancher-desktop-rdx-open-webui/tags)
+:::
+
   </TabItem>
 </Tabs>
 
@@ -70,6 +75,8 @@ You can pull Ollama models via the `Admin Panel > Settings > Models` page. Simpl
 ![](../img/working-with-open-webui/pulling-models.png)
 
 ### Using GGUF models from Huggingface
+
+GGUF (Generic GPT Unified Format) is a binary format that is optimized for quick loading and saving of models, making it highly efficient for inference purposes. You can learn more about the format on this [Huggingface docs page](https://huggingface.co/docs/hub/gguf).
 
 Recent developments from Ollama and Huggingface make it very simple to use `GGUF` models from Huggingface with Ollama. Follow the steps below to pull a `GGUF` model in the Open WebUI GUI.
 
@@ -211,9 +218,11 @@ You can uninstall the Open WebUI extension via the [Extensions Catalog](../ui/ex
     Installing the Open WebUI extension is simple. 
 
     - Navigate to the `Extensions` page
-    - Remove the Open WebUI extension
+    - Remove the Open WebUI extension from either the `Catalog` or the `Installed` tab
 
-    ![](../img/working-with-open-webui/uninstall-extension.png)
+    ![](../img/working-with-open-webui/uninstall-extension-from-catalog-tab.png)
+
+    ![](../img/working-with-open-webui/uninstall-extension-from-installed-tab.png)
 
   </TabItem>
   <TabItem value="CLI">
@@ -221,7 +230,7 @@ You can uninstall the Open WebUI extension via the [Extensions Catalog](../ui/ex
 Run the command below to uninstall the extension.
 
 ```
-rdctl extension uninstall ghcr.io/rancher-sandbox/rancher-desktop-rdx-open-webui:latest
+rdctl extension uninstall ghcr.io/rancher-sandbox/rancher-desktop-rdx-open-webui:<tag>
 ```
   </TabItem>
 </Tabs>
