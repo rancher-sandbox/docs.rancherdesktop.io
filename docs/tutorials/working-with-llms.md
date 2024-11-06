@@ -123,7 +123,7 @@ Open WebUI provides a ChatGPT-style chat interface to interact with the local LL
 
 ![](../img/working-with-open-webui/multi-model-chat.png)
 
-One of the interesting features of the OpenWebUI's chat interface is that when the chat response contains HTML, CSS, and JS code snippets, a live preview (static HTML) of the code is generated, which you can also interactively update by modifying and saving the code in the code snippets.
+One of the interesting features of the OpenWebUI's chat interface is that when the chat response contains HTML, CSS, and JS code snippets, a live preview of the code is generated, which you can also interactively update by modifying and saving the code in the code snippets.
 
 ![](../img/working-with-open-webui/live-html-preview.png)
 
