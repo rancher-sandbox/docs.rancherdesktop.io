@@ -2,7 +2,7 @@
 title: Working with LLMs using Open WebUI
 ---
 
-The **Rancher Desktop's Open WebUI extension** provides an easy-to-install setup, comprising the components listed below, for local GenAI use and development.
+The **Rancher Desktop Open WebUI extension** provides an easy-to-install setup, comprising the components listed below, for local GenAI use and development.
 
 - [Ollama](https://ollama.com/) to pull, run, fine-tune open-source LLMs
 - [Open WebUI](https://openwebui.com/) to chat with the LLMs, use custom knowledge, web search etc., via a feature rich Graphical User Interface (GUI)
