@@ -153,7 +153,7 @@ For example, you can use the sliding control panel on the right to set the syste
 
 ### Augmenting LLMs with Custom Knowledge & Web Search
 
-Open WebUI provides features to augment LLM responses using the Retrieval Augmented Generation technique. You can provide custom knowledge to the LLM via.  Knowledge Collections and/or Web Search.
+Open WebUI provides features to augment LLM responses using the Retrieval Augmented Generation (RAG) technique. You can provide custom knowledge to the LLM via.  Knowledge Collections and/or Web Search.
 
 #### Knowledge Collections
 You can create knowledge collections by simply uploading documents containing your custom knowledge. You can access the Knowledge Collections management page via `Workspace > Knowledge`.
