@@ -5,7 +5,7 @@ title: Working with LLMs using Open WebUI
 The **Rancher Desktop Open WebUI extension** provides an easy-to-install setup, comprising the components listed below, for local GenAI use and development.
 
 - [Ollama](https://ollama.com/) to pull, run, and fine-tune open-source LLMs
-- [Open WebUI](https://openwebui.com/) to chat with the LLMs, use custom knowledge, web search etc., via a feature rich Graphical User Interface (GUI)
+- [Open WebUI](https://openwebui.com/) to chat with the LLMs, use custom knowledge, web search, etc., via a feature rich Graphical User Interface (GUI)
 - A lightweight LLM called [tinyllama](https://ollama.com/library/tinyllama) to enable you kickstart your LLM exploration
 - [SearXNG](https://github.com/searxng/searxng) for web search to enhance retrieval augmented generation (RAG) results
 
