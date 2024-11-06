@@ -53,7 +53,7 @@ rdctl extension install ghcr.io/rancher-sandbox/rancher-desktop-rdx-open-webui:l
 </Tabs>
 
 :::note
-- The extension will skip the Ollama installation if it is already available on your machine. Otherwise, it downloads and installs Ollama into the extension's installation directory.
+- The extension will skip the Ollama installation if it is already available on your machine in the default installation location. Otherwise, it downloads and installs Ollama into the extension's installation directory.
 - If the host machine has NVIDIA GPU and the respective drivers, Ollama utilizes the host machine's GPU to run inferences.
 :::
 
