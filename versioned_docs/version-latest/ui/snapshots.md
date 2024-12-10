@@ -35,7 +35,7 @@ This is an **experimental** feature.
 
 A snapshot can be used to store the current configuration of your virtual machine and all associated settings. Snapshots are stored in a `snapshots` directory which are created at the below paths respective to your operating system:
 
-- macOS: `~/Library/Application Support/rancher-desktop/snapshots`
+- macOS: `~/Library/Application\ Support/rancher-desktop/snapshots`
 - Linux: `~/.local/share/rancher-desktop/snapshots`
 - Windows: `%LOCALAPPDATA%\rancher-desktop\snapshots`
 

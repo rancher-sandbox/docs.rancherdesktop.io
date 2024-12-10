@@ -26,7 +26,7 @@ Please note that the directory will be deleted during a factory-reset, so ensure
   <TabItem value="macOS">
 
 ```
-~/Library/Application Support/rancher-desktop/lima/_config/override.yaml
+~/Library/Application\ Support/rancher-desktop/lima/_config/override.yaml
 ```
 
   </TabItem>
