@@ -16,7 +16,7 @@ For many `rdctl` commands, there are corresponding `API` calls that can be appli
 Additionally, some examples make use of credentials which can be found in these locations across platforms:
 
 - Linux: ~/.local/share/rancher-desktop/
-- macOS: ~/Library/Application Support/rancher-desktop/
+- macOS: ~/Library/Application\ Support/rancher-desktop/
 - Windows: %LOCALAPPDATA%\rancher-desktop\
 
 :::

@@ -17,7 +17,7 @@ import TabsConstants from '@site/core/TabsConstants';
   <TabItem value="macOS">
 
 ```
-~/Library/Application Support/rancher-desktop/lima/_config/override.yaml
+~/Library/Application\ Support/rancher-desktop/lima/_config/override.yaml
 ```
 
 </TabItem>

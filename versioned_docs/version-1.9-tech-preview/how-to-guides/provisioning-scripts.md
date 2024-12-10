@@ -17,7 +17,7 @@ On macOS and Linux, you can use lima override.yaml to write provisioning scripts
   <TabItem value="macOS">
 
 ```
-~/Library/Application Support/rancher-desktop/lima/_config/override.yaml
+~/Library/Application\ Support/rancher-desktop/lima/_config/override.yaml
 ```
 
   </TabItem>
