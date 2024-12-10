@@ -88,10 +88,10 @@ copy-item -Recurse -Force $env:SOURCEDISK\v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $e
 </TabItem>
   <TabItem value="macOS">
 
-在 macOS 上，缓存目录是 `$HOME/Library/Caches/rancher-desktop`，你可以运行以下命令进行填充：
+在 macOS 上，缓存目录是 `~/Library/Caches/rancher-desktop`，你可以运行以下命令进行填充：
 
 ```
-CACHEDIR=$HOME/Library/Caches/rancher-desktop
+CACHEDIR=~/Library/Caches/rancher-desktop
 mkdir -p $CACHEDIR/k3s
 cp $SOURCEDISK/k3s-versions.json $CACHEDIR/
 cp -r $SOURCEDISK/v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $CACHEDIR/k3s/
@@ -100,10 +100,10 @@ cp -r $SOURCEDISK/v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $CACHEDIR/k3s/
 </TabItem>
   <TabItem value="Linux">
 
-在 Linux 上，缓存目录是 `$HOME/.cache/rancher-desktop`，你可以运行以下命令进行填充：
+在 Linux 上，缓存目录是 `~/.cache/rancher-desktop`，你可以运行以下命令进行填充：
 
 ```
-CACHEDIR=$HOME/.cache/rancher-desktop
+CACHEDIR=~/.cache/rancher-desktop
 mkdir -p $CACHEDIR/k3s
 cp $SOURCEDISK/k3s-versions.json $CACHEDIR/
 cp -r $SOURCEDISK/v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $CACHEDIR/k3s/

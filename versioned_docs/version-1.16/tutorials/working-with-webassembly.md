@@ -21,7 +21,7 @@ Rancher Desktop 1.13 comes bundled with the `containerd-spin-shim-v2` shim prein
 For now additional shims can be installed by the user into the `containerd-shims` cache directory on the host. The location is
 
 - Linux: `~/.local/share/rancher-desktop/containerd-shims`
-- macOS: `~/Library/Application Support/rancher-desktop/containerd-shims`
+- macOS: `~/Library/Application\ Support/rancher-desktop/containerd-shims`
 - Windows: `%LOCALAPPDATA%\rancher-desktop\containerd-shims`
 
 Any shim installed there will automatically be copied into the VM and configured for the container engine when Rancher Desktop is started (installing a newer version of the `spin` shim will override the bundled version).

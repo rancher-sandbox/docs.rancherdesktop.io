@@ -103,10 +103,10 @@ copy-item -Recurse -Force $env:SOURCEDISK\v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $e
   </TabItem>
   <TabItem value="macOS">
 
-On macOS, the cache directory is at `$HOME/Library/Caches/rancher-desktop` and the commands to populate it would be
+On macOS, the cache directory is at `~/Library/Caches/rancher-desktop` and the commands to populate it would be
 
 ```
-CACHEDIR=$HOME/Library/Caches/rancher-desktop
+CACHEDIR=~/Library/Caches/rancher-desktop
 mkdir -p $CACHEDIR/k3s
 cp $SOURCEDISK/k3s-versions.json $CACHEDIR/
 cp -r $SOURCEDISK/v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $CACHEDIR/k3s/
@@ -115,10 +115,10 @@ cp -r $SOURCEDISK/v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $CACHEDIR/k3s/
   </TabItem>
   <TabItem value="Linux">
 
-On Linux, the cache directory is at `$HOME/.cache/rancher-desktop` and the commands to populate it would be
+On Linux, the cache directory is at `~/.cache/rancher-desktop` and the commands to populate it would be
 
 ```
-CACHEDIR=$HOME/.cache/rancher-desktop
+CACHEDIR=~/.cache/rancher-desktop
 mkdir -p $CACHEDIR/k3s
 cp $SOURCEDISK/k3s-versions.json $CACHEDIR/
 cp -r $SOURCEDISK/v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $CACHEDIR/k3s/
