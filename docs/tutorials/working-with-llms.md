@@ -70,7 +70,7 @@ This section provides information and instructions to help you navigate some of 
 
 The extension provides a lightweight LLM called [tinyllama](https://ollama.com/library/tinyllama) out of the box that you can use to start your LLM exploration. Tinyllama is a basic language model good enough to try out simpler text generation and summarization tasks. If you want to perform more advanced tasks, then you need to download bigger models such as llama, mistral, gemma, etc.
 
-You can pull Ollama models via the `Admin Panel > Settings > Models` page. Simply enter the name:tag of the model you want to pull and click on the `pull` button. You can find the full list of available models on the [Ollama Models Library page](https://ollama.com/library).
+You can pull Ollama models via the `Admin Panel > Settings > Connections` page. Simply enter the name:tag of the model you want to pull and click on the `pull` button. You can find the full list of available models on the [Ollama Models Library page](https://ollama.com/library).
 
 ![](../img/working-with-open-webui/pulling-models.png)
 
@@ -90,7 +90,7 @@ Pick the `Q4_K_M` quantization of the `GGUF` models on Huggingface, as this vari
 
 ![](../img/working-with-open-webui/gguf-model-page-hf.png)
 
-- Navigate to the Models page in the Open WebUI, `Admin Panel > Settings > Models`.
+- Navigate to the Models page in the Open WebUI, `Admin Panel > Settings > Connections`.
 - Enter the full model name in the `Pull a model from Ollama.com` field and click on the download button. Once the model is downloaded, you can use it with the Chat and the Playground features.
 
 ![](../img/working-with-open-webui/download-gguf-from-hf.png)
@@ -148,7 +148,7 @@ Using the Playground's Sentence Completion feature, you can provide the initial 
 
 ### Adjusting LLM parameters
 
-Ollama provides flexibility for adjusting LLM parameters to fine-tune model performance for specific tasks. Open WebUI makes it easy to apply the LLM parameters and customize the system prompt at different levels (per-chat basis, per-model basis, and per-account basis) as Chat Parameters. Refer to the [Open WebUI's Chat Parameters documentation](https://docs.openwebui.com/tutorials/features/chat-params) to learn about the different levels you can apply the chat parameters and their overriding behavior.
+Ollama provides flexibility for adjusting LLM parameters to fine-tune model performance for specific tasks. Open WebUI makes it easy to apply the LLM parameters and customize the system prompt at different levels (per-chat basis, per-model basis, and per-account basis) as Chat Parameters. Refer to the [Open WebUI's Chat Parameters documentation](https://docs.openwebui.com/features/chat-params) to learn about the different levels you can apply the chat parameters and their overriding behavior.
 
 :::info
 Refer to [Ollama Model File documentation](https://github.com/ollama/ollama/blob/main/docs/modelfile.md#parameter) for the full list of LLM parameters, their intended purpose, and example usage.
@@ -169,7 +169,7 @@ You can create knowledge collections by simply uploading documents containing yo
 
 #### Web Search
 
-In addition to using local knowledge collections, Open WebUI allows you to perform LIVE web searches to retrieve relevant information to generate better responses. You can use a variety of web search providers as listed in the [Open WebUI's documentation](https://docs.openwebui.com/tutorials/features/web_search).
+In addition to using local knowledge collections, Open WebUI allows you to perform LIVE web searches to retrieve relevant information to generate better responses. You can use a variety of web search providers as listed in the [Open WebUI's documentation](https://docs.openwebui.com/features/web_search).
 
 Rancher Desktop's Open WebUI extension installs and configures [SearXNG](https://docs.searxng.org/), a free internet metasearch engine, to enable you use web search out of the box. 
 
@@ -192,7 +192,7 @@ You can use both Knowledge Collections and Web Search to augment the LLM's respo
 :::
 
 :::info
-Open WebUI provides advanced configuration to fine-tune the Retrieval Augmented Generation process, which allows you to use alternate embedding models, provide a more suitable prompt template, configure the chunk parameters, and much more. You can perform this advanced configuration on the `Admin Panel > Settings > Documents` page. To learn more, refer to the [Open WebUI's Retrieval Augmented Generation documentation](https://docs.openwebui.com/tutorials/features/rag).
+Open WebUI provides advanced configuration to fine-tune the Retrieval Augmented Generation process, which allows you to use alternate embedding models, provide a more suitable prompt template, configure the chunk parameters, and much more. You can perform this advanced configuration on the `Admin Panel > Settings > Documents` page. To learn more, refer to the [Open WebUI's Retrieval Augmented Generation documentation](https://docs.openwebui.com/features/rag).
 :::
 
 ### Customizing Models
