@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
   <TabItem value="macOS" default>
 
 ```
-~/Library/Application Support/rancher-desktop/lima/_config/override.yaml
+~/Library/Application\ Support/rancher-desktop/lima/_config/override.yaml
 ```
 
 </TabItem>

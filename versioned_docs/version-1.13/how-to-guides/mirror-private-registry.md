@@ -18,7 +18,7 @@ Below is an example [provisioning script](../how-to-guides/provisioning-scripts.
 Check if you have the `override.yaml` file in the path below, otherwise you can create the file in the path with the suggested provisioning commands.
 
 Override File Path:
-`$HOME/.local/share/rancher-desktop/lima/_config/override.yaml`
+`~/.local/share/rancher-desktop/lima/_config/override.yaml`
 
 Example Script:
 ```bash
@@ -50,7 +50,7 @@ Below is an example [provisioning script](../how-to-guides/provisioning-scripts.
 Check if you have the `override.yaml` file in the path below, otherwise you can create the file in the path with the suggested provisioning commands.
 
 Override File Path:
-`$HOME/Library/Application Support/rancher-desktop/lima/_config/override.yaml`
+`~/Library/Application\ Support/rancher-desktop/lima/_config/override.yaml`
 
 Example Script:
 

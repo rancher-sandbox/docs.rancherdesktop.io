@@ -22,7 +22,7 @@ First, use lima override.yaml to write the provisioning scripts.
   <TabItem value="macOS">
 
 ```
-~/Library/Application Support/rancher-desktop/lima/_config/override.yaml
+~/Library/Application\ Support/rancher-desktop/lima/_config/override.yaml
 ```
 
   </TabItem>
