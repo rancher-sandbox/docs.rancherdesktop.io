@@ -81,6 +81,18 @@ export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl shell ip a show vznat | awk '/inet /
 
 </details>
 
+#### Docker Socket
+
+<details>
+<summary>Workaround Summary</summary>
+
+Alternatively, you can point the Rancher Desktop Docker socket to the default location of the Docker socket, the following command makes a symbolic link:
+
+```bash
+sudo ln -s ${HOME}/.rd/docker.sock /var/run/docker.sock
+```
+</details>
+
 After the respective virtual machine settings have been applied, and the repository is downloaded, please navigate to the `testcontainers-java-repro` folder and run the command `mvn verify`.
 
 ```shell
@@ -91,6 +103,18 @@ After the command has been run, you should see a `BUILD SUCCESS` with test stati
 
 </TabItem>
 <TabItem value="Intel">
+
+#### Docker Socket
+
+<details>
+<summary>Workaround Summary</summary>
+
+Alternatively, you can point the Rancher Desktop Docker socket to the default location of the Docker socket, the following command makes a symbolic link:
+
+```bash
+sudo ln -s ${HOME}/.rd/docker.sock /var/run/docker.sock
+```
+</details>
 
 After the repository is downloaded, please navigate to the `testcontainers-java-repro` folder and run the command `mvn verify`.
 
