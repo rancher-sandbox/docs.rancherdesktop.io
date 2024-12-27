@@ -94,6 +94,7 @@ while (<>) {
         }
         if (/^```/) {
             $state = COPY;
+            $newlines = 0;
         }
         if ($state eq UPDATE || $state eq COMMAND) {
             # preserve trailing newlines of skipped output
