@@ -38,11 +38,11 @@ to take the machine offline for future use.
 
 Suppose there are three versions of `k3s` in the `rancher-desktop` cache.
 
+- 1.29.7
+
 - 1.24.3
 
 - 1.21.14
-
-- 1.19.16
 
 But suppose that on this system we only ran `kubectl` when using versions `1.24.3` and `1.21.14`. This means that
 the `~/.kuberlr/PLATFORM-ARCH/` directory (`$env:HOMEDRIVE%\$env:HOMEPATH/.kuberlr/windows-amd64` on Windows) will contain only two files:
@@ -51,8 +51,8 @@ the `~/.kuberlr/PLATFORM-ARCH/` directory (`$env:HOMEDRIVE%\$env:HOMEPATH/.kuber
 
 - kubectl1.21.14
 
-If we go offline and use the UI to switch to Kubernetes `1.19.16`, when `kubectl` is run, the system will fail.
-The problem is that `kubectl` is an alias for `kuberlr`, which will try to download `kubectl 1.19.16` and install it
+If we go offline and use the UI to switch to Kubernetes `1.29.7`, when `kubectl` is run, the system will fail.
+The problem is that `kubectl` is an alias for `kuberlr`, which will try to download `kubectl 1.29.7` and install it
 in the `.kuberlr` directory, but won't be able to access it.
 
 So in this case, it would be best to prepare a connected system for disconnecting by selecting each available version of 
@@ -71,11 +71,12 @@ There are two directories that need to be populated in order for Rancher Desktop
 
 To populate a source disk (which we refer to here as `%SOURCEDISK%`, although it is probably some kind of removable medium like a USB thumb drive), you need the following files:
 
-* `k3s-versions.json` -- this file is created by Rancher Desktop. It reads a raw JSON file from `https://update.k3s.io/v1-release/channels` and converts it into a different kind of JSON file. Currently there is no utility to do that conversion; the easiest way to get this file is to run Rancher Desktop on a connected system and save the `CACHE/k3s-versions.json` file (see below for where `CACHE` exists on different platforms).
+* `k3s-versions.json` -- Rancher Desktop ships with a copy of this file that is up-to-date on the release date of the app. It will update it with new `k3s` versions as they become available. You can download the latest version from the GitHub repo (see sample commands below), or edit an existing file to add additional `k3s` versions. If all your offline `k3s` versions are named in the bundled `k3s-versions.json` file, then you don't need to include this file at all.
 * Tar archives of Kubernetes K3s images. These are listed at https://github.com/k3s-io/k3s/releases. You'll want to download either the `k3s-airgap-images-amd64.tar` for AMD/Intel machines, `k3s-airgap-images-arm64.tar` for M1 machines, or the respective `*.tar.zst` compressed tarball if you are using `k3s` v1.26.1 and above. Finally you'll need to download the `k3s` executable for the selected version. For example, the following commands will let you work with K3s v1.24.3 build 1 offline:
 
 ```
 cd .../CACHE
+wget https://raw.githubusercontent.com/rancher-sandbox/rancher-desktop/refs/heads/main/resources/k3s-versions.json
 mkdir v1.24.3+k3s1
 cd v1.24.3+k3s1
 wget https://github.com/k3s-io/k3s/releases/download/v1.24.3%2Bk3s1/k3s-airgap-images-amd64.tar
