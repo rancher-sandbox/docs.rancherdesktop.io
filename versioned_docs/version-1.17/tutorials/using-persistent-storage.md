@@ -85,7 +85,7 @@ docker container run --rm -it --mount=type=bind,source=$(pwd)/src,target=/app/sr
 nerdctl container run --rm -it --mount=type=bind,source=%cd%/src,target=/app/src alpine:latest /bin/sh
 
 // Powershell
-nerdctl container run --rm -it --mount=type=bind,source=${pwd}/src,target=/app/src alpine:latest /bin/sh
+nerdctl container run --rm -it --mount="type=bind,source=${pwd}/src,target=/app/src" alpine:latest /bin/sh
 ```
   </TabItem>
   <TabItem value="docker">
@@ -95,7 +95,7 @@ nerdctl container run --rm -it --mount=type=bind,source=${pwd}/src,target=/app/s
 docker container run --rm -it --mount=type=bind,source=%cd%/src,target=/app/src alpine:latest /bin/sh
 
 // Powershell
-docker container run --rm -it --mount=type=bind,source=${pwd}/src,target=/app/src alpine:latest /bin/sh
+docker container run --rm -it --mount="type=bind,source=${pwd}/src,target=/app/src" alpine:latest /bin/sh
 ```
   </TabItem>
 </Tabs>
