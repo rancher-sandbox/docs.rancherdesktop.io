@@ -78,15 +78,13 @@ Rancher Desktop requires the following on Windows:
 - Running on a machine with [virtualization capabilities].
 - Persistent internet connection.
 
-Rancher Desktop requires [Windows Subsystem for Linux] on Windows; this will
-automatically be installed as part of the Rancher Desktop setup.  Manually
-downloading a distribution is not necessary.
-
-[Windows Subsystem for Linux]:
-https://docs.microsoft.com/en-us/windows/wsl/install-win10
+Rancher Desktop requires [Windows Subsystem for Linux] on Windows.  This must be
+installed prior to running the Rancher Desktop installer.
 
 [virtualization capabilities]:
 https://docs.microsoft.com/en-us/windows/wsl/troubleshooting#error-0x80370102-the-virtual-machine-could-not-be-started-because-a-required-feature-is-not-installed
+
+[Windows Subsystem for Linux]: https://aka.ms/wslinstall
 
 It is also recommended to have:
 
