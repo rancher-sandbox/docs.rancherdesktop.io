@@ -148,7 +148,7 @@ Using the Playground's Sentence Completion feature, you can provide the initial 
 
 ### Adjusting LLM parameters
 
-Ollama provides flexibility for adjusting LLM parameters to fine-tune model performance for specific tasks. Open WebUI makes it easy to apply the LLM parameters and customize the system prompt at different levels (per-chat basis, per-model basis, and per-account basis) as Chat Parameters. Refer to the [Open WebUI's Chat Parameters documentation](https://docs.openwebui.com/features/chat-features/chat-params) to learn about the different levels you can apply the chat parameters and their overriding behavior.
+Ollama provides flexibility for adjusting LLM parameters to fine-tune model performance for specific tasks. Open WebUI makes it easy to apply the LLM parameters and customize the system prompt at different levels (per-chat basis, per-model basis, and per-account basis) as Chat Parameters. Refer to the [Open WebUI documentation](https://docs.openwebui.com) to learn about the different levels you can apply the chat parameters and their overriding behavior.
 
 :::info
 Refer to [Ollama Model File documentation](https://github.com/ollama/ollama/blob/main/docs/modelfile.md#parameter) for the full list of LLM parameters, their intended purpose, and example usage.
@@ -169,7 +169,7 @@ You can create knowledge collections by simply uploading documents containing yo
 
 #### Web Search
 
-In addition to using local knowledge collections, Open WebUI allows you to perform LIVE web searches to retrieve relevant information to generate better responses. You can use a variety of web search providers as listed in the [Open WebUI's documentation](https://docs.openwebui.com/tutorials/integrations/web_search).
+In addition to using local knowledge collections, Open WebUI allows you to perform LIVE web searches to retrieve relevant information to generate better responses. Please refer to the [Open WebUI documentation](https://docs.openwebui.com) to learn about the available web search providers.
 
 Rancher Desktop's Open WebUI extension installs and configures [SearXNG](https://docs.searxng.org/), a free internet metasearch engine, to enable you use web search out of the box. 
 
@@ -192,7 +192,7 @@ You can use both Knowledge Collections and Web Search to augment the LLM's respo
 :::
 
 :::info
-Open WebUI provides advanced configuration to fine-tune the Retrieval Augmented Generation process, which allows you to use alternate embedding models, provide a more suitable prompt template, configure the chunk parameters, and much more. You can perform this advanced configuration on the `Admin Panel > Settings > Documents` page. To learn more, refer to the [Open WebUI's Retrieval Augmented Generation documentation](https://docs.openwebui.com/features/rag).
+Open WebUI provides advanced configuration to fine-tune the Retrieval Augmented Generation process, which allows you to use alternate embedding models, provide a more suitable prompt template, configure the chunk parameters, and much more. You can perform this advanced configuration on the `Admin Panel > Settings > Documents` page. To learn more, refer to the [Open WebUI documentation](https://docs.openwebui.com).
 :::
 
 ### Customizing Models
