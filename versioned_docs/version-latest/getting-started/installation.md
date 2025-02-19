@@ -95,7 +95,6 @@ Additional resources may be required depending on the workloads you plan to run.
 
 **Note:** You can use Rancher Desktop as a Non-Admin user on a Windows machine. However, an Admin's intervention is required during the installation process for the below components.
 
-- **WSL2** - You need Admin privileges to install WSL2, which is an essential component of Rancher Desktop.
 - **Rancher Desktop Privileged Service** - You need Admin privileges to install the Rancher Desktop privileged service, which is required to expose applications/services, running inside containers, on all interfaces on the host machine. However, you can skip the installation of the Rancher Desktop Privileged Service with the limitation that you will not be able to expose applications/services on any interface except `127.0.0.1`.
 
 ### Installing Rancher Desktop on Windows
@@ -231,9 +230,7 @@ sudo apt update
 
 ### Installing via .rpm Package
 
-**Note:** RHEL, Fedora, and related distributions package QEMU, which Rancher Desktop
-uses on Linux, differently than other distributions. To use Rancher Desktop on these
-distributions, please use the AppImage.
+#### openSUSE
 
 To add the repository and install on openSUSE:
 
@@ -242,22 +239,46 @@ sudo zypper addrepo https://download.opensuse.org/repositories/isv:/Rancher:/sta
 sudo zypper install rancher-desktop
 ```
 
+#### Fedora
+
+To add the repository and install on Fedora:
+
+```bash
+sudo dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/isv:/Rancher:/stable/fedora/isv:Rancher:stable.repo
+sudo dnf install rancher-desktop
+```
+
+:::note
+
+The Fedora packages are not tested against RHEL and related distributions; please use the AppImage
+instead.
+
+:::
 
 ### Uninstalling .rpm Package
 
 Ensure that Rancher Desktop has exited (if not, it should appear in the dock) and do:
+
+#### openSUSE
 
 ```
 sudo zypper remove --clean-deps rancher-desktop
 sudo zypper removerepo isv_Rancher_stable
 ```
 
+#### Fedora
+
+```
+sudo dnf remove rancher-desktop
+sudo rm '/etc/yum.repos.d/isv:Rancher:stable.repo'
+```
 
 ### Installing via AppImage
 
-First, ensure that `pass` and `gpg` are installed. For example, on Fedora:
+First, ensure that `pass` and `gpg` are installed. For example, on Rocky:
 
 ```
+# Enabled EPEL following upstream documentation; this is elided here.
 dnf install pass gnupg2
 ```
 

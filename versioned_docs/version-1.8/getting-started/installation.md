@@ -94,8 +94,8 @@ Additional resources may be required depending on the workloads you plan to run.
 
 **Note:** You can use Rancher Desktop as a Non-Admin user on a Windows machine. However, an Admin's intervention is required during the installation process for the below components.
 
-- **WSL2 - ** You need Admin privileges to install WSL2, which is an essential component of Rancher Desktop.
-- **Rancher Desktop Privileged Service - ** You need Admin privileges to install the Rancher Desktop privileged service, which is required to expose applications/services, running inside containers, on all interfaces on the host machine. However, you can skip the installation of the Rancher Desktop Privileged Service with the limitation that you will not be able to expose applications/services on any interface except `127.0.0.1`.
+- **WSL2** - You need Admin privileges to install WSL2, which is an essential component of Rancher Desktop.
+- **Rancher Desktop Privileged Service** - You need Admin privileges to install the Rancher Desktop privileged service, which is required to expose applications/services, running inside containers, on all interfaces on the host machine. However, you can skip the installation of the Rancher Desktop Privileged Service with the limitation that you will not be able to expose applications/services on any interface except `127.0.0.1`.
 
 ### Installing Rancher Desktop on Windows
 
