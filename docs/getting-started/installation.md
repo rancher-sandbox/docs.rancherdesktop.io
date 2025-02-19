@@ -231,10 +231,7 @@ sudo apt update
 
 ### Installing via .rpm Package
 
-**Note:** RHEL, Fedora, and related distributions package QEMU, which Rancher Desktop
-uses on Linux, differently than other distributions. To use Rancher Desktop on these
-distributions, please use the AppImage.
-
+#### openSUSE
 To add the repository and install on openSUSE:
 
 ```
@@ -242,22 +239,43 @@ sudo zypper addrepo https://download.opensuse.org/repositories/isv:/Rancher:/sta
 sudo zypper install rancher-desktop
 ```
 
+#### Fedora
+To add the repository and install on Fedora:
+
+```bash
+sudo dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/isv:/Rancher:/stable/fedora/isv:Rancher:stable.repo
+sudo dnf install rancher-desktop
+```
+
+:::note
+
+The Fedora packages are not tested against RHEL and related distributions; please use the AppImage
+instead.
+
+:::
 
 ### Uninstalling .rpm Package
 
 Ensure that Rancher Desktop has exited (if not, it should appear in the dock) and do:
 
+#### openSUSE
 ```
 sudo zypper remove --clean-deps rancher-desktop
 sudo zypper removerepo isv_Rancher_stable
 ```
 
+#### Fedora
+```
+sudo dnf remove rancher-desktop
+sudo rm '/etc/yum.repos.d/isv:Rancher:stable.repo'
+```
 
 ### Installing via AppImage
 
-First, ensure that `pass` and `gpg` are installed. For example, on Fedora:
+First, ensure that `pass` and `gpg` are installed. For example, on Rocky:
 
 ```
+# Enabled EPEL following upstream documentation; this is elided here.
 dnf install pass gnupg2
 ```
 
