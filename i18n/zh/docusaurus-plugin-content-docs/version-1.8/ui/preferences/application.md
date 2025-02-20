@@ -14,7 +14,7 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Windows_application_tabGeneral.png)
+![](rd-versioned-asset://preferences/Windows_application_tabGeneral.png)
 
 #### Automatic Updates
 
@@ -27,7 +27,7 @@ import TabsConstants from '@site/core/TabsConstants';
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabGeneral.png)
+![](rd-versioned-asset://preferences/macOS_application_tabGeneral.png)
 
 #### Administrative Access
 
@@ -44,7 +44,7 @@ import TabsConstants from '@site/core/TabsConstants';
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabGeneral.png)
+![](rd-versioned-asset://preferences/Linux_application_tabGeneral.png)
 
 #### Administrative Access
 
@@ -68,7 +68,7 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Windows_application_tabBehavior.png)
+![](rd-versioned-asset://preferences/Windows_application_tabBehavior.png)
 
 #### Startup
 
@@ -89,7 +89,7 @@ Rancher Desktop 通过通知图标来显示应用程序的状态。图标的右�
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabBehavior.png)
+![](rd-versioned-asset://preferences/macOS_application_tabBehavior.png)
 
 #### Startup
 
@@ -110,7 +110,7 @@ Rancher Desktop 通过菜单栏中的通知图标来显示应用程序状态。�
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabBehavior.png)
+![](rd-versioned-asset://preferences/Linux_application_tabBehavior.png)
 
 #### Startup
 
@@ -138,7 +138,7 @@ Rancher Desktop 通过通知图标来显示应用程序的状态。图标的右�
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/macOS_application_tabEnvironment.png)
+![](rd-versioned-asset://preferences/macOS_application_tabEnvironment.png)
 
 #### 配置 PATH
 
@@ -154,7 +154,7 @@ Rancher Desktop 附带命令行实用程序，用于与其各种功能交互。�
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/preferences/Linux_application_tabEnvironment.png)
+![](rd-versioned-asset://preferences/Linux_application_tabEnvironment.png)
 
 #### 配置 PATH
 

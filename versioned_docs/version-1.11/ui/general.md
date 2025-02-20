@@ -14,17 +14,17 @@ The **General** tab provides information on communication channels where users c
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/Windows_General.png)
+![](rd-versioned-asset://ui-main/Windows_General.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/macOS_General.png)
+![](rd-versioned-asset://ui-main/macOS_General.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.11/ui-main/Linux_General.png)
+![](rd-versioned-asset://ui-main/Linux_General.png)
 
 </TabItem>
 </Tabs>

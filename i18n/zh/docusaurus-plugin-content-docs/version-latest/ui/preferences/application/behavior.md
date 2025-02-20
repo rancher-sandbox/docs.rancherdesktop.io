@@ -10,7 +10,7 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Windows_application_tabBehavior.png)
+![](rd-versioned-asset://preferences/Windows_application_tabBehavior.png)
 
 #### Startup
 
@@ -35,7 +35,7 @@ Rancher Desktop 通过通知图标来显示应用程序的状态。图标的右�
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_application_tabBehavior.png)
+![](rd-versioned-asset://preferences/macOS_application_tabBehavior.png)
 
 #### Startup
 
@@ -60,7 +60,7 @@ Rancher Desktop 通过菜单栏中的通知图标来显示应用程序状态。�
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Linux_application_tabBehavior.png)
+![](rd-versioned-asset://preferences/Linux_application_tabBehavior.png)
 
 #### Startup
 

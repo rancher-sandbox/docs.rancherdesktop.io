@@ -21,7 +21,7 @@ Rancher Desktop 扩展在 `v1.9.0-tech-preview` 或更高版本中提供。
 
 单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。你可以在此处搜索可用的扩展，并单击 **Install** 按钮进行下载和安装。
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/Windows_Extensions.png)
+![](rd-versioned-asset://ui-main/Windows_Extensions.png)
 
 #### 使用命令行
 
@@ -44,7 +44,7 @@ rdctl extension install <image-id>:<tag>
 
 单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。你可以在此处搜索可用的扩展，并单击 **Install** 按钮进行下载和安装。
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/macOS_Extensions.png)
+![](rd-versioned-asset://ui-main/macOS_Extensions.png)
 
 #### 使用命令行
 
@@ -67,7 +67,7 @@ rdctl extension install <image-id>:<tag>
 
 单击主 UI 中的 **Extensions** 并导航到 **Catalog** 选项卡。你可以在此处搜索可用的扩展，并单击 **Install** 按钮进行下载和安装。
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/Linux_Extensions.png)
+![](rd-versioned-asset://ui-main/Linux_Extensions.png)
 
 #### 使用命令行
 
@@ -100,12 +100,12 @@ rdctl extension install <image-id>:<tag>
 <Tabs>
 <TabItem value="Catalog">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/Windows_Extensions.png)
+![](rd-versioned-asset://ui-main/Windows_Extensions.png)
 
 </TabItem>
 <TabItem value="Installed">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/Windows_Extensions-Installed.png)
+![](rd-versioned-asset://ui-main/Windows_Extensions-Installed.png)
 
 </TabItem>
 </Tabs>
@@ -134,12 +134,12 @@ rdctl extension uninstall <image-id>:<tag>
 <Tabs>
 <TabItem value="Catalog">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/macOS_Extensions.png)
+![](rd-versioned-asset://ui-main/macOS_Extensions.png)
 
 </TabItem>
 <TabItem value="Installed">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/macOS_Extensions-Installed.png)
+![](rd-versioned-asset://ui-main/macOS_Extensions-Installed.png)
 
 </TabItem>
 </Tabs>
@@ -168,12 +168,12 @@ rdctl extension uninstall <image-id>:<tag>
 <Tabs>
 <TabItem value="Catalog">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/Linux_Extensions.png)
+![](rd-versioned-asset://ui-main/Linux_Extensions.png)
 
 </TabItem>
 <TabItem value="Installed">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.10/ui-main/Linux_Extensions-Installed.png)
+![](rd-versioned-asset://ui-main/Linux_Extensions-Installed.png)
 
 </TabItem>
 </Tabs>

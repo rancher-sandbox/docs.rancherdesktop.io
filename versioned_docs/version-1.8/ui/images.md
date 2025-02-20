@@ -18,17 +18,17 @@ To manage your images using nerdctl instead, refer to the [Images](../tutorials/
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/ui-main/Windows_Images.png)
+![](rd-versioned-asset://ui-main/Windows_Images.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/ui-main/macOS_Images.png)
+![](rd-versioned-asset://ui-main/macOS_Images.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.8/ui-main/Linux_Images.png)
+![](rd-versioned-asset://ui-main/Linux_Images.png)
 
 </TabItem>
 </Tabs>

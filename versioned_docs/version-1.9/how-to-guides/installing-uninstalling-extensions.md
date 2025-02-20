@@ -23,7 +23,7 @@ There are two ways in which you can install extensions, a method using the UI an
 
 Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use which can be downloaded and installed using the **Install** button.
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Windows_Extensions.png) 
+![](rd-versioned-asset://ui-main/Windows_Extensions.png) 
 
 #### Using the Command Line
 
@@ -46,7 +46,7 @@ rdctl extension install <image-id>:<tag>
 
 Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use which can be downloaded and installed using the **Install** button.
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_Extensions.png)
+![](rd-versioned-asset://ui-main/macOS_Extensions.png)
 
 #### Using the Command Line
 
@@ -69,7 +69,7 @@ rdctl extension install <image-id>:<tag>
 
 Click **Extensions** from the main UI to navigate to the **Catalog** tab. Here you can search through extensions available for use which can be downloaded and installed using the **Install** button.
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Linux_Extensions.png)
+![](rd-versioned-asset://ui-main/Linux_Extensions.png)
 
 #### Using the Command Line
 
@@ -102,12 +102,12 @@ Click **Extensions** from the main UI to navigate to the **Catalog** tab. On thi
 <Tabs>
 <TabItem value="Catalog">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Windows_Extensions.png)
+![](rd-versioned-asset://ui-main/Windows_Extensions.png)
 
 </TabItem>
 <TabItem value="Installed">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Windows_Extensions-Installed.png)
+![](rd-versioned-asset://ui-main/Windows_Extensions-Installed.png)
 
 </TabItem>
 </Tabs>
@@ -136,12 +136,12 @@ Click **Extensions** from the main UI to navigate to the **Catalog** tab. On thi
 <Tabs>
 <TabItem value="Catalog">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_Extensions.png)
+![](rd-versioned-asset://ui-main/macOS_Extensions.png)
 
 </TabItem>
 <TabItem value="Installed">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_Extensions-Installed.png)
+![](rd-versioned-asset://ui-main/macOS_Extensions-Installed.png)
 
 </TabItem>
 </Tabs>
@@ -170,12 +170,12 @@ Click **Extensions** from the main UI to navigate to the **Catalog** tab. On thi
 <Tabs>
 <TabItem value="Catalog">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Linux_Extensions.png)
+![](rd-versioned-asset://ui-main/Linux_Extensions.png)
 
 </TabItem>
 <TabItem value="Installed">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Linux_Extensions-Installed.png)
+![](rd-versioned-asset://ui-main/Linux_Extensions-Installed.png)
 
 </TabItem>
 </Tabs>

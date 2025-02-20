@@ -3,7 +3,7 @@ sidebar_label: 网络
 title: 网络（macOS）
 ---
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_virtualMachine_tabNetwork.png)
+![](rd-versioned-asset://preferences/macOS_virtualMachine_tabNetwork.png)
 
 ### 启用 socket-vmnet
 

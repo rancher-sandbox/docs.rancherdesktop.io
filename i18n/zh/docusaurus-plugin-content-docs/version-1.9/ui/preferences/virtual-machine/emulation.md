@@ -3,13 +3,13 @@ sidebar_label: 仿真
 title: 仿真（macOS）
 ---
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_virtualMachine_tabEmulation.png)
+![](rd-versioned-asset://preferences/macOS_virtualMachine_tabEmulation.png)
 
 ### QEMU
 
 [QEMU](https://www.qemu.org/documentation/) 选项默认启用，用于运行来宾操作系统。
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_virtualMachine_tabEmulation_vz.png)
+![](rd-versioned-asset://preferences/macOS_virtualMachine_tabEmulation_vz.png)
 
 ### VZ
 

@@ -13,17 +13,17 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![Containers_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.15/ui-main/Windows_Containers.png)
+![Containers_Example](rd-versioned-asset://ui-main/Windows_Containers.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![Containers_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.15/ui-main/macOS_Containers.png)
+![Containers_Example](rd-versioned-asset://ui-main/macOS_Containers.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![Containers_Example](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.15/ui-main/Linux_Containers.png)
+![Containers_Example](rd-versioned-asset://ui-main/Linux_Containers.png)
 
 </TabItem>
 </Tabs>

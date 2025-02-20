@@ -3,7 +3,7 @@ sidebar_label: 网络
 title: 网络（Windows）
 ---
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_wsl_tabNetwork.png)
+![](rd-versioned-asset://preferences/Windows_wsl_tabNetwork.png)
 
 ### Networking Tunnel
 
