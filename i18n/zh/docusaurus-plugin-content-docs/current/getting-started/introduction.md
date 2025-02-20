@@ -7,7 +7,7 @@ import TabsConstants from '@site/core/TabsConstants';
 
 Rancher Desktop 是一款在桌面上提供容器和 Kubernetes 管理的应用。它适用于 Mac（包括 Intel 和 Apple 芯片）、Windows 和 Linux。
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/getting-started/introduction_preferences_tabKubernetes.png)
+![](rd-versioned-asset://getting-started/introduction_preferences_tabKubernetes.png)
 
 _上图左边是 Mac 上的 Kubernetes 设置，右边是 Windows。_
 

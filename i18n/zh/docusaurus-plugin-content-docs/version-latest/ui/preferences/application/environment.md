@@ -10,7 +10,7 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/macOS_application_tabEnvironment.png)
+![](rd-versioned-asset://preferences/macOS_application_tabEnvironment.png)
 
 #### 配置 PATH
 
@@ -26,7 +26,7 @@ Rancher Desktop 附带命令行实用程序，用于与其各种功能交互。�
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.10/preferences/Linux_application_tabEnvironment.png)
+![](rd-versioned-asset://preferences/Linux_application_tabEnvironment.png)
 
 #### 配置 PATH
 

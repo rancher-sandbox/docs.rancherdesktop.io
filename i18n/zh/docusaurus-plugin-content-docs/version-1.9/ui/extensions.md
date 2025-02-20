@@ -14,17 +14,17 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Windows_Extensions.png)
+![](rd-versioned-asset://ui-main/Windows_Extensions.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_Extensions.png)
+![](rd-versioned-asset://ui-main/macOS_Extensions.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Linux_Extensions.png)
+![](rd-versioned-asset://ui-main/Linux_Extensions.png)
 
 </TabItem>
 </Tabs>
@@ -40,17 +40,17 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Windows_Extensions-Installed.png)
+![](rd-versioned-asset://ui-main/Windows_Extensions-Installed.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/macOS_Extensions-Installed.png)
+![](rd-versioned-asset://ui-main/macOS_Extensions-Installed.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.us-east-1.amazonaws.com/desktop/v1.9/ui-main/Linux_Extensions-Installed.png)
+![](rd-versioned-asset://ui-main/Linux_Extensions-Installed.png)
 
 </TabItem>
 </Tabs>

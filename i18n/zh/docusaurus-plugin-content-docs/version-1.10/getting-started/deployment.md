@@ -60,23 +60,23 @@ Rancher Desktop 不会修改或删除部署配置文件。它们不会受到恢�
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_containerEngine_tabAllowedImages_lockedFields.png)
+![](rd-versioned-asset://preferences/Windows_containerEngine_tabAllowedImages_lockedFields.png)
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_kubernetes_lockedFields.png)
+![](rd-versioned-asset://preferences/Windows_kubernetes_lockedFields.png)
 
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_containerEngine_tabAllowedImages_lockedFields.png)
+![](rd-versioned-asset://preferences/macOS_containerEngine_tabAllowedImages_lockedFields.png)
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_kubernetes_lockedFields.png)
+![](rd-versioned-asset://preferences/macOS_kubernetes_lockedFields.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_containerEngine_tabAllowedImages_lockedFields.png)
+![](rd-versioned-asset://preferences/Linux_containerEngine_tabAllowedImages_lockedFields.png)
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_kubernetes_lockedFields.png)
+![](rd-versioned-asset://preferences/Linux_kubernetes_lockedFields.png)
 
 </TabItem>
 </Tabs>

@@ -16,12 +16,12 @@ import TabsConstants from '@site/core/TabsConstants';
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.15/preferences/macOS_virtualMachine_tabVolumes.png)
+![](rd-versioned-asset://preferences/macOS_virtualMachine_tabVolumes.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.15/preferences/Linux_virtualMachine_tabVolumes.png)
+![](rd-versioned-asset://preferences/Linux_virtualMachine_tabVolumes.png)
 
 </TabItem>
 </Tabs>
@@ -33,12 +33,12 @@ Users can enable the "[reverse-sshfs](https://github.com/lima-vm/lima/blob/maste
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.15/preferences/macOS_virtualMachine_tabVolumes_9P.png)
+![](rd-versioned-asset://preferences/macOS_virtualMachine_tabVolumes_9P.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.15/preferences/Linux_virtualMachine_tabVolumes_9P.png)
+![](rd-versioned-asset://preferences/Linux_virtualMachine_tabVolumes_9P.png)
 
 </TabItem>
 </Tabs>
@@ -68,12 +68,12 @@ Users can select a supported security model with options being `[passthrough, ma
 <Tabs groupId="os">
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.15/preferences/macOS_virtualMachine_tabVolumes.png)
+![](rd-versioned-asset://preferences/macOS_virtualMachine_tabVolumes.png)
 
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.15/preferences/Linux_virtualMachine_tabVolumes.png)
+![](rd-versioned-asset://preferences/Linux_virtualMachine_tabVolumes.png)
 
 </TabItem>
 </Tabs>

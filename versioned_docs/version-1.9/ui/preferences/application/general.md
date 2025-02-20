@@ -12,7 +12,7 @@ Allows for enablement of automatic updates, as well as an optional field to allo
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Windows_application_tabGeneral.png)
+![](rd-versioned-asset://preferences/Windows_application_tabGeneral.png)
 
 #### Automatic Updates
 
@@ -25,7 +25,7 @@ This option allows Rancher Desktop to collect information on how you interact wi
 </TabItem>
 <TabItem value="macOS">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/macOS_application_tabGeneral.png)
+![](rd-versioned-asset://preferences/macOS_application_tabGeneral.png)
 
 #### Administrative Access
 
@@ -42,7 +42,7 @@ This option allows Rancher Desktop to collect information on how you interact wi
 </TabItem>
 <TabItem value="Linux">
 
-![](https://suse-rancher-media.s3.amazonaws.com/desktop/v1.9/preferences/Linux_application_tabGeneral.png)
+![](rd-versioned-asset://preferences/Linux_application_tabGeneral.png)
 
 #### Administrative Access
 
