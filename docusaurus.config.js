@@ -1,6 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+import RDVersionedAssets from './src/remark/rd-versioned-assets.js';
+
 const lightCodeTheme = require('prism-react-renderer').themes.github;
 const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
@@ -43,6 +45,7 @@ const config = {
               banner: "none"
             },
           },
+          remarkPlugins: [RDVersionedAssets],
         },
         blog: false,
         theme: {
