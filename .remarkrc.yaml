@@ -6,9 +6,8 @@ plugins:
 - - remark-lint-no-dead-urls
   - skipUrlPatterns:
     - https://rancher.rd.localhost
-    - https://openai.com/api/
-    - https://docs.openwebui.com/
-    - https://openwebui.com/
+    - https://openai.com/api/ # CloudFlare challenge
+    - https://openwebui.com/ # CloudFlare challenge
     - https://download.opensuse.org/repositories/isv:/Rancher:/stable/AppImage/rancher-desktop-latest-x86_64.AppImage
       # Skip the AppImage download check; sometimes mirrors fall over.
     skipLocalhost: true
