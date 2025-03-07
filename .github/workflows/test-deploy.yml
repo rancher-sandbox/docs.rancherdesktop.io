@@ -4,19 +4,28 @@ on:
   pull_request:
     branches: [main]
 
+permissions: {}
+
 jobs:
   test-deploy:
     name: Test deployment
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
         with:
-          node-version: 18.x
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Check links
-        run: yarn run remark --use remark-validate-links --use remark-lint-no-dead-urls=skipUrlPatterns:[\'https://rancher.rd.localhost\',\'https://openai.com/api/\',\'https://docs.openwebui.com/\',\'https://openwebui.com/\'],skipLocalhost:true --quiet --frail ./docs/ ./versioned_docs/
+        run: >-
+          yarn run remark
+          --rc-path .remarkrc.yaml
+          --frail
+          ./docs/
+          ./versioned_docs/
       - name: Test build
         run: yarn build
