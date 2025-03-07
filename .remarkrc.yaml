@@ -9,4 +9,6 @@ plugins:
     - https://openai.com/api/
     - https://docs.openwebui.com/
     - https://openwebui.com/
+    - https://download.opensuse.org/repositories/isv:/Rancher:/stable/AppImage/rancher-desktop-latest-x86_64.AppImage
+      # Skip the AppImage download check; sometimes mirrors fall over.
     skipLocalhost: true
