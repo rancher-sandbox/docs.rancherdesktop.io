@@ -27,8 +27,8 @@ After Rancher Desktop is installed, users will have access to these supporting u
 
 Rancher Desktop requires the following on macOS:
 
-- macOS Catalina 10.15 or higher.
-- Apple Silicon (M1) or Intel CPU with VT-x.
+- macOS 13 (Ventura) or higher.
+- Apple Silicon (aarch64) or Intel (x86_64) CPU with VT-x.
 - Persistent internet connection.
 
 It is also recommended to have:
