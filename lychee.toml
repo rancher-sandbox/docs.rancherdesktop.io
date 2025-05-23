@@ -1,0 +1,19 @@
+# Avoid running out of file handles on macOS
+max_concurrency = 64
+
+exclude_loopback = true
+
+exclude = [
+    # Websites using "bot protection" and returning 403 errors
+    "^https://openai.com/",
+    "^https://openwebui.com/",
+    "^https://stackoverflow.com/",
+    # Skip the AppImage download check; sometimes mirrors fall over.
+    "^https://download.opensuse.org/repositories/isv:/Rancher:/stable/AppImage/rancher-desktop-latest-x86_64.AppImage",
+    # URLs for development examples, not actual web pages
+    "^http://demo.local(dev|test).me",
+    # URLs for proxy rules, not actual web pages
+    "^https://desktop.version.rancher.io/v1/checkupgrade",
+    "^https://github.com/k3s-io/k3s/releases/download",
+    "^https://storage.googleapis.com/kubernetes-release/release",
+]
