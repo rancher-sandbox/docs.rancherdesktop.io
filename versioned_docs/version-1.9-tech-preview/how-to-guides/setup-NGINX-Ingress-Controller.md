@@ -48,7 +48,7 @@ kubectl expose deployment demo
 5. Create an ingress resource. The following command uses a host that maps to localhost.
 
 ```
-kubectl create ingress demo-localhost --class=nginx --rule="demo.localdev.me/*=demo:80"
+kubectl create ingress demo-localhost --class=nginx --rule="demo.localtest.me/*=demo:80"
 ```
 
 6. Forward a local port to the ingress controller.
@@ -57,4 +57,4 @@ kubectl create ingress demo-localhost --class=nginx --rule="demo.localdev.me/*=d
 kubectl port-forward --namespace=ingress-nginx service/ingress-nginx-controller 8080:80
 ```
 
-If you access http://demo.localdev.me:8080/, you should see NGINX Welcome page.
+If you access http://demo.localtest.me:8080/, you should see NGINX Welcome page.
