@@ -18,14 +18,13 @@ jobs:
         with:
           node-version: 'lts/*'
           cache: yarn
+      - name: Check links
+        run: |
+          set -e
+          curl -sfLO https://github.com/lycheeverse/lychee/releases/download/lychee-v0.18.1/lychee-x86_64-unknown-linux-gnu.tar.gz
+          tar xfvz lychee-x86_64-unknown-linux-gnu.tar.gz
+          ./lychee "docs/**/*.md" "versioned_docs/**/*.md"
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Check links
-        run: >-
-          yarn run remark
-          --rc-path .remarkrc.yaml
-          --frail
-          ./docs/
-          ./versioned_docs/
       - name: Test build
         run: yarn build

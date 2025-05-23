@@ -3,7 +3,7 @@ title: Using Persistent Storage
 ---
 
 <head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/tutorials/working-with-storage"/>
+  <link rel="canonical" href="https://docs.rancherdesktop.io/tutorials/using-persistent-storage/"/>
 </head>
 
 Containers are, by design, ephemeral and stateless. However, most real-world use cases require containers to produce or consume data that often needs to be persisted. To address this challenge, container engines offer mechanisms such as **Bind mounts** and **Volumes**. Both the docker and nerdctl CLIs provide options `-v` and `--mount` to start a container with a bind mount or a volume.
