@@ -8,6 +8,7 @@ The **Rancher Desktop Open WebUI extension** provides an easy-to-install setup, 
 - [Open WebUI](https://openwebui.com/) to chat with the LLMs, use custom knowledge, web search, etc., via a feature rich Graphical User Interface (GUI)
 - A lightweight LLM called [tinyllama](https://ollama.com/library/tinyllama) to enable you to kickstart your LLM exploration
 - [SearXNG](https://github.com/searxng/searxng) for web search, to enhance retrieval augmented generation (RAG) results
+- [mcpo](https://github.com/open-webui/mcpo) to run [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) servers in a container
 
 ## Installing the Open WebUI extension
 
@@ -200,6 +201,75 @@ Open WebUI provides advanced configuration to fine-tune the Retrieval Augmented 
 Open WebUI provides features to let you customize the downloaded models for your specific domain, use cases, etc. You can customize models on the `Workspace > Models` page. You can create a model by extending one of the existing models. You can customize the models by tweaking the chat parameters, including knowledge collections, etc. The custom models created here can then be used with the Chat and Playground features.
 
 ![](../img/working-with-open-webui/customize-models.png)
+
+### Using Model Context Protocol (MCP)
+
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open standard introduced by [Anthropic](https://www.anthropic.com/) that aims to make connecting LLMs to tools and data sources as easy as plugging in a device. The Open WebUI extension includes an MCP-to-OpenAPI proxy called [mcpo](https://github.com/open-webui/mcpo), which takes an MCP tool server (which typically communicates via a local stdio interface) and exposes it as a standard RESTful OpenAPI endpoint. The extension also bundles 2 sample MCP servers, [mcp-server-docker](https://github.com/ckreiling/mcp-server-docker), [mcp-server-kubernetes](https://github.com/Flux159/mcp-server-kubernetes) that let you interact with the local container engine (dockerd(moby) only) and Kubernetes. You need to enable dockerd(moby) and/or Kubernetes to use the respective MCP server.
+
+#### Steps to enable the bundled MCP servers
+
+- Navigate to the `Admin Panel > Settings > Tools` section.
+- Click on the `+` to add a new MCP server tool. 
+- Add the Docker MCP server.
+  - Add `http://host.docker.internal:11600/docker-mcp` in the URL field and leave the rest of fields to their defaults.
+- Add the Kubernetes MCP server.
+  - Add `http://host.docker.internal:11600/docker-mcp` in the URL field and leave the rest of fields to their defaults.
+- Navigate to `Admin Panel > Settings > Models` and click on the edit button (pencil icon) for the model you want to use. 
+- Under the `Advanced Params`, set the `Function Calling` paramater to `Native`.
+- On the same page, You should see `Docker-MCP` and `Kubernetes-Mcp-Server` under Tools. Select both of them.
+- Click `Save & Update` to save the changes.
+- Click on `New Chat` at the top left corner of the window. Select the model you just edited. 
+- Try a prompt such as `List my docker volumes in a table`
+
+
+#### Steps to add MCP servers
+
+:::danger
+IMPORTANT: Don't install MCP servers that you don't trust
+:::
+
+- You can try other MCP servers by adding the respective server configuration in the file `<extension-installation-dir>/compose/linux/mcpo/config.json`. You can find a number of community provided MCP servers on this page - https://github.com/modelcontextprotocol/servers.
+
+
+- For example, you can add a community developed MCP server, [mcp-searxng](https://github.com/ihor-sokoliuk/mcp-searxng), to the config.json as shown below.
+
+```
+{
+  "mcpServers": {
+    "docker-mcp": {
+      "command": "uvx",
+      "args": [
+        "docker-mcp"
+      ]
+    },
+    "kubernetes": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "kubernetes-mcp-server@latest"
+      ]
+    },
+    "searxng": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-searxng"
+      ],
+      "env": {
+        "SEARXNG_URL": "http://host.docker.internal:11505"
+      }
+    }
+  }
+}
+```
+- Restart the mcpo container to make it use the updated config.json. You can use Rancher Desktop's Containers page to stop and start the mcpo container.
+
+- Finally, follow the steps provided in the previous section to add the new MCP server endpoint as a tool, and enable the tool for a desired model. The URL of the MCP server tool would be `http://host.docker.internal:11600/<mcp-server-name>`. You can find the MCP server's name on `http://localhost:11600/docs`
+
+
+:::note
+The MCP servers added to the config.json file are not persisted between Rancher Desktop restarts at this time.
+:::
 
 ## Uninstalling the extension
 
