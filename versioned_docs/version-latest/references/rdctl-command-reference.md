@@ -335,10 +335,10 @@ Global Flags:
 ```console autoupdate=true
 $ rdctl list-settings
 {
-  "version": 14,
+  "version": 15,
   "application": {
     "adminAccess": false,
-    "debug": true,
+    "debug": false,
     "extensions": {
       "allowed": {
         "enabled": false,
@@ -351,7 +351,7 @@ $ rdctl list-settings
       "enabled": true
     },
     "updater": {
-      "enabled": true
+      "enabled": false
     },
     "autoStart": false,
     "startInBackground": false,
@@ -369,15 +369,17 @@ $ rdctl list-settings
   },
   "virtualMachine": {
     "memoryInGB": 6,
-    "numberCPUs": 2
+    "numberCPUs": 2,
+    "type": "qemu",
+    "useRosetta": false
   },
   "WSL": {
     "integrations": {}
   },
   "kubernetes": {
-    "version": "",
+    "version": "1.32.5",
     "port": 6443,
-    "enabled": false,
+    "enabled": true,
     "options": {
       "traefik": true,
       "flannel": true
@@ -413,8 +415,6 @@ $ rdctl list-settings
       }
     },
     "virtualMachine": {
-      "type": "vz",
-      "useRosetta": false,
       "mount": {
         "type": "reverse-sshfs",
         "9p": {
@@ -578,7 +578,6 @@ Use "rdctl snapshot [command] --help" for more information about a command.
 $ rdctl snapshot create example_snapshot
 $ rdctl snapshot delete example_snapshot
 $ rdctl snapshot list --json
-{"created":"2024-12-16T13:44:18.330826-08:00","name":"vz_emulation","description":""}
 ```
 
 </details>
@@ -624,8 +623,6 @@ Flags:
       --experimental.virtual-machine.mount.9p.protocol-version string   (allowed values: [9p2000, 9p2000.u, 9p2000.L])
       --experimental.virtual-machine.mount.9p.security-model string     (allowed values: [passthrough, mapped-xattr, mapped-file, none])
       --experimental.virtual-machine.mount.type string                  how directories are shared (allowed values: [reverse-sshfs, 9p, virtiofs])
-      --experimental.virtual-machine.type string                        (allowed values: [qemu, vz])
-      --experimental.virtual-machine.use-rosetta                        
   -h, --help                                                            help for start
       --images.namespace string                                         select only images from this namespace (containerd only)
       --images.show-all                                                 show system images on Images page
@@ -639,6 +636,8 @@ Flags:
       --port-forwarding.include-kubernetes-services                     show Kubernetes system services on Port Forwarding page
       --virtual-machine.memory-in-gb int                                reserved RAM size
       --virtual-machine.number-cpus int                                 reserved number of CPUs
+      --virtual-machine.type string                                     (allowed values: [qemu, vz])
+      --virtual-machine.use-rosetta
 
 Global Flags:
       --config-path string   config file (default .../rancher-desktop/rd-engine.json)
@@ -683,7 +682,7 @@ Run `rdctl version` to see the current rdctl CLI version.
 
 ```console autoupdate=true
 $ rdctl version
-rdctl client version: 1.1.0, targeting server version: v1
+rdctl client version: v1.19.0, targeting server version: v1
 ```
 
 </details>
