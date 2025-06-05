@@ -33,7 +33,15 @@ This option allows Rancher Desktop to collect information on how you interact wi
 
 #### Administrative Access
 
-Allows Rancher Desktop to acquire administrative access (sudo access) when starting for some operations. This allows for enhanced functionality, including bridged networking and default docker socket support. Changes will only be applied next time Rancher Desktop starts.
+Enabling Administrative Access allows Rancher Desktop to create the Docker socket at the default location: `/var/run/docker.sock`. Without this access, the socket is instead created at `~/.rd/docker.sock` and is accessible via the `rancher-desktop` Docker context. Most applications support Docker contexts and do not require the socket to be at the default location.
+
+Administrative Access also enables the use of a bridged IP address that is reachable from both the host and other machines on the local network. Since Rancher Desktop automatically forwards container ports to the host, this is usually not necessary—unless containers need to be accessed from other devices on the network.
+
+:::note
+The external IP address is provided via Apple’s vmnet framework. This framework starts the [mDNSResponder](https://github.com/apple-oss-distributions/mDNSResponder#mdns-responder-daemon) component of macOS, which uses port 53. As a result, when Administrative Access is enabled, running a DNS server in a container and forwarding port 53 to the host is not possible.
+:::
+
+Rancher Desktop will prompt for an administrator username and password when Administrative Access is first enabled, and again the first time it is launched after a system reboot (since /var/run/docker.sock is deleted at boot).
 
 #### Automatic Updates
 
@@ -52,7 +60,9 @@ This option allows Rancher Desktop to collect information on how you interact wi
 
 #### Administrative Access
 
-Allows Rancher Desktop to acquire administrative access (sudo access) when starting for some operations. This allows for enhanced functionality, including bridged networking and default docker socket support. Changes will only be applied next time Rancher Desktop starts.
+Enabling Administrative Access allows Rancher Desktop to create the Docker socket at the default location: `/var/run/docker.sock`. Without this access, the socket is instead created at `~/.rd/docker.sock` and is accessible via the `rancher-desktop` Docker context. Most applications support Docker contexts and do not require the socket to be at the default location.
+
+Rancher Desktop will prompt for an administrator username and password when Administrative Access is first enabled, and again the first time it is launched after a system reboot (since /var/run/docker.sock is deleted at boot).
 
 #### Automatic Updates
 
