@@ -4,7 +4,6 @@ title: Network (Windows)
 ---
 
 <head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/wsl/network"/>
 </head>
 
 ![](rd-versioned-asset://preferences/Windows_wsl_tabNetwork.png)
