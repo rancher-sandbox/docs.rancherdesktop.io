@@ -4,7 +4,6 @@ title: Network (macOS)
 ---
 
 <head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/virtual-machine/network"/>
 </head>
 
 ![](rd-versioned-asset://preferences/macOS_virtualMachine_tabNetwork.png)
