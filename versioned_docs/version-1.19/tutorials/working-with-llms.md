@@ -213,7 +213,7 @@ Open WebUI provides features to let you customize the downloaded models for your
 - Add the Docker MCP server.
   - Add `http://host.docker.internal:11600/docker-mcp` in the URL field and leave the rest of fields to their defaults.
 - Add the Kubernetes MCP server.
-  - Add `http://host.docker.internal:11600/docker-mcp` in the URL field and leave the rest of fields to their defaults.
+  - Add `http://host.docker.internal:11600/kubernetes` in the URL field and leave the rest of fields to their defaults.
 - Navigate to `Admin Panel > Settings > Models` and click on the edit button (pencil icon) for the model you want to use. 
 - Under the `Advanced Params`, set the `Function Calling` paramater to `Native`.
 - On the same page, You should see `Docker-MCP` and `Kubernetes-Mcp-Server` under Tools. Select both of them.
