@@ -79,6 +79,6 @@ This option requires that the [WebAssembly](./container-engine/general.md) suppo
 
 :::note
 
-Rancher Desktop automatically installs the [spin cli](https://developer.fermyon.com/spin/v2/index) and the [kube plugin](https://github.com/spinkube/spin-plugin-kube) to help develop and deploy Spin applications on Kubernetes.
+Rancher Desktop automatically installs the [spin cli](https://spinframework.dev/v2/index) and the [kube plugin](https://github.com/spinkube/spin-plugin-kube) to help develop and deploy Spin applications on Kubernetes.
 
 :::

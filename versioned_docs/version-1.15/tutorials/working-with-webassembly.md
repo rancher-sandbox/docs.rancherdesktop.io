@@ -38,7 +38,7 @@ Developing Wasm applications on your local machine on top of Rancher Desktop typ
 
 ### Creating a Simple App and Compiling It Into a Wasm Module
 
-You can use the Spin framework from Fermyon to quickly bootstrap a simple Wasm app. Install Spin on your machine following the instructions on the [Installing Spin](https://developer.fermyon.com/spin/v2/install) page.
+You can use the Spin framework from Fermyon to quickly bootstrap a simple Wasm app. Install Spin on your machine following the instructions on the [Installing Spin](https://spinframework.dev/v2/install) page.
 
 Once you have successfully installed Spin, create a new app via the command `spin new`. 
 
