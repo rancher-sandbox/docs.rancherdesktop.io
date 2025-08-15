@@ -35,6 +35,7 @@ const sidebars = {
       items: [
         "ui/general",
         "ui/containers",
+        "ui/volumes",
         "ui/port-forwarding",
         "ui/images",
         "ui/snapshots",
