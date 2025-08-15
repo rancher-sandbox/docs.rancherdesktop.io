@@ -16,4 +16,6 @@ exclude = [
     "^https://desktop.version.rancher.io/v1/checkupgrade",
     "^https://github.com/k3s-io/k3s/releases/download",
     "^https://storage.googleapis.com/kubernetes-release/release",
+    # Repo has been deleted, needs to be fixed: https://github.com/rancher-sandbox/docs.rancherdesktop.io/issues/442
+    "^https://github.com/bwateratmsft/samples",
 ]
