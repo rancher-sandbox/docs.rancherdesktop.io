@@ -9,7 +9,6 @@ title: Containers
 
 import TabsConstants from '@site/core/TabsConstants';
 
-<!--- Insert S3 Image Here Once Uploaded -->
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
@@ -47,6 +46,10 @@ The **Containers** tab offers quick access to manage containers and view key inf
 - `Started`:
   Container start-up times will be listed in this field and can be sorted.
 
+The information is updated automatically as containers are created, started, stopped, or deleted.
+
+Containers are grouped together by Kubernetes pod, or by `docker-compose` deployment. The remaining containers are grouped as "Standalone Containers".
+
 The listed information can be sorted in ascending or descending order. Containers can also be filtered with input text in the `Filter` field located at the top right. Bulk selection is available for managing multiple instances at once.
 
 Additionally, when using the `containerd` engine, you can use the `Namespace` dropdown selector to help with filtering containers. The dropdown will be located next to the `Filter` field and shows namespaces in your cluster when clicked.
@@ -66,4 +69,26 @@ The following actions are available:
 - `Delete`:
   You can delete container instances from your system entirely by using the `Delete` button.
 - `⋮`:
-  This button is located on the right side of the tab view. You can start, stop, or delete container instances depending on their  state using the `⋮` button.
+  This button is located on the right side of the tab view. You can start, stop, or delete container instances depending on their state, and you can also view the logs of a container.
+
+### Container Logs
+
+The **Logs** view shows an automatically updating, scrolling view of the logs of a container. The **Search** box can be used to locate a string in the logs.
+
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![Container Logs_Example](rd-versioned-asset://ui-main/Windows_Container-Logs.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![Container Logs_Example](rd-versioned-asset://ui-main/macOS_Container-Logs.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![Container Logs_Example](rd-versioned-asset://ui-main/Linux_Container-Logs.png)
+
+</TabItem>
+</Tabs>
