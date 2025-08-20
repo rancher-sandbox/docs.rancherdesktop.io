@@ -171,11 +171,23 @@ Windows Registry Editor Version 5.00
 
 On macOS the deployment profiles are stored as plist files.
 
-The locations for the profiles are:
+The locations for the system profiles are:
+
+```
+/Library/Managed Preferences/io.rancherdesktop.profile.defaults.plist
+/Library/Managed Preferences/io.rancherdesktop.profile.locked.plist
+```
+
+If neither of these exists, then Rancher Desktop will check the backup locations (which were the default until Rancher Desktop 1.19):
 
 ```
 /Library/Preferences/io.rancherdesktop.profile.defaults.plist
 /Library/Preferences/io.rancherdesktop.profile.locked.plist
+```
+
+The locations for the user profiles are:
+
+```
 ~/Library/Preferences/io.rancherdesktop.profile.defaults.plist
 ~/Library/Preferences/io.rancherdesktop.profile.locked.plist
 ```
@@ -274,11 +286,23 @@ plutil -insert containerEngine.allowedImages.patterns -string nginx -append "$LO
 
 On Linux the deployment profiles are stored in JSON format.
 
-The locations for the profiles are:
+The locations for the system profiles are:
 
 ```
 /etc/rancher-desktop/defaults.json
 /etc/rancher-desktop/locked.json
+```
+
+If neither of these exists, then Rancher Desktop will check the backup locations (starting with Rancher Desktop 1.20):
+
+```
+/usr/etc/rancher-desktop/defaults.json
+/usr/etc/rancher-desktop/locked.json
+```
+
+The locations for the user profiles are:
+
+```
 ~/.config/rancher-desktop.defaults.json
 ~/.config/rancher-desktop.locked.json
 ```
