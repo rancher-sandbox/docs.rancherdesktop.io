@@ -55,9 +55,9 @@ Available Commands:
   completion     Generate the autocompletion script for the specified shell
   create-profile Generate a deployment profile in either macOS plist or Windows registry format
   extension      Manage extensions
-  factory-reset  Clear all the Rancher Desktop state and shut it down.
   help           Help about any command
   list-settings  Lists the current settings.
+  reset          Reset Rancher Desktop
   set            Update selected fields in the Rancher Desktop UI and restart the backend.
   shell          Run an interactive shell or a command in a Rancher Desktop-managed VM
   shutdown       Shuts down the running Rancher Desktop application
@@ -103,6 +103,7 @@ GET /v1/extensions
 POST /v1/extensions/install
 POST /v1/extensions/uninstall
 PUT /v1/factory_reset
+PUT /v1/k8s_reset
 DELETE /v1/port_forwarding
 POST /v1/port_forwarding
 PUT /v1/propose_settings
@@ -143,6 +144,7 @@ GET /v1/extensions
 POST /v1/extensions/install
 POST /v1/extensions/uninstall
 PUT /v1/factory_reset
+PUT /v1/k8s_reset
 DELETE /v1/port_forwarding
 POST /v1/port_forwarding
 PUT /v1/propose_settings
@@ -335,7 +337,7 @@ Global Flags:
 ```console autoupdate=true
 $ rdctl list-settings
 {
-  "version": 15,
+  "version": 16,
   "application": {
     "adminAccess": false,
     "debug": false,
@@ -371,13 +373,16 @@ $ rdctl list-settings
     "memoryInGB": 6,
     "numberCPUs": 2,
     "type": "qemu",
-    "useRosetta": false
+    "useRosetta": false,
+    "mount": {
+      "type": "reverse-sshfs"
+    }
   },
   "WSL": {
     "integrations": {}
   },
   "kubernetes": {
-    "version": "1.32.5",
+    "version": "1.33.3",
     "port": 6443,
     "enabled": true,
     "options": {
@@ -416,7 +421,6 @@ $ rdctl list-settings
     },
     "virtualMachine": {
       "mount": {
-        "type": "reverse-sshfs",
         "9p": {
           "securityModel": "none",
           "protocolVersion": "9p2000.L",
@@ -440,7 +444,8 @@ $ rdctl list-settings
           "224.0.0.0/4",
           "240.0.0.0/4"
         ]
-      }
+      },
+      "sshPortForwarder": true
     }
   }
 }
@@ -622,7 +627,7 @@ Flags:
       --experimental.virtual-machine.mount.9p.msize-in-kib int          maximum packet size
       --experimental.virtual-machine.mount.9p.protocol-version string   (allowed values: [9p2000, 9p2000.u, 9p2000.L])
       --experimental.virtual-machine.mount.9p.security-model string     (allowed values: [passthrough, mapped-xattr, mapped-file, none])
-      --experimental.virtual-machine.mount.type string                  how directories are shared (allowed values: [reverse-sshfs, 9p, virtiofs])
+      --experimental.virtual-machine.ssh-port-forwarder                 use SSH for port forwarding instead of gRPC
   -h, --help                                                            help for start
       --images.namespace string                                         select only images from this namespace (containerd only)
       --images.show-all                                                 show system images on Images page
@@ -635,6 +640,7 @@ Flags:
   -p, --path string                                                     path to main executable
       --port-forwarding.include-kubernetes-services                     show Kubernetes system services on Port Forwarding page
       --virtual-machine.memory-in-gb int                                reserved RAM size
+      --virtual-machine.mount.type string                               how directories are shared; 9p is experimental. (allowed values: [reverse-sshfs, 9p, virtiofs])
       --virtual-machine.number-cpus int                                 reserved number of CPUs
       --virtual-machine.type string                                     (allowed values: [qemu, vz])
       --virtual-machine.use-rosetta
@@ -682,7 +688,7 @@ Run `rdctl version` to see the current rdctl CLI version.
 
 ```console autoupdate=true
 $ rdctl version
-rdctl client version: v1.19.0, targeting server version: v1
+rdctl client version: v1.20.0, targeting server version: v1
 ```
 
 </details>
