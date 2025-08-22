@@ -7,22 +7,16 @@ title: Emulation (macOS)
   <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/virtual-machine/emulation"/>
 </head>
 
+### VZ
+
+ ![](rd-versioned-asset://preferences/macOS_virtualMachine_tabEmulation_vz.png)
+
+The **VZ** option is enabled by default and uses the native macOS [Virtualization.Framework](https://developer.apple.com/documentation/virtualization) for running a guest machine. You can switch the virtual machine type after the first run.
+
+The suboption **VZ option** can also be enabled if using **VZ** as your virtual machine type. The suboption enables [Rosetta support](https://developer.apple.com/documentation/virtualization/running_intel_binaries_in_linux_vms_with_rosetta) and allows users to run applications that contain x86_64 instructions on Apple hardware.
+
 ### QEMU
 
  ![](rd-versioned-asset://preferences/macOS_virtualMachine_tabEmulation.png)
 
-The [**QEMU**](https://www.qemu.org/documentation/) option is enabled by default and turns on a guest operating system. You can switch the virtual machine type after the first run.
-
-### VZ
-
- ![](rd-versioned-asset://preferences/macOS_virtualMachine_tabEmulation.png)
-
-:::caution warning
-
-This is an *experimental* setting. The setting is available for ARM machines on  macOS 13.3 or later, and Intel machines on macOS 13.0 or later.
-
-:::
-
-You can also enable the **VZ** option to use the native macOS [Virtualization.Framework](https://developer.apple.com/documentation/virtualization) for running a guest machine.
-
-The suboption **VZ option** can also be enabled if using **VZ** as your virtual machine type. The suboption enables [Rosetta support](https://developer.apple.com/documentation/virtualization/running_intel_binaries_in_linux_vms_with_rosetta) and allows users to run applications that contain x86_64 instructions on Apple hardware.
+You can also enable the [**QEMU**](https://www.qemu.org/documentation/) option to use QEMU for running a guest operating system.
