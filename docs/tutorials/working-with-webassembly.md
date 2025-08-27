@@ -9,7 +9,7 @@ title: Working with WebAssembly
 Rancher Desktop 1.13.0 added experimental support for running WebAssembly (Wasm) applications. This feature needs to be enabled in  [Preferences > Container Engine > General](../ui/preferences/container-engine/general.md).
 
 :::caution warning
-Note that when using the `moby` container engine, enabling the Wasm feature switches to a different image store, so previously built or downloaded images will not be available and must be built or downloaded again. The images are not lost; Rancher Desktop will switch back to the old image store when Wasm is disabled again.
+Note that when using the `moby` container engine, enabling the Wasm feature may switch to a different image store.  Previously built or downloaded images will not be available and must be built or downloaded again.  It will not be possible to switch back to the original image store.  All new Rancher Desktop instances default to the new image store regardless of the Wasm feature.  You can confirm that you are using the Wasm-compatible image store by running `docker info` and looking for a line containing `driver-type: io.containerd.snapshotter.v1`.
 :::
 
 ## Managing containerd Wasm shims
