@@ -10,7 +10,7 @@ Rancher Desktop provides a **single cluster with single node** setup, which is a
 
 ### Steps to spin up a multi-node cluster
 
-1. Make sure **dockerd(moby)** is selected as the Container Runtime in the **Kubernetes Settings** page.
+1. Make sure **dockerd(moby)** is selected as the Container Engine in the **Container Engine** Preferences page.
 
 2. Install k3d.
 
