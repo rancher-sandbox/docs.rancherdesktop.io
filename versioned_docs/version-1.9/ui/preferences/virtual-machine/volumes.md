@@ -24,7 +24,7 @@ import TabsConstants from '@site/core/TabsConstants';
 </TabItem>
 </Tabs>
 
-Users can enable the "[reverse-sshfs](https://github.com/lima-vm/lima/blob/master/docs/mount.md#reverse-sshfs)" mount type from the `Volumes` tab. This exposes the filesystem by running an SFTP server on the host. The host instance will then intitiate an SSH connection into the guest allowing it to connect to the SFTP server. This is the default mount type used in the application.
+Users can enable the "[reverse-sshfs](https://lima-vm.io/docs/config/mount/#reverse-sshfs)" mount type from the `Volumes` tab. This exposes the filesystem by running an SFTP server on the host. The host instance will then intitiate an SSH connection into the guest allowing it to connect to the SFTP server. This is the default mount type used in the application.
 
 ### 9p
 
