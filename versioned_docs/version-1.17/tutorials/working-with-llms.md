@@ -151,7 +151,7 @@ Using the Playground's Sentence Completion feature, you can provide the initial 
 Ollama provides flexibility for adjusting LLM parameters to fine-tune model performance for specific tasks. Open WebUI makes it easy to apply the LLM parameters and customize the system prompt at different levels (per-chat basis, per-model basis, and per-account basis) as Chat Parameters. Refer to the [Open WebUI documentation](https://docs.openwebui.com) to learn about the different levels you can apply the chat parameters and their overriding behavior.
 
 :::info
-Refer to [Ollama Model File documentation](https://github.com/ollama/ollama/blob/main/docs/modelfile.md#parameter) for the full list of LLM parameters, their intended purpose, and example usage.
+Refer to [Ollama Model File documentation](https://github.com/ollama/ollama/blob/main/docs/modelfile.mdx#parameter) for the full list of LLM parameters, their intended purpose, and example usage.
 :::
 
 For example, you can use the sliding control panel on the right to set the system prompt and adjust LLM parameters at the individual chat level.
