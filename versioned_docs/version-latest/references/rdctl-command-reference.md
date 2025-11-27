@@ -56,6 +56,7 @@ Available Commands:
   create-profile Generate a deployment profile in either macOS plist or Windows registry format
   extension      Manage extensions
   help           Help about any command
+  info           Return information about Rancher Desktop
   list-settings  Lists the current settings.
   reset          Reset Rancher Desktop
   set            Update selected fields in the Rancher Desktop UI and restart the backend.
@@ -372,17 +373,17 @@ $ rdctl list-settings
   "virtualMachine": {
     "memoryInGB": 6,
     "numberCPUs": 2,
-    "type": "qemu",
+    "type": "vz",
     "useRosetta": false,
     "mount": {
-      "type": "reverse-sshfs"
+      "type": "virtiofs"
     }
   },
   "WSL": {
     "integrations": {}
   },
   "kubernetes": {
-    "version": "1.33.3",
+    "version": "1.33.6",
     "port": 6443,
     "enabled": true,
     "options": {
@@ -406,7 +407,11 @@ $ rdctl list-settings
   },
   "diagnostics": {
     "showMuted": false,
-    "mutedChecks": {}
+    "mutedChecks": {},
+    "connectivity": {
+      "interval": 5000,
+      "timeout": 5000
+    }
   },
   "experimental": {
     "containerEngine": {
@@ -420,6 +425,7 @@ $ rdctl list-settings
       }
     },
     "virtualMachine": {
+      "diskSize": "100GiB",
       "mount": {
         "9p": {
           "securityModel": "none",
@@ -620,9 +626,12 @@ Flags:
       --container-engine.name string                                    set engine (allowed values: [containerd, docker, moby])
       --containers.namespace string                                     select only namespaces from this namespace (containerd only)
       --containers.show-all                                             show system containers on Containers page
+      --diagnostics.connectivity.interval int                           Number of milliseconds before polling for network access; set this to zero to disable background connectivity checking.
+      --diagnostics.connectivity.timeout int                            Number of milliseconds to wait before timing out
       --diagnostics.show-muted                                          unhide muted diagnostics
       --experimental.container-engine.web-assembly.enabled              enable support for containerd-wasm shims
       --experimental.kubernetes.options.spinkube                        install spin operator
+      --experimental.virtual-machine.disk-size string                   desired size of the disk; changing this setting will not shrink existing disks (example: 10GiB)
       --experimental.virtual-machine.mount.9p.cache-mode string         (allowed values: [none, loose, fscache, mmap])
       --experimental.virtual-machine.mount.9p.msize-in-kib int          maximum packet size
       --experimental.virtual-machine.mount.9p.protocol-version string   (allowed values: [9p2000, 9p2000.u, 9p2000.L])
@@ -688,7 +697,7 @@ Run `rdctl version` to see the current rdctl CLI version.
 
 ```console autoupdate=true
 $ rdctl version
-rdctl client version: v1.20.0, targeting server version: v1
+rdctl client version: v1.21.0, targeting server version: v1
 ```
 
 </details>
