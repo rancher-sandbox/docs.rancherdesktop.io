@@ -31,6 +31,12 @@ https://github.com/rancher-sandbox/rancher-desktop/issues
 
 **:warning: Please note that shutting down WSL will stop all other distros along with the `rancher-desktop` distro.**
 
+### Images
+
+#### Q: My Docker images have disappeared after upgrading Rancher Desktop or toggling WebAssembly support. Where did they go?
+
+**A:** Rancher Desktop stores moby (docker) images in two locations: the classic storage driver and the containerd snapshotter. Each location hides images stored in the other. Your images still exist but are in the inactive storage location. See [Migrating Moby Images Between Storage Drivers](./how-to-guides/migrating-images.md) for migration instructions.
+
 ### Installation
 
 <!-- #966 -->
