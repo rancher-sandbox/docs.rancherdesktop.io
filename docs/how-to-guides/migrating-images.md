@@ -18,13 +18,15 @@ Images stored in one storage driver remain invisible when using the other. Image
 
 Images can accumulate in both storage drivers through several paths:
 
-1. **Upgrading Rancher Desktop on Windows**: In version 1.21, a bug switched all Windows moby users with existing images to the containerd snapshotter. Those images became inaccessible.
+1. **Upgrading Rancher Desktop on Windows**
+   In version 1.21, a bug switched all Windows moby users with existing images to the containerd snapshotter. Those images became inaccessible.
 
-2. **Enabling WebAssembly support**: Enabling WebAssembly switches to the containerd snapshotter. Existing images in the classic storage driver become inaccessible.
+2. **Enabling WebAssembly support**
+   Enabling WebAssembly switches to the containerd snapshotter. Existing images in the classic storage driver become inaccessible.
 
 ## Detecting Hidden Images
 
-Rancher Desktop includes a diagnostic check that detects images in an inactive storage driver. View diagnostics in the **Troubleshooting** tab to see whether images exist in both storage locations or only in the inactive driver.
+Rancher Desktop includes a diagnostic check that detects images in an inactive storage driver. View the [**Diagnostics**](../ui/diagnostics) tab to see whether images exist in both storage locations or only in the inactive driver.
 
 ## Switching Between Storage Drivers
 
@@ -42,9 +44,9 @@ With `auto`, Rancher Desktop selects the containerd snapshotter if any of the fo
 - Data exists in the containerd snapshotter
 - No data exists in the classic driver
 
-Otherwise, the classic driver is used.
+Otherwise, the classic storage driver is used.
 
-To switch to the classic driver and access older images:
+To switch to the classic storage driver and access older images:
 
 ```
 rdctl set --container-engine.moby-storage-driver=classic
@@ -66,14 +68,14 @@ To transfer images from one storage driver to the other:
 
 2. Export the images to a tar archive:
    ```
-   docker save -o images.tar image1:tag1 image2:tag2
+   docker save --output images.tar image1:tag1 image2:tag2
    ```
 
 3. Switch to the target storage driver.
 
 4. Import the images:
    ```
-   docker load -i images.tar
+   docker load --input images.tar
    ```
 
 See [Transfer Container Images](./transfer-container-images.md) for details on saving and loading images.
@@ -86,8 +88,9 @@ To reclaim disk space used by an inactive storage driver, either perform a manua
 
 1. Switch to the storage driver containing the images you want to delete.
 
-2. Remove all containers (required before removing images they use):
+2. Stop and remove all containers (required before removing images they use):
    ```
+   docker stop $(docker ps --quiet)
    docker container prune
    ```
 
@@ -114,4 +117,4 @@ The containerd snapshotter is the recommended storage driver for most users. It 
 - WebAssembly workload support
 - Alignment with the container ecosystem's direction
 
-After migrating images to the snapshotter, delete the remaining data in the classic storage as described above. With no data in the classic driver, the `auto` setting will select the containerd snapshotter.
+After migrating images to the snapshotter, delete the remaining data in the classic storage as described above. With no data in the classic storage driver, the `auto` setting will select the containerd snapshotter.
