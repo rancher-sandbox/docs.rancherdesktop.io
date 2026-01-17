@@ -26,7 +26,7 @@ Images can accumulate in both storage drivers through several paths:
 
 ## Detecting Hidden Images
 
-Rancher Desktop includes a diagnostic check that detects images in an inactive storage driver. View the [**Diagnostics**](../ui/diagnostics) tab to see whether images exist in both storage locations or only in the inactive driver.
+Rancher Desktop includes a diagnostic check that detects images in an inactive storage driver. View the [**Diagnostics**](../ui/diagnostics.md) tab to see whether images exist in both storage locations or only in the inactive driver.
 
 ## Switching Between Storage Drivers
 
@@ -86,23 +86,24 @@ To reclaim disk space used by an inactive storage driver, either perform a manua
 
 ### Manual Cleanup
 
-1. Switch to the storage driver containing the images you want to delete.
+1. Disable Kubernetes if enabled (kubelet recreates deleted containers).
 
-2. Stop and remove all containers (required before removing images they use):
+2. Switch to the storage driver containing the images you want to delete.
+
+3. Stop and remove all containers (required before removing images they use):
    ```
    docker stop $(docker ps --quiet)
    docker container prune
    ```
 
-3. Remove the images:
+4. Remove the images:
    ```
    docker image prune --all
    ```
 
-4. Switch back to `auto`:
-   ```
-   rdctl set --container-engine.moby-storage-driver=auto
-   ```
+5. Switch the storage driver back to `auto`.
+
+6. Re-enable Kubernetes if desired.
 
 ### Factory Reset
 
