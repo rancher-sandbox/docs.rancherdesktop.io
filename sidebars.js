@@ -104,6 +104,7 @@ const sidebars = {
         "how-to-guides/hello-world-example",
         "how-to-guides/installing-uninstalling-extensions",
         "how-to-guides/transfer-container-images",
+        "how-to-guides/migrating-images",
         "how-to-guides/create-multi-node-cluster",
         "how-to-guides/setup-NGINX-Ingress-Controller",
         "how-to-guides/vs-code-docker",
@@ -129,7 +130,7 @@ const sidebars = {
       ],
     },
     "faq",
-    "troubleshooting-tips"
+    "troubleshooting-tips",
   ],
 };
 
