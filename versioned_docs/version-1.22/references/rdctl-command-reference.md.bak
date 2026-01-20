@@ -67,7 +67,7 @@ Available Commands:
   version        Shows the CLI version.
 
 Flags:
-      --config-path string   config file (default .../rancher-desktop/rd-engine.json)
+      --config-path string   config file (default /Users/jan/Library/Application Support/rancher-desktop/rd-engine.json)
   -h, --help                 help for rdctl
       --host string          default is 127.0.0.1; most useful for WSL
       --password string      overrides the password setting in the config file
@@ -286,7 +286,7 @@ Flags:
   -h, --help   help for uninstall
 
 Global Flags:
-      --config-path string   config file (default .../rancher-desktop/rd-engine.json)
+      --config-path string   config file (default /Users/jan/Library/Application Support/rancher-desktop/rd-engine.json)
       --host string          default is 127.0.0.1; most useful for WSL
       --password string      overrides the password setting in the config file
       --port int             overrides the port setting in the config file
@@ -325,7 +325,7 @@ Flags:
   -h, --help   help for list-settings
 
 Global Flags:
-      --config-path string   config file (default .../rancher-desktop/rd-engine.json)
+      --config-path string   config file (default /Users/jan/Library/Application Support/rancher-desktop/rd-engine.json)
       --host string          default is 127.0.0.1; most useful for WSL
       --password string      overrides the password setting in the config file
       --port int             overrides the port setting in the config file
@@ -574,7 +574,7 @@ Flags:
   -h, --help   help for snapshot
 
 Global Flags:
-      --config-path string   config file (default .../rancher-desktop/rd-engine.json)
+      --config-path string   config file (default /Users/jan/Library/Application Support/rancher-desktop/rd-engine.json)
       --host string          default is 127.0.0.1; most useful for WSL
       --password string      overrides the password setting in the config file
       --port int             overrides the port setting in the config file
@@ -658,7 +658,7 @@ Flags:
       --virtual-machine.use-rosetta
 
 Global Flags:
-      --config-path string   config file (default .../rancher-desktop/rd-engine.json)
+      --config-path string   config file (default /Users/jan/Library/Application Support/rancher-desktop/rd-engine.json)
       --host string          default is 127.0.0.1; most useful for WSL
       --password string      overrides the password setting in the config file
       --port int             overrides the port setting in the config file
