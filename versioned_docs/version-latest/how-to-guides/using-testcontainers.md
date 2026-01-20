@@ -71,7 +71,7 @@ Next, export the virtual machine port explicitly using the command below:
 export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl shell ip a show vznat | awk '/inet / {sub("/.*",""); print $2}')
 ```
 
-For `VZ` virtual machines, you can also use Testcontainers without the need for administrative access by exporting the settings below:
+For `VZ` virtual machines (does not work with `Enable Rosetta support`), you can also use Testcontainers without the need for administrative access by exporting the settings below:
 
 ```bash
 export DOCKER_HOST=unix://$HOME/.rd/docker.sock
