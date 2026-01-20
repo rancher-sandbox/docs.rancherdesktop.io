@@ -338,7 +338,7 @@ Global Flags:
 ```console autoupdate=true
 $ rdctl list-settings
 {
-  "version": 16,
+  "version": 17,
   "application": {
     "adminAccess": false,
     "debug": false,
@@ -354,7 +354,7 @@ $ rdctl list-settings
       "enabled": true
     },
     "updater": {
-      "enabled": false
+      "enabled": true
     },
     "autoStart": false,
     "startInBackground": false,
@@ -368,6 +368,7 @@ $ rdctl list-settings
       "enabled": false,
       "patterns": []
     },
+    "mobyStorageDriver": "auto",
     "name": "moby"
   },
   "virtualMachine": {
@@ -383,7 +384,7 @@ $ rdctl list-settings
     "integrations": {}
   },
   "kubernetes": {
-    "version": "1.33.6",
+    "version": "1.34.3",
     "port": 6443,
     "enabled": true,
     "options": {
@@ -623,10 +624,11 @@ Flags:
       --application.updater.enabled                                     automatically update to the latest release
       --application.window.quit-on-close                                terminate app when the main window is closed
       --container-engine.allowed-images.enabled                         only allow images to be pulled that match the allowed patterns
+      --container-engine.moby-storage-driver string                     override Moby storage driver selection (allowed values: [classic, snapshotter, auto])
       --container-engine.name string                                    set engine (allowed values: [containerd, docker, moby])
       --containers.namespace string                                     select only namespaces from this namespace (containerd only)
       --containers.show-all                                             show system containers on Containers page
-      --diagnostics.connectivity.interval int                           Number of milliseconds before polling for network access; set this to zero to disable background connectivity checking.
+      --diagnostics.connectivity.interval int                           Number of milliseconds before polling for network access; set this to zero to disable background connectivity checking
       --diagnostics.connectivity.timeout int                            Number of milliseconds to wait before timing out
       --diagnostics.show-muted                                          unhide muted diagnostics
       --experimental.container-engine.web-assembly.enabled              enable support for containerd-wasm shims
@@ -649,7 +651,7 @@ Flags:
   -p, --path string                                                     path to main executable
       --port-forwarding.include-kubernetes-services                     show Kubernetes system services on Port Forwarding page
       --virtual-machine.memory-in-gb int                                reserved RAM size
-      --virtual-machine.mount.type string                               how directories are shared; 9p is experimental. (allowed values: [reverse-sshfs, 9p, virtiofs])
+      --virtual-machine.mount.type string                               how directories are shared; 9p is experimental (allowed values: [reverse-sshfs, 9p, virtiofs])
       --virtual-machine.number-cpus int                                 reserved number of CPUs
       --virtual-machine.type string                                     (allowed values: [qemu, vz])
       --virtual-machine.use-rosetta
@@ -697,7 +699,7 @@ Run `rdctl version` to see the current rdctl CLI version.
 
 ```console autoupdate=true
 $ rdctl version
-rdctl client version: v1.21.0, targeting server version: v1
+rdctl client version: v1.22.0, targeting server version: v1
 ```
 
 </details>
