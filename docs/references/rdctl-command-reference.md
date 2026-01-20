@@ -590,7 +590,6 @@ Use "rdctl snapshot [command] --help" for more information about a command.
 $ rdctl snapshot create example_snapshot
 $ rdctl snapshot delete example_snapshot
 $ rdctl snapshot list --json
-{"created":"2026-01-15T17:44:26.790581-08:00","name":"qemu","description":""}
 ```
 
 </details>
