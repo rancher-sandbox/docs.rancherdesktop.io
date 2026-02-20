@@ -1,120 +1,130 @@
 ---
-title: Using Testcontainers on Rancher Desktop
+title: Using Testcontainers with Rancher Desktop
 ---
 
 <head>
   <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/using-testcontainers"/>
 </head>
 
-import TabsConstants from '@site/core/TabsConstants';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Rancher Desktop can be used with [Testcontainers](https://testcontainers.com/) to execute ephemeral tests and containers that work inside Docker. This guide demonstrates the use of Testcontainers with a sample repository.
+[Testcontainers](https://testcontainers.com/) lets you run throwaway containers for integration testing. This guide explains how to configure Rancher Desktop to work with Testcontainers and includes a working example you can try yourself.
 
-### Prerequisites
+## Prerequisites
 
-[Testcontainers](https://testcontainers.com/) can only be used with the `moby (dockerd)` runtime as it requires a Docker-API compatible container runtime. Kubernetes must be disabled for machines on Apple Silicon. The setting can be disabled via the **Preferences > Kubernetes** dialog, or by using the `rdctl` command below:
+Testcontainers requires the Docker API, so you must select **moby (dockerd)** as the container engine. You can change this in **Preferences > Container Engine** or with `rdctl`:
 
-```bash
-rdctl set --kubernetes-enabled=false
+```console
+$ rdctl set --container-engine.name=moby
 ```
 
- Please also ensure that [Apache Maven](https://maven.apache.org/install.html) is installed on your machine in order to make use of the [`mvn verify`](https://maven.apache.org/run-maven/index.html) command.
+The **containerd** runtime does not expose a Docker-compatible API and will not work with Testcontainers.
 
-<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
-<TabItem value="Linux">
+### For the example below
 
-You can download a sample test repository in the `testcontainers-java-repro` located here: https://github.com/testcontainers/testcontainers-java-repro
+- [Java (JDK)](https://formulae.brew.sh/formula/openjdk): `brew install openjdk`
+- [Apache Maven](https://maven.apache.org/install.html): `brew install maven`
 
-After the repository is downloaded, please navigate to the `testcontainers-java-repro` folder and run the command `mvn verify`.
-
-```bash
-mvn verify
-```
-
-After the command has been run, you should see a `BUILD SUCCESS` with test statistics for failures, number of tests ran, skipped tests, time elapsed, and errors.
-
-</TabItem>
-<TabItem value="macOS">
-
-You can download a sample test repository in the `testcontainers-java-repro` located here: https://github.com/testcontainers/testcontainers-java-repro
+## Configuration
 
 <Tabs groupId="os">
-<TabItem value="Apple Silicon">
+<TabItem value="macOS" label="macOS">
 
-Currently, workarounds are needed for using Testcontainers on macOS M1 machines. Below are methods for using Testcontainers on either runtime, depending on administrative access.
-
-#### [QEMU](../ui/preferences/virtual-machine/emulation.md#qemu)
-
-<details>
-<summary>Workaround Summary</summary>
-
-This runtime can be used with administrative access enabled which can be set via the [**Preferences > Application > General**](../ui/preferences/application/general.md) dialog. This will ensure that routable IP's are allocated.
-
-Next, export the virtual machine port explicitly using the command below:
+Rancher Desktop runs containers inside a virtual machine. Testcontainers needs three environment variables to locate the Docker socket and connect to container ports inside the VM:
 
 ```bash
-export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl shell ip a show rd0 | awk '/inet / {sub("/.*",""); print $2}')
-```
-
-</details>
-
-#### [VZ](../ui/preferences/virtual-machine/emulation.md#vz)
-
-<details>
-<summary>Workaround Summary</summary>
-
-This runtime can be used with administrative access enabled which can be set via the [**Preferences > Application > General**](../ui/preferences/application/general.md) dialog. This will ensure that routable IP's are allocated.
-
-Next, export the virtual machine port explicitly using the command below:
-
-```bash
-export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl shell ip a show vznat | awk '/inet / {sub("/.*",""); print $2}')
-```
-
-For `VZ` virtual machines, you can also use Testcontainers without the need for administrative access by exporting the settings below:
-
-```bash
-export DOCKER_HOST=unix://$HOME/.rd/docker.sock
+export DOCKER_HOST="unix://$HOME/.rd/docker.sock"
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
-export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl shell ip a show vznat | awk '/inet / {sub("/.*",""); print $2}')
+export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl info --field ip-address)
 ```
 
-</details>
+**What each variable does:**
 
-After the respective virtual machine settings have been applied, and the repository is downloaded, please navigate to the `testcontainers-java-repro` folder and run the command `mvn verify`.
+- `DOCKER_HOST` tells Testcontainers where to find the Docker socket. Rancher Desktop places it at `~/.rd/docker.sock` rather than the default `/var/run/docker.sock`.
+- `TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE` tells Testcontainers which socket path to mount into helper containers (like Ryuk). Inside the VM the socket is at the standard `/var/run/docker.sock` path.
+- `TESTCONTAINERS_HOST_OVERRIDE` tells Testcontainers which host to connect to for mapped ports. The `rdctl info --field ip-address` command returns the VM's routable IP address.
 
-```shell
-mvn verify
-```
+Add these lines to your `~/.zshrc` (or `~/.bashrc`) to set them automatically.
 
-After the command has been run, you should see a `BUILD SUCCESS` with test statistics for failures, number of tests ran, skipped tests, time elapsed, and errors.
+:::note
+These variables work with all virtual machine types (VZ and QEMU), with or without Rosetta support, and regardless of whether administrative access is enabled.
+:::
 
 </TabItem>
-<TabItem value="Intel">
+<TabItem value="Linux" label="Linux">
 
-After the repository is downloaded, please navigate to the `testcontainers-java-repro` folder and run the command `mvn verify`.
+On Linux, Rancher Desktop also runs containers inside a virtual machine. Set the same three environment variables as on macOS:
 
-```shell
-mvn verify
+```bash
+export DOCKER_HOST="unix://$HOME/.rd/docker.sock"
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl info --field ip-address)
 ```
 
-After the command has been run, you should see a `BUILD SUCCESS` with test statistics for failures, number of tests ran, skipped tests, time elapsed, and errors.
+Add these lines to your `~/.bashrc` (or `~/.zshrc`) to set them automatically.
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+On Windows, run Testcontainers from within a WSL2 distribution where Rancher Desktop integration is enabled. Set the same three environment variables in your WSL2 shell profile:
+
+```bash
+export DOCKER_HOST="unix://$HOME/.rd/docker.sock"
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl info --field ip-address)
+```
+
+Add these lines to your `~/.bashrc` to set them automatically.
 
 </TabItem>
 </Tabs>
 
-</TabItem>
-<TabItem value="Windows">
+## Running the example
 
-You can download a sample test repository in the `testcontainers-java-repro` located here: https://github.com/testcontainers/testcontainers-java-repro
+Clone the [Testcontainers Java example repository](https://github.com/testcontainers/testcontainers-java-repro) and run its tests:
 
-After the repository is downloaded, please navigate to the `testcontainers-java-repro` folder and run the command `mvn verify`.
-
-```shell
-mvn verify
+```console
+$ git clone https://github.com/testcontainers/testcontainers-java-repro
+$ cd testcontainers-java-repro
+$ mvn verify
 ```
 
-After the command has been run, you should see a `BUILD SUCCESS` with test statistics for failures, number of tests ran, skipped tests, time elapsed, and errors.
+A successful run produces output like this:
 
-</TabItem>
-</Tabs>
+```
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] BUILD SUCCESS
+```
+
+## Troubleshooting
+
+### "Could not find a valid Docker environment"
+
+Testcontainers cannot connect to the Docker daemon. Verify that `DOCKER_HOST` is set and that the socket file exists:
+
+```console
+$ echo $DOCKER_HOST
+unix:///Users/yourname/.rd/docker.sock
+
+$ ls -la ~/.rd/docker.sock
+srw-------  1 yourname  staff  0 Jan  1 00:00 /Users/yourname/.rd/docker.sock
+```
+
+If the socket file is missing, check that Rancher Desktop is running and that the container engine is set to **moby (dockerd)**.
+
+### "Connection refused" on mapped ports
+
+Testcontainers connects to `localhost` by default, but container ports are exposed on the VM's IP address. Verify that `TESTCONTAINERS_HOST_OVERRIDE` is set:
+
+```console
+$ echo $TESTCONTAINERS_HOST_OVERRIDE
+192.168.64.2
+```
+
+If the variable is empty, run `rdctl info --field ip-address` to confirm Rancher Desktop is running and returning an IP address.
+
+### "Can not connect to Ryuk"
+
+The Ryuk helper container needs to reach the Docker socket inside the VM. Verify that `TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE` is set to `/var/run/docker.sock`.
