@@ -71,7 +71,7 @@ const config = {
         appId: 'LLF7X2GYUC',
   
         // Public Search API key: it is safe to commit it
-        apiKey: 'e279fcdc00514b0cf0cf2608bbf9928a',
+        apiKey: 'ff7475d83f5bd202ecda1b8a1b07b731',
   
         indexName: 'rancherdesktop',
   
