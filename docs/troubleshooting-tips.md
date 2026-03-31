@@ -71,38 +71,6 @@ If you still don't see `docker-compose` available then please file a bug on [Git
 
 **A:** Rancher Desktop places its configuration in the default location, `~/.kube/config,` and uses that. Your `KUBECONFIG` environment variable may be set to look elsewhere for configuration files.
 
-### Networking
-
-#### Q: Why do I see a blank screen when I launch the Cluster Dashboard?
-
-**A:** The Cluster Dashboard may not be running correctly because another process on your machine is using ports `9080` or `9443` that the Dashboard process (`steve`) depends on. To solve this, identify and terminate the process using those ports. You can use the command below to identify processes using a specific port on your host machine. Note that on macOS and Linux, the Rancher Dashboard process is named `steve`, while on Windows, it's `steve.exe`. If `steve` is the only process using ports 9080 or 9443, do not terminate it.
-
-Command to find processes using a specific port.
-
-<Tabs groupId="os">
-<TabItem value="Windows">
-
-```
-netstat -ano | findstr :9443
-```
-
-</TabItem>
-<TabItem value="macOS">
-
-```
-lsof -nP -iTCP -sTCP:LISTEN | grep 9443
-```
-
-</TabItem>
-<TabItem value="Linux">
-
-```
-lsof -nP -iTCP -sTCP:LISTEN | grep 9443
-```
-
-</TabItem>
-</Tabs>
-
 ### WSL
 
 #### Q: Why do I not see my WSL distro under Rancher Desktop's WSL Integration page?
