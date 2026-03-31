@@ -23,13 +23,13 @@ The **containerd** runtime does not expose a Docker-compatible API and will not 
 
 ### For the example below
 
-- [Java (JDK)](https://formulae.brew.sh/formula/openjdk): `brew install openjdk`
-- [Apache Maven](https://maven.apache.org/install.html): `brew install maven`
+- [Java (JDK)](https://www.java.com/)
+- [Apache Maven](https://maven.apache.org/install.html)
 
 ## Configuration
 
 <Tabs groupId="os">
-<TabItem value="macOS" label="macOS">
+<TabItem value="macOS-Linux" label="macOS & Linux">
 
 Rancher Desktop runs containers inside a virtual machine. Testcontainers needs three environment variables to locate the Docker socket and connect to container ports inside the VM:
 
@@ -39,43 +39,46 @@ export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl info --field ip-address)
 ```
 
+Add these lines to your shell profile (`~/.zshrc`, `~/.bashrc`, etc.) to set them automatically.
+
 **What each variable does:**
 
 - `DOCKER_HOST` tells Testcontainers where to find the Docker socket. Rancher Desktop places it at `~/.rd/docker.sock` rather than the default `/var/run/docker.sock`.
 - `TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE` tells Testcontainers which socket path to mount into helper containers (like Ryuk). Inside the VM the socket is at the standard `/var/run/docker.sock` path.
 - `TESTCONTAINERS_HOST_OVERRIDE` tells Testcontainers which host to connect to for mapped ports. The `rdctl info --field ip-address` command returns the VM's routable IP address.
 
-Add these lines to your `~/.zshrc` (or `~/.bashrc`) to set them automatically.
-
 :::note
 These variables work with all virtual machine types (VZ and QEMU), with or without Rosetta support, and regardless of whether administrative access is enabled.
 :::
 
 </TabItem>
-<TabItem value="Linux" label="Linux">
-
-On Linux, Rancher Desktop also runs containers inside a virtual machine. Set the same three environment variables as on macOS:
-
-```bash
-export DOCKER_HOST="unix://$HOME/.rd/docker.sock"
-export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
-export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl info --field ip-address)
-```
-
-Add these lines to your `~/.bashrc` (or `~/.zshrc`) to set them automatically.
-
-</TabItem>
 <TabItem value="Windows" label="Windows">
 
-On Windows, run Testcontainers from within a WSL2 distribution where Rancher Desktop integration is enabled. Set the same three environment variables in your WSL2 shell profile:
+On Windows, Testcontainers works both from native Win32 programs and from inside WSL2 distributions.
 
-```bash
-export DOCKER_HOST="unix://$HOME/.rd/docker.sock"
-export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
-export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl info --field ip-address)
+**Native Win32 (PowerShell, CMD, Git Bash):**
+
+Tell Testcontainers to connect via the Windows named pipe. In PowerShell:
+
+```powershell
+$env:DOCKER_HOST = "npipe:////./pipe/docker_engine"
 ```
 
-Add these lines to your `~/.bashrc` to set them automatically.
+In Git Bash / MSYS2:
+
+```bash
+export DOCKER_HOST="npipe:////./pipe/docker_engine"
+```
+
+No other environment variables are needed. Container ports are accessible on `localhost`.
+
+**WSL2:**
+
+No environment variables are needed when running from a WSL2 distribution where Rancher Desktop integration is enabled. The Docker socket is at `/var/run/docker.sock` (the default location) and container ports are accessible on `localhost`.
+
+:::note
+The `rdctl` Linux binary does not work inside WSL2. Use `rdctl.exe` instead if you need to run `rdctl` commands from your WSL2 shell.
+:::
 
 </TabItem>
 </Tabs>
@@ -90,6 +93,10 @@ $ cd testcontainers-java-repro
 $ mvn verify
 ```
 
+:::tip
+If you see `"client version 1.32 is too old"`, the example repository's Testcontainers version needs to be updated. Edit `pom.xml` and change the `testcontainers-bom` version to `2.0.4` (or later), then run `mvn verify` again. See [Troubleshooting](#client-version-132-is-too-old) for details.
+:::
+
 A successful run produces output like this:
 
 ```
@@ -102,7 +109,9 @@ A successful run produces output like this:
 
 ### "Could not find a valid Docker environment"
 
-Testcontainers cannot connect to the Docker daemon. Verify that `DOCKER_HOST` is set and that the socket file exists:
+Testcontainers cannot connect to the Docker daemon.
+
+On macOS and Linux, verify that `DOCKER_HOST` is set and that the socket file exists:
 
 ```console
 $ echo $DOCKER_HOST
@@ -112,11 +121,24 @@ $ ls -la ~/.rd/docker.sock
 srw-------  1 yourname  staff  0 Jan  1 00:00 /Users/yourname/.rd/docker.sock
 ```
 
+On Windows (native), verify that `DOCKER_HOST` is set to `npipe:////./pipe/docker_engine`.
+
+On Windows (WSL2), verify the default socket exists:
+
+```console
+$ ls -la /var/run/docker.sock
+srwxrwxrwx  1 root  root  0 Jan  1 00:00 /var/run/docker.sock
+```
+
 If the socket file is missing, check that Rancher Desktop is running and that the container engine is set to **moby (dockerd)**.
+
+### "client version 1.32 is too old"
+
+The Docker Java client library bundled with older Testcontainers versions defaults to API version 1.32, which is below the minimum required by current Docker Engine versions. Upgrade your project's Testcontainers dependency to version 2.0 or later.
 
 ### "Connection refused" on mapped ports
 
-Testcontainers connects to `localhost` by default, but container ports are exposed on the VM's IP address. Verify that `TESTCONTAINERS_HOST_OVERRIDE` is set:
+On macOS and Linux, container ports are exposed on the VM's IP address, not `localhost`. Verify that `TESTCONTAINERS_HOST_OVERRIDE` is set:
 
 ```console
 $ echo $TESTCONTAINERS_HOST_OVERRIDE
@@ -125,6 +147,8 @@ $ echo $TESTCONTAINERS_HOST_OVERRIDE
 
 If the variable is empty, run `rdctl info --field ip-address` to confirm Rancher Desktop is running and returning an IP address.
 
+On Windows, `TESTCONTAINERS_HOST_OVERRIDE` should **not** be set. Container ports are accessible on `localhost` by default.
+
 ### "Can not connect to Ryuk"
 
-The Ryuk helper container needs to reach the Docker socket inside the VM. Verify that `TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE` is set to `/var/run/docker.sock`.
+On macOS and Linux, the Ryuk helper container needs to reach the Docker socket inside the VM. Verify that `TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE` is set to `/var/run/docker.sock`.
