@@ -48,7 +48,9 @@ Add these lines to your shell profile (`~/.zshrc`, `~/.bashrc`, etc.) to set the
 - `TESTCONTAINERS_HOST_OVERRIDE` tells Testcontainers which host to connect to for mapped ports. The `rdctl info --field ip-address` command returns the VM's routable IP address.
 
 :::note
-These variables work with all virtual machine types (VZ and QEMU), with or without Rosetta support, and regardless of whether administrative access is enabled.
+These instructions require the **VZ** virtual machine type (the default on macOS). VZ provides a routable VM IP address that Testcontainers uses to connect to container ports.
+
+**QEMU** requires [administrative access](../ui/preferences/application/general.md) to allocate a routable IP address. Without administrative access, the VM IP is not reachable from the host and Testcontainers cannot connect to containers.
 :::
 
 </TabItem>
