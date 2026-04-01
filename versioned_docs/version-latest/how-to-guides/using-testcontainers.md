@@ -87,17 +87,20 @@ The `rdctl` Linux binary does not work inside WSL2. Use `rdctl.exe` instead if y
 
 ## Running the example
 
-Clone the [Testcontainers Java example repository](https://github.com/testcontainers/testcontainers-java-repro) and run its tests:
+Clone the [Testcontainers Java example repository](https://github.com/testcontainers/testcontainers-java-repro), update the Testcontainers version, and run the tests:
 
-```console
-$ git clone https://github.com/testcontainers/testcontainers-java-repro
-$ cd testcontainers-java-repro
-$ mvn verify
-```
+1. Clone the repository:
+   ```console
+   $ git clone https://github.com/testcontainers/testcontainers-java-repro
+   $ cd testcontainers-java-repro
+   ```
 
-:::tip
-If you see `"client version 1.32 is too old"`, the example repository's Testcontainers version needs to be updated. Edit `pom.xml` and change the `testcontainers-bom` version to `2.0.4` (or later), then run `mvn verify` again. See [Troubleshooting](#client-version-132-is-too-old) for details.
-:::
+2. Edit `pom.xml` and change the `testcontainers-bom` version to `2.0.4` (or later). The repository ships with an older version that is incompatible with current Docker Engine releases.
+
+3. Run the tests:
+   ```console
+   $ mvn verify
+   ```
 
 A successful run produces output like this:
 
