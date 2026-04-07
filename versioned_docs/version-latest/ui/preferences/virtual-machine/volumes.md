@@ -78,10 +78,4 @@ Users can select a supported security model with options being `[passthrough, ma
 </TabItem>
 </Tabs>
 
-:::caution warning
-
-This is an **experimental** setting.
-
-:::
-
 Users can enable the [`virtiofs`](https://virtio-fs.gitlab.io/) mount type from the `Volumes` tab. This is implemented using the Apple `Virtualization.Framework` shared directory device.
