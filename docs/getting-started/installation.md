@@ -58,6 +58,8 @@ After Rancher Desktop is installed, users will have access to these supporting u
 - [nerdctl](https://github.com/containerd/nerdctl)
 - [docker (moby)](https://github.com/moby/moby)
 
+Note: The recommended installation method is via the DMG from GitHub. The Homebrew formula is not maintained by the Rancher Desktop team, so any issues with the Homebrew installation should be reported to the Homebrew repository rather than to Rancher Desktop.
+
 ### Uninstalling Rancher Desktop on macOS
 
 1. Open **Finder** > **Applications**.
