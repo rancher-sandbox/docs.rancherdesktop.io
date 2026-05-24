@@ -51,7 +51,19 @@ const config = {
           },
           remarkPlugins: [RDVersionedAssets],
         },
-        blog: false,
+        blog: {
+          routeBasePath: '/blog',
+          showReadingTime: true,
+          blogTitle: 'Rancher Desktop Blog',
+          blogDescription: 'News and updates from the Rancher Desktop team',
+          feedOptions: {
+            type: 'all',
+            title: 'Rancher Desktop Blog',
+            description: 'News and updates from the Rancher Desktop team',
+            copyright: `Copyright © ${new Date().getFullYear()} SUSE Rancher. All Rights Reserved.`,
+          },
+          editUrl: 'https://github.com/rancher-sandbox/docs.rancherdesktop.io/edit/main',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -147,6 +159,11 @@ const config = {
                 className: 'navbar__icon navbar__suse',
               },
             ]
+          },
+          {
+            to: '/blog',
+            label: 'Blog',
+            position: 'left',
           },
           {
             type: 'docsVersionDropdown',
