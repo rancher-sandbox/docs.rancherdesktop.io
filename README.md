@@ -20,6 +20,18 @@ $ yarn start
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
+### Previewing assets for an upcoming release
+
+Image URLs that start with `rd-versioned-asset://` resolve at build time to the S3 folder for the latest released version in `versions.json`. The unversioned ("Next") docs therefore show the previous release's screenshots until a new version is published.
+
+To preview the docs against an unreleased version's assets, set `RD_ASSET_VERSION`:
+
+```
+$ RD_ASSET_VERSION=1.23 yarn start
+```
+
+This points the Next and `latest` docs at `desktop/v1.23/` on S3; the assets must already exist there. Leave the variable unset for normal builds.
+
 ### Build
 
 ```
