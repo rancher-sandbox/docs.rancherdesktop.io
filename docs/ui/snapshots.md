@@ -52,6 +52,24 @@ The following actions can be taken on the tab:
   - `Description`:
   Text can be entered into the Description field that describes your snapshot.
 
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![Create Snapshot_Example](rd-versioned-asset://ui-main/Windows_Snapshot-Create.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![Create Snapshot_Example](rd-versioned-asset://ui-main/macOS_Snapshot-Create.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![Create Snapshot_Example](rd-versioned-asset://ui-main/Linux_Snapshot-Create.png)
+
+</TabItem>
+</Tabs>
+
 - `Restore`:
   The `Restore` button can be used to restore a snapshot and will replace your current snapshot installation including preference settings. Rancher Desktop will be unavailable while this process is running.
 
