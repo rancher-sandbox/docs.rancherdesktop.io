@@ -65,8 +65,13 @@ export default () => {
             }
             return bParts.length - aParts.length;
         }).pop();
+        // RD_ASSET_VERSION overrides the version used for the unversioned
+        // ("Next") and "latest" docs, so an upcoming release's assets can be
+        // previewed before versions.json is bumped. See the README.
+        const overrideVersion = process.env.RD_ASSET_VERSION;
+        const defaultVersion = overrideVersion ? `v${ overrideVersion.replace(/^v/, '') }` : `v${ maxVersion }`;
         /** @type any */
         const anyTree = tree;
-        await processNode(anyTree, vfile, `v${maxVersion}`);
+        await processNode(anyTree, vfile, defaultVersion);
     };
 };
