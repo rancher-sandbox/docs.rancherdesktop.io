@@ -79,3 +79,12 @@ Users can select a supported security model with options being `[passthrough, ma
 </Tabs>
 
 Users can enable the [`virtiofs`](https://virtio-fs.gitlab.io/) mount type from the `Volumes` tab. This is implemented using the Apple `Virtualization.Framework` shared directory device.
+
+## Shared Host Directories
+
+Only files under directories that Rancher Desktop mounts into the virtual machine can be bind-mounted into containers (for example with `docker run -v` or `nerdctl run -v`). The following host directories are shared by default:
+
+- **macOS:** your home directory, `/Volumes`, `/var/folders`, `/private/tmp`, and `/tmp/rancher-desktop`. Paths under `$TMPDIR` resolve below `/var/folders`, so they work as well.
+- **Linux:** your home directory and `/tmp/rancher-desktop`.
+
+To share a directory outside these locations, add it as an extra mount with a [provisioning script](../../../how-to-guides/provisioning-scripts.md).
