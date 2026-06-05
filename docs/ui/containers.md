@@ -64,6 +64,8 @@ The following actions are available:
 
 - `Stop`:
   You can terminate container instances using the `Stop` button.
+- `Restart`:
+  You can restart running container instances using the `Restart` button.
 - `Start`:
   You can initiate container instances using the `Start` button.
 - `Delete`:
@@ -75,7 +77,7 @@ Selecting a container opens a detail view with **Info**, **Stats**, **Logs**, an
 
 ### Container Info
 
-The **Info** tab shows the container's configuration: its mounts, environment variables, command and arguments, capabilities, and published ports. Expand or collapse each section as needed.
+The **Info** tab opens on a summary of the container: its name, ID, image, IP address, and creation time (plus the start time while it is running). Below the summary, expandable sections list the container's mounts, environment variables, command and arguments, capabilities, published ports, and labels.
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
@@ -97,7 +99,9 @@ The **Info** tab shows the container's configuration: its mounts, environment va
 
 ### Container Stats
 
-The **Stats** tab shows live graphs of the container's CPU, memory, and network I/O usage. Use the **Refresh** selector to choose how often the graphs update.
+The **Stats** tab shows live graphs of the container's CPU, memory, network I/O, and block (disk) I/O usage, followed by a table of the processes running inside the container. Use the **Refresh** selector to choose how often the data updates: every second (the default), every 5, 10, 20, or 30 seconds, or once a minute. Collection stops when you leave the tab.
+
+Stats are available only for running containers, and only with the `dockerd (moby)` container engine; with `containerd` the tab shows a notice instead.
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
@@ -141,4 +145,4 @@ The **Logs** view shows an automatically updating, scrolling view of the logs of
 
 ### Container Shell
 
-The **Shell** tab opens an interactive shell inside the running container, so you can run commands directly in it.
+The **Shell** tab opens an interactive shell inside the container, so you can run commands directly in it. It is available only while the container is running. The session stays open when you switch to the other tabs and come back, so you can check the logs or stats without losing your place.
