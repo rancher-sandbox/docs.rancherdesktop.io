@@ -13,6 +13,8 @@ exclude = [
     "^https://openai.com/",
     "^https://openwebui.com/",
     "^https://stackoverflow.com/",
+    # helm.sh resets the checker's connections from CI ("connection reset by peer")
+    "^https://helm.sh/",
     # Skip the AppImage download check; sometimes mirrors fall over.
     "^https://download.opensuse.org/repositories/isv:/Rancher:/stable/AppImage/rancher-desktop-latest-x86_64.AppImage",
     # URLs for development examples, not actual web pages
