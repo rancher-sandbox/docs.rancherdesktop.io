@@ -69,8 +69,6 @@ env:
 
 ## Windows
 
-**Caution:** You can only utilize these provisioning scripts for Rancher Desktop, version 1.1.0 or later, on Windows.
-
 - Run Rancher Desktop at least once to allow it to create the configuration `provisioning` directory.
 
 :::note
