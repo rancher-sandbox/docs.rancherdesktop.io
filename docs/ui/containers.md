@@ -71,6 +71,52 @@ The following actions are available:
 - `⋮`:
   This button is located on the right side of the tab view. You can start, stop, or delete container instances depending on their state, and you can also view the logs of a container.
 
+Selecting a container opens a detail view with **Info**, **Stats**, **Logs**, and **Shell** tabs.
+
+### Container Info
+
+The **Info** tab shows the container's configuration: its mounts, environment variables, command and arguments, capabilities, and published ports. Expand or collapse each section as needed.
+
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![Container Info_Example](rd-versioned-asset://ui-main/Windows_Container-Inspect.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![Container Info_Example](rd-versioned-asset://ui-main/macOS_Container-Inspect.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![Container Info_Example](rd-versioned-asset://ui-main/Linux_Container-Inspect.png)
+
+</TabItem>
+</Tabs>
+
+### Container Stats
+
+The **Stats** tab shows live graphs of the container's CPU, memory, and network I/O usage. Use the **Refresh** selector to choose how often the graphs update.
+
+<Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
+<TabItem value="Windows">
+
+![Container Stats_Example](rd-versioned-asset://ui-main/Windows_Container-Stats.png)
+
+</TabItem>
+<TabItem value="macOS">
+
+![Container Stats_Example](rd-versioned-asset://ui-main/macOS_Container-Stats.png)
+
+</TabItem>
+<TabItem value="Linux">
+
+![Container Stats_Example](rd-versioned-asset://ui-main/Linux_Container-Stats.png)
+
+</TabItem>
+</Tabs>
+
 ### Container Logs
 
 The **Logs** view shows an automatically updating, scrolling view of the logs of a container. The **Search** box can be used to locate a string in the logs.
@@ -92,3 +138,7 @@ The **Logs** view shows an automatically updating, scrolling view of the logs of
 
 </TabItem>
 </Tabs>
+
+### Container Shell
+
+The **Shell** tab opens an interactive shell inside the running container, so you can run commands directly in it.
