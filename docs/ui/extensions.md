@@ -57,9 +57,16 @@ The **Installed** tab is a view for all installed extensions on your Rancher Des
 </TabItem>
 </Tabs>
 
-#### Name
+#### Columns
 
-A list of names of installed extensions. Users can directly uninstall extensions by clicking the **Remove** button for the respective extension on the right hand side.
+Each installed extension is listed with details drawn from the extension's image labels:
+
+- **Name** — the extension's title.
+- **Vendor** — the extension's publisher.
+- **Description** — a short summary of what the extension does.
+- **More information** — a link to the extension's homepage or documentation.
+
+Click the **Remove** button on the right to uninstall an extension. When a newer version is available, an **Upgrade** button appears next to it.
 
 ### Remote Debugging Extensions
 
