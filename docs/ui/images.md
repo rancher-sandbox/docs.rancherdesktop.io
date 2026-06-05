@@ -3,10 +3,6 @@ sidebar_label: Images
 title: Images
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/images"/>
-</head>
-
 import TabsConstants from '@site/core/TabsConstants';
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>

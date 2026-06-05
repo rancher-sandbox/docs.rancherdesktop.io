@@ -2,10 +2,6 @@
 title: Working with Images
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/tutorials/working-with-images"/>
-</head>
-
 Rancher Desktop provides the ability to build, push, and pull images via the
 [NERDCTL](https://github.com/containerd/nerdctl) project and the Docker CLI.
 

@@ -2,10 +2,6 @@
 title: FAQ
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/faq"/>
-</head>
-
 This FAQ is a work in progress designed to answer the questions our users most frequently ask about Rancher Desktop.
 
 #### **Q: Is Rancher Desktop a desktop version of Rancher?**

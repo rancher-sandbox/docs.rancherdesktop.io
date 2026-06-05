@@ -2,10 +2,6 @@
 title: Using Testcontainers on Rancher Desktop
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/using-testcontainers"/>
-</head>
-
 import TabsConstants from '@site/core/TabsConstants';
 
 Rancher Desktop can be used with [Testcontainers](https://testcontainers.com/) to execute ephemeral tests and containers that work inside Docker. This guide demonstrates the use of Testcontainers with a sample repository.

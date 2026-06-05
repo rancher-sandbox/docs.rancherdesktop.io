@@ -2,10 +2,6 @@
 title: Generating Deployment Profiles
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/hello-world-example"/>
-</head>
-
 Deployment Profiles are a way of both providing first-time default settings for Rancher Desktop, and locking down any or all of the application settings. The purpose of this guide is to demonstrate how to create deployment profiles. General information about deployment profiles are further detailed in [Getting Started > Deployment Profiles](../getting-started/deployment.md).
 
 :::note

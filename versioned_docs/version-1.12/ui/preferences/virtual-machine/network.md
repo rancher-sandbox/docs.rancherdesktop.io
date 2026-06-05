@@ -3,9 +3,6 @@ sidebar_label: Network
 title: Network (macOS)
 ---
 
-<head>
-</head>
-
 ![](rd-versioned-asset://preferences/macOS_virtualMachine_tabNetwork.png)
 
 ### Enable `socket-vmnet`

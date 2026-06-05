@@ -3,10 +3,6 @@ sidebar_label: Emulation
 title: Emulation (macOS)
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/virtual-machine/emulation"/>
-</head>
-
 ### VZ
 
  ![](rd-versioned-asset://preferences/macOS_virtualMachine_tabEmulation_vz.png)

@@ -2,10 +2,6 @@
 title: Debugging a Container App with VS Code Docker extension
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/vs-code-docker"/>
-</head>
-
 The VS Code Docker extension makes it easy to build, manage, debug and deploy containerized applications in Visual Studio Code.
 
 ### Steps to debug a sample application running within a container

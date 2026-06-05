@@ -2,10 +2,6 @@
 title: Migrating Moby Images Between Storage Drivers
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/migrating-images"/>
-</head>
-
 Rancher Desktop stores images using two storage drivers when running the moby (docker) container engine: the **classic storage driver** and the **containerd snapshotter**. This page explains why images become hidden and how to access them.
 
 ## Background
