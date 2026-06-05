@@ -12,6 +12,10 @@ const config = {
   tagline: 'Rancher Desktop Docs',
   url: 'https://docs.rancherdesktop.io',
   baseUrl: '/',
+  // GitHub Pages serves every page at its trailing-slash URL and 301-redirects
+  // the slash-less form, so emit trailing slashes to keep canonical links,
+  // og:url, the sitemap, and internal links off the redirect.
+  trailingSlash: true,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',

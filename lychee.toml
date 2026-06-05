@@ -25,8 +25,4 @@ exclude = [
     "^https://storage.googleapis.com/kubernetes-release/release",
     # Repo has been deleted, needs to be fixed: https://github.com/rancher-sandbox/docs.rancherdesktop.io/issues/442
     "^https://github.com/bwateratmsft/samples",
-    # Self-referencing canonical links 404 until the page is deployed. The
-    # relative-link guard in the Test deployment workflow catches internal-link
-    # typos instead, so internal links are still verified.
-    "^https://docs.rancherdesktop.io",
 ]
