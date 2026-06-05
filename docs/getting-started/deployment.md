@@ -38,7 +38,7 @@ The structure of the profile data matches the application settings:
 
 ```json title="rdctl list-settings"
 {
-  "version": 10,
+  "version": 18,
   ...
   "containerEngine": {
     "allowedImages": {
@@ -117,7 +117,7 @@ reg delete "HKCU\Software\Policies\Rancher Desktop" /f
 #### By default use the "moby" container engine and disable Kubernetes
 
 ```
-reg add "HKCU\Software\Policies\Rancher Desktop\Defaults" /v version /t REG_DWORD -d 10
+reg add "HKCU\Software\Policies\Rancher Desktop\Defaults" /v version /t REG_DWORD -d 18
 reg add "HKCU\Software\Policies\Rancher Desktop\Defaults\containerEngine" /v name /t REG_SZ -d moby
 reg add "HKCU\Software\Policies\Rancher Desktop\Defaults\kubernetes" /v enabled /t REG_DWORD -d 0
 ```
@@ -125,7 +125,7 @@ reg add "HKCU\Software\Policies\Rancher Desktop\Defaults\kubernetes" /v enabled 
 #### Lock allowed images list to only allow "busybox" and "nginx"
 
 ```
-reg add "HKCU\Software\Policies\Rancher Desktop\Locked" /v version /t REG_DWORD -d 10
+reg add "HKCU\Software\Policies\Rancher Desktop\Locked" /v version /t REG_DWORD -d 18
 reg add "HKCU\Software\Policies\Rancher Desktop\Locked\containerEngine\allowedImages" /v enabled /t REG_DWORD -d 1
 reg add "HKCU\Software\Policies\Rancher Desktop\Locked\containerEngine\allowedImages" /v patterns /t REG_MULTI_SZ -d busybox\0nginx
 ```
@@ -147,7 +147,7 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Policies\Rancher Desktop]
 
 [HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Defaults]
-"version"=dword:a
+"version"=dword:12
 
 [HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Defaults\containerEngine]
 "name"="moby"
@@ -156,7 +156,7 @@ Windows Registry Editor Version 5.00
 "enabled"=dword:00000000
 
 [HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Locked]
-"version"=dword:a
+"version"=dword:12
 
 [HKEY_CURRENT_USER\Software\Policies\Rancher Desktop\Locked\containerEngine]
 
@@ -208,7 +208,7 @@ Alternatively the profile can be created manually, either with an editor, or wit
 DEFAULTS=~/Library/Preferences/io.rancherdesktop.profile.defaults.plist
 plutil -create xml1 "$DEFAULTS"
 
-plutil -insert version -integer 10 "$DEFAULTS"
+plutil -insert version -integer 18 "$DEFAULTS"
 
 plutil -insert containerEngine -dictionary "$DEFAULTS"
 plutil -insert containerEngine.name -string moby "$DEFAULTS"
@@ -223,7 +223,7 @@ plutil -insert kubernetes.enabled -bool false "$DEFAULTS"
 LOCKED=~/Library/Preferences/io.rancherdesktop.profile.locked.plist
 plutil -create xml1 "$LOCKED"
 
-plutil -insert version -integer 10 "$LOCKED"
+plutil -insert version -integer 18 "$LOCKED"
 
 plutil -insert containerEngine -dictionary "$LOCKED"
 plutil -insert containerEngine.allowedImages -dictionary "$LOCKED"
@@ -252,7 +252,7 @@ plutil -insert containerEngine.allowedImages.patterns -string nginx -append "$LO
 		<false/>
 	</dict>
 	<key>version</key>
-	<integer>10</integer>
+	<integer>18</integer>
 </dict>
 </plist>
 ```
@@ -276,7 +276,7 @@ plutil -insert containerEngine.allowedImages.patterns -string nginx -append "$LO
 		</dict>
 	</dict>
 	<key>version</key>
-	<integer>10</integer>
+	<integer>18</integer>
 </dict>
 </plist>
 ```
@@ -319,7 +319,7 @@ rdctl list-settings > ~/.config/rancher-desktop.defaults.json
 
 ```json title="~/.config/rancher-desktop.defaults.json"
 {
-  "version": 10,
+  "version": 18,
   "containerEngine": {
     "name": "moby"
   },
@@ -333,7 +333,7 @@ rdctl list-settings > ~/.config/rancher-desktop.defaults.json
 
 ```json title="~/.config/rancher-desktop.locked.json"
 {
-  "version": 10,
+  "version": 18,
   "containerEngine": {
     "allowedImages": {
       "enabled": true,
@@ -370,7 +370,7 @@ System deployments are stored in:
 /etc/rancher-desktop/locked.json
 ```
 
-Then add `"version": 10` at the very start of your JSON-formatted file immediately after the initial open brace `(})`.
+Then add `"version": 18` at the very start of your JSON-formatted file immediately after the initial open brace `{`.
 
 #### macOS
 
@@ -388,7 +388,7 @@ System deployments are stored in:
 /Library/Preferences/io.rancherdesktop.profile.locked.plist
 ```
 
-Then add `<key>version</key><integer>10</integer>` after the initial `<dict>` tag into your respective `.plist` file.
+Then add `<key>version</key><integer>18</integer>` after the initial `<dict>` tag into your respective `.plist` file.
 
 #### Windows
 
@@ -406,10 +406,10 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Rancher Desktop\Defaults
 HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Rancher Desktop\Locked
 ```
 
-Then add a `DWORD` value named `version`, with value `10` (hexadecimal `a`) at the top level of each profile that needs updating:
+Then add a `DWORD` value named `version`, with value `18` (hexadecimal `12`) at the top level of each profile that needs updating:
 
 ```console
-"version"=dword:a
+"version"=dword:12
 ```
 
 ### Known Issues and Limitations
