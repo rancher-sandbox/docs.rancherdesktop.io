@@ -116,7 +116,8 @@ const sidebars = {
         "how-to-guides/running-air-gapped",
         "how-to-guides/traefik-ingress-example",
         "how-to-guides/using-testcontainers",
-        "how-to-guides/mirror-private-registry"
+        "how-to-guides/mirror-private-registry",
+        "how-to-guides/using-behind-a-proxy"
       ],
     },
     {
