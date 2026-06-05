@@ -13,6 +13,8 @@ exclude = [
     "^https://openai.com/",
     "^https://openwebui.com/",
     "^https://stackoverflow.com/",
+    # helm.sh resets the checker's connections from CI ("connection reset by peer")
+    "^https://helm.sh/",
     # Skip the AppImage download check; sometimes mirrors fall over.
     "^https://download.opensuse.org/repositories/isv:/Rancher:/stable/AppImage/rancher-desktop-latest-x86_64.AppImage",
     # URLs for development examples, not actual web pages
@@ -23,4 +25,8 @@ exclude = [
     "^https://storage.googleapis.com/kubernetes-release/release",
     # Repo has been deleted, needs to be fixed: https://github.com/rancher-sandbox/docs.rancherdesktop.io/issues/442
     "^https://github.com/bwateratmsft/samples",
+    # Self-referencing canonical links 404 until the page is deployed. The
+    # relative-link guard in the Test deployment workflow catches internal-link
+    # typos instead, so internal links are still verified.
+    "^https://docs.rancherdesktop.io",
 ]
