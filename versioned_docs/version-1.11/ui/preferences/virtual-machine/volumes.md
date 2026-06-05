@@ -3,10 +3,6 @@ sidebar_label: Volumes
 title: Volumes (macOS & Linux)
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/preferences/virtual-machine/volumes"/>
-</head>
-
 import TabsConstants from '@site/core/TabsConstants';
 
 ## Mount Type

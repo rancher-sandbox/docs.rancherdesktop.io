@@ -6,10 +6,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/troubleshooting-tips"/>
-</head>
-
 This page provides tips to troubleshoot issues you may have with Rancher Desktop.
 
 ### API

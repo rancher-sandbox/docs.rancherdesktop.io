@@ -3,10 +3,6 @@ sidebar_label: Extensions
 title: Extensions
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/extensions"/>
-</head>
-
 import TabsConstants from '@site/core/TabsConstants';
 
 ### Catalog

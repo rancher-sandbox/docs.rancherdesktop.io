@@ -13,10 +13,6 @@ import Version112 from '../bundled-utilities-version-info/v1.12.0.md';
 import Version113 from '../bundled-utilities-version-info/v1.13.0.md';
 import Version114 from '../bundled-utilities-version-info/v1.14.0.md';
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/references/bundled-utilities"/>
-</head>
-
 Rancher Desktop uses several utilities/subsystems as dependencies under the hood for various purposes. For example, **docker CLI** to interact with **dockerd**, **helm** to manage charts, **trivy** for container image scanning, etc. This page provides information about the versions of the bundled utilities that go into a specific Rancher Desktop release version.
 
 | Rancher Desktop Version | Dependency Versions |

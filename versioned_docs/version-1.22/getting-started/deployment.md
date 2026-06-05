@@ -2,10 +2,6 @@
 title: Deployment Profiles
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/getting-started/deployment"/>
-</head>
-
 import TabsConstants from '@site/core/TabsConstants';
 
 Deployment profiles provide 2 features:

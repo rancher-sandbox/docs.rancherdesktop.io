@@ -17,11 +17,10 @@ jobs:
       - name: Internal links must be relative
         run: |
           # Internal links must use relative paths (../foo/bar.md) so the build
-          # validates them. lychee no longer checks absolute
-          # https://docs.rancherdesktop.io/<path> links, so forbid them in content
-          # to keep internal-link typos covered. The per-page canonical <link>
-          # tag is the only allowed exception.
-          bad=$(grep -rnE 'https://docs\.rancherdesktop\.io/[^ )"]' docs --include='*.md' | grep -v 'rel="canonical"' || true)
+          # validates them. An absolute https://docs.rancherdesktop.io/<path> link
+          # to a page added in the same PR would 404 in the link check until that
+          # page is deployed, so forbid absolute self-links in content.
+          bad=$(grep -rnE 'https://docs\.rancherdesktop\.io/[^ )"]' docs --include='*.md' || true)
           if [ -n "$bad" ]; then
             echo "$bad"
             echo "::error::Internal links must be relative (e.g. ../getting-started/installation.md), not absolute https://docs.rancherdesktop.io/... URLs."

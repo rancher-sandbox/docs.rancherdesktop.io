@@ -3,9 +3,6 @@ sidebar_label: Network
 title: Network (Windows)
 ---
 
-<head>
-</head>
-
 ![](rd-versioned-asset://preferences/Windows_wsl_tabNetwork.png)
 
 ### Networking Tunnel

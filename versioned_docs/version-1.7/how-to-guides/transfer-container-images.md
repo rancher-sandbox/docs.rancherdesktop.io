@@ -5,10 +5,6 @@ title: Transfer Container Images
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/transfer-container-images"/>
-</head>
-
 Rancher Desktop provides `dockerd` and `containerd` as container engine options to manage containers. There are occasions when you might want to transfer the images from one container engine environment to the other. Or you may have migrated to Rancher Desktop from a different container management application and might want to bring the local images from the previous application environment to the Rancher Desktop environment.  This guide provides steps to transfer images using the `save` and `load` commands.
 
 ### Steps

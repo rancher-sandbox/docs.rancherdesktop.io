@@ -4,10 +4,6 @@ title: Mirroring Private Registries
 
 import TabsConstants from '@site/core/TabsConstants';
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/mirror-private-registry"/>
-</head>
-
 Rancher Desktop can be configured to mirror private registries using either container runtime (`containerd` or `dockerd`) via provisioning scripts or updating the registry file used by `k3s`. Please see the `k3s` documentation for further information on [private registry configuration](https://docs.k3s.io/installation/private-registry).
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>

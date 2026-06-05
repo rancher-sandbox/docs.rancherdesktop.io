@@ -2,10 +2,6 @@
 title: Working with WebAssembly
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/tutorials/working-with-webassembly"/>
-</head>
-
 Rancher Desktop 1.13.0 added experimental support for running WebAssembly (Wasm) applications. This feature needs to be enabled in  [Preferences > Container Engine > General](../ui/preferences/container-engine/general.md).
 
 :::caution warning

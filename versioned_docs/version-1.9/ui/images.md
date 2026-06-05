@@ -7,10 +7,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TabsConstants from '@site/core/TabsConstants';
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/images"/>
-</head>
-
 The **Images** tab, allows you to manage the images on your virtual machine.
 
 To manage your images using nerdctl instead, refer to the [Images](../tutorials/working-with-images.md) section.

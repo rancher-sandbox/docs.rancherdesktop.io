@@ -2,10 +2,6 @@
 title: Installing and Uninstalling Rancher Desktop Extensions
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/installing-uninstalling-extensions"/>
-</head>
-
 import TabsConstants from '@site/core/TabsConstants';
 
 The **Extensions** feature introduced in the `v1.9.0-tech-preview` release enables you to use **Docker Desktop Extensions** within Rancher Desktop. The feature helps you extend Rancher Desktop's functionality to meet your additional needs. This guide will demonstrate how to install and uninstall Docker extensions in Rancher Desktop.

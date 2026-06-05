@@ -3,10 +3,6 @@ sidebar_label: Containers
 title: Containers
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/containers"/>
-</head>
-
 import TabsConstants from '@site/core/TabsConstants';
 
 <!--- Insert S3 Image Here Once Uploaded -->

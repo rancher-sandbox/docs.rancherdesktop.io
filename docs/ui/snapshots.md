@@ -3,10 +3,6 @@ sidebar_label: Snapshots
 title: Snapshots
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/ui/snapshots"/>
-</head>
-
 import TabsConstants from '@site/core/TabsConstants';
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>

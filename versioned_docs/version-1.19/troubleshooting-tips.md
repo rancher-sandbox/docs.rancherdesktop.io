@@ -2,10 +2,6 @@
 title: Troubleshooting Tips
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/troubleshooting-tips"/>
-</head>
-
 import TabsConstants from '@site/core/TabsConstants';
 
 This page provides tips to troubleshoot issues you may have with Rancher Desktop.

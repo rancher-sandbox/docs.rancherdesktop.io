@@ -5,10 +5,6 @@ title: Hello World Example
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/hello-world-example"/>
-</head>
-
 This tutorial will demonstrate how to get started with Rancher Desktop by pushing an app to a local Kubernetes cluster.
 
 Rancher Desktop works with two container engines, [containerd](https://containerd.io/) and [Moby](https://mobyproject.org/), the open-sourced components of the Docker ecosystem. For `nerdctl`, use the **containerd** runtime. For `docker`, use the **dockerd(moby)** runtime.

@@ -4,10 +4,6 @@ title: Using the Traefik Ingress Controller
 
 import TabsConstants from '@site/core/TabsConstants';
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/traefik-ingress-example"/>
-</head>
-
 Rancher Desktop uses `K3s` under the hood, which in turn uses [Traefik](https://doc.traefik.io/traefik/) as the [default Ingress controller](https://docs.k3s.io/networking#traefik-ingress-controller) for your Kubernetes cluster. As an example, the below steps outline creating simple services that can be routed by the Ingress object.
 
 ### Example Steps: Traefik Ingress Controller

@@ -2,10 +2,6 @@
 title: Using Testcontainers with Rancher Desktop
 ---
 
-<head>
-  <link rel="canonical" href="https://docs.rancherdesktop.io/how-to-guides/using-testcontainers"/>
-</head>
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
