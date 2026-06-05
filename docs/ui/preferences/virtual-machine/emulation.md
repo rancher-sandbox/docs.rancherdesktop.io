@@ -13,7 +13,7 @@ title: Emulation (macOS)
 
 The **VZ** option is enabled by default and uses the native macOS [Virtualization.Framework](https://developer.apple.com/documentation/virtualization) for running a guest machine. You can switch the virtual machine type after the first run.
 
-The suboption **VZ option** can also be enabled if using **VZ** as your virtual machine type. The suboption enables [Rosetta support](https://developer.apple.com/documentation/virtualization/running_intel_binaries_in_linux_vms_with_rosetta) and allows users to run applications that contain x86_64 instructions on Apple hardware.
+The **Enable Rosetta support** suboption can also be enabled when using **VZ** as your virtual machine type. It turns on [Rosetta](https://developer.apple.com/documentation/virtualization/running_intel_binaries_in_linux_vms_with_rosetta) so you can run applications that contain x86_64 instructions on Apple silicon. This suboption appears only on Apple silicon.
 
 ### QEMU
 

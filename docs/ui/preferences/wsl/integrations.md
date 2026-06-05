@@ -14,7 +14,7 @@ The Integrations tab allows for the option to make the Rancher Desktop Kubernete
 With WSL, memory and CPU allocation is configured globally across all Linux distributions. Refer to the [WSL documentation] for instructions.
 
 [WSL documentation]:
-https://docs.microsoft.com/en-us/windows/wsl/wsl-config#options-for-wslconfig
+https://learn.microsoft.com/en-us/windows/wsl/wsl-config#options-for-wslconfig
 
 ### `~/.kube/config`
 
