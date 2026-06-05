@@ -24,7 +24,7 @@ Rancher Desktop provides container management and a Kubernetes instance on the d
 
 #### **Q: Is there a Kubernetes Cluster Explorer available in Rancher Desktop?**
 
-**A:** Yes, the Rancher Dashboard is included as a feature preview in the release 1.2.1. Invoke the dashboard by clicking on **Dashboard** option in the system tray menu.
+**A:** Yes, the Rancher Dashboard is included. Open it by clicking the **Open cluster dashboard** option in the system tray menu.
 
 Learn more about [Rancher Desktop](./getting-started/introduction.md).
 Learn more about [Rancher](https://rancher.com/why-rancher).
@@ -53,7 +53,7 @@ https://docs.docker.com/desktop/
 
 #### **Q: What support, if any, is available for DNS over VPN on Windows?**
 
-**A:** An alternative DNS resolver for Windows has been implemented to address some of the VPN issues on Windows. It should support DNS lookup over VPN connections. It has to be enabled manually by editing an internal [configuration file](https://github.com/rancher-sandbox/rancher-desktop/issues/1899#issuecomment-1109128277).
+**A:** DNS lookups over VPN connections work out of the box on Windows. Rancher Desktop uses a host resolver by default, so no manual configuration is required.
 
 #### **Q: What does the "WSL Integration" tab do?**
 
@@ -140,9 +140,9 @@ New-NetFirewallRule -DisplayName "WSL" -Direction Inbound -InterfaceAlias "vEthe
 <!-- #985 -->
 #### **Q: I don't need the Kubernetes cluster deployed by Rancher Desktop; how do I disable it to save resources?**
 
-**A:** Open **Rancher Desktop** settings, click the cog to open **Preferences**, select **Kuberentes**, uncheck `Enable Kubernetes` feature is selected under **Kubernetes Settings**; uncheck this box to disable it.
+**A:** Open **Preferences**, select **Kubernetes**, and uncheck **Enable Kubernetes**.
 
-This will allow you to run just `containerd` or `dockerd` by without allocating resources for Kubernetes.
+This lets you run just `containerd` or `dockerd` without allocating resources for Kubernetes.
 
 <!-- #726 -->
 #### **Q: What's happening to the Kubernetes Image Manager (kim)?**
