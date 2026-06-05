@@ -27,7 +27,19 @@ jobs:
           curl -sfLO https://github.com/lycheeverse/lychee/releases/download/lychee-v${LYCHEE_VERSION}/${LYCHEE_TARGZ}
           echo "${LYCHEE_SHA256}  ${LYCHEE_TARGZ}" | sha256sum -c - 
           tar xfvz ${LYCHEE_TARGZ} lychee
-          ./lychee "docs/**/*.md" "versioned_docs/**/*.md"
+          # Re-run the whole check on failure: lychee does not retry
+          # connection-setup errors (DNS/TLS), so one flaky external host
+          # can fail an otherwise-good run.
+          for attempt in 1 2 3; do
+            if ./lychee "docs/**/*.md" "versioned_docs/**/*.md"; then
+              exit 0
+            fi
+            if [ "${attempt}" -lt 3 ]; then
+              echo "Link check attempt ${attempt} failed; retrying after backoff"
+              sleep $((attempt * 10))
+            fi
+          done
+          exit 1
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Test build
