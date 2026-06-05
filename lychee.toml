@@ -1,6 +1,11 @@
 # Avoid running out of file handles on macOS
 max_concurrency = 64
 
+# Treat 429 as a valid link: it means the host rate-limited the checker,
+# not that the page is missing (a removed page returns 404). The range
+# keeps lychee's default accepted codes (100..=103 and 200..=299).
+accept = ["100..=103", "200..=299", "429"]
+
 exclude_loopback = true
 
 exclude = [
