@@ -125,6 +125,7 @@ const sidebars = {
       items: [
         "references/architecture",
         "references/rdctl-command-reference",
+        "references/non-gui-settings",
         "references/bundled-utilities"
       ],
     },
