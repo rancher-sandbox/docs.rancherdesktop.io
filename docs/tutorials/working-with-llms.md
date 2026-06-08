@@ -1,8 +1,8 @@
 ---
-title: Working with LLMs using Open WebUI
+title: Working with LLMs using AI Workbench
 ---
 
-The **Rancher Desktop Open WebUI extension** provides an easy-to-install setup, comprising the components listed below, for local GenAI use and development.
+The **Rancher Desktop AI Workbench extension** provides an easy-to-install setup, comprising the components listed below, for local GenAI use and development.
 
 - [Ollama](https://ollama.com/) to pull, run, and fine-tune open-source LLMs
 - [Open WebUI](https://openwebui.com/) to chat with the LLMs, use custom knowledge, web search, etc., via a feature rich Graphical User Interface (GUI)
@@ -10,15 +10,15 @@ The **Rancher Desktop Open WebUI extension** provides an easy-to-install setup, 
 - [SearXNG](https://github.com/searxng/searxng) for web search, to enhance retrieval augmented generation (RAG) results
 - [mcpo](https://github.com/open-webui/mcpo) to run [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) servers in a container
 
-## Installing the Open WebUI extension
+## Installing the AI Workbench extension
 
 :::important
-The Open WebUI extension depends on the host machine's ports 11434, 11500 and 11505 for the Ollama, Open WebUI, and the SearXNG services respectively. Please ensure other applications or services on your machine do not occupy these host ports.
+The AI Workbench extension depends on the host machine's ports 11434, 11500 and 11505 for the Ollama, Open WebUI, and the SearXNG services respectively. Please ensure other applications or services on your machine do not occupy these host ports.
 :::
 
 ### Minimum Requirements
 
-In addition to the general Rancher Desktop [installation requirements](../getting-started/installation.md), you should meet the requirements listed below for the Open WebUI extension. 
+In addition to the general Rancher Desktop [installation requirements](../getting-started/installation.md), you should meet the requirements listed below for the AI Workbench extension. 
 
 - Rancher Desktop version 1.17 or above
 - 7 GB available disk space
@@ -26,7 +26,7 @@ In addition to the general Rancher Desktop [installation requirements](../gettin
 
 ### Steps to install
 
-You can install the Open WebUI extension via the [Extensions Catalog](../ui/extensions.md#catalog) GUI or via the [rdctl CLI](../references/rdctl-command-reference.md#rdctl-extension-install).
+You can install the AI Workbench extension via the [Extensions Catalog](../ui/extensions.md#catalog) GUI or via the [rdctl CLI](../references/rdctl-command-reference.md#rdctl-extension-install).
 
 :::caution
 Please note that the installation process can take several minutes depending on your internet speed, machine performance etc. 
@@ -35,10 +35,10 @@ Please note that the installation process can take several minutes depending on 
 <Tabs groupId="container-runtime">
   <TabItem value="Extension Catalog (GUI)" default>
 
-    Installing the Open WebUI extension is simple. 
+    Installing the AI Workbench extension is simple. 
 
     - Navigate to the `Extensions` page
-    - Install the Open WebUI extension
+    - Install the AI Workbench extension
 
     ![](../img/working-with-open-webui/install-extension.png)
 
@@ -48,11 +48,11 @@ Please note that the installation process can take several minutes depending on 
 Run the command below to install the extension.
 
 ```
-rdctl extension install ghcr.io/rancher-sandbox/rancher-desktop-rdx-open-webui:latest
+rdctl extension install ghcr.io/rancher-sandbox/rancher-desktop-rdx-ai-workbench:latest
 ```
 
 :::caution
-It is recommended to use a specific release tag of the extension instead of the `latest` tag as your Rancher Desktop version may not have features that the `latest` tag depends on. You can find the release tag names on the [GitHub Tags page](https://github.com/rancher-sandbox/rancher-desktop-rdx-open-webui/tags)
+It is recommended to use a specific release tag of the extension instead of the `latest` tag as your Rancher Desktop version may not have features that the `latest` tag depends on. You can find the release tag names on the [GitHub Tags page](https://github.com/rancher-sandbox/rancher-desktop-rdx-ai-workbench/tags)
 :::
 
   </TabItem>
@@ -104,7 +104,7 @@ For example, you can set up the OpenAI-compatible API from [Groq](https://groq.c
 
 - Create a Groq cloud account at https://console.groq.com.
 - Create an API key at https://console.groq.com/keys.
-- Navigate to `Admin Panel > Settings > Connections` in the Open WebUI extension and add Groq as an OpenAI-compatible API provider. Use `https://api.groq.com/openai/v1` as the base URL and use the API key generated in the previous step.
+- Navigate to `Admin Panel > Settings > Connections` in the AI Workbench extension and add Groq as an OpenAI-compatible API provider. Use `https://api.groq.com/openai/v1` as the base URL and use the API key generated in the previous step.
 
 You should be able to see the available models from Groq in the model selector drop-down.
 
@@ -172,7 +172,7 @@ You can create knowledge collections by simply uploading documents containing yo
 
 In addition to using local knowledge collections, Open WebUI allows you to perform LIVE web searches to retrieve relevant information to generate better responses. Please refer to the [Open WebUI documentation](https://docs.openwebui.com) to learn about the available web search providers.
 
-Rancher Desktop's Open WebUI extension installs and configures [SearXNG](https://docs.searxng.org/), a free internet metasearch engine, to enable you use web search out of the box. 
+Rancher Desktop's AI Workbench extension installs and configures [SearXNG](https://docs.searxng.org/), a free internet metasearch engine, to enable you use web search out of the box. 
 
 #### Using Knowledge Collections and/or Web Search in chats
 
@@ -204,7 +204,7 @@ Open WebUI provides features to let you customize the downloaded models for your
 
 ### Using Model Context Protocol (MCP)
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open standard introduced by [Anthropic](https://www.anthropic.com/) that aims to make connecting LLMs to tools and data sources as easy as plugging in a device. The Open WebUI extension includes an MCP-to-OpenAPI proxy called [mcpo](https://github.com/open-webui/mcpo), which takes an MCP tool server (which typically communicates via a local stdio interface) and exposes it as a standard RESTful OpenAPI endpoint. The extension also bundles 2 sample MCP servers, [mcp-server-docker](https://github.com/ckreiling/mcp-server-docker), [mcp-server-kubernetes](https://github.com/Flux159/mcp-server-kubernetes) that let you interact with the local container engine (dockerd(moby) only) and Kubernetes. You need to enable dockerd(moby) and/or Kubernetes to use the respective MCP server.
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open standard introduced by [Anthropic](https://www.anthropic.com/) that aims to make connecting LLMs to tools and data sources as easy as plugging in a device. The AI Workbench extension includes an MCP-to-OpenAPI proxy called [mcpo](https://github.com/open-webui/mcpo), which takes an MCP tool server (which typically communicates via a local stdio interface) and exposes it as a standard RESTful OpenAPI endpoint. The extension also bundles 2 sample MCP servers, [mcp-server-docker](https://github.com/ckreiling/mcp-server-docker), [mcp-server-kubernetes](https://github.com/Flux159/mcp-server-kubernetes) that let you interact with the local container engine (dockerd(moby) only) and Kubernetes. You need to enable dockerd(moby) and/or Kubernetes to use the respective MCP server.
 
 #### Steps to enable the bundled MCP servers
 
@@ -273,7 +273,7 @@ The MCP servers added to the config.json file are not persisted between Rancher 
 
 ## Uninstalling the extension
 
-You can uninstall the Open WebUI extension via the [Extensions Catalog](../ui/extensions.md#catalog) GUI or using the [rdctl CLI](../references/rdctl-command-reference.md#rdctl-extension-install).
+You can uninstall the AI Workbench extension via the [Extensions Catalog](../ui/extensions.md#catalog) GUI or using the [rdctl CLI](../references/rdctl-command-reference.md#rdctl-extension-install).
 
 :::note
 - Ollama, if installed by the extension, will be removed as part of the extension uninstallation process.
@@ -285,10 +285,10 @@ You can uninstall the Open WebUI extension via the [Extensions Catalog](../ui/ex
 <Tabs groupId="container-runtime">
   <TabItem value="Extension Catalog (GUI)" default>
 
-    Installing the Open WebUI extension is simple. 
+    Uninstalling the AI Workbench extension is simple.
 
     - Navigate to the `Extensions` page
-    - Remove the Open WebUI extension from either the `Catalog` or the `Installed` tab
+    - Remove the AI Workbench extension from either the `Catalog` or the `Installed` tab
 
     ![](../img/working-with-open-webui/uninstall-extension-from-catalog-tab.png)
 
@@ -300,7 +300,7 @@ You can uninstall the Open WebUI extension via the [Extensions Catalog](../ui/ex
 Run the command below to uninstall the extension.
 
 ```
-rdctl extension uninstall ghcr.io/rancher-sandbox/rancher-desktop-rdx-open-webui:<tag>
+rdctl extension uninstall ghcr.io/rancher-sandbox/rancher-desktop-rdx-ai-workbench:<tag>
 ```
   </TabItem>
 </Tabs>
