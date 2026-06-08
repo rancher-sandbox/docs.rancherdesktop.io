@@ -65,8 +65,6 @@ env:
 
 ## Windows
 
-**Caution:** You can only utilize these provisioning scripts for Rancher Desktop, version 1.1.0 or later, on Windows.
-
 - Run Rancher Desktop at least once to allow it to create the configuration `provisioning` directory.
 
 :::note
@@ -75,7 +73,7 @@ Please note that the directory will be deleted during a factory-reset, so ensure
 
 - Open the `%LOCALAPPDATA%\rancher-desktop\provisioning` directory. An example of the full path: `C:\Users\Joe\AppData\Local\rancher-desktop\provisioning`.
 
-- Note that any files with a file extension of `.start`, such as `k3s-overrides.start`, can be executed when _Rancher Desktop starts its Kubernetes backend_ (if enabled). Such files will run within the Rancher Desktop WSL context.
+- Note that any files with a file extension of `.start`, such as `k3s-overrides.start`, can be executed when _Rancher Desktop starts the WSL backend_, whether or not Kubernetes is enabled. Such files will run within the Rancher Desktop WSL context.
 
 Example flow for `.start` files:
 - Rancher Desktop internal setup
@@ -94,7 +92,7 @@ insecure_registry = true
 EOF
 ```
 
-- Note that files with a file extension of `.stop`, such as `wipe-data.stop`, can be executed _after Rancher Desktop shuts down its Kubernetes backend_ (if enabled). Such files will run within the same Rancher Desktop WSL context.
+- Note that files with a file extension of `.stop`, such as `wipe-data.stop`, can be executed _after Rancher Desktop shuts down the WSL backend_, whether or not Kubernetes is enabled. Such files will run within the same Rancher Desktop WSL context.
 
 Example flow for `.stop` files:
 - Stop `k3s`, `dockerd` or `containerd`
