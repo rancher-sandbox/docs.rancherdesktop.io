@@ -41,7 +41,7 @@ Suppose there are three versions of `k3s` in the `rancher-desktop` cache.
 - 1.21.14
 
 But suppose that on this system we only ran `kubectl` when using versions `1.24.3` and `1.21.14`. This means that
-the `~/.kuberlr/PLATFORM-ARCH/` directory (`$env:HOMEDRIVE%\$env:HOMEPATH/.kuberlr/windows-amd64` on Windows) will contain only two files:
+the `~/.kuberlr/PLATFORM-ARCH/` directory (`$env:HOMEDRIVE$env:HOMEPATH/.kuberlr/windows-amd64` on Windows) will contain only two files:
 
 - kubectl1.24.3
 
@@ -83,17 +83,17 @@ wget https://github.com/k3s-io/k3s/releases/download/v1.24.3%2Bk3s1/k3s
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
   <TabItem value="Windows">
 
-On Windows, the cache directory is at `$env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s`, and can be created with the command
+On Windows, the cache directory is at `$env:HOMEDRIVE$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s`, and can be created with the command
 
 ```
-mkdir -Force $env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s
+mkdir -Force $env:HOMEDRIVE$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s
 ```
 
 Assuming you have some source media, you would also run the following commands to pre-populate the cache:
 
 ```
-copy-item -Force $env:SOURCEDISK\k3s-versions.json $env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\
-copy-item -Recurse -Force $env:SOURCEDISK\v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $env:HOMEDRIVE%\$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s\
+copy-item -Force $env:SOURCEDISK\k3s-versions.json $env:HOMEDRIVE$env:HOMEPATH\AppData\Local\rancher-desktop\cache\
+copy-item -Recurse -Force $env:SOURCEDISK\v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $env:HOMEDRIVE$env:HOMEPATH\AppData\Local\rancher-desktop\cache\k3s\
 ```
 
   </TabItem>
@@ -127,7 +127,7 @@ cp -r $SOURCEDISK/v<MAJOR>.<MINOR>.<PATCH>+k3s<BUILD> $CACHEDIR/k3s/
 
 The location of this directory is more straightforward. On all platforms, it's at `HOME/.kuberlr/PLATFORM-ARCH` where:
 
-- `HOME` is the home directory: usually `$env:HOMEDRIVE%\$env:HOMEPATH` on Windows, and `~` or `$HOME` on macOS and Linux.
+- `HOME` is the home directory: usually `$env:HOMEDRIVE$env:HOMEPATH` on Windows, and `~` or `$HOME` on macOS and Linux.
 - `PLATFORM` is one of `windows`, `linux`, or `darwin`.
 - `ARCH` is `aarch64` on M1 machines, and `amd64` everywhere else.
 

@@ -22,7 +22,7 @@ import TabsConstants from '@site/core/TabsConstants';
 </TabItem>
 </Tabs>
 
-Users can enable the "[reverse-sshfs](https://lima-vm.io/docs/config/mount/#reverse-sshfs)" mount type from the `Volumes` tab. This exposes the filesystem by running an SFTP server on the host. The host instance will then intitiate an SSH connection into the guest allowing it to connect to the SFTP server. This is the default mount type used in the application.
+Users can enable the "[reverse-sshfs](https://lima-vm.io/docs/config/mount/#reverse-sshfs)" mount type from the `Volumes` tab. This exposes the filesystem by running an SFTP server on the host. The host instance will then initiate an SSH connection into the guest allowing it to connect to the SFTP server. This is the default mount type used in the application.
 
 ### 9p
 
@@ -54,7 +54,7 @@ Specifies a caching policy that has a default setting as `mmap`. The caching opt
 Users can specify the number of bytes to use for the "9p" packet size. The minimum value is 4 KiB and the default size is 128 KiB.
 
 * Protocol Version:
-Users can select the "9p" protocol version. The options include `[9p2000, 9p2000.u, 9p2000.L]` and the default protocol setting is `9p200.L`.
+Users can select the "9p" protocol version. The options include `[9p2000, 9p2000.u, 9p2000.L]` and the default protocol setting is `9p2000.L`.
 
 * Security Model:
 Users can select a supported security model with options being `[passthrough, mapped-xattr, mapped-file, none]`. The default security setting value is `none`.

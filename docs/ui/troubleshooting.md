@@ -43,7 +43,7 @@ To reset Kubernetes:
 
 ### Factory Reset
 
-Remove the cluster and all other Rancher Desktop settings. To continue The initial setup procedure must be done again.
+Remove the cluster and all other Rancher Desktop settings. To continue, the initial setup procedure must be done again.
 
 To perform a factory reset:
 
