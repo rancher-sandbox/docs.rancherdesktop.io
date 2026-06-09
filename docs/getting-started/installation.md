@@ -63,6 +63,27 @@ Note: The recommended installation method is via the DMG from GitHub. The Homebr
 1. Select it and choose **File > Move to Trash**.
 1. To delete the app, Finder > Empty Trash.
 
+Moving the app to the Trash removes the application but leaves Rancher Desktop's data behind. For a more thorough cleanup, run a [Factory Reset](../ui/troubleshooting.md#factory-reset) (or `rdctl reset --factory`) before deleting the app. A factory reset removes most data and the virtual machine. By default it keeps your snapshots and the downloaded Kubernetes image cache; run `rdctl reset --factory --cache` (or tick the corresponding checkbox in the UI) to remove the image cache as well. **Snapshots are always kept.**
+
+To remove everything, including the data that a factory reset keeps, also delete these directories:
+
+```console
+rm -rf ~/Library/Application\ Support/rancher-desktop \
+       ~/Library/Application\ Support/Rancher\ Desktop \
+       ~/Library/Preferences/rancher-desktop \
+       ~/Library/Caches/rancher-desktop \
+       ~/Library/Logs/rancher-desktop \
+       ~/.rd
+```
+
+Snapshots are stored under `~/Library/Application Support/rancher-desktop/snapshots`, so deleting that directory removes them as well.
+
+If you created a [deployment profile](deployment.md), it survives both a factory reset and an uninstall. Delete the user profile at `~/Library/Preferences/io.rancherdesktop.profile.{defaults,locked}.plist`, and a system profile at `/Library/Managed Preferences/io.rancherdesktop.profile.{defaults,locked}.plist` (which requires administrator privileges).
+
+:::note
+Before installing an older version of Rancher Desktop, perform this clean uninstall first. An older version may not be able to read data written by a newer one.
+:::
+
 ## Windows
 
 ### Requirements
@@ -118,6 +139,17 @@ https://github.com/rancher-sandbox/rancher-desktop/releases
 1. Click **Uninstall** and click it again when the confirmation appears.
 1. Follow the prompts on the Rancher Desktop uninstaller to proceed.
 1. Click **Finish** when complete.
+
+The uninstaller removes the application but leaves Rancher Desktop's data and its WSL distributions behind. For a more thorough cleanup, run a [Factory Reset](../ui/troubleshooting.md#factory-reset) (or `rdctl reset --factory`) first, then unregister the WSL distributions and delete the remaining data:
+
+```console
+wsl --unregister rancher-desktop
+wsl --unregister rancher-desktop-data
+```
+
+Then delete the `%LOCALAPPDATA%\rancher-desktop` directory. By default a factory reset keeps your snapshots and the downloaded Kubernetes image cache; deleting this directory removes those as well.
+
+If you created a [deployment profile](deployment.md), it survives the uninstall. Delete it from the registry under `HKEY_CURRENT_USER\Software\Policies\Rancher Desktop`, and a system profile under `HKEY_LOCAL_MACHINE\Software\Policies\Rancher Desktop` (which requires Administrator privileges).
 
 ## Linux
 
@@ -291,6 +323,21 @@ https://github.com/TheAssassin/AppImageLauncher
 ### Uninstalling AppImage
 
 Simply delete the AppImage. That's it!
+
+### Removing leftover data on Linux
+
+Removing the package or the AppImage leaves Rancher Desktop's data behind. For a more thorough cleanup, run a [Factory Reset](../ui/troubleshooting.md#factory-reset) (or `rdctl reset --factory`) first, then delete:
+
+```console
+rm -rf ~/.local/share/rancher-desktop \
+       ~/.config/rancher-desktop \
+       ~/.cache/rancher-desktop \
+       ~/.rd
+```
+
+By default a factory reset keeps your snapshots (under `~/.local/share/rancher-desktop/snapshots`) and the downloaded Kubernetes image cache; deleting these directories removes those as well.
+
+If you created a [deployment profile](deployment.md), it survives the uninstall. Delete the user profile at `~/.config/rancher-desktop.{defaults,locked}.json`, and a system profile under `/etc/rancher-desktop/` (which requires root).
 
 ## Proxy Environments: Important URL Patterns
 
