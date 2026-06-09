@@ -153,7 +153,7 @@ wsl --unregister rancher-desktop-data
 
 Then delete the `%LOCALAPPDATA%\rancher-desktop` directory. By default a factory reset keeps your snapshots and the downloaded Kubernetes image cache; deleting this directory removes those as well.
 
-If you created a [deployment profile](deployment.md), it survives the uninstall. Delete it from the registry under `HKEY_CURRENT_USER\Software\Policies\Rancher Desktop`, and a system profile under `HKEY_LOCAL_MACHINE\Software\Policies\Rancher Desktop` (which requires an elevated shell).
+If you created a [deployment profile](deployment.md), it survives the uninstall. Delete it from the registry under `HKEY_CURRENT_USER\Software\Policies\Rancher Desktop`, and a system profile under `HKEY_LOCAL_MACHINE\Software\Policies\Rancher Desktop` (which requires Administrator privileges).
 
 ## Linux
 
