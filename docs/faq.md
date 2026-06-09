@@ -24,7 +24,7 @@ Rancher Desktop provides container management and a Kubernetes instance on the d
 
 #### **Q: Is there a Kubernetes Cluster Explorer available in Rancher Desktop?**
 
-**A:** Yes, the Rancher Dashboard is included. Open it by clicking the **Open cluster dashboard** option in the system tray menu.
+**A:** Yes, the Rancher Dashboard is included for the Kubernetes cluster that Rancher Desktop manages. Click the **Cluster Dashboard** button in the navigation sidebar, or choose **Open cluster dashboard** from the system tray menu.
 
 Learn more about [Rancher Desktop](./getting-started/introduction.md).
 Learn more about [Rancher](https://rancher.com/why-rancher).
