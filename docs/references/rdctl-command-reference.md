@@ -334,7 +334,7 @@ Global Flags:
 ```console autoupdate=true
 $ rdctl list-settings
 {
-  "version": 17,
+  "version": 18,
   "application": {
     "adminAccess": false,
     "debug": false,
@@ -357,7 +357,8 @@ $ rdctl list-settings
     "hideNotificationIcon": false,
     "window": {
       "quitOnClose": false
-    }
+    },
+    "theme": "system"
   },
   "containerEngine": {
     "allowedImages": {
@@ -380,7 +381,7 @@ $ rdctl list-settings
     "integrations": {}
   },
   "kubernetes": {
-    "version": "1.34.3",
+    "version": "1.35.5",
     "port": 6443,
     "enabled": true,
     "options": {
@@ -617,6 +618,7 @@ Flags:
       --application.path-management-strategy string                     update PATH to include ~/.rd/bin (allowed values: [manual, rcfiles])
       --application.start-in-background                                 start app without window
       --application.telemetry.enabled                                   allow collection of anonymous statistics
+      --application.theme string                                        set the color theme (system follows OS setting) (allowed values: [system, light, dark])
       --application.updater.enabled                                     automatically update to the latest release
       --application.window.quit-on-close                                terminate app when the main window is closed
       --container-engine.allowed-images.enabled                         only allow images to be pulled that match the allowed patterns
@@ -695,7 +697,7 @@ Run `rdctl version` to see the current rdctl CLI version.
 
 ```console autoupdate=true
 $ rdctl version
-rdctl client version: v1.22.0, targeting server version: v1
+rdctl client version: v1.23.0, targeting server version: v1
 ```
 
 </details>
