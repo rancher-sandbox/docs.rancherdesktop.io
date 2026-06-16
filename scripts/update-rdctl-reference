@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+# Regenerate the rdctl command reference from the rdctl on PATH, then
+# normalize machine-specific output:
+#   - collapse the personalized config-path default to .../rancher-desktop/rd-engine.json
+#   - rewrite the reported version to the release version you pass in
+#
+# Rancher Desktop must be running, because several blocks query the live backend.
+#
+# Usage: scripts/update-rdctl-reference <release-version>
+#
+# Pass the release version as an argument (e.g. 1.23.0). RC and dev builds report
+# a git-describe version off the previous release tag (e.g. v1.22.3-1194-g066ecbf92),
+# which is why the script requires it.
+#
+# Known issues, to revisit for the 1.24.0 release:
+#   - list-settings reports this machine's effective settings, so after running you
+#     must hand-edit host-specific values (memoryInGB, application.updater.enabled,
+#     ...) back to the documented defaults.
+#   - The snapshot block runs create/delete/list --json; its output depends on local
+#     snapshots and carries a live timestamp, so review it by hand. Better: give it
+#     the "..." skip-output attribute, or generate fixed example output.
+#   - snapshot create can fail on a freshly initialized VM (missing basedisk).
+
+set -euo pipefail
+
+usage() {
+    echo "Usage: scripts/update-rdctl-reference <release-version>"
+    echo
+    echo "Regenerate the rdctl command reference and normalize machine-specific"
+    echo "output. Pass the release version (e.g. 1.23.0); Rancher Desktop must be running."
+}
+
+case "${1:-}" in
+    -h|--help) usage; exit 0 ;;
+esac
+
+if [ "$#" -lt 1 ]; then
+    echo "error: release version required (e.g. scripts/update-rdctl-reference 1.23.0)" >&2
+    echo >&2
+    usage >&2
+    exit 1
+fi
+
+release=$1
+case "$release" in
+    v*) ;;
+    *) release=v$release ;;
+esac
+
+script_dir=$(cd "$(dirname "$0")" && pwd)
+repo_root=$(cd "$script_dir/.." && pwd)
+reference=$repo_root/docs/references/rdctl-command-reference.md
+codeblocks=$script_dir/update-codeblocks
+
+if ! command -v rdctl >/dev/null 2>&1; then
+    echo "error: rdctl not found on PATH" >&2
+    exit 1
+fi
+
+if ! rdctl list-settings >/dev/null 2>&1; then
+    echo "error: 'rdctl list-settings' failed; is Rancher Desktop running?" >&2
+    exit 1
+fi
+
+installed=$(rdctl version | perl -ne 'print $1 if /rdctl client version: (v\S+?),/')
+echo "Installed rdctl build: ${installed:-unknown}"
+echo "Writing release version: $release"
+
+"$codeblocks" --update "$reference"
+
+RELEASE_VERSION=$release perl -i -pe '
+    s{\(default \K.*?(?=/rancher-desktop/rd-engine\.json)}{...}g;
+    s{(rdctl client version: )\S+(?=, targeting)}{$1$ENV{RELEASE_VERSION}};
+' "$reference"
+
+echo
+git -C "$repo_root" diff --stat -- "$reference" 2>/dev/null || true
+echo
+echo "Review the diff: the 'rdctl snapshot list' block reflects local snapshots and includes timestamps."
