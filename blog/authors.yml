@@ -1,5 +1,6 @@
-rancher-desktop-team:
-  name: Rancher Desktop Team
-  title: Rancher Desktop
-  url: https://rancherdesktop.io
-  image_url: /img/logo.svg
+jan:
+  name: Jan Dubois
+  title: Rancher Desktop Developer
+  url: https://github.com/jandubois
+  image_url: https://github.com/jandubois.png
+  email: jan.dubois@suse.com

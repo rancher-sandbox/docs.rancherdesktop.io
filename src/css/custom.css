@@ -36,3 +36,41 @@ img[class^='img_'] {
   -webkit-box-shadow: 10px 10px 25px rgb(100, 100, 100);
   -khtml-box-shadow: 10px 10px 25px rgb(100, 100, 100);
 }
+
+/* RSS subscribe icon next to the Blog navbar link */
+.navbar-rss-link {
+  display: flex;
+  align-items: center;
+  margin-left: -0.75rem;
+  padding-left: 0.25rem;
+}
+
+.navbar-rss-link:before {
+  content: "";
+  height: 18px;
+  width: 18px;
+  mask: url(/img/rss.svg) no-repeat center;
+  mask-size: contain;
+  background-color: #ee802f;
+}
+
+.navbar-rss-link:hover {
+  opacity: 0.7;
+}
+
+/* Blog index: a denser layout so several post previews fit on one screen.
+   Scoped to the list page so individual posts keep their full-size title. */
+html.blog-list-page article header h2 {
+  font-size: 1.7rem;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+
+html.blog-list-page article {
+  margin-bottom: 2.5rem !important;
+}
+
+/* Shrink the gap before the "Read more" footer (default 3rem). */
+html.blog-list-page article footer.docusaurus-mt-lg {
+  margin-top: 0.75rem;
+}

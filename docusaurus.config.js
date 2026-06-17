@@ -58,6 +58,7 @@ const config = {
           blogDescription: 'News and updates from the Rancher Desktop team',
           feedOptions: {
             type: 'all',
+            xslt: true,
             title: 'Rancher Desktop Blog',
             description: 'News and updates from the Rancher Desktop team',
             copyright: `Copyright © ${new Date().getFullYear()} SUSE Rancher. All Rights Reserved.`,
@@ -101,6 +102,17 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
+          {
+            to: '/blog',
+            label: 'Blog',
+            position: 'right',
+          },
+          {
+            href: 'pathname:///blog/rss.xml',
+            position: 'right',
+            className: 'navbar-rss-link',
+            'aria-label': 'Subscribe to the blog via RSS',
+          },
           {
             type: `dropdown`,
             label: `Quick Links`,
@@ -159,11 +171,6 @@ const config = {
                 className: 'navbar__icon navbar__suse',
               },
             ]
-          },
-          {
-            to: '/blog',
-            label: 'Blog',
-            position: 'left',
           },
           {
             type: 'docsVersionDropdown',
