@@ -54,5 +54,7 @@ jobs:
           exit 1
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Typecheck
+        run: yarn typecheck
       - name: Test build
         run: yarn build
