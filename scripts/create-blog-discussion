@@ -67,15 +67,21 @@ fm_field() {
     frontmatter "$1" | awk -v k="$2:" '$1==k{sub(/^[^:]*:[ \t]*/,""); print; exit}'
 }
 
-# Print the post excerpt: the body up to the truncate marker, with surrounding
-# blank lines trimmed.
+# Print the post excerpt: the body up to the truncate marker. Each paragraph is
+# joined into one line so GitHub wraps it; the source is hard-wrapped at 80, and
+# GitHub renders a single newline as a line break, which would keep that wrap.
 excerpt() {
     awk '
         NR==1 && $0=="---"{f=1; next}
         f && $0=="---"{f=0; b=1; next}
         b && /<!-- truncate -->/{exit}
         b{print}
-    ' "$1" | perl -0pe 's/\A\s+//; s/\s+\z/\n/'
+    ' "$1" | perl -0777 -ne '
+        s/\A\s+//; s/\s+\z//;
+        my @paras = split /\n\s*\n/;
+        s/\s*\n\s*/ /g for @paras;
+        print join("\n\n", @paras), "\n";
+    '
 }
 
 if ! command -v gh >/dev/null 2>&1; then
