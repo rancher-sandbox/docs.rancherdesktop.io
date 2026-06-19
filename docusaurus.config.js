@@ -32,8 +32,6 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           sidebarCollapsed: true,
           sidebarCollapsible: true,
-          // Please change this to your repo.
-          editUrl: 'https://github.com/rancher-sandbox/docs.rancherdesktop.io/edit/main',
           versions: {
             current: {
               label: 'Next 🚧',
@@ -63,7 +61,6 @@ const config = {
             description: 'News and updates from the Rancher Desktop team',
             copyright: `Copyright © ${new Date().getFullYear()} SUSE Rancher. All Rights Reserved.`,
           },
-          editUrl: 'https://github.com/rancher-sandbox/docs.rancherdesktop.io/edit/main',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
