@@ -2,6 +2,7 @@
 title: A Short History of Rancher Desktop
 slug: history-of-rancher-desktop
 authors: [jan]
+discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/471
 ---
 
 In October 2020, Rancher Desktop was a tray icon and a single shell command.
@@ -158,3 +159,7 @@ can run on its own: headless, scripted, snapshotted by itself. A guest that can
 talk to your GPU. Not because the first five years were wrong, but because they
 taught us exactly what the foundation needed to be. The rest of this blog is
 about what we're building on it.
+
+---
+
+[Discuss this post on GitHub](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/471)

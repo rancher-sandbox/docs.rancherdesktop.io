@@ -2,6 +2,7 @@
 title: Installing and Running Rancher Desktop 2.0
 slug: installing-rancher-desktop-2
 authors: [jan]
+discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/472
 ---
 
 The 2.0 alpha is out, and there are two ways to run it. Install the full
@@ -224,3 +225,7 @@ This is not the cluster you turned on earlier. It is Rancher Desktop
 representing itself through the same API your tools already speak, which means
 anything that drives Kubernetes can drive it, no bespoke SDK and no private
 protocol. There is a lot to say about that, and it gets a post of its own.
+
+---
+
+[Discuss this post on GitHub](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/472)

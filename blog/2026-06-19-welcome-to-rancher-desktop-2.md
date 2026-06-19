@@ -2,6 +2,7 @@
 title: Welcome to Rancher Desktop 2.0
 slug: welcome-to-rancher-desktop-2
 authors: [jan]
+discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/473
 ---
 
 Rancher Desktop 2.0 is a ground-up rewrite, and the first build is ready for you
@@ -113,3 +114,7 @@ month. To find out when the next preview drops, subscribe to the feed.
 
 Curious, and feeling adventurous? Give it a try. Cautious? Follow along, and
 jump in when it looks ready for you.
+
+---
+
+[Discuss this post on GitHub](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/473)
