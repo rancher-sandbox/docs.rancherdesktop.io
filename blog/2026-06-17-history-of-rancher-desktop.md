@@ -162,4 +162,4 @@ about what we're building on it.
 
 ---
 
-💬 **[Join the discussion on GitHub →](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/471)**
+💬 Questions or feedback? **[Discuss this post on GitHub →](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/471)**
