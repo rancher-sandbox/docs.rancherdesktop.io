@@ -35,9 +35,9 @@ thing without ever opening the GUI. And rdd is one self-contained executable: no
 installer, no separate daemon and command-line tool, just one file that is both
 the backend and the way you drive it. Download it, start it from the command
 line, and you have a container engine and a cluster: on a headless server, on a
-CI runner, or in your own terminal. Deploying it is copying one file. In 1.x
-there was no way to do this. The engine lived inside the app, and the app had to
-be on screen.
+CI runner, or in your own terminal. Deploying it is copying one file. Rancher
+Desktop never had a way to do this. The engine lived inside the app, and the
+app had to be on screen.
 
 The guest VM runs openSUSE Leap now instead of Alpine. The reason is glibc: much
 of the GPU and AI tooling people ask for needs it, and Alpine's musl does not
@@ -58,7 +58,7 @@ this is the moment to say so, before we lock in decisions we made without you.
 
 This is a working preview, not a finished product. What runs right now:
 
-- Start, stop, and delete Rancher Desktop 2, from the GUI or the command line.
+- Start, stop, and delete Rancher Desktop 2.0, from the GUI or the command line.
 - Install and run it with no GUI at all: the daemon plus the bundled
   command-line tools.
 - Build and run containers with the Docker (moby) engine.
@@ -79,23 +79,26 @@ So you are not caught off guard:
   factory reset, then install fresh. It stays that way until 2.0 reaches a real
   release.
 
-## It runs beside Rancher Desktop 1
+## It runs beside Rancher Desktop
 
-You do not have to choose. 2.0 installs next to 1.x, and the two ignore each
-other completely: separate package, separate data, separate everything. Install
-them in either order, remove them in either order, nothing gets tangled. You can
-even run both at once, though I would not recommend it. Two container engines
-and two clusters on one laptop gets confusing quickly.
+You do not have to choose. 2.0 installs next to Rancher Desktop, and the two
+ignore each other completely: separate package, separate data, separate
+everything. Install them in either order, remove them in either order, nothing
+gets tangled. You can even run both at once, though I would not recommend it.
+Two container engines and two clusters on one laptop gets confusing quickly.
 
 ## How to try it
 
-The full app, GUI plus bundled tools, comes from the GitHub releases page for
-Windows and macOS (Intel and Apple silicon), and from our RPM and DEB
-repositories and AppImages on Linux. The same places you would reach for Rancher
-Desktop 1. If all you want is the daemon, download the single rdd binary for
-your platform and you are two commands away from a running container.
+The full app, GUI plus bundled tools, comes from the [latest
+release](https://github.com/rancher-sandbox/rancher-desktop-2/releases/latest)
+on GitHub for Windows and macOS (Intel and Apple silicon), and from our RPM and
+DEB repositories and AppImages on Linux, the same places you would reach for
+Rancher Desktop. If all you want is the daemon, download the single rdd binary
+for your platform and you are two commands away from a running container.
 
-A real installation and usage walkthrough is the next post in this series.
+A real [installation and usage
+walkthrough](/blog/installing-rancher-desktop-2) is a separate post in this
+series.
 
 This is alpha software. Things will break, especially in corners we have never
 tested on a machine configured like yours. When they do, tell us. That feedback
