@@ -228,4 +228,4 @@ protocol. There is a lot to say about that, and it gets a post of its own.
 
 ---
 
-[Discuss this post on GitHub](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/472)
+💬 **[Join the discussion on GitHub →](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/472)**

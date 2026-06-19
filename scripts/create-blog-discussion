@@ -177,7 +177,7 @@ for file in "${files[@]}"; do
     # not a theme component, so the RSS feed carries it).
     {
         printf '\n---\n\n'
-        printf '[Discuss this post on GitHub](%s)\n' "$url"
+        printf '💬 **[Join the discussion on GitHub →](%s)**\n' "$url"
     } >> "$file"
 
     created=$((created + 1))

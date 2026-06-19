@@ -117,4 +117,4 @@ jump in when it looks ready for you.
 
 ---
 
-[Discuss this post on GitHub](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/473)
+💬 **[Join the discussion on GitHub →](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/473)**
