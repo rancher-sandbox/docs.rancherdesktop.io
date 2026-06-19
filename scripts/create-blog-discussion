@@ -1,0 +1,185 @@
+#!/usr/bin/env bash
+#
+# Create a GitHub Discussion thread for each blog post and link the post to it.
+#
+# For each post:
+#   1. Create a Discussion in the "Blog" category of rancher-sandbox/rancher-desktop-2,
+#      titled with the post title and seeded with the post's excerpt and a link
+#      back to the published post.
+#   2. Write the discussion URL into the post: a `discussion:` frontmatter field
+#      (a re-run skips posts that already have one) and a "Discuss this post on
+#      GitHub" link at the end of the body.
+#
+# The reader-facing link goes in the post body, not a theme component, on purpose:
+# the RSS/Atom feed carries the rendered markdown body, so an in-body link reaches
+# feed subscribers. A swizzled footer would show on the site but never reach the
+# feed.
+#
+# A new discussion is public at once and notifies category subscribers, so run
+# --dry-run first to review the titles and bodies.
+#
+# Usage: scripts/create-blog-discussion [--dry-run] [post.md ...]
+#
+# With no file arguments it processes every blog/*.md post.
+
+set -euo pipefail
+
+owner=rancher-sandbox
+repo=rancher-desktop-2
+category=Blog
+site=https://docs.rancherdesktop.io
+
+usage() {
+    echo "Usage: scripts/create-blog-discussion [--dry-run] [post.md ...]"
+    echo
+    echo "Create a GitHub Discussion for each blog post and link the post to it."
+    echo "With no files, processes every blog/*.md. --dry-run previews without changes."
+}
+
+dry_run=false
+files=()
+while [ "$#" -gt 0 ]; do
+    case "$1" in
+        -h|--help) usage; exit 0 ;;
+        --dry-run) dry_run=true; shift ;;
+        --) shift; while [ "$#" -gt 0 ]; do files+=("$1"); shift; done ;;
+        -*) echo "error: unknown option: $1" >&2; usage >&2; exit 1 ;;
+        *) files+=("$1"); shift ;;
+    esac
+done
+
+script_dir=$(cd "$(dirname "$0")" && pwd)
+repo_root=$(cd "$script_dir/.." && pwd)
+
+if [ "${#files[@]}" -eq 0 ]; then
+    for f in "$repo_root"/blog/*.md; do
+        files+=("$f")
+    done
+fi
+
+# Print the YAML frontmatter block (between the first two --- lines).
+frontmatter() {
+    awk 'NR==1 && $0=="---"{f=1; next} f && $0=="---"{exit} f{print}' "$1"
+}
+
+# Read a single-line frontmatter scalar by key (empty if absent).
+fm_field() {
+    frontmatter "$1" | awk -v k="$2:" '$1==k{sub(/^[^:]*:[ \t]*/,""); print; exit}'
+}
+
+# Print the post excerpt: the body up to the truncate marker, with surrounding
+# blank lines trimmed.
+excerpt() {
+    awk '
+        NR==1 && $0=="---"{f=1; next}
+        f && $0=="---"{f=0; b=1; next}
+        b && /<!-- truncate -->/{exit}
+        b{print}
+    ' "$1" | perl -0pe 's/\A\s+//; s/\s+\z/\n/'
+}
+
+if ! command -v gh >/dev/null 2>&1; then
+    echo "error: gh not found on PATH" >&2
+    exit 1
+fi
+
+echo "Looking up $owner/$repo and its \"$category\" category..."
+repo_json=$(gh api graphql -f query='
+    query($owner: String!, $repo: String!) {
+        repository(owner: $owner, name: $repo) {
+            id
+            discussionCategories(first: 50) { nodes { id name } }
+        }
+    }' -f owner="$owner" -f repo="$repo")
+
+repo_id=$(jq -r '.data.repository.id // empty' <<<"$repo_json")
+category_id=$(jq -r --arg c "$category" \
+    '.data.repository.discussionCategories.nodes[] | select(.name == $c) | .id' <<<"$repo_json")
+
+if [ -z "$repo_id" ]; then
+    echo "error: could not resolve repository $owner/$repo" >&2
+    exit 1
+fi
+if [ -z "$category_id" ]; then
+    echo "error: discussion category \"$category\" not found in $owner/$repo" >&2
+    exit 1
+fi
+
+created=0
+skipped=0
+for file in "${files[@]}"; do
+    if [ ! -f "$file" ]; then
+        echo "warning: $file not found, skipping" >&2
+        continue
+    fi
+
+    title=$(fm_field "$file" title)
+    slug=$(fm_field "$file" slug)
+    existing=$(fm_field "$file" discussion)
+    name=$(basename "$file")
+
+    if [ -z "$title" ] || [ -z "$slug" ]; then
+        echo "warning: $name has no title/slug frontmatter, skipping" >&2
+        continue
+    fi
+
+    if [ -n "$existing" ]; then
+        echo "skip: $name already linked to $existing"
+        skipped=$((skipped + 1))
+        continue
+    fi
+
+    post_url="$site/blog/$slug/"
+    body=$(printf '%s\n\nRead the full post: %s\n' "$(excerpt "$file")" "$post_url")
+
+    if $dry_run; then
+        echo
+        echo "would create discussion in $owner/$repo [$category]:"
+        echo "  file:  $name"
+        echo "  title: $title"
+        echo "  link:  $post_url"
+        echo "  body:"
+        printf '%s\n' "$body" | sed 's/^/    | /'
+        continue
+    fi
+
+    echo
+    echo "creating discussion for $name..."
+    url=$(gh api graphql -f query='
+        mutation($repoId: ID!, $categoryId: ID!, $title: String!, $body: String!) {
+            createDiscussion(input: {repositoryId: $repoId, categoryId: $categoryId, title: $title, body: $body}) {
+                discussion { url }
+            }
+        }' -f repoId="$repo_id" -f categoryId="$category_id" -f title="$title" -f body="$body" \
+        --jq '.data.createDiscussion.discussion.url')
+
+    if [ -z "$url" ] || [ "$url" = "null" ]; then
+        echo "error: failed to create discussion for $name" >&2
+        exit 1
+    fi
+    echo "  created: $url"
+
+    # Record the URL in frontmatter so a re-run skips this post.
+    DISCUSSION_URL="$url" perl -i -pe '
+        if (!$done && $. > 1 && /^---\s*$/) {
+            print "discussion: $ENV{DISCUSSION_URL}\n";
+            $done = 1;
+        }
+    ' "$file"
+
+    # Add the reader-facing link to the body (see the header comment: in the body,
+    # not a theme component, so the RSS feed carries it).
+    {
+        printf '\n---\n\n'
+        printf '[Discuss this post on GitHub](%s)\n' "$url"
+    } >> "$file"
+
+    created=$((created + 1))
+done
+
+echo
+if $dry_run; then
+    echo "dry run: no discussions created, no files changed."
+else
+    echo "done: $created created, $skipped skipped."
+fi
