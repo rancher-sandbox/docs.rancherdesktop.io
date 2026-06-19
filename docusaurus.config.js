@@ -194,6 +194,10 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        // prism-react-renderer bundles a small language set (json, xml, css,
+        // js, ...), so the shells/yaml/powershell we use must be requested.
+        // 'bash' covers its 'shell' alias; 'shell-session' covers ```console.
+        additionalLanguages: ['bash', 'shell-session', 'yaml', 'powershell', 'docker'],
       },
     }),
     plugins: [
