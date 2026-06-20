@@ -64,13 +64,14 @@ had to be implemented twice.
 
 ## A small guest with sharp edges
 
-The VM ran Alpine Linux, picked because it's tiny. Smaller download, faster
-boot. Alpine stays small by using musl and OpenRC instead of the glibc and
-systemd most Linux software is built against. Usually that's invisible.
-Sometimes it isn't. You can't run the NVIDIA Container Toolkit on it, which
-means no CUDA, which means machines with a GPU can't run the AI workloads people
-increasingly want to run. A choice that saved a few megabytes early on walled
-off a whole category of work once GPUs and AI showed up.
+The VM ran Alpine Linux, picked because it's tiny, which meant a smaller
+download and a faster boot. Alpine stays small by using musl and OpenRC
+instead of the glibc and systemd most Linux software is built against. Usually
+that's invisible. Sometimes it isn't. You can't run the NVIDIA Container
+Toolkit on it, which means no CUDA, which means machines with a GPU can't run
+the AI workloads people increasingly want to run. A choice that saved a few
+megabytes early on walled off a whole category of work once GPUs and AI showed
+up.
 
 ## More than Kubernetes
 
@@ -123,7 +124,7 @@ setup. But not everything was reachable from it. Port forwarding, for one, still
 went through private messaging between the GUI and the backend, never exposed
 through the REST API, so the GUI could do things no script could.
 
-The second was snapshots. Save the VM's state, restore it later. A simple
+The second was snapshots, saving the VM's state to restore later. A simple
 feature, an awkward implementation, because the backend has to stop while its
 disk is copied, and the backend lives inside the GUI. So taking a snapshot
 turned into a small contortion. The GUI launches rdctl, which calls back into

@@ -12,8 +12,9 @@ commands from a working container engine.
 
 <!-- truncate -->
 
-2.0 installs beside Rancher Desktop 1.x without touching it. Separate package,
-separate data, nothing shared. Install or remove them in any order. (The
+2.0 installs beside Rancher Desktop 1.x without touching it, with a
+separate package, separate data, and nothing shared. Install or remove them
+in any order. (The
 [welcome post](/blog/welcome-to-rancher-desktop-2) covers what 2.0 is and how
 it differs; this one is about getting it running.)
 
