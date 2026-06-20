@@ -7,19 +7,20 @@ discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/472
 
 The 2.0 alpha is out, and there are two ways to run it. Install the full
 desktop app, or skip the GUI and run the new rdd binary straight from your
-terminal. Both leave Rancher Desktop alone, and both put you a couple of
+terminal. Both leave Rancher Desktop 1.x alone, and both put you a couple of
 commands from a working container engine.
 
 <!-- truncate -->
 
-2.0 installs beside Rancher Desktop without touching it: separate package,
+2.0 installs beside Rancher Desktop 1.x without touching it. Separate package,
 separate data, nothing shared. Install or remove them in any order. (The
 [welcome post](/blog/welcome-to-rancher-desktop-2) covers what 2.0 is and how
 it differs; this one is about getting it running.)
 
 ## Install the desktop app
 
-The full app, the GUI plus a set of bundled command-line tools, comes from the
+The full app, including the GUI and a set of bundled command-line tools, comes
+from the
 [latest release](https://github.com/rancher-sandbox/rancher-desktop-2/releases/latest)
 on GitHub; its notes list the download for every platform. Open the **Assets**
 list there.
@@ -31,10 +32,10 @@ from there.
 
 On Windows, download the installer, `Rancher.Desktop.Setup.2.0.0-alpha.1.msi`,
 and run it. Install WSL2 first if you have not already; 2.0 runs its Linux VM
-through WSL2, just as Rancher Desktop does.
+through WSL2, just as Rancher Desktop 1.x does.
 
-On Linux, install from our RPM or DEB repositories or run the AppImage, the
-same channels as Rancher Desktop.
+On Linux, install from our RPM or DEB repositories, or run the AppImage,
+similar to the channels used for Rancher Desktop 1.x.
 
 The first time you launch the app, it sets up the backend and downloads the
 VM image, which can take a while on a slow connection. After that the app is
@@ -51,7 +52,7 @@ directly) and run:
 rdd set kubernetes.enabled=true
 ```
 
-The VM is already running without Kubernetes, so this restarts it once. A
+The VM is already running without Kubernetes, so this restarts only once. A
 settings screen and first-run options are on the way; for now the command line
 is the only switch.
 
@@ -59,7 +60,7 @@ is the only switch.
 
 If you want a container engine and a cluster with no window on screen, skip the
 app and download the single `rdd` binary instead. It is the whole backend in
-one file: no installer, nothing to unpack.
+one file. No installer, nothing to unpack.
 
 The binaries are in the same release. The name is `rdd-` followed by the
 version, the operating system, and the CPU architecture: on an Apple silicon
@@ -83,8 +84,8 @@ rdd run docker run --rm hello-world
 not already up, then runs your command with the `PATH` and the Docker and
 Kubernetes contexts pointed at 2.0 for that command only. It leaves your own
 configuration untouched. So if your machine is already set up for Rancher
-Desktop, leave it that way and reach for 2.0 with `rdd run` when you want to
-try something. The very first start downloads the openSUSE Leap image and
+Desktop 1.x, leave it that way and reach for 2.0 with `rdd run` when you want
+to try something. The very first start downloads the openSUSE Leap image and
 brings the VM up, which can take a while on a slow connection; after that it is
 quick.
 
@@ -109,9 +110,10 @@ pin a specific one (1.31 or newer).
 ## Driving it
 
 The same `rdd` commands drive 2.0 whether you installed the app or only the
-binary. The GUI is one more client; underneath, it runs the daemon you do.
+binary. The GUI is an additional client; underneath, it runs the same daemon
+as you do.
 
-`rdd run` is fine for the occasional command. If you reach for 2.0 a lot, put
+`rdd run` is fine for the occasional command. If you use 2.0 a lot, put
 `docker`, `kubectl`, and `helm` on your `PATH` directly. The first start
 populates `~/.rd2/bin` with them; add that directory to your `PATH` yourself,
 in this shell and in your profile:
@@ -120,10 +122,11 @@ in this shell and in your profile:
 export PATH="$HOME/.rd2/bin:$PATH"
 ```
 
-This alpha sets up no paths for you, so that line is your job. Both the Docker
-and Kubernetes contexts are named `rancher-desktop-2`, and 2.0 will not take
-over a context you already have selected. If you run both side by side, move
-between them by switching contexts:
+This alpha doesn't set up any paths for you, so you will need to add that line
+to your shell profile yourself. Both the Docker and Kubernetes contexts are
+named `rancher-desktop-2`, and 2.0 will not take over a context you already
+have selected. If you run both side by side, move between them by switching
+contexts:
 
 ```bash
 docker context use rancher-desktop-2
@@ -150,15 +153,14 @@ images from earlier previews automatically and adding a command to empty the
 cache. For the next preview instead, install the new build and start again.
 
 That is the alpha: install it one of two ways, start it, run a container. It
-will break on setups we have never seen, and when it does, tell us. Finding out
-where it breaks is much of why we shipped it this early.
+may break on setups we have never seen, and if it does, tell us.
 
 ## A glimpse underneath
 
 rdd is a Kubernetes API server in its own right, and Rancher Desktop's own
 state lives inside it as Kubernetes objects. `rdd ctl` is kubectl aimed at that
 API. Ask it for the App object and the whole machine prints as YAML: the
-container engine, the Kubernetes version it settled on, and the conditions
+container engine, the requested Kubernetes version, and the conditions
 tracking its progress toward the state you asked for.
 
 ```yaml

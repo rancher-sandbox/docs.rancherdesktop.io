@@ -18,12 +18,12 @@ Desktop because, at the time, "Rancher" was how SUSE said "Kubernetes." That
 branding has gotten more complicated since, the way branding does, but the name
 stuck.
 
-About seven months later, in May 2021, the first public build shipped: macOS and
-Windows, k3s for Kubernetes, an image builder called kim, and a way to switch
-Kubernetes versions. It was alpha software and looked like it. Five years on
-it's a different program, and the story of how it got here is mostly the story
-of how much work it took to keep one simple promise on three operating systems
-at once.
+About seven months later, in May 2021, the first public build shipped, with
+macOS and Windows support, k3s for Kubernetes, an image builder called kim, and
+a way to switch Kubernetes versions. It was alpha software and looked like it.
+Five years on it's a different program, and the story of how it got here is
+mostly the story of how much work it took to keep one simple promise on three
+operating systems at once.
 
 ## Two operating systems, two backends
 
@@ -36,8 +36,7 @@ Apple's Hypervisor.framework via the docker-machine-driver-hyperkit, then
 replaced it with Lima and QEMU. Each move was a rebuild of the layer that
 creates the VM, installs k3s, and wires up the network. When Apple later shipped
 its own Virtualization framework, VZ, moving to it was mostly a matter of
-telling Lima to use it. That's the difference a real foundation makes: the next
-big change stops being a rebuild.
+telling Lima to use it.
 
 Windows went its own way, with k3s running inside a dedicated WSL distribution
 we imported from an image we built ourselves. When Linux arrived as a tech
@@ -47,7 +46,7 @@ on as an upstream open-source project instead of maintaining alone. That part
 worked. macOS and Linux became one backend, where a fix landed once instead of
 twice.
 
-Building on Lima also meant building it. Lima started narrow: a way to run
+Building on Lima also meant building it. Lima started narrow, just a way to run
 containers with nerdctl on a Mac. The provisioning scripts we added a few weeks
 in, the mechanism that runs setup inside a fresh VM, are how Rancher Desktop
 installs k3s and a container engine. They also opened up Lima so you could
@@ -65,10 +64,10 @@ had to be implemented twice.
 
 ## A small guest with sharp edges
 
-The VM ran Alpine Linux, picked because it's tiny: a smaller download, a faster
+The VM ran Alpine Linux, picked because it's tiny. Smaller download, faster
 boot. Alpine stays small by using musl and OpenRC instead of the glibc and
 systemd most Linux software is built against. Usually that's invisible.
-Sometimes it isn't: you can't run the NVIDIA Container Toolkit on it, which
+Sometimes it isn't. You can't run the NVIDIA Container Toolkit on it, which
 means no CUDA, which means machines with a GPU can't run the AI workloads people
 increasingly want to run. A choice that saved a few megabytes early on walled
 off a whole category of work once GPUs and AI showed up.
@@ -78,7 +77,7 @@ off a whole category of work once GPUs and AI showed up.
 We set out to ship Kubernetes, and users kept asking for the rest of the
 container toolbox. The first image builder, kim, ran inside the cluster; we
 replaced it with nerdctl, the standard containerd CLI, and most people never
-noticed kim was gone. Then we hit something we hadn't planned for: a lot of real
+noticed kim was gone. Then we hit something we hadn't planned for. A lot of real
 projects simply wouldn't build under nerdctl and buildkit. We added moby
 (dockerd and the Docker CLI) as a second engine, so those projects would build.
 Later we let people turn Kubernetes off entirely and run nothing but the
@@ -92,9 +91,9 @@ right DNS answers, a corporate VPN that doesn't break everything: getting all
 three to coexist took years of work on each platform, and little of it carried
 across. On macOS the VM reaches the network through a layer called vmnet, where
 we moved from one implementation to another and carried both for a while.
-Windows needed something else entirely: to keep the VM's network from fighting
-the host's VPN, we built a tunnelling network that runs in its own isolated
-namespace.
+Windows needed something else entirely. WSL puts every distribution on one
+shared network, so to avoid port conflicts with the others, we gave our VM a
+tunnelling network in its own network namespace.
 
 Some of that split is just the operating systems being different; there's no
 single answer that works on both. The question a clean design has to get right
@@ -106,9 +105,9 @@ the app.
 
 The request for Linux support surprised us. On Linux you can already run k3s,
 containerd, and Docker natively. What does a desktop app add? Not the
-containers. The value was being able to throw the whole thing away: a factory
-reset that wipes the VM back to nothing, worth a lot when your environment
-drifts into a state you no longer understand. People didn't want another way to
+containers. The value was being able to throw the whole thing away. A factory
+reset wipes the VM back to nothing, worth a lot when your environment drifts
+into a state you no longer understand. People didn't want another way to
 run containers. They wanted an undo button for their development machine (and
 later, snapshots).
 
@@ -124,12 +123,12 @@ setup. But not everything was reachable from it. Port forwarding, for one, still
 went through private messaging between the GUI and the backend, never exposed
 through the REST API, so the GUI could do things no script could.
 
-The second was snapshots: save the VM's state, restore it later. A simple
+The second was snapshots. Save the VM's state, restore it later. A simple
 feature, an awkward implementation, because the backend has to stop while its
 disk is copied, and the backend lives inside the GUI. So taking a snapshot
 turned into a small contortion. The GUI launches rdctl, which calls back into
 the GUI to ask it to shut its own backend down, takes the snapshot, then asks it
-to start back up. Cancelling was worse: there was no clean channel for it, so
+to start back up. Cancelling was worse. There was no clean channel for it, so
 the GUI found the running rdctl process and killed it by name.
 
 Underneath both was the same fact: you can't run the backend without the GUI.
