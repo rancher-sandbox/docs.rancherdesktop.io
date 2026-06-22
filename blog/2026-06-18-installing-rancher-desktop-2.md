@@ -6,7 +6,7 @@ discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/472
 ---
 
 The 2.0 alpha is out, and there are two ways to run it. Install the full
-desktop app, or skip the GUI and run the new rdd binary straight from your
+desktop app, or skip the GUI and run the new `rdd` binary straight from your
 terminal. Both leave Rancher Desktop 1.x alone, and both put you a couple of
 commands from a working container engine.
 
@@ -53,7 +53,7 @@ directly) and run:
 rdd set kubernetes.enabled=true
 ```
 
-The VM is already running without Kubernetes, so this restarts only once. A
+The VM is already running without Kubernetes, so this restarts it once. A
 settings screen and first-run options are on the way; for now the command line
 is the only switch.
 
@@ -63,7 +63,7 @@ If you want a container engine and a cluster with no window on screen, skip the
 app and download the single `rdd` binary instead. It is the whole backend in
 one file. No installer, nothing to unpack.
 
-The binaries are in the same release. The name is `rdd-` followed by the
+The binaries are in the same GitHub release. The name is `rdd-` followed by the
 version, the operating system, and the CPU architecture: on an Apple silicon
 Mac you want `rdd-2.0.0-alpha.1.darwin.aarch64`; on x86_64 Linux,
 `rdd-2.0.0-alpha.1.linux.x86_64`. Download the one for your machine, put it on
@@ -110,21 +110,26 @@ pin a specific one (1.31 or newer).
 
 ## Driving it
 
-The same `rdd` commands drive 2.0 whether you installed the app or only the
+The same `rdd` commands drive 2.0 whether you installed the full app or only the
 binary. The GUI is an additional client; underneath, it runs the same daemon
 as you do.
 
-`rdd run` is fine for the occasional command. If you use 2.0 a lot, put
-`docker`, `kubectl`, and `helm` on your `PATH` directly. The first start
-populates `~/.rd2/bin` with them; add that directory to your `PATH` yourself,
-in this shell and in your profile:
+`rdd run` is fine for the occasional command. If you use 2.0 a lot, add
+`~/.rd2/bin` to your `PATH` and call the tools directly. The first start
+populates that directory; add it to your `PATH` yourself, in this shell and in
+your profile:
 
 ```bash
 export PATH="$HOME/.rd2/bin:$PATH"
 ```
 
-This alpha doesn't set up any paths for you, so you will need to add that line
-to your shell profile yourself. Both the Docker and Kubernetes contexts are
+What you find there depends on how you installed. `rdd` provides `kubectl`
+itself, so it is there either way. `docker` and `helm` come with the full app,
+which links them into `~/.rd2/bin` alongside its other bundled tools and the
+credential helpers; with the daemon-only download, supply `docker` and `helm`
+yourself.
+
+Both the Docker and Kubernetes contexts are
 named `rancher-desktop-2`, and 2.0 will not take over a context you already
 have selected. If you run both side by side, move between them by switching
 contexts:
@@ -158,8 +163,8 @@ may break on setups we have never seen, and if it does, tell us.
 
 ## A glimpse underneath
 
-rdd is a Kubernetes API server in its own right, and Rancher Desktop's own
-state lives inside it as Kubernetes objects. `rdd ctl` is kubectl aimed at that
+`rdd` is a Kubernetes API server in its own right, and Rancher Desktop's own
+state lives inside it as Kubernetes objects. `rdd ctl` is `kubectl` aimed at that
 API. Ask it for the App object and the whole machine prints as YAML: the
 container engine, the requested Kubernetes version, and the conditions
 tracking its progress toward the state you asked for.
@@ -228,6 +233,27 @@ This is not the cluster you turned on earlier. It is Rancher Desktop
 representing itself through the same API your tools already speak, which means
 anything that drives Kubernetes can drive it, no bespoke SDK and no private
 protocol. There is a lot to say about that, and it gets a post of its own.
+
+## The commands in one place
+
+<div className="command-reference">
+
+| Command | What it does |
+| --- | --- |
+| `rdd run <cmd>` | Run one command against 2.0, starting the daemon if needed and leaving your own setup untouched |
+| `rdd start` | Bring the backend up |
+| `rdd stop` | Take the backend down, keeping your data |
+| `rdd set <key>=<value>` | Change a setting, such as `rdd set kubernetes.enabled=true` |
+| `rdd svc delete` | Stop the daemon and remove everything 2.0 created (also how you uninstall) |
+| `rdd ctl` | `kubectl` aimed at the `rdd` API, where Rancher Desktop keeps its own state |
+
+</div>
+
+<style>{`
+  .command-reference td:first-child {
+    white-space: nowrap;
+  }
+`}</style>
 
 ---
 

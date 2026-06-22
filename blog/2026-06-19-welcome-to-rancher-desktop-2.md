@@ -24,16 +24,16 @@ one backend instead of two, the engine lifted out of the GUI, and a different
 guest OS underneath. 2.0 is that idea, rebuilt from the ground up and easier to
 maintain.
 
-At the center is a new background program called rdd, the Rancher Desktop
-Daemon. rdd does the real work. It runs the virtual machine, using Lima on every
+At the center is a new background program called `rdd`, the Rancher Desktop
+Daemon. `rdd` does the real work. It runs the virtual machine, using Lima on every
 platform now, Windows included. It starts your container engine and your
 Kubernetes cluster. It exposes all of that through an API, and not a custom one:
-rdd speaks the Kubernetes API. Your kubectl and the usual client libraries can
+`rdd` speaks the Kubernetes API. Your `kubectl` and the usual client libraries can
 drive it directly, no new SDK to learn. The desktop app is just one more client,
-with no special privileges, talking to rdd the way any other tool would.
+with no special privileges, talking to `rdd` the way any other tool would.
 
-Because the work lives in rdd instead of inside a window, you can run the whole
-thing without ever opening the GUI. And rdd is one self-contained executable. No
+Because the work lives in `rdd` instead of inside a window, you can run the whole
+thing without ever opening the GUI. And `rdd` is one self-contained executable. No
 installer, no separate daemon and command-line tool, just one file that is both
 the backend and the way you drive it. Download it, start it from the command
 line, and you have a container engine and a cluster: on a headless server, on a
@@ -54,14 +54,14 @@ Putting it out now, rough edges and all, does two things for us.
 It shows that "we will do that in 2.0" means a workstream already running, not a
 promise about some distant year. And it puts the design in front of you early,
 when your feedback still counts. If your setup depends on something specific,
-this is the moment to say so, before we lock in decisions we made without you.
+this is the moment to say so, before we lock in decisions.
 
 ## What you can do today
 
 This is a working preview, not a finished product. What runs right now:
 
 - Start, stop, and delete Rancher Desktop 2.0, from the GUI or the command line.
-- Install and run it with no GUI at all: the daemon plus the bundled
+- Install and run it with no GUI at all: the daemon with your local
   command-line tools.
 - Build and run containers with the Docker (moby) engine.
 - Manage containers from the dashboard: start, stop, pause, resume, delete.
@@ -95,7 +95,7 @@ The full app, GUI plus bundled tools, comes from the [latest
 release](https://github.com/rancher-sandbox/rancher-desktop-2/releases/latest)
 on GitHub for Windows and macOS (Intel and Apple silicon), and from our RPM and
 DEB repositories and AppImages on Linux, the same places you would reach for
-Rancher Desktop 1.x. If all you want is the daemon, download the single rdd
+Rancher Desktop 1.x. If all you want is the daemon, download the single `rdd`
 binary for your platform and you are two commands away from a running
 container.
 
@@ -111,8 +111,8 @@ is a big part of why we are shipping this early.
 
 There are no docs for 2.0 yet. There is this blog. As the work moves, we will
 write about how the pieces fit and what becomes newly possible: the daemon and
-its API, networking, snapshots, the AI story, whatever we're working on that
-month. To find out when the next preview drops, subscribe to the feed.
+its API, networking, snapshots, the AI story, whatever we just released. To find
+out when the next preview drops, subscribe to the feed.
 
 Curious, and feeling adventurous? Give it a try. Cautious? Follow along, and
 jump in when it looks ready for you.
