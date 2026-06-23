@@ -156,7 +156,7 @@ app. The cache it leaves is Lima's, not ours (`~/Library/Caches/lima` on macOS,
 `~/.cache/lima` on Linux, `~/AppData/Local/lima` on Windows); delete it too for
 a full reclaim. A later release will handle that for you, clearing distro
 images from earlier previews automatically and adding a command to empty the
-cache. For the next preview instead, install the new build and start again.
+cache.
 
 That is the alpha: install it one of two ways, start it, run a container. It
 may break on setups we have never seen, and if it does, tell us.
