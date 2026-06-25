@@ -1,0 +1,10 @@
+.meta {
+  margin: 0.4rem 0 0.85rem;
+  font-size: 0.9rem;
+}
+
+/* Render the date/reading-time line inline so the author follows it on the
+   same row instead of dropping to its own block. */
+.info {
+  display: inline;
+}

@@ -32,8 +32,6 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           sidebarCollapsed: true,
           sidebarCollapsible: true,
-          // Please change this to your repo.
-          editUrl: 'https://github.com/rancher-sandbox/docs.rancherdesktop.io/edit/main',
           versions: {
             current: {
               label: 'Next 🚧',
@@ -51,7 +49,19 @@ const config = {
           },
           remarkPlugins: [RDVersionedAssets],
         },
-        blog: false,
+        blog: {
+          routeBasePath: '/blog',
+          showReadingTime: true,
+          blogTitle: 'Rancher Desktop Blog',
+          blogDescription: 'News and updates from the Rancher Desktop team',
+          feedOptions: {
+            type: 'all',
+            xslt: true,
+            title: 'Rancher Desktop Blog',
+            description: 'News and updates from the Rancher Desktop team',
+            copyright: `Copyright © ${new Date().getFullYear()} SUSE Rancher. All Rights Reserved.`,
+          },
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -89,6 +99,17 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
+          {
+            to: '/blog',
+            label: 'Blog',
+            position: 'right',
+          },
+          {
+            href: 'pathname:///blog/rss.xml',
+            position: 'right',
+            className: 'navbar-rss-link',
+            'aria-label': 'Subscribe to the blog via RSS',
+          },
           {
             type: `dropdown`,
             label: `Quick Links`,
@@ -170,6 +191,10 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        // prism-react-renderer bundles a small language set (json, xml, css,
+        // js, ...), so the shells/yaml/powershell we use must be requested.
+        // 'bash' covers its 'shell' alias; 'shell-session' covers ```console.
+        additionalLanguages: ['bash', 'shell-session', 'yaml', 'powershell', 'docker'],
       },
     }),
     plugins: [
