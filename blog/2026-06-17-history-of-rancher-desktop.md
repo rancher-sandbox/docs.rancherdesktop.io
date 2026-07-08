@@ -19,7 +19,7 @@ branding has gotten more complicated since, the way branding does, but the name
 stuck.
 
 About seven months later, in May 2021, the first public build shipped, with
-macOS and Windows support, k3s for Kubernetes, an image builder called kim, and
+macOS and Windows support, k3s[^k3s] for Kubernetes, an image builder called kim[^kim], and
 a way to switch Kubernetes versions. It was alpha software and looked like it.
 Five years on it's a different program, and the story of how it got here is
 mostly the story of how much work it took to keep one simple promise on three
@@ -33,7 +33,7 @@ the next five years discovering how different "two backends" really are.
 
 The Mac side never sat still. We started with minikube, dropped it to drive
 Apple's Hypervisor.framework via the docker-machine-driver-hyperkit, then
-replaced it with Lima and QEMU. Each move was a rebuild of the layer that
+replaced it with Lima and QEMU[^qemu]. Each move was a rebuild of the layer that
 creates the VM, installs k3s, and wires up the network. When Apple later shipped
 its own Virtualization framework, VZ, moving to it was mostly a matter of
 telling Lima to use it.
@@ -65,8 +65,8 @@ had to be implemented twice.
 ## A small guest with sharp edges
 
 The VM ran Alpine Linux, picked because it's tiny, which meant a smaller
-download and a faster boot. Alpine stays small by using musl and OpenRC
-instead of the glibc and systemd most Linux software is built against. Usually
+download and a faster boot. Alpine stays small by using musl[^musl] and OpenRC
+instead of the glibc and systemd[^init] most Linux software is built against. Usually
 that's invisible. Sometimes it isn't. You can't run the NVIDIA Container
 Toolkit on it, which means no CUDA, which means machines with a GPU can't run
 the AI workloads people increasingly want to run. A choice that saved a few
@@ -90,7 +90,7 @@ desktop" into "containers and Kubernetes on your desktop."
 Networking was the part that never stopped being hard. A container's ports, the
 right DNS answers, a corporate VPN that doesn't break everything: getting all
 three to coexist took years of work on each platform, and little of it carried
-across. On macOS the VM reaches the network through a layer called vmnet, where
+across. On macOS the VM reaches the network through a layer called vmnet[^vmnet], where
 we moved from one implementation to another and carried both for a while.
 Windows needed something else entirely. WSL puts every distribution on one
 shared network, so to avoid port conflicts with the others, we gave our VM a
@@ -159,6 +159,18 @@ can run on its own: headless, scripted, snapshotted by itself. A guest that can
 talk to your GPU. Not because the first five years were wrong, but because they
 taught us exactly what the foundation needed to be. The rest of this blog is
 about what we're building on it.
+
+[^k3s]: k3s is Rancher's lightweight Kubernetes distribution, small enough to run on a laptop or edge device.
+
+[^kim]: kim built images by running the build inside the Kubernetes cluster itself, not from a daemon on the host. It worked, but it tied image builds to a running cluster.
+
+[^qemu]: QEMU is an open-source machine emulator and virtualizer, here the software that created the Mac's Linux VM.
+
+[^musl]: musl is a lightweight C library. Most prebuilt Linux binaries expect glibc, so software that assumes it can fail to start on Alpine without a compatibility shim.
+
+[^init]: systemd starts and supervises services on most Linux distributions. Alpine ships the lighter OpenRC instead, and a service written for one will not start under the other.
+
+[^vmnet]: macOS gives a virtual machine its network through the vmnet framework. Which mode you pick mostly decides how the VM's addresses relate to the rest of your network.
 
 ---
 

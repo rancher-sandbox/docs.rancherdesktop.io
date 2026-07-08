@@ -18,9 +18,12 @@ const config = {
   trailingSlash: true,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
+  onBrokenAnchors: 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'rancher-sandbox', // Usually your GitHub org/user name.
   projectName: 'docs.rancherdesktop.io', // Usually your repo name.
+
+  clientModules: [require.resolve('./src/clientModules/marginNotes.js')],
 
   presets: [
     [

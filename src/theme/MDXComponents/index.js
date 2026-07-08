@@ -6,6 +6,7 @@ import MDXPre from '@theme/MDXComponents/Pre';
 import MDXDetails from '@theme/MDXComponents/Details';
 import MDXHeading from '@theme/MDXComponents/Heading';
 import MDXUl from '@theme/MDXComponents/Ul';
+import MDXLi from '@theme/MDXComponents/Li';
 import MDXImg from '@theme/MDXComponents/Img';
 import Admonition from '@theme/Admonition';
 import Mermaid from '@theme/Mermaid';
@@ -20,6 +21,9 @@ const MDXComponents = {
   a: MDXA,
   pre: MDXPre,
   ul: MDXUl,
+  // Registers list-item ids (footnote definitions) with the broken-anchor
+  // checker; upstream added it after this file was swizzled, so it was missing.
+  li: MDXLi,
   img: MDXImg,
   h1: (props) => <MDXHeading as="h1" {...props} />,
   h2: (props) => <MDXHeading as="h2" {...props} />,
