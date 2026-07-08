@@ -74,3 +74,108 @@ html.blog-list-page article {
 html.blog-list-page article footer.docusaurus-mt-lg {
   margin-top: 0.75rem;
 }
+
+/* Blog posts use a full-width three-column grid whose outer edges line up with
+   the navbar: the table of contents and recent posts on the left, the article
+   in a center column that grows with the window, and a reserved right column
+   for footnotes shown as margin notes beside their markers. Below the sidebar
+   breakpoint the article spans the full width and the notes fall back to the
+   standard list at the foot of the post. See src/clientModules/marginNotes.js
+   and the swizzled BlogLayout and BlogSidebar components. */
+:root {
+  --rd-sidebar-width: 240px;
+  --rd-margin-note-width: 240px;
+  --rd-margin-note-gap: 1.5rem;
+}
+
+/* The footer keeps the boxed width; the article wrap below goes full width. */
+html.blog-post-page .container {
+  max-width: min(1580px, 94vw);
+}
+
+html.blog-post-page .container.blog-post-wrap {
+  max-width: none;
+}
+
+.blog-post-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(200px, var(--rd-sidebar-width))
+    minmax(0, 1fr)
+    var(--rd-margin-note-width);
+  column-gap: var(--rd-margin-note-gap);
+}
+
+/* Grid tracks size the columns; drop Infima's column padding and max-width so
+   the sidebar and rail sit flush with the navbar's left and right edges. */
+.blog-post-grid > * {
+  min-width: 0;
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (max-width: 996px) {
+  .blog-post-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* The rail is positioned against the content column and scrolls with the
+   article, so each note stays beside its marker. */
+#__blog-post-container.margin-notes-active {
+  position: relative;
+}
+
+.margin-note-rail {
+  position: absolute;
+  top: 0;
+  left: calc(100% + var(--rd-margin-note-gap));
+  width: var(--rd-margin-note-width);
+}
+
+.margin-note {
+  position: absolute;
+  width: 100%;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.margin-note > :last-child {
+  margin-bottom: 0;
+}
+
+.margin-note-number {
+  margin-right: 0.35rem;
+  color: var(--ifm-color-emphasis-900);
+  font-weight: 700;
+}
+
+.margin-note.is-highlighted {
+  border-left-color: var(--ifm-color-primary);
+  background: color-mix(in srgb, var(--ifm-color-primary) 7%, transparent);
+}
+
+/* Hovering a note (or its marker) makes the marker bold and darker, so the eye
+   can find the reference point in the text. */
+[data-footnote-ref].is-highlighted {
+  font-weight: 700;
+  color: var(--ifm-color-primary-dark);
+}
+
+/* With the rail active the bottom footnote list is redundant on screen, yet it
+   stays in the accessibility tree as the readable copy. */
+#__blog-post-container.margin-notes-active section[data-footnotes] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

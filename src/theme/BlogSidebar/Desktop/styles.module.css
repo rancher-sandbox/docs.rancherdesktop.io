@@ -1,0 +1,64 @@
+.sidebar {
+  max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
+  overflow-y: auto;
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 2rem);
+}
+
+.sidebarItemTitle {
+  font-size: var(--ifm-h3-font-size);
+  font-weight: var(--ifm-font-weight-bold);
+}
+
+.sidebarItemList {
+  font-size: 0.9rem;
+}
+
+.sidebarItem {
+  margin-top: 0.7rem;
+}
+
+.sidebarItemLink {
+  color: var(--ifm-font-color-base);
+  display: block;
+}
+
+.sidebarItemLink:hover {
+  text-decoration: none;
+}
+
+.sidebarItemLinkActive {
+  color: var(--ifm-color-primary) !important;
+}
+
+.tocSection {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+/* The TOC ships its own sticky positioning and max-height. Inside the shared
+   sidebar the column already scrolls as one unit, so flatten it. */
+.toc > div {
+  position: static;
+  max-height: none;
+  overflow: visible;
+}
+
+/* Drop the TOC's left border and matching indent; the sidebar reads as a plain
+   list, not a bracketed rail like the margin notes. */
+.toc :global(.table-of-contents__left-border) {
+  border-left: 0;
+  padding-left: 0;
+}
+
+@media (max-width: 996px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+.yearGroupHeading {
+  margin-top: 1.6rem;
+  margin-bottom: 0.4rem;
+}

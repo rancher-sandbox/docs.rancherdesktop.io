@@ -1,35 +1,12 @@
-import React from 'react';
-import Head from '@docusaurus/Head';
-import MDXA from '@theme/MDXComponents/A';
-import MDXCode from '@theme/MDXComponents/Code';
-import MDXPre from '@theme/MDXComponents/Pre';
-import MDXDetails from '@theme/MDXComponents/Details';
-import MDXHeading from '@theme/MDXComponents/Heading';
-import MDXUl from '@theme/MDXComponents/Ul';
-import MDXImg from '@theme/MDXComponents/Img';
-import Admonition from '@theme/Admonition';
-import Mermaid from '@theme/Mermaid';
+import MDXComponents from '@theme-original/MDXComponents';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-const MDXComponents = {
-  Head,
-  details: MDXDetails,
-  Details: MDXDetails,
-  code: MDXCode,
-  a: MDXA,
-  pre: MDXPre,
-  ul: MDXUl,
-  img: MDXImg,
-  h1: (props) => <MDXHeading as="h1" {...props} />,
-  h2: (props) => <MDXHeading as="h2" {...props} />,
-  h3: (props) => <MDXHeading as="h3" {...props} />,
-  h4: (props) => <MDXHeading as="h4" {...props} />,
-  h5: (props) => <MDXHeading as="h5" {...props} />,
-  h6: (props) => <MDXHeading as="h6" {...props} />,
-  admonition: Admonition,
+// Only customization: make Tabs/TabItem usable in any MDX file without an
+// import. Everything else inherits the default map, so upstream fixes (footnote
+// anchor registration, image decoding, ...) are never dropped by a stale copy.
+export default {
+  ...MDXComponents,
   Tabs,
   TabItem,
-  mermaid: Mermaid,
 };
-export default MDXComponents;

@@ -84,9 +84,9 @@ So you are not caught off guard:
 ## It can be installed beside Rancher Desktop 1.x
 
 You do not have to choose. 2.0 installs next to Rancher Desktop 1.x, and the
-two ignore each other completely: separate package, separate data, separate
-everything. Install them in either order, remove them in either order, nothing
-gets tangled. Don't run them both at once, though. There are likely port and
+two ignore each other: separate package, separate data. Install or remove them
+in either order. The Linux RPM and DEB packages are the exception in this
+alpha.[^linux] Don't run them both at once, though. There are likely port and
 socket conflicts.
 
 ## How to try it
@@ -116,6 +116,8 @@ out when the next preview drops, subscribe to the feed.
 
 Curious, and feeling adventurous? Give it a try. Cautious? Follow along, and
 jump in when it looks ready for you.
+
+[^linux]: The RPM and DEB packages share files with the Rancher Desktop 1.x package, such as `/usr/bin/rancher-desktop`, so the two will not install together. Use the AppImage to run 2.0 alongside 1.x. [Issue #509](https://github.com/rancher-sandbox/rancher-desktop-2/issues/509).
 
 ---
 
