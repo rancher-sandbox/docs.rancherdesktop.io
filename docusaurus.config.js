@@ -17,8 +17,12 @@ const config = {
   // og:url, the sitemap, and internal links off the redirect.
   trailingSlash: true,
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
   onBrokenAnchors: 'throw',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
+  },
   favicon: 'img/favicon.ico',
   organizationName: 'rancher-sandbox', // Usually your GitHub org/user name.
   projectName: 'docs.rancherdesktop.io', // Usually your repo name.
