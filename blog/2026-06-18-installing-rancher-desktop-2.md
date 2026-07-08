@@ -13,8 +13,9 @@ commands from a working container engine.
 <!-- truncate -->
 
 2.0 installs beside Rancher Desktop 1.x without touching it, with a
-separate package, separate data, and nothing shared. Install or remove them
-in any order. (The
+separate package and separate data. Install or remove them in any order. On
+Linux, the RPM and DEB packages are the one exception in this alpha and will
+not install alongside Rancher Desktop 1.x. (The
 [welcome post](/blog/welcome-to-rancher-desktop-2) covers what 2.0 is and how
 it differs; this one is about getting it running.)
 
@@ -35,7 +36,7 @@ On Windows, download the installer, `Rancher.Desktop.Setup.2.0.0-alpha.1.msi`,
 and run it. Install WSL2 first if you have not already; 2.0 runs its Linux VM
 through WSL2, just as Rancher Desktop 1.x does.
 
-On Linux, install from our RPM or DEB repositories, or run the AppImage,
+On Linux, install from our RPM or DEB repositories[^linux], or run the AppImage,
 similar to the channels used for Rancher Desktop 1.x.
 
 The first time you launch the app, it sets up the backend and downloads the
@@ -254,6 +255,8 @@ protocol. There is a lot to say about that, and it gets a post of its own.
     white-space: nowrap;
   }
 `}</style>
+
+[^linux]: The RPM and DEB packages share a few files with the Rancher Desktop 1.x package, such as `/usr/bin/rancher-desktop`, so the two will not install together. Use the AppImage to run 2.0 alongside 1.x. [Issue #509](https://github.com/rancher-sandbox/rancher-desktop-2/issues/509).
 
 ---
 
