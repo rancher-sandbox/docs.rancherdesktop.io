@@ -40,46 +40,45 @@ telling Lima to use it.
 
 Windows went its own way, with k3s running inside a dedicated WSL distribution
 we imported from an image we built ourselves. When Linux arrived as a tech
-preview in late 2021, it didn't add a third backend. It joined the Mac under
+preview in late 2021, it didn't add a third backend; it joined the Mac under
 Lima, which manages the VM on macOS and Linux alike, and which we got to build
 on as an upstream open-source project instead of maintaining alone. That part
-worked. macOS and Linux became one backend, where a fix landed once instead of
-twice.
+worked out; macOS and Linux became one backend, where a fix landed once instead
+of twice.
 
-Building on Lima also meant building it. Lima started narrow, just a way to run
-containers with nerdctl on a Mac. The provisioning scripts we added a few weeks
-in, the mechanism that runs setup inside a fresh VM, are how Rancher Desktop
-installs k3s and a container engine. They also opened up Lima so you could
-provision for almost anything. Other contributions are the rules-based port
-forwarding configuration and host-based DNS lookup to extend VPN connections
-into the VM. What we needed, we built upstream, where every Lima user got to
-benefit from it.
+Building on Lima also meant helping to build it. Lima started narrow, just a
+way to run containers with nerdctl on a Mac. The provisioning scripts we added
+a few weeks in, the mechanism that runs setup inside a fresh VM, are how
+Rancher Desktop installs k3s and a container engine. They also opened up Lima
+so you could provision for almost anything. Other contributions are the
+rules-based port forwarding configuration and host-based DNS lookup to extend
+VPN connections into the VM. What we needed, we built upstream, where every
+Lima user got to benefit from it.
 
 Windows stayed separate. We tried more than once to fold the two together but
 never fully managed it. The systems were too different: a VM you own end to end
 on one side, a WSL distro living under someone else's rules on the other. So
 most features had to be built twice, into two backends similar enough to look
-the same and different enough to break in their own ways. Every new capability
-had to be implemented twice.
+the same and different enough to break in their own ways.
 
 ## A small guest with sharp edges
 
 The VM ran Alpine Linux, picked because it's tiny, which meant a smaller
 download and a faster boot. Alpine stays small by using musl[^musl] and OpenRC
-instead of the glibc and systemd[^init] most Linux software is built against. Usually
-that's invisible. Sometimes it isn't. You can't run the NVIDIA Container
-Toolkit on it, which means no CUDA, which means machines with a GPU can't run
-the AI workloads people increasingly want to run. A choice that saved a few
-megabytes early on walled off a whole category of work once GPUs and AI showed
-up.
+instead of the glibc and systemd[^init] most Linux software is built against.
+Usually that difference is invisible, but sometimes it isn't. You can't run the
+NVIDIA Container Toolkit on it, which means no CUDA, which means machines with
+a GPU can't run the AI workloads people increasingly want to run. A choice that
+saved a few megabytes early on walled off a whole category of work once GPUs
+and AI showed up.
 
 ## More than Kubernetes
 
 We set out to ship Kubernetes, and users kept asking for the rest of the
 container toolbox. The first image builder, kim, ran inside the cluster; we
 replaced it with nerdctl, the standard containerd CLI, and most people never
-noticed kim was gone. Then we hit something we hadn't planned for. A lot of real
-projects simply wouldn't build under nerdctl and buildkit. We added moby
+noticed kim was gone. Then we hit something we hadn't planned for; a lot of
+real projects simply wouldn't build under nerdctl and buildkit. We added moby
 (dockerd and the Docker CLI) as a second engine, so those projects would build.
 Later we let people turn Kubernetes off entirely and run nothing but the
 container engine. Rancher Desktop had quietly grown from "Kubernetes on your
@@ -97,10 +96,10 @@ shared network, so to avoid port conflicts with the others, we gave our VM a
 tunnelling network in its own network namespace.
 
 Some of that split is just the operating systems being different; there's no
-single answer that works on both. The question a clean design has to get right
-isn't how to avoid writing two of them. It's where that code should live, pushed
-as far down into the shared foundation as it will go instead of tangled through
-the app.
+single answer that works on both. A clean design can't avoid writing two of
+them, so the question it has to get right is where that code should live,
+pushed as far down into the shared foundation as it will go instead of tangled
+through the app.
 
 ## What people actually wanted
 
