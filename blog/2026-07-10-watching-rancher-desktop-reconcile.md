@@ -43,10 +43,10 @@ FIELDS:
 You can walk any part of the object this way, from `app.spec` down to a single
 field. The descriptions are not baked into `explain`; they come straight from
 the Go source. Each field on the `App` type carries a comment, a build step
-turns those types into the CRD and copies the comments into its OpenAPI schema,
-and the API server hands that schema to any client that asks (`explain` is just
-one such client). So the documentation is generated from the code, and it
-cannot drift out of sync with it.
+turns those types into the CRD[^crd] and copies the comments into its OpenAPI
+schema, and the API server hands that schema to any client that asks (`explain`
+is just one such client). So the documentation is generated from the code, and
+it cannot drift out of sync with it.
 
 The writable side works the same way. `rdd set` is how you change the `App`
 object, and it says up front where its knobs come from: "Valid property names
@@ -112,8 +112,8 @@ Rancher Desktop's state is a declarative object, so you name the end state and
 leave the steps to the controller. The API describes itself, so you can find
 your way around it without any documentation. And because it is the ordinary
 Kubernetes API, the tools already exist: there is `explain` to read it,
-`--dry-run` and `--wait` to script it, and `rdd ctl get app -w` to watch it
-change.
+`--dry-run` and `--wait` to script it,[^wait] and `rdd ctl get app -w` to watch
+it change.
 
 The same properties make Rancher Desktop easy to automate, from a shell script
 all the way up to an agent that explores the API on its own. That was never an
@@ -125,6 +125,10 @@ That is what you get from building on the Kubernetes control plane instead of
 building something similar next to it. You get an API that explains itself and
 a loop that makes your requests come true, and you did not have to write either
 of them.
+
+[^crd]: A CustomResourceDefinition, the way you teach a Kubernetes API server about a new kind of object. The build step that writes it from the Go types is controller-gen.
+
+[^wait]: There is also `rdd ctl wait-condition`, which blocks until one named condition is met, so a script can wait for exactly the state it needs.
 
 ---
 

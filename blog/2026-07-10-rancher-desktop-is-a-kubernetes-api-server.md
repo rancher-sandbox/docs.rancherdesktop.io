@@ -39,8 +39,8 @@ it so," and that engine is the part `rdd` keeps.
 ## The App object
 
 Everything Rancher Desktop needs to know about itself lives in a single object
-called `App`. You can ask for it the same way you would ask any cluster for a
-resource:
+called `App`.[^singleton] You can ask for it the same way you would ask any
+cluster for a resource:
 
 ```yaml
 # rdd ctl get app app -o yaml   (trimmed)
@@ -71,7 +71,7 @@ status:
 
 The object has two halves. The `spec` is what you asked for: the moby engine,
 Kubernetes enabled at version 1.34.6, and the VM running. The `status` is what
-`rdd` observed: the port it put the cluster on, and a list of conditions
+`rdd` observed: the port it put the cluster on (7443), and a list of conditions
 reporting how far along it got. You only ever edit the `spec`; the controllers
 write the `status`. Every Kubernetes resource works this way, from a pod to a
 deployment, and now Rancher Desktop itself does too.
@@ -110,8 +110,8 @@ backend on every platform, and a control plane with nothing to schedule is a
 big part of what makes that possible.
 
 It does still need somewhere to keep its objects. Kubernetes stores them in
-etcd; `rdd` uses SQLite instead, which is the same swap k3s makes so it can
-ship as a single binary.
+etcd;[^etcd] `rdd` uses SQLite instead, which is the same swap k3s makes so it
+can ship as a single binary.
 
 ## So where is the cluster?
 
@@ -150,6 +150,10 @@ This post leaves two questions open: how the control plane turns a one-line
 change to the `App` object into a running cluster, and how you find your way
 around this API when there are no docs for it. I take both up in a
 [companion post](/blog/watching-rancher-desktop-reconcile).
+
+[^singleton]: There is only ever one, it is cluster-scoped, and it must be named `app`. Hence `get app app`, the kind followed by the name.
+
+[^etcd]: The distributed key-value store a normal Kubernetes cluster keeps its objects in. The shim that swaps it for SQLite is kine, borrowed from k3s.
 
 ---
 
