@@ -21,35 +21,36 @@ We rewrote Rancher Desktop because the old design made every new feature take
 more effort than the one before it. The [history
 post](/blog/history-of-rancher-desktop) tells that story; the short version is
 one backend instead of two, the engine lifted out of the GUI, and a different
-guest OS underneath. 2.0 is that idea, rebuilt from the ground up and easier to
-maintain.
+guest OS underneath. 2.0 is that idea, built from scratch.
 
 At the center is a new background program called `rdd`, the Rancher Desktop
-Daemon. `rdd` does the real work. It runs the virtual machine, using Lima on every
-platform now, Windows included. It starts your container engine and your
-Kubernetes cluster. It exposes all of that through an API, and not a custom one:
-`rdd` speaks the Kubernetes API. Your `kubectl` and the usual client libraries can
-drive it directly, no new SDK to learn. The desktop app is just one more client,
-with no special privileges, talking to `rdd` the way any other tool would.
+Daemon, and it is the part that does the real work. It runs the virtual machine
+(using Lima on all platforms now, including Windows), it starts your container
+engine, and it manages your Kubernetes cluster. `rdd` exposes all of this
+through an API, but not a custom one; it actually speaks the Kubernetes API, so
+you can talk to it directly with `kubectl` or any of the standard client
+libraries, and there is no new SDK to learn. The desktop app is really just
+another client without any special privileges; it talks to `rdd` the same way
+any other tool would.
 
-Because the work lives in `rdd` instead of inside a window, you can run the whole
-thing without ever opening the GUI. And `rdd` is one self-contained executable. No
-installer, no separate daemon and command-line tool, just one file that is both
-the backend and the way you drive it. Download it, start it from the command
-line, and you have a container engine and a cluster: on a headless server, on a
-CI runner, or in your own terminal. Deploying it is copying one file. Rancher
-Desktop never had a way to do this. The engine lived inside the app, and the
-app had to be on screen.
+Because the work lives in `rdd` instead of inside a window, you can run the
+whole thing without ever opening the GUI. And `rdd` is one self-contained
+executable; there is no installer and no separate daemon and command-line tool,
+just one file that is both the backend and the way you drive it. Download it,
+start it from the command line, and you have a container engine and a cluster:
+on a headless server, on a CI runner, or in your own terminal. Deploying it
+just means copying one file. Rancher Desktop never had a way to do this,
+because the engine lived inside the app, and the app had to be on screen.
 
-The guest VM runs openSUSE Leap now instead of Alpine. The reason is glibc. Much
-of the GPU and AI tooling people ask for needs it, and Alpine's musl does not
-provide it. GPU support is not built yet, but the guest OS no longer rules it
-out.
+The guest VM runs openSUSE Leap now instead of Alpine, and the reason is glibc;
+much of the GPU and AI tooling people ask for needs it, and Alpine's musl does
+not provide it. GPU support is not built yet, but the guest OS no longer rules
+it out.
 
 ## Why an alpha, and why now
 
-We could have kept this private until it looked polished. We would rather not.
-Putting it out now, rough edges and all, does two things for us.
+We could have kept this private until it looked polished, but we would rather
+not. Putting it out now, rough edges and all, does two things for us.
 
 It shows that "we will do that in 2.0" means a workstream already running, not a
 promise about some distant year. And it puts the design in front of you early,
@@ -58,7 +59,7 @@ this is the moment to say so, before we lock in decisions.
 
 ## What you can do today
 
-This is a working preview, not a finished product. What runs right now:
+This is a working preview, not a finished product. Here is what runs right now:
 
 - Start, stop, and delete Rancher Desktop 2.0, from the GUI or the command line.
 - Install and run it with no GUI at all: the daemon with your local
@@ -84,10 +85,10 @@ So you are not caught off guard:
 ## It can be installed beside Rancher Desktop 1.x
 
 You do not have to choose. 2.0 installs next to Rancher Desktop 1.x, and the
-two ignore each other: separate package, separate data. Install or remove them
-in either order. The Linux RPM and DEB packages are the exception in this
-alpha.[^linux] Don't run them both at once, though. There are likely port and
-socket conflicts.
+two ignore each other, with a separate package and separate data. Install or
+remove them in either order. The Linux RPM and DEB packages are the exception
+in this alpha.[^linux] Don't run them both at once, though; there are likely to
+be port and socket conflicts.
 
 ## How to try it
 
@@ -104,15 +105,16 @@ walkthrough](/blog/installing-rancher-desktop-2) is a separate post in this
 series.
 
 This is alpha software. Things will break, especially in corners we have never
-tested on a machine configured like yours. When they do, tell us. That feedback
-is a big part of why we are shipping this early.
+tested on a machine configured like yours. When they do, please tell us; that
+feedback is a big part of why we are shipping this early.
 
 ## Staying in the loop
 
-There are no docs for 2.0 yet. There is this blog. As the work moves, we will
-write about how the pieces fit and what becomes newly possible: the daemon and
-its API, networking, snapshots, the AI story, whatever we just released. To find
-out when the next preview drops, subscribe to the feed.
+There are no docs for 2.0 yet, so for now this blog takes their place. As the
+work moves, we will write about how the pieces fit and what becomes newly
+possible: the daemon and its API, networking, snapshots, the AI story, whatever
+we just released. To find out when the next preview drops, subscribe to the
+feed.
 
 Curious, and feeling adventurous? Give it a try. Cautious? Follow along, and
 jump in when it looks ready for you.

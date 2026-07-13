@@ -5,10 +5,10 @@ authors: [jan]
 discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/472
 ---
 
-The 2.0 alpha is out, and there are two ways to run it. Install the full
-desktop app, or skip the GUI and run the new `rdd` binary straight from your
-terminal. Both leave Rancher Desktop 1.x alone, and both put you a couple of
-commands from a working container engine.
+The 2.0 alpha is out, and there are two ways to run it. You can install the
+full desktop app, or you can skip the GUI and run the new `rdd` binary straight
+from your terminal. Both leave Rancher Desktop 1.x alone, and both put you a
+couple of commands away from a working container engine.
 
 <!-- truncate -->
 
@@ -62,7 +62,7 @@ is the only switch.
 
 If you want a container engine and a cluster with no window on screen, skip the
 app and download the single `rdd` binary instead. It is the whole backend in
-one file. No installer, nothing to unpack.
+one file; there is no installer and nothing to unpack.
 
 The binaries are in the same GitHub release. The name is `rdd-` followed by the
 version, the operating system, and the CPU architecture: on an Apple silicon
@@ -140,8 +140,8 @@ docker context use rancher-desktop-2
 kubectl config use-context rancher-desktop-2
 ```
 
-Managing the backend itself needs no `rdd run`. `rdd start` brings it up and
-`rdd stop` takes it down, keeping your data for next time:
+You don't need `rdd run` to manage the backend itself; `rdd start` brings it up
+and `rdd stop` takes it down, keeping your data for next time:
 
 ```bash
 rdd start   # bring the backend up
@@ -150,17 +150,17 @@ rdd stop    # take it down, keep your data
 
 There is no upgrade path between previews yet, so each new alpha starts from a
 clean slate. `rdd svc delete` stops the daemon and removes everything 2.0
-created, the VM, the cluster, your settings, and the daemon's own data, keeping
-only the download cache so a reinstall does not refetch the VM image. It is
-also how you uninstall: after it runs, delete the `rdd` binary or remove the
-app. The cache it leaves is Lima's, not ours (`~/Library/Caches/lima` on macOS,
-`~/.cache/lima` on Linux, `~/AppData/Local/lima` on Windows); delete it too for
-a full reclaim. A later release will handle that for you, clearing distro
-images from earlier previews automatically and adding a command to empty the
-cache.
+created (the VM, the cluster, your settings, and the daemon's own data),
+keeping only the download cache so a reinstall does not refetch the VM image.
+It is also how you uninstall; after it runs, just delete the `rdd` binary or
+remove the app. The cache it leaves behind is Lima's, not ours
+(`~/Library/Caches/lima` on macOS, `~/.cache/lima` on Linux,
+`~/AppData/Local/lima` on Windows); delete it too if you want to reclaim all
+the space. A later release will handle that for you, clearing distro images
+from earlier previews automatically and adding a command to empty the cache.
 
-That is the alpha: install it one of two ways, start it, run a container. It
-may break on setups we have never seen, and if it does, tell us.
+That is the alpha: install it one of two ways, start it, and run a container.
+It may break on setups we have never seen, and if it does, please tell us.
 
 ## A glimpse underneath
 
@@ -230,10 +230,11 @@ metadata:
   resourceVersion: ""
 ```
 
-This is not the cluster you turned on earlier. It is Rancher Desktop
-representing itself through the same API your tools already speak, which means
-anything that drives Kubernetes can drive it, no bespoke SDK and no private
-protocol. There is a lot to say about that, and it gets a post of its own.
+This is not the cluster you turned on earlier; it is Rancher Desktop
+representing itself through the same API your tools already speak. That means
+anything that drives Kubernetes can also drive Rancher Desktop, without a
+bespoke SDK or a private protocol. There is a lot to say about that, and it
+gets a post of its own.
 
 ## The commands in one place
 
