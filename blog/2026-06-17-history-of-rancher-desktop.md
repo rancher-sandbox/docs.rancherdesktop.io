@@ -7,7 +7,7 @@ discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/471
 
 In October 2020, Rancher Desktop was a tray icon and a single shell command.
 Click the icon, and it ran `minikube start` to bring up a Kubernetes cluster on
-your Mac. That was the whole thing: nine files, one good idea, and a note in the
+your Mac. The whole thing was nine files, one good idea, and a note in the
 source that read, more or less, *this is just a quick proof of concept*.
 
 <!-- truncate -->
@@ -104,28 +104,27 @@ through the app.
 ## What people actually wanted
 
 The request for Linux support surprised us. On Linux you can already run k3s,
-containerd, and Docker natively. What does a desktop app add? Not the
-containers. The value was being able to throw the whole thing away. A factory
-reset wipes the VM back to nothing, worth a lot when your environment drifts
-into a state you no longer understand. People didn't want another way to
-run containers. They wanted an undo button for their development machine (and
-later, snapshots).
+containerd, and Docker natively, so a desktop app doesn't add the containers.
+Its value was being able to throw the whole thing away. A factory reset wipes
+the VM back to nothing, worth a lot when your environment drifts into a state
+you no longer understand. People wanted an undo button for their development
+machine (and later, snapshots).
 
 ## A backend trapped in the app
 
-Two things made Rancher Desktop easier to work with, and both ran into the same
-wall.
+Two features we built to make Rancher Desktop easier to work with ran into the
+same limit.
 
-The first was rdctl, a command-line tool for driving Rancher Desktop without
+rdctl was a command-line tool for driving Rancher Desktop without
 touching the GUI. It let us write our integration tests as plain shell scripts
 instead of clicking through the interface, and it let users automate their
 setup. But not everything was reachable from it. Port forwarding, for one, still
 went through private messaging between the GUI and the backend, never exposed
 through the REST API, so the GUI could do things no script could.
 
-The second was snapshots, saving the VM's state to restore later. A simple
-feature, an awkward implementation, because the backend has to stop while its
-disk is copied, and the backend lives inside the GUI. So taking a snapshot
+Snapshots hit it too. Saving the VM's state to restore later was a simple
+feature with an awkward implementation, because the backend has to stop while
+its disk is copied, and the backend lives inside the GUI. So taking a snapshot
 turned into a small contortion. The GUI launches rdctl, which calls back into
 the GUI to ask it to shut its own backend down, takes the snapshot, then asks it
 to start back up. Cancelling was worse. There was no clean channel for it, so
@@ -140,11 +139,11 @@ to an AI agent to drive, that's real friction.
 ## What five years taught us
 
 Step back, and a pattern runs through all of it. Every feature got a little more
-difficult to implement than the last. Two backends to change in lockstep. An
-engine welded to its own UI. A guest OS that couldn't reach the GPU. None of it
-was a mistake exactly (each call was reasonable when we made it), but the costs
-compounded, until we were spending more time maintaining the existing machinery
-than building anything new.
+difficult to implement than the last. We had two backends to change in lockstep,
+an engine welded to its own UI, and a guest OS that couldn't reach the GPU. None
+of it was a mistake exactly (each call was reasonable when we made it), but the
+costs compounded, until we were spending more time maintaining the existing
+machinery than building anything new.
 
 The parts that aged well point the way. Building on Lima gave us one backend for
 macOS and Linux and an upstream community to share the load. And the
@@ -152,12 +151,12 @@ command-line tool we'd built for our own tests turned out to matter more than we
 planned. A tool an AI model can explore and drive on its own is also exactly
 what you want now that so much work is handed to agents.
 
-So Rancher Desktop 2.0 starts over, on purpose. One backend across every
-platform, Windows included. The backend lifted out of the UI into something you
-can run on its own: headless, scripted, snapshotted by itself. A guest that can
-talk to your GPU. Not because the first five years were wrong, but because they
-taught us exactly what the foundation needed to be. The rest of this blog is
-about what we're building on it.
+So Rancher Desktop 2.0 starts over, on purpose. It runs one backend across every
+platform (including Windows). The backend lives outside the UI now, so you can
+run it on its own: headless, scripted, snapshotted by itself. And the guest can
+talk to your GPU. The first five years weren't wrong; they taught us exactly
+what the foundation needed to be. The rest of this blog is about what we're
+building on it.
 
 [^k3s]: k3s is Rancher's lightweight Kubernetes distribution, small enough to run on a laptop or edge device.
 
