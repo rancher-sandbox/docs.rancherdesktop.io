@@ -14,8 +14,8 @@ couple of commands away from a working container engine.
 
 2.0 installs beside Rancher Desktop 1.x without touching it, with a
 separate package and separate data. Install or remove them in any order. On
-Linux, the RPM and DEB packages are the one exception in this alpha and will
-not install alongside Rancher Desktop 1.x. (The
+Linux, the RPM and DEB packages are the one exception in this alpha and won't
+install alongside Rancher Desktop 1.x. (The
 [welcome post](/blog/welcome-to-rancher-desktop-2) covers what 2.0 is and how
 it differs; this one is about getting it running.)
 
@@ -33,7 +33,7 @@ build on an Intel Mac. Open it, drag the app into Applications, and launch it
 from there.
 
 On Windows, download the installer, `Rancher.Desktop.Setup.2.0.0-alpha.1.msi`,
-and run it. Install WSL2 first if you have not already; 2.0 runs its Linux VM
+and run it. Install WSL2 first if you haven't already; 2.0 runs its Linux VM
 through WSL2, just as Rancher Desktop 1.x does.
 
 On Linux, install from our RPM or DEB repositories[^linux], or run the AppImage,
@@ -44,7 +44,7 @@ VM image, which can take a while on a slow connection. After that the app is
 talking to a running container engine, and you can manage containers, images,
 and volumes from its window.
 
-One thing the app will not do for you yet: turn on Kubernetes. It starts with
+One thing the app won't do for you yet: turn on Kubernetes. It starts with
 Kubernetes off, and this alpha has no settings screen or first-run dialog to
 change that, so you enable it from the command line. The first run installs
 `rdd` into `~/.rd2/bin`; put that on your `PATH` (or call `~/.rd2/bin/rdd`
@@ -61,8 +61,8 @@ is the only switch.
 ## Or just the daemon
 
 If you want a container engine and a cluster with no window on screen, skip the
-app and download the single `rdd` binary instead. It is the whole backend in
-one file; there is no installer and nothing to unpack.
+app and download the single `rdd` binary instead. It's the whole backend in
+one file; there's no installer and nothing to unpack.
 
 The binaries are in the same GitHub release. The name is `rdd-` followed by the
 version, the operating system, and the CPU architecture: on an Apple silicon
@@ -82,13 +82,13 @@ From there, one command gets you a running container:
 rdd run docker run --rm hello-world
 ```
 
-`rdd run` is the no-commitment way to use 2.0. It starts the daemon if it is
+`rdd run` is the no-commitment way to use 2.0. It starts the daemon if it's
 not already up, then runs your command with the `PATH` and the Docker and
 Kubernetes contexts pointed at 2.0 for that command only. It leaves your own
 configuration untouched. So if your machine is already set up for Rancher
 Desktop 1.x, leave it that way and reach for 2.0 with `rdd run` when you want
 to try something. The very first start downloads the openSUSE Leap image and
-brings the VM up, which can take a while on a slow connection; after that it is
+brings the VM up, which can take a while on a slow connection; after that it's
 quick.
 
 Kubernetes works the same way. On a fresh setup, `rdd run kubectl get node`
@@ -125,13 +125,13 @@ export PATH="$HOME/.rd2/bin:$PATH"
 ```
 
 What you find there depends on how you installed. `rdd` provides `kubectl`
-itself, so it is there either way. `docker` and `helm` come with the full app,
+itself, so it's there either way. `docker` and `helm` come with the full app,
 which links them into `~/.rd2/bin` alongside its other bundled tools and the
 credential helpers; with the daemon-only download, supply `docker` and `helm`
 yourself.
 
 Both the Docker and Kubernetes contexts are
-named `rancher-desktop-2`, and 2.0 will not take over a context you already
+named `rancher-desktop-2`, and 2.0 won't take over a context you already
 have selected. If you run both side by side, move between them by switching
 contexts:
 
@@ -148,19 +148,19 @@ rdd start   # bring the backend up
 rdd stop    # take it down, keep your data
 ```
 
-There is no upgrade path between previews yet, so each new alpha starts from a
+There's no upgrade path between previews yet, so each new alpha starts from a
 clean slate. `rdd svc delete` stops the daemon and removes everything 2.0
 created (the VM, the cluster, your settings, and the daemon's own data),
-keeping only the download cache so a reinstall does not refetch the VM image.
-It is also how you uninstall; after it runs, just delete the `rdd` binary or
+keeping only the download cache so a reinstall doesn't refetch the VM image.
+It's also how you uninstall; after it runs, just delete the `rdd` binary or
 remove the app. The cache it leaves behind is Lima's, not ours
 (`~/Library/Caches/lima` on macOS, `~/.cache/lima` on Linux,
 `~/AppData/Local/lima` on Windows); delete it too if you want to reclaim all
 the space. A later release will handle that for you, clearing distro images
 from earlier previews automatically and adding a command to empty the cache.
 
-That is the alpha: install it one of two ways, start it, and run a container.
-It may break on setups we have never seen, and if it does, please tell us.
+That's the alpha: install it one of two ways, start it, and run a container.
+It may break on setups we've never seen, and if it does, please tell us.
 
 ## A glimpse underneath
 
@@ -230,10 +230,10 @@ metadata:
   resourceVersion: ""
 ```
 
-This is not the cluster you turned on earlier; it is Rancher Desktop
+This is not the cluster you turned on earlier; it's Rancher Desktop
 representing itself through the same API your tools already speak. That means
 anything that drives Kubernetes can also drive Rancher Desktop, without a
-bespoke SDK or a private protocol. There is a lot to say about that, and it
+bespoke SDK or a private protocol. There's a lot to say about that, and it
 gets a post of its own.
 
 ## The commands in one place
