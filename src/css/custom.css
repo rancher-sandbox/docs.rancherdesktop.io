@@ -75,6 +75,21 @@ html.blog-list-page article footer.docusaurus-mt-lg {
   margin-top: 0.75rem;
 }
 
+/* Blog screenshots. A light capture on a light page has no edge of its own, so
+   it gets a border, and the shadow lifts it off the text. Bottom margin only:
+   the gap above already comes from the preceding paragraph, and the shadow
+   bleeds downward, so the space below has to be larger to look even. Separate
+   from the older img_ rule above, which only matches Docusaurus-generated
+   markdown images; unifying the two across blog and docs is pending. */
+.blog-screenshot {
+  display: block;
+  max-width: 100%;
+  margin-bottom: calc(var(--ifm-leading) * 1.5);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 14px 36px rgba(0, 0, 0, 0.16);
+}
+
 /* Blog posts use a full-width three-column grid whose outer edges line up with
    the navbar: the table of contents and recent posts on the left, the article
    in a center column that grows with the window, and a reserved right column
