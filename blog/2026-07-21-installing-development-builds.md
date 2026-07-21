@@ -10,6 +10,7 @@ description: >-
   an installable Rancher Desktop build, whether you're on 1.x or 2.0. Running
   one is more involved than installing a release, and a bad build can damage
   files on your host.
+discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/575
 ---
 
 You reported a bug against Rancher Desktop, someone fixed it, and the issue got
@@ -236,4 +237,6 @@ of the release.
 
 [^linux-exe]: 2.0 uses the same path and executable name as 1.x, which is why the two collide on Linux. That may change in alpha 2. [Issue #509](https://github.com/rancher-sandbox/rancher-desktop-2/issues/509).
 
-<!-- TODO(jan): create the GitHub Discussion for this post and add the discussion: frontmatter + the bottom discussion link block, matching the other posts. -->
+---
+
+💬 Questions or feedback? **[Discuss this post on GitHub →](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/575)**
