@@ -36,8 +36,8 @@ outside the VM. Back up anything you can't afford to lose before you start.
 
 So this is really for people who are comfortable switching between versions and
 running factory resets, and who can put things back when a build breaks
-something. If that's not you, it's fine to wait for the release; the fix will
-land there soon enough.
+something. If that's not you, I'd wait for the release; the fix will land there
+soon enough.
 
 ## The short version
 
@@ -91,7 +91,7 @@ Development builds come from GitHub Actions[^actions], from the workflow named
 For the latest `main`, open the **Actions** tab, then filter to the **Package**
 workflow and the `main` branch. Or skip both dropdowns and type
 `branch:main workflow:Package` into the search box. Now pick the newest run with
-a green checkmark, which means the whole run passed, so its builds are complete.
+a green checkmark, which means the whole run passed and its builds are complete.
 
 <img
   className="blog-screenshot"
@@ -101,7 +101,7 @@ a green checkmark, which means the whole run passed, so its builds are complete.
 
 For a pull request[^pr], open the PR and scroll down to its checks. Expand them,
 find a green check whose name starts with `Package / package`, and click it. The
-platform in the parentheses doesn't matter; they all belong to the same run, so
+platform in the parentheses doesn't matter. They all belong to the same run;
 any of them gets you there.
 
 <img
@@ -178,12 +178,12 @@ sudo unzip -o rancher-desktop-*-linux.zip -d /opt/rancher-desktop
 sudo chmod 04755 /opt/rancher-desktop/chrome-sandbox
 ```
 
-A manual extract leaves no desktop entry behind, so launch it directly with
+A manual extract leaves no desktop entry behind. Launch it directly with
 `/opt/rancher-desktop/rancher-desktop`[^linux-exe].
 
 On Rancher Desktop 2.0, the app refuses to start on a backend that a different
-`rdd` version created, so clear any existing one first (this removes your current
-2.0 workloads). The command is the same on every platform:
+`rdd` version created. You have to clear any existing one first (this removes
+your current 2.0 workloads). The command is the same on every platform:
 
 ```bash
 rdd svc delete
@@ -205,7 +205,7 @@ rdd svc delete        # Rancher Desktop 2.0
 Then install the release the normal way, from the project's releases page, or on
 Linux from our package repositories. On Rancher Desktop 1.x, restore the snapshot
 you took at the start, and your containers and cluster come back as they were. On
-2.0 there's no snapshot to restore, so you start fresh.
+2.0 there's no snapshot to restore; you start fresh.
 
 It's a lot of steps, though it does answer "is this actually fixed?" weeks ahead
 of the release.
