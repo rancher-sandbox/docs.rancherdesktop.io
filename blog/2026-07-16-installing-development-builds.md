@@ -41,15 +41,26 @@ soon enough.
 
 ## The short version
 
-1. On 1.x, [take a snapshot](#have-a-way-back-before-you-start) first. 2.0 has
-   no equivalent, so its workloads are gone either way.
+**On Rancher Desktop 1.x**
+
+1. [Take a snapshot](#have-a-way-back-before-you-start) first.
 2. [Find the build](#find-the-build) and download the artifact for your machine.
 3. [Unpack and install it](#unpack-and-install). On macOS, clear the quarantine
    flag, or it refuses to open.
-4. On 2.0, clear the existing backend with `rdd svc delete` before you start.
+4. Check whether it fixes your problem, or try the feature you wanted.
+5. [Factory-reset](#going-back-to-a-release) from the development build.
+6. Install the release by hand, then restore the snapshot from step 1.
+
+**On Rancher Desktop 2.0**
+
+1. There's no snapshot to take, so your existing workloads are gone either way.
+2. [Find the build](#find-the-build) and download the artifact for your machine.
+3. [Unpack and install it](#unpack-and-install). On macOS, clear the quarantine
+   flag, or it refuses to open.
+4. Clear the existing backend with `rdd svc delete` before you start.
 5. Check whether it fixes your problem, or try the feature you wanted.
-6. [Factory-reset](#going-back-to-a-release) from the development build.
-7. Install the release by hand, and on 1.x restore the snapshot from step 1.
+6. [Clear the backend again](#going-back-to-a-release) with `rdd svc delete`,
+   then install the release by hand.
 
 ## Have a way back before you start
 
@@ -99,7 +110,7 @@ a green checkmark, which means the whole run passed and its builds are complete.
   alt="The GitHub Actions tab, filtered to the Package workflow on the main branch, with the newest successful run at the top of the list."
 />
 
-For a pull request[^pr], open the PR and scroll down to its checks. Expand them,
+For a pull request, open the PR and scroll down to its checks. Expand them,
 find a green check whose name starts with `Package / package`, and click it. The
 platform in the parentheses doesn't matter. They all belong to the same run;
 any of them gets you there.
@@ -122,9 +133,10 @@ download icon beside it. They're large, 600 MB and up.
 />
 
 On 2.0, the same run also produces an `RDD` artifact for each platform, which
-holds just the `rdd` binary with no app and no bundled tools. For a backend fix
-that's 50 to 60 MB against 600 and up, though GUI changes still need the full
-app. The binary still needs its quarantine flag cleared on macOS. The
+holds just the `rdd` binary with no app and no bundled tools. For testing a
+backend fix you could use just this binary, as it's 50 to 60 MB (rather than
+600 plus), but GUI changes would still require downloading the full app. The
+binary still needs its quarantine flag cleared on macOS. The
 [installation post](/blog/installing-rancher-desktop-2) covers using `rdd` on its
 own.
 
