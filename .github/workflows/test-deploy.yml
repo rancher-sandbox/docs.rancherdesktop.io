@@ -30,6 +30,12 @@ jobs:
         with:
           node-version: 22
           cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Typecheck
+        run: yarn typecheck
+      - name: Test build
+        run: yarn build
       - name: Check links
         run: |
           set -e
@@ -37,13 +43,15 @@ jobs:
           LYCHEE_VERSION=0.23.0
           LYCHEE_SHA256=1fcb6ccf10d04c22b8c5873c5b9cb7be32ee7423e12169d6f1a79a6f1962ef81
           curl -sfLO https://github.com/lycheeverse/lychee/releases/download/lychee-v${LYCHEE_VERSION}/${LYCHEE_TARGZ}
-          echo "${LYCHEE_SHA256}  ${LYCHEE_TARGZ}" | sha256sum -c - 
+          echo "${LYCHEE_SHA256}  ${LYCHEE_TARGZ}" | sha256sum -c -
           tar xfvz ${LYCHEE_TARGZ} lychee
+          # Runs after the build so --root-dir can resolve the Docusaurus
+          # routes blog posts link to (/blog/<slug>); those exist only in build.
           # Re-run the whole check on failure: lychee does not retry
           # connection-setup errors (DNS/TLS), so one flaky external host
           # can fail an otherwise-good run.
           for attempt in 1 2 3; do
-            if ./lychee "docs/**/*.md" "versioned_docs/**/*.md"; then
+            if ./lychee --root-dir build "docs/**/*.md" "versioned_docs/**/*.md" "blog/**/*.md"; then
               exit 0
             fi
             if [ "${attempt}" -lt 3 ]; then
@@ -52,9 +60,3 @@ jobs:
             fi
           done
           exit 1
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Typecheck
-        run: yarn typecheck
-      - name: Test build
-        run: yarn build
