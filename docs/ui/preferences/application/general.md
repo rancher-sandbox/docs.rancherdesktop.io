@@ -5,16 +5,30 @@ title: General
 
 import TabsConstants from '@site/core/TabsConstants';
 
-Allows for enablement of automatic updates, as well as an optional field to allow Rancher Desktop to collect anonymous statistics to help improve the application.
+Sets the interface language, controls administrative access and automatic updates, and turns anonymous statistics collection on and off.
 
 <Tabs groupId="os" defaultValue={TabsConstants.defaultOs}>
 <TabItem value="Windows">
 
 ![](rd-versioned-asset://preferences/Windows_application_tabGeneral.png)
 
+#### Language
+
+:::caution warning
+
+This is an **experimental** setting.
+
+:::
+
+Choose the language for the Rancher Desktop interface. Chinese (Simplified), French, German, Italian, Japanese, Korean, Portuguese (Brazilian), and Spanish are available alongside English. English is always the default, whatever language your operating system uses. Click `Apply` and the interface switches language without a restart.
+
+AI tools produced all eight translations. We have run the application in several of them, but we have not checked every string, so expect some awkward wording and a few that stay in English. Feedback from native speakers would be welcome. English is the canonical text. If something reads wrong, please report it in the [issue tracker](https://github.com/rancher-sandbox/rancher-desktop/issues).
+
+The setting applies to the main window and the Preferences dialog. The Cluster Dashboard is not translated yet, and numbers, dates, and times follow your operating system, not this setting. Both may change in a future release.
+
 #### Automatic Updates
 
-Ensure you have the setting checked and enabled on the `Preferences > Application > General` tab. You will need to click `Apply` once selected, and then manually restart the application for the settings to update.
+Ensure you have the setting checked and enabled on the `Preferences > Application > General` tab. You will need to click `Apply` once selected, and then manually restart the application for the settings to update. The same checkbox appears next to the title on the main General page.
 
 If a new release is available, it will be downloaded upon restart and you will see a section denoted `Update Available` from the main [General](../../../ui/general.md) tab with a `Restart` button that can be clicked to have the newest version applied. A copy of the latest version’s release notes will be displayed via dropdown as well.
 
@@ -26,6 +40,20 @@ This option allows Rancher Desktop to collect information on how you interact wi
 <TabItem value="macOS">
 
 ![](rd-versioned-asset://preferences/macOS_application_tabGeneral.png)
+
+#### Language
+
+:::caution warning
+
+This is an **experimental** setting.
+
+:::
+
+Choose the language for the Rancher Desktop interface. Chinese (Simplified), French, German, Italian, Japanese, Korean, Portuguese (Brazilian), and Spanish are available alongside English. English is always the default, whatever language your operating system uses. Click `Apply` and the interface switches language without a restart.
+
+AI tools produced all eight translations. We have run the application in several of them, but we have not checked every string, so expect some awkward wording and a few that stay in English. Feedback from native speakers would be welcome. English is the canonical text. If something reads wrong, please report it in the [issue tracker](https://github.com/rancher-sandbox/rancher-desktop/issues).
+
+The setting applies to the main window and the Preferences dialog. The Cluster Dashboard is not translated yet, and numbers, dates, and times follow your operating system, not this setting. Both may change in a future release.
 
 #### Administrative Access
 
@@ -41,7 +69,7 @@ Rancher Desktop will prompt for an administrator username and password when Admi
 
 #### Automatic Updates
 
-Ensure you have the setting checked and enabled on the `Preferences > Application > General` tab. You will need to click `Apply` once selected, and then manually restart the application for the settings to update.
+Ensure you have the setting checked and enabled on the `Preferences > Application > General` tab. You will need to click `Apply` once selected, and then manually restart the application for the settings to update. The same checkbox appears next to the title on the main General page.
 
 If a new release is available, it will be downloaded upon restart and you will see a section denoted `Update Available` from the main [General](../../../ui/general.md) tab with a `Restart` button that can be clicked to have the newest version applied. A copy of the latest version’s release notes will be displayed via dropdown as well.
 
@@ -54,6 +82,20 @@ This option allows Rancher Desktop to collect information on how you interact wi
 
 ![](rd-versioned-asset://preferences/Linux_application_tabGeneral.png)
 
+#### Language
+
+:::caution warning
+
+This is an **experimental** setting.
+
+:::
+
+Choose the language for the Rancher Desktop interface. Chinese (Simplified), French, German, Italian, Japanese, Korean, Portuguese (Brazilian), and Spanish are available alongside English. English is always the default, whatever language your operating system uses. Click `Apply` and the interface switches language without a restart.
+
+AI tools produced all eight translations. We have run the application in several of them, but we have not checked every string, so expect some awkward wording and a few that stay in English. Feedback from native speakers would be welcome. English is the canonical text. If something reads wrong, please report it in the [issue tracker](https://github.com/rancher-sandbox/rancher-desktop/issues).
+
+The setting applies to the main window and the Preferences dialog. The Cluster Dashboard is not translated yet, and numbers, dates, and times follow your operating system, not this setting. Both may change in a future release.
+
 #### Administrative Access
 
 Enabling Administrative Access allows Rancher Desktop to create the Docker socket at the default location: `/var/run/docker.sock`. Without this access, the socket is instead created at `~/.rd/docker.sock` and is accessible via the `rancher-desktop` Docker context. Most applications support Docker contexts and do not require the socket to be at the default location.
@@ -62,9 +104,7 @@ Rancher Desktop will prompt for an administrator username and password when Admi
 
 #### Automatic Updates
 
-Ensure you have the setting checked and enabled on the `Preferences > Application > General` tab. You will need to click `Apply` once selected, and then manually restart the application for the settings to update.
-
-If a new release is available, it will be downloaded upon restart and you will see a section denoted `Update Available` from the main [General](../../../ui/general.md) tab with a `Restart` button that can be clicked to have the newest version applied. A copy of the latest version’s release notes will be displayed via dropdown as well.
+Rancher Desktop updates itself on macOS and Windows only, so the **Check for updates automatically** checkbox has no effect here. To move to a new version, install it the same way you installed the current one, as described under [Installation](../../../getting-started/installation.md#linux).
 
 #### Statistics
 
