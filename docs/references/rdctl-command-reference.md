@@ -334,7 +334,7 @@ Global Flags:
 ```console autoupdate=true
 $ rdctl list-settings
 {
-  "version": 18,
+  "version": 19,
   "application": {
     "adminAccess": false,
     "debug": false,
@@ -355,6 +355,7 @@ $ rdctl list-settings
     "autoStart": false,
     "startInBackground": false,
     "hideNotificationIcon": false,
+    "locale": "en-us",
     "window": {
       "quitOnClose": false
     },
@@ -381,7 +382,7 @@ $ rdctl list-settings
     "integrations": {}
   },
   "kubernetes": {
-    "version": "1.35.5",
+    "version": "1.36.2",
     "port": 6443,
     "enabled": true,
     "options": {
@@ -615,6 +616,7 @@ Flags:
       --application.auto-start                                          start app when logging in
       --application.debug                                               generate more verbose logging
       --application.hide-notification-icon                              don't show notification icon
+      --application.locale string                                       set the UI language (allowed values: [de, en-us, es, fr, it, ja, ko, pt-br, zh-hans])
       --application.path-management-strategy string                     update PATH to include ~/.rd/bin (allowed values: [manual, rcfiles])
       --application.start-in-background                                 start app without window
       --application.telemetry.enabled                                   allow collection of anonymous statistics
@@ -697,7 +699,7 @@ Run `rdctl version` to see the current rdctl CLI version.
 
 ```console autoupdate=true
 $ rdctl version
-rdctl client version: v1.23.0, targeting server version: v1
+rdctl client version: v1.24.0, targeting server version: v1
 ```
 
 </details>
