@@ -1,7 +1,7 @@
 ---
 title: Rancher Desktop is a Kubernetes API server
 slug: rancher-desktop-is-a-kubernetes-api-server
-date: "2026-07-10T09:00:00"
+date: "2026-07-27T09:00:00"
 authors: [jan]
 discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/PLACEHOLDER
 ---

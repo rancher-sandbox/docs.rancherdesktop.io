@@ -1,16 +1,16 @@
 ---
 title: Watching Rancher Desktop reconcile
 slug: watching-rancher-desktop-reconcile
-date: "2026-07-10T12:00:00"
+date: "2026-07-28T12:00:00"
 authors: [jan]
 discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/PLACEHOLDER
 ---
 
-Rancher Desktop 2.0 has no settings screen yet, and there are no reference docs
-for its API either. But it turns out you don't really need them; you can ask
-`rdd` itself what you can change, and once you change something, you can watch
-it reshape the virtual machine, step by step, until the actual state matches
-what you asked for.
+Rancher Desktop 2.0's settings screen covers a handful of fields, and the API
+underneath it has no reference docs. But you don't really need them; you can
+ask `rdd` itself what you can change, and once you change something, you can
+watch it reshape the virtual machine, step by step, until the actual state
+matches what you asked for.
 
 <!-- truncate -->
 
