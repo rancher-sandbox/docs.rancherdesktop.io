@@ -21,8 +21,12 @@ line does.
 <img
   className="blog-screenshot"
   src="https://suse-rancher-media.s3.amazonaws.com/desktop/blog/2026/rancher-desktop-2-alpha-2/preferences-kubernetes.png"
-  alt="The Rancher Desktop 2.0 Preferences dialog on the Kubernetes tab, showing the Enable Kubernetes checkbox and the Kubernetes version dropdown."
+  alt="The Rancher Desktop 2.0 Preferences dialog on the Kubernetes tab, showing the Enable Kubernetes checkbox and the Kubernetes version dropdown. Diagonal stripes ring the selected tab."
 />
+
+The stripes behind the selected tab mark a pre-release build, and the app icon
+wears the same pattern. Development builds of 2.0 get them too, and the stripes
+come off in the final release.
 
 ## What's in it
 
@@ -46,12 +50,11 @@ make with `rdd set`. The Preferences dialog is another client of that same
 API. Every control is bound to a field path on the `App` object, so the
 checkbox you just clicked and
 
-```
+```bash
 rdd set kubernetes.enabled=true
 ```
 
-both write the same field. Open the dialog and run `rdd ctl get app -w` in a
-terminal beside it, and you can watch your clicks arrive as patches.
+both write the same field.
 
 ## The server decides what's valid
 
@@ -78,16 +81,38 @@ ConfigMap, and the dropdown is a view of it. Versions that head a channel
 appear under **Recommended Versions**, the rest under **Other Versions**. This
 build carries k3s 1.32 through 1.35.
 
-The channel aliases work from the command line, where the defaulting webhook
-resolves them before anything is stored:
+You can read it yourself:
 
+```console
+$ rdd ctl get configmap k3s-versions --namespace rancher-desktop --output jsonpath='{.data.channels}'
+{"1.32":"1.32.13","1.33":"1.33.10","1.34":"1.34.6","1.35":"1.35.3","latest":"1.35.3","stable":"1.34.6"}
 ```
+
+The channel aliases work from the command line, where the defaulting
+webhook[^webhook] resolves them before anything is stored:
+
+```bash
 rdd set kubernetes.version=stable
 ```
 
-Today that's 1.34.6, and `latest` is 1.35.3. Because the list ships inside the
-build, a k3s release newer than the one you installed has to wait for the next
-preview.
+That's a merge patch underneath, and you can send it yourself:
+
+```bash
+rdd ctl patch app app --type merge --patch '{"spec":{"kubernetes":{"version":"stable"}}}'
+```
+
+Read the value back afterwards, and the alias is gone:
+
+```console
+$ rdd ctl get app app --output jsonpath='{.spec.kubernetes.version}'
+1.34.6
+```
+
+`rdd set` saves you the JSON. There's no `rdd get` yet, so reading stays in the
+long form.
+
+Because the list ships inside the build, a k3s release newer than the one you
+installed has to wait for the next preview.
 
 ## The rest of Alpha 2
 
@@ -122,6 +147,8 @@ Downloads and the full list of changes are in the
 [release](https://github.com/rancher-sandbox/rancher-desktop-2/releases/tag/v2.0.0-alpha.2),
 and the [installation post](/blog/installing-rancher-desktop-2) still covers
 getting it running, GUI or backend-only.
+
+[^webhook]: In Kubernetes terms it's a mutating admission webhook, which rewrites values on their way in. The webhook that turned down zero CPUs is a separate, validating one, and only answers yes or no.
 
 ---
 
