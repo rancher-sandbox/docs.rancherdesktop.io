@@ -6,7 +6,7 @@ authors: [jan]
 discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/PLACEHOLDER
 ---
 
-Enable Kubernetes in Rancher Desktop and you get a cluster, which is no
+Enable Kubernetes in Rancher Desktop 2.0 and you get a cluster, which is no
 surprise. But the daemon that runs it, `rdd`, is itself a Kubernetes API
 server. It holds Rancher Desktop's own state as objects you can query. So there
 are actually two Kubernetes API servers on your machine, and only one of them
@@ -43,7 +43,7 @@ called `App`.[^singleton] You can ask for it the same way you'd ask any
 cluster for a resource:
 
 ```yaml
-# rdd ctl get app app -o yaml   (trimmed)
+# rdd ctl get app app --output yaml   (trimmed)
 apiVersion: app.rancherdesktop.io/v1alpha1
 kind: App
 metadata:
@@ -80,8 +80,8 @@ from a pod to a deployment, and now Rancher Desktop itself does too.
 
 Ask this API server what kinds of objects it holds, and the list is short:
 
-```
-# rdd ctl api-resources   (trimmed)
+```console
+$ rdd ctl api-resources   (trimmed)
 NAME               APIVERSION                              KIND
 configmaps         v1                                      ConfigMap
 secrets            v1                                      Secret
@@ -96,8 +96,8 @@ The standard building blocks are there (ConfigMaps, Secrets), right next to
 Rancher Desktop's own kinds. But the whole workload layer is missing, so there
 are no pods and no nodes. The server hasn't even heard of a node:
 
-```
-# rdd ctl get nodes
+```console
+$ rdd ctl get nodes
 error: the server doesn't have a resource type "nodes"
 ```
 
@@ -119,8 +119,8 @@ because the cluster lives somewhere else. It runs inside the virtual machine,
 as a separate Kubernetes with its own API server. Point `kubectl` at that one,
 and the node is right there:
 
-```
-# kubectl --context rancher-desktop-2 get nodes
+```console
+$ kubectl --context rancher-desktop-2 get nodes
 NAME      STATUS   ROLES           AGE   VERSION
 lima-rd   Ready    control-plane   44s   v1.34.6+k3s1
 ```
