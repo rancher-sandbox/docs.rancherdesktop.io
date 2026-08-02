@@ -24,8 +24,8 @@ Rancher Desktop's own configuration lives in it as a single object called
 There are no docs for the `App` object, but it doesn't need any, because the
 API has its own documentation. You can read it with `explain`:
 
-```
-# rdd ctl explain app.spec.kubernetes
+```console
+$ rdd ctl explain app.spec.kubernetes
 FIELD: kubernetes <Object>
 
 DESCRIPTION:
@@ -51,8 +51,8 @@ object, and it says up front where its knobs come from: "Valid property names
 and types are derived from the App CRD at runtime." So the property list in its
 help comes straight from the CRD too:
 
-```
-# rdd set --help   (trimmed to the property list)
+```console
+$ rdd set --help   (trimmed to the property list)
 Available properties:
   containerEngine.name  (moby|containerd)
   kubernetes.enabled    (boolean)
@@ -68,15 +68,15 @@ source, and it turns up here, typed and documented, the next time you build.
 
 So let's change something, and turn Kubernetes on:
 
-```
+```bash
 rdd set kubernetes.enabled=true
 ```
 
 The command doesn't return right away; it writes your one-line change into the
 `App` object's `spec` and then waits, reporting each condition as it flips:
 
-```
-# rdd set kubernetes.enabled=true
+```console
+$ rdd set kubernetes.enabled=true
 App updated
 Settled=False: Applying the configuration change to the VM
 Running=False: Stopped for restart
