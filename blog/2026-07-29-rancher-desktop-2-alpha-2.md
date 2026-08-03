@@ -30,8 +30,8 @@ will come off in the final 2.0.0 release.
 
 ## What's in it
 
-Three sections. **Application** turns automatic update checks on or off.
-**Virtual Machine** sets how many CPUs and how much memory the VM gets.
+The dialog has three sections. **Application** turns automatic update checks on
+or off. **Virtual Machine** sets how many CPUs and how much memory the VM gets.
 **Kubernetes** enables the cluster and picks its version.
 
 That's a short list next to Rancher Desktop 1.x. More settings will be
@@ -52,8 +52,7 @@ field.
 ## Where the controls get their values
 
 The dialog doesn't invent the choices it offers. The CPU and memory controls
-know what the machine can supply, because the daemon publishes it as a
-`HostInfo` object:
+get their limits from the daemon, which publishes them as a `HostInfo` object:
 
 ```console
 $ rdd ctl get hostinfo
@@ -122,7 +121,7 @@ have the full list; here are three of the changes:
 
 ## Still an alpha
 
-This is a preview, so expect rough edges, and don't put it in front of anything
+This is a preview. Expect rough edges, and don't put it in front of anything
 you care about. There's no upgrade path between previews, and Alpha 2 refuses
 to start against a backend Alpha 1 created. Clear the old one first:
 
@@ -130,7 +129,7 @@ to start against a backend Alpha 1 created. Clear the old one first:
 rdd svc delete
 ```
 
-That takes the containers, images, volumes, and cluster with it, so there's
+That takes the containers, images, volumes, and cluster with it. So there's
 nothing to carry across. Then install Alpha 2. It sits alongside Rancher
 Desktop 1.x without touching it, though only one of them can run at a time.
 
