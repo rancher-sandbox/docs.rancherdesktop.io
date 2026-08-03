@@ -94,8 +94,8 @@ rdd ctl patch app app --type merge --patch '{"spec":{"kubernetes":{"version":"st
 ```
 
 When you read the value back you can see that the alias has been replaced by
-the defaulting webhook[^webhook] with the actual version before it was
-stored in the object:
+the defaulter[^webhook] with the actual version before it was stored in the
+object:
 
 ```console
 $ rdd ctl get app app --output jsonpath='{.spec.kubernetes.version}'
