@@ -3,6 +3,12 @@ title: Rancher Desktop is a Kubernetes API server
 slug: rancher-desktop-is-a-kubernetes-api-server
 date: "2026-07-27T09:00:00"
 authors: [jan]
+description: >-
+  Enable Kubernetes in Rancher Desktop 2.0 and you get a cluster, which is no
+  surprise. But the daemon that runs it, rdd, is itself a Kubernetes API server
+  too. It holds Rancher Desktop's own state as objects you can query. So there
+  are actually two Kubernetes API servers on your machine, and only one of them
+  runs your pods.
 discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/PLACEHOLDER
 ---
 
@@ -82,7 +88,7 @@ from a pod to a deployment, and now Rancher Desktop itself does too.
 Ask this API server what kinds of objects it holds, and the list is short:
 
 ```console
-$ rdd ctl api-resources   (trimmed)
+$ rdd ctl api-resources   # trimmed
 NAME               APIVERSION                              KIND
 configmaps         v1                                      ConfigMap
 secrets            v1                                      Secret
