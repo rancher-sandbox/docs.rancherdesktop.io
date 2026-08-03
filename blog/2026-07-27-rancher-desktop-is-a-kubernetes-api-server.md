@@ -8,33 +8,34 @@ discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/PLA
 
 Enable Kubernetes in Rancher Desktop 2.0 and you get a cluster, which is no
 surprise. But the daemon that runs it, `rdd`, is itself a Kubernetes API
-server. It holds Rancher Desktop's own state as objects you can query. So there
-are actually two Kubernetes API servers on your machine, and only one of them
-runs your pods.
+server too. It holds Rancher Desktop's own state as objects you can query.
+So there are actually two Kubernetes API servers on your machine, and only
+one of them runs your pods.
 
 <!-- truncate -->
 
 Back in the [install walkthrough](/blog/installing-rancher-desktop-2) I ran `rdd
 ctl get app`, watched Rancher Desktop's own state print as a Kubernetes object,
-and said it deserved a post of its own, so here's that post.
+and said it deserved a post of its own, so here it is.
 
-That second API server is up before you enable Kubernetes. It stays up after
-you turn Kubernetes off again. That sounds odd, but it gets simpler once you
-know that Kubernetes really is two separate things sharing a single name.
+`rdd`'s API server runs whether or not you ever enable Kubernetes, and it
+stays up after you turn Kubernetes off again. That sounds odd, but it makes
+sense once you know that Kubernetes really is two separate things sharing a
+single name.
 
 ## Kubernetes is two things
 
-The part everyone meets is the workload layer: the kubelet on each node, the
+The part everyone knows is the workload layer: the kubelet on each node, the
 pods, and your containers. You hand it a Deployment, and it finds a node and
 runs the thing. But the other part is the control plane, where an API server
 holds resources and controllers reconcile them. You write down what you want;
 the controllers work to make it true.
 
 The control plane knows nothing about containers; it just stores objects and
-runs reconcile loops. The containers themselves only show up when the workload
-layer acts on those objects. So if you pull the two halves apart, the control
-plane turns out to be a general engine for "here's the state I want, go make it
-so." That engine is the part `rdd` keeps.
+runs reconcile loops. Containers are only created when the workload layer acts
+on those objects.[^kubelet] The control plane is a general engine for "here's
+the state I want, go make it so." That engine is the part of Kubernetes `rdd`
+uses for its own state and interface.
 
 ## The App object
 
@@ -102,15 +103,16 @@ error: the server doesn't have a resource type "nodes"
 ```
 
 `rdd` runs no containers, so it needs no kubelet, no scheduler, and none of the
-other machinery that ties Kubernetes to a Linux host. And what's left over is
-portable; the same control plane runs natively on macOS, Windows, and Linux.
+other machinery that ties Kubernetes to a Linux host. The control plane is just
+storage and reconcile loops, which is why the same one runs natively on macOS,
+Windows, and Linux.
 The [history post](/blog/history-of-rancher-desktop) made the case for a single
-backend on every platform. Dropping the workload layer is most of why that
-works.
+backend on every platform. Dropping the workload layer is most of what makes
+that possible.
 
 It does still need somewhere to keep its objects. Kubernetes stores them in
-etcd;[^etcd] `rdd` uses SQLite instead, which is the same swap k3s makes so it
-can ship as a single binary.
+etcd;[^etcd] `rdd` uses SQLite instead, which is the same mechanism k3s uses
+so it can ship as a single binary.
 
 ## So where is the cluster?
 
@@ -127,27 +129,28 @@ lima-rd   Ready    control-plane   44s   v1.34.6+k3s1
 
 The two API servers do different jobs. The one `rdd ctl` talks to is Rancher
 Desktop describing itself; the one `kubectl` talks to is the k3s cluster where
-your workloads run. And the first one manages the second; setting
-`kubernetes.enabled: true` on the `App` object is how you tell the control
-plane to start the k3s cluster.
+your workloads run. And `rdd`'s API server manages the cluster's; setting
+`spec.kubernetes.enabled: true` on the `App` object is how you tell the control
+plane to start the k3s cluster. I suspect two API servers on one machine will
+trip people up for a while, until reaching for the right one becomes automatic.
 
 ## Your tools already work
 
 Because Rancher Desktop represents itself as Kubernetes objects, and serves
 them from a real Kubernetes API server, everything that already speaks that API
 can drive `rdd`. `rdd ctl` really is just `kubectl`, pointed at the control
-plane. So `get`, `-o yaml`, `-o jsonpath`, label selectors, and watches all
-work, because there's never been anything custom to support.
+plane. So `get`, `--output yaml`, `--output jsonpath`, label selectors, and
+watches all work, because there's never been anything custom to support.
 
-This is quite different from a normal application API. There's no `rdd` SDK to
-import, and no private protocol to reverse-engineer; your tools already speak
-the Kubernetes API, and Rancher Desktop answers it like any other cluster
-would.
+This is quite different from a custom application API. There's no `rdd` SDK to
+import, and no private protocol to figure out.
 
 That leaves the question of how the control plane turns a one-line change to
 the `App` object into a running cluster, and how you find your way around this
 API when there are no docs for it. I take both up in a
 [companion post](/blog/watching-rancher-desktop-reconcile).
+
+[^kubelet]: The kubelet is the part that implements a node. It registers the Node object with the API server and runs whatever pods get assigned to it, from pulling the images to mounting the volumes.
 
 [^singleton]: There's only ever one, it's cluster-scoped, and it must be named `app`. Hence `get app app`, the kind followed by the name.
 
