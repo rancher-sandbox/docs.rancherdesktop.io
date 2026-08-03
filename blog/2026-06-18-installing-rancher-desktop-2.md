@@ -13,9 +13,7 @@ couple of commands away from a working container engine.
 <!-- truncate -->
 
 2.0 installs beside Rancher Desktop 1.x without touching it, with a
-separate package and separate data. Install or remove them in any order. On
-Linux, the RPM and DEB packages are the one exception in this alpha and won't
-install alongside Rancher Desktop 1.x. (The
+separate package and separate data. Install or remove them in any order. (The
 [welcome post](/blog/welcome-to-rancher-desktop-2) covers what 2.0 is and how
 it differs; this one is about getting it running.)
 
@@ -27,7 +25,7 @@ from the
 on GitHub; its notes list the download for every platform. Open the **Assets**
 list there.
 
-On macOS, download the `.dmg` that matches your chip:
+On macOS, download the `.dmg` that matches your chip[^version]:
 `Rancher.Desktop-2.0.0-alpha.1.aarch64.dmg` on Apple silicon, or the `x86_64`
 build on an Intel Mac. Open it, drag the app into Applications, and launch it
 from there.
@@ -44,19 +42,16 @@ VM image, which can take a while on a slow connection. After that the app is
 talking to a running container engine, and you can manage containers, images,
 and volumes from its window.
 
-One thing the app won't do for you yet: turn on Kubernetes. It starts with
-Kubernetes off, and this alpha has no settings screen or first-run dialog to
-change that, so you enable it from the command line. The first run installs
-`rdd` into `~/.rd2/bin`; put that on your `PATH` (or call `~/.rd2/bin/rdd`
-directly) and run:
+One thing the app won't do for you: turn on Kubernetes. It starts with
+Kubernetes off. Turn it on from the Kubernetes section of Preferences, or from
+the command line. The first run installs `rdd` into `~/.rd2/bin`; put that on
+your `PATH` (or call `~/.rd2/bin/rdd` directly) and run:
 
 ```bash
 rdd set kubernetes.enabled=true
 ```
 
-The VM is already running without Kubernetes, so this restarts it once. A
-settings screen and first-run options are on the way; for now the command line
-is the only switch.
+The VM is already running without Kubernetes, so this restarts it once.
 
 ## Or just the daemon
 
@@ -107,7 +102,7 @@ rdd set kubernetes.enabled=true
 ```
 
 The version defaults to the latest stable; pass `kubernetes.version=1.32.2` to
-pin a specific one (1.31 or newer).
+pin a specific one (1.32 through 1.35).
 
 ## Driving it
 
@@ -233,8 +228,8 @@ metadata:
 This is not the cluster you turned on earlier; it's Rancher Desktop
 representing itself through the same API your tools already speak. That means
 anything that drives Kubernetes can also drive Rancher Desktop, without a
-bespoke SDK or a private protocol. There's a lot to say about that, and it
-gets a post of its own.
+bespoke SDK or a private protocol. There's a lot to say about that, and it has
+[a post of its own](/blog/rancher-desktop-is-a-kubernetes-api-server).
 
 ## The commands in one place
 
@@ -257,7 +252,9 @@ gets a post of its own.
   }
 `}</style>
 
-[^linux]: The RPM and DEB packages share a few files with the Rancher Desktop 1.x package, such as `/usr/bin/rancher-desktop`, so the two will not install together. Use the AppImage to run 2.0 alongside 1.x. [Issue #509](https://github.com/rancher-sandbox/rancher-desktop-2/issues/509).
+[^version]: The file names in this post are Alpha 1's. Swap in the current version, `2.0.0-alpha.2`.
+
+[^linux]: The packages come from the same openSUSE Build Service project as Rancher Desktop 1.x, `isv:Rancher:stable`. Add the repository as the [1.x installation guide](/getting-started/installation) describes, then install `rancher-desktop-2`; the `rancher-desktop` package is 1.x. The project keeps only the newest build of each line, so Alpha 1 is no longer in it.
 
 ---
 

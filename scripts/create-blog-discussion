@@ -62,9 +62,13 @@ frontmatter() {
     awk 'NR==1 && $0=="---"{f=1; next} f && $0=="---"{exit} f{print}' "$1"
 }
 
-# Read a single-line frontmatter scalar by key (empty if absent).
+# Read a single-line frontmatter scalar by key (empty if absent). Strips YAML
+# quoting: a title containing a colon must be quoted in the source, and the
+# quotes are not part of the value.
 fm_field() {
-    frontmatter "$1" | awk -v k="$2:" '$1==k{sub(/^[^:]*:[ \t]*/,""); print; exit}'
+    frontmatter "$1" \
+        | awk -v k="$2:" '$1==k{sub(/^[^:]*:[ \t]*/,""); sub(/[ \t]+$/,""); print; exit}' \
+        | sed -e 's/^"\(.*\)"$/\1/' -e "s/^'\(.*\)'\$/\1/"
 }
 
 # Print the post excerpt: the body up to the truncate marker. Each paragraph is
