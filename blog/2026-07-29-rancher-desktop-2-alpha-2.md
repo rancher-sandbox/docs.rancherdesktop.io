@@ -136,9 +136,9 @@ rdd svc delete
 ```
 
 That takes the containers, images, volumes, and cluster with it, so there's
-nothing to carry across. Then uninstall Alpha 1 and install Alpha 2. It sits
-alongside Rancher Desktop 1.x without touching it, though only one of them can
-run at a time.
+nothing to carry across. Then install Alpha 2 over it; there's nothing to
+uninstall first. It sits alongside Rancher Desktop 1.x without touching it,
+though only one of them can run at a time.
 
 On Windows, the Virtual Machine tab shows the CPU and memory controls, but
 WSL2 ignores both. Set them in `.wslconfig` until we sort that out.
