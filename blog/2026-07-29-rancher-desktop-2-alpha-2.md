@@ -88,7 +88,8 @@ webhook[^webhook] resolves them before anything is stored:
 rdd set kubernetes.version=stable
 ```
 
-That's a merge patch underneath, and you can send it yourself:
+`rdd set` exists so you don't have to write the JSON or know which kind of
+patch to use. Underneath, this is the request it sends for you:
 
 ```bash
 rdd ctl patch app app --type merge --patch '{"spec":{"kubernetes":{"version":"stable"}}}'
@@ -101,8 +102,7 @@ $ rdd ctl get app app --output jsonpath='{.spec.kubernetes.version}'
 1.34.6
 ```
 
-`rdd set` saves you the JSON. There's no `rdd get` yet, so reading stays in the
-long form.
+There's no `rdd get` yet, so reading stays in the long form.
 
 Because the list ships inside the build, a k3s release newer than the one you
 installed has to wait for the next preview.
