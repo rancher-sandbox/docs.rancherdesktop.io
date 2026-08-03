@@ -9,7 +9,7 @@ description: >-
   ask rdd itself what you can change, and once you change something, you can
   watch it reshape the virtual machine, step by step, until the actual state
   matches what you asked for.
-discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/PLACEHOLDER
+discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/619
 ---
 
 Rancher Desktop 2.0's settings screen covers a handful of fields, and the API
@@ -143,4 +143,4 @@ has since gone stale, and so can an autonomous AI agent working on your behalf.
 
 ---
 
-💬 Questions or feedback? **[Discuss this post on GitHub →](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/PLACEHOLDER)**
+💬 Questions or feedback? **[Discuss this post on GitHub →](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/619)**

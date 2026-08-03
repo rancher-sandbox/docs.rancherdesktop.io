@@ -9,7 +9,7 @@ description: >-
   too. It holds Rancher Desktop's own state as objects you can query. So there
   are actually two Kubernetes API servers on your machine, and only one of them
   runs your pods.
-discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/PLACEHOLDER
+discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/618
 ---
 
 Enable Kubernetes in Rancher Desktop 2.0 and you get a cluster, which is no
@@ -164,4 +164,4 @@ API when there are no docs for it. I take both up in a
 
 ---
 
-💬 Questions or feedback? **[Discuss this post on GitHub →](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/PLACEHOLDER)**
+💬 Questions or feedback? **[Discuss this post on GitHub →](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/618)**

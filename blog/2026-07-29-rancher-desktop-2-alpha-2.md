@@ -8,7 +8,7 @@ description: >-
   Everything worked, but you could only change settings from the command line.
   Alpha 2 brings the dialog back, and it reads and writes the same App object
   as the command line tools do.
-discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/PLACEHOLDER
+discussion: https://github.com/rancher-sandbox/rancher-desktop-2/discussions/620
 ---
 
 Alpha 1 of Rancher Desktop 2.0 shipped without a Preferences dialog. Everything
@@ -146,4 +146,4 @@ getting it running, GUI or backend-only.
 
 ---
 
-💬 Questions or feedback? **[Discuss this post on GitHub →](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/PLACEHOLDER)**
+💬 Questions or feedback? **[Discuss this post on GitHub →](https://github.com/rancher-sandbox/rancher-desktop-2/discussions/620)**
