@@ -81,8 +81,7 @@ $ rdd ctl get configmap k3s-versions --namespace rancher-desktop --output jsonpa
 {"1.32":"1.32.13","1.33":"1.33.10","1.34":"1.34.6","1.35":"1.35.3","latest":"1.35.3","stable":"1.34.6"}
 ```
 
-The channel aliases work from the command line, where the defaulting
-webhook[^webhook] resolves them before anything is stored:
+The channel aliases work from the command line:
 
 ```bash
 rdd set kubernetes.version=stable
@@ -95,28 +94,31 @@ patch to use. Underneath, this is the request it sends for you:
 rdd ctl patch app app --type merge --patch '{"spec":{"kubernetes":{"version":"stable"}}}'
 ```
 
-Read the value back afterwards, and the alias is gone:
+When you read the value back you can see that the alias has been replaced by
+the defaulting webhook[^webhook] with the actual version before it was
+stored in the object:
 
 ```console
 $ rdd ctl get app app --output jsonpath='{.spec.kubernetes.version}'
 1.34.6
 ```
 
-There's no `rdd get` yet, so reading stays in the long form.
+There's no `rdd get` yet, so you have to use the generic `rdd ctl get`.
 
-Because the list ships inside the build, a k3s release newer than the one you
-installed has to wait for the next preview.
+Right now a static k3s version list ships with the app. In the future
+it will update itself at runtime, just like in Rancher Desktop 1.x.
 
 ## The rest of Alpha 2
 
 The [release notes](https://github.com/rancher-sandbox/rancher-desktop-2/releases/tag/v2.0.0-alpha.2)
-have the full list; here are three of the changes. On Linux, 2.0 finally
-installs beside 1.x. The RPM and DEB claimed the same file names, so the two
-packages conflicted, and the launcher we shipped ran the 1.x binary. On
-Windows, the host-side network bridge moved into the per-VM host agent, so its
-ports and listeners now go away with the VM instead of outliving it. And
-`~/.kube/config` is safe from overlapping writers, which could previously tear
-it into invalid YAML or drop the clusters you use with other tools.
+have the full list; here are three of the changes:
+1. On Linux, 2.0 finally installs beside 1.x. The RPM and DEB claimed the same
+   file names, so the two packages conflicted, and the launcher we shipped ran
+   the 1.x binary.
+2. On Windows, the host-side network bridge moved into the per-VM host agent,
+   so its ports and listeners now go away with the VM instead of outliving it.
+3. `~/.kube/config` is safe from overlapping writers, which could previously
+   tear it into invalid YAML or drop the clusters you use with other tools.
 
 ## Still an alpha
 
@@ -129,12 +131,12 @@ rdd svc delete
 ```
 
 That takes the containers, images, volumes, and cluster with it, so there's
-nothing to carry across. Then install Alpha 2 over it; there's nothing to
-uninstall first. It sits alongside Rancher Desktop 1.x without touching it,
-though only one of them can run at a time.
+nothing to carry across. Then install Alpha 2. It sits alongside Rancher
+Desktop 1.x without touching it, though only one of them can run at a time.
 
 On Windows, the Virtual Machine tab shows the CPU and memory controls, but
-WSL2 ignores both. Set them in `.wslconfig` until we sort that out.
+WSL2 ignores them because the VM settings are global across all WSL2 distros.
+You can change the defaults in `.wslconfig`.
 
 Downloads and the full list of changes are in the
 [release](https://github.com/rancher-sandbox/rancher-desktop-2/releases/tag/v2.0.0-alpha.2),
