@@ -193,10 +193,13 @@ sudo usermod -a -G kvm "$USER"
 Then reboot in order to make these changes take effect.
 
 
-#### `pass` Setup
+#### Credential Storage
 
-By default, Rancher Desktop uses `pass` to securely store credentials
-passed via `docker login` and `nerdctl login`. `pass` requires a small amount
+Rancher Desktop automatically configures Docker and `nerdctl` to store the
+credentials from `docker login` and `nerdctl login` in your platform's native
+secret store: the macOS keychain (`osxkeychain`) on macOS and the Windows
+Credential Manager (`wincred`) on Windows, both of which work without any setup.
+On Linux it uses `pass`, which requires a small amount
 of setup if this is the first time it has been used on your machine. If you don't
 intend to use `docker login` or `nerdctl login` you don't have to set up
 `pass` - just remember that if you use them in the future, you must set it
