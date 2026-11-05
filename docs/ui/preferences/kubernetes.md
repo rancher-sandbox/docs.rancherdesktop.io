@@ -59,7 +59,7 @@ Set the port Kubernetes is exposed on. Use this setting to avoid port collisions
 
 This option allows you to enable or disable Traefik. By disabling Traefik, you can free up port 80 and 443 for alternate ingress configuration. By default, Traefik is enabled.
 
-Disabling Traefik will not delete existing resources.
+Disabling Traefik uninstalls it and removes its custom resource definitions. So Kubernetes also deletes every IngressRoute, Middleware, and other Traefik resource in the cluster. Turning Traefik back on reinstalls it, but those resources don't come back. Your Ingress and Gateway API resources stay.
 
 ##### Install Spin Operator
 
