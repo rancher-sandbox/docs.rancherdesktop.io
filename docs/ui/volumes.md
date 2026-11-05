@@ -42,7 +42,7 @@ The **Volumes** tab offers quick access to manage volumes and view key informati
 
 The information is updated automatically as volumes are created or deleted.
 
-The listed information can be sorted in ascending or descending order. Volumes can also be filtered with input text in the `Filter` field located at the top right. Bulk selection is available for managing multiple volumes at once.
+The listed information can be sorted in ascending or descending order. Volumes can also be filtered with input text in the `Filter` field located at the top right. Bulk selection is available for managing multiple volumes at once. Shift-click a row to extend the selection to it, and Ctrl-click (Cmd-click on macOS) a row to add or remove just that row.
 
 Additionally, when using the `containerd` engine, you can use the `Namespace` dropdown selector to help with filtering volumes. The dropdown will be located next to the `Filter` field and shows namespaces in your cluster when clicked.
 
@@ -51,3 +51,7 @@ Additionally, when using the `containerd` engine, you can use the `Namespace` dr
 The **Delete** button located at the top of the page will be enabled when at least one volume has been selected.
 
 This `delete` action is also available via the `⋮` button at the right side of each volume entry.
+
+Rancher Desktop asks for confirmation before it deletes volumes. The dialog names each volume it is about to delete. Cancel is the default button, so Esc and Enter both back out.
+
+The `⋮` button also offers `Browse Files`, which lists the files in the volume with their size, modification time, and permissions. Click a directory to open it, and use the path above the list to go back up.

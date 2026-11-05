@@ -46,7 +46,7 @@ The information is updated automatically as containers are created, started, sto
 
 Containers are grouped together by Kubernetes pod, or by `docker-compose` deployment. The remaining containers are grouped as "Standalone Containers".
 
-The listed information can be sorted in ascending or descending order. Containers can also be filtered with input text in the `Filter` field located at the top right. Bulk selection is available for managing multiple instances at once.
+The listed information can be sorted in ascending or descending order. Containers can also be filtered with input text in the `Filter` field located at the top right. Bulk selection is available for managing multiple instances at once. Shift-click a row to extend the selection to it, and Ctrl-click (Cmd-click on macOS) a row to add or remove just that row.
 
 Additionally, when using the `containerd` engine, you can use the `Namespace` dropdown selector to help with filtering containers. The dropdown will be located next to the `Filter` field and shows namespaces in your cluster when clicked.
 
@@ -68,6 +68,8 @@ The following actions are available:
   You can delete container instances from your system entirely by using the `Delete` button.
 - `⋮`:
   This button is located on the right side of the tab view. You can start, stop, or delete container instances depending on their state, and you can also view the logs of a container.
+
+Rancher Desktop asks for confirmation before it deletes containers, whether you use the `Delete` button or the `⋮` button. The dialog names each container it is about to delete. Cancel is the default button, so Esc and Enter both back out.
 
 Selecting a container opens a detail view with **Info**, **Stats**, **Logs**, and **Shell** tabs.
 
