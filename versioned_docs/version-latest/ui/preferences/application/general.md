@@ -20,9 +20,9 @@ This is an **experimental** setting.
 
 :::
 
-Choose the language for the Rancher Desktop interface. Chinese (Simplified), French, German, Italian, Japanese, Korean, Portuguese (Brazilian), and Spanish are available alongside English. English is always the default, whatever language your operating system uses. Click `Apply` and the interface switches language without a restart.
+Choose the language for the Rancher Desktop interface. Chinese (Simplified), French, German, Italian, Japanese, Korean, Portuguese (Brazilian), Spanish, and Vietnamese are available alongside English. Vietnamese text uses a font installed on your system, because the font that Rancher Desktop ships lacks most Vietnamese accented letters. English is always the default, whatever language your operating system uses. Click `Apply` and the interface switches language without a restart.
 
-AI tools produced all eight translations. We have run the application in several of them, but we have not checked every string, so expect some awkward wording and a few that stay in English. Feedback from native speakers would be welcome. English is the canonical text. If something reads wrong, please report it in the [issue tracker](https://github.com/rancher-sandbox/rancher-desktop/issues).
+AI tools produced the translations, and contributors have refined them. We have run the application in several of them, but we have not checked every string, so expect some awkward wording and a few that stay in English. Feedback from native speakers would be welcome. English is the canonical text. If something reads wrong, please report it in the [issue tracker](https://github.com/rancher-sandbox/rancher-desktop/issues).
 
 The setting applies to the main window and the Preferences dialog. The Cluster Dashboard is not translated yet, and numbers, dates, and times follow your operating system, not this setting. Both may change in a future release.
 
@@ -49,9 +49,9 @@ This is an **experimental** setting.
 
 :::
 
-Choose the language for the Rancher Desktop interface. Chinese (Simplified), French, German, Italian, Japanese, Korean, Portuguese (Brazilian), and Spanish are available alongside English. English is always the default, whatever language your operating system uses. Click `Apply` and the interface switches language without a restart.
+Choose the language for the Rancher Desktop interface. Chinese (Simplified), French, German, Italian, Japanese, Korean, Portuguese (Brazilian), Spanish, and Vietnamese are available alongside English. Vietnamese text uses a font installed on your system, because the font that Rancher Desktop ships lacks most Vietnamese accented letters. English is always the default, whatever language your operating system uses. Click `Apply` and the interface switches language without a restart.
 
-AI tools produced all eight translations. We have run the application in several of them, but we have not checked every string, so expect some awkward wording and a few that stay in English. Feedback from native speakers would be welcome. English is the canonical text. If something reads wrong, please report it in the [issue tracker](https://github.com/rancher-sandbox/rancher-desktop/issues).
+AI tools produced the translations, and contributors have refined them. We have run the application in several of them, but we have not checked every string, so expect some awkward wording and a few that stay in English. Feedback from native speakers would be welcome. English is the canonical text. If something reads wrong, please report it in the [issue tracker](https://github.com/rancher-sandbox/rancher-desktop/issues).
 
 The setting applies to the main window and the Preferences dialog. The Cluster Dashboard is not translated yet, and numbers, dates, and times follow your operating system, not this setting. Both may change in a future release.
 
@@ -90,9 +90,9 @@ This is an **experimental** setting.
 
 :::
 
-Choose the language for the Rancher Desktop interface. Chinese (Simplified), French, German, Italian, Japanese, Korean, Portuguese (Brazilian), and Spanish are available alongside English. English is always the default, whatever language your operating system uses. Click `Apply` and the interface switches language without a restart.
+Choose the language for the Rancher Desktop interface. Chinese (Simplified), French, German, Italian, Japanese, Korean, Portuguese (Brazilian), Spanish, and Vietnamese are available alongside English. Vietnamese text uses a font installed on your system, because the font that Rancher Desktop ships lacks most Vietnamese accented letters. English is always the default, whatever language your operating system uses. Click `Apply` and the interface switches language without a restart.
 
-AI tools produced all eight translations. We have run the application in several of them, but we have not checked every string, so expect some awkward wording and a few that stay in English. Feedback from native speakers would be welcome. English is the canonical text. If something reads wrong, please report it in the [issue tracker](https://github.com/rancher-sandbox/rancher-desktop/issues).
+AI tools produced the translations, and contributors have refined them. We have run the application in several of them, but we have not checked every string, so expect some awkward wording and a few that stay in English. Feedback from native speakers would be welcome. English is the canonical text. If something reads wrong, please report it in the [issue tracker](https://github.com/rancher-sandbox/rancher-desktop/issues).
 
 The setting applies to the main window and the Preferences dialog. The Cluster Dashboard is not translated yet, and numbers, dates, and times follow your operating system, not this setting. Both may change in a future release.
 

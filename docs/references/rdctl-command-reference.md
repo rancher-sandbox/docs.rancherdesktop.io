@@ -382,7 +382,7 @@ $ rdctl list-settings
     "integrations": {}
   },
   "kubernetes": {
-    "version": "1.36.2",
+    "version": "1.37.2",
     "port": 6443,
     "enabled": true,
     "options": {
@@ -624,7 +624,7 @@ Flags:
       --application.auto-start                                          start app when logging in
       --application.debug                                               generate more verbose logging
       --application.hide-notification-icon                              don't show notification icon
-      --application.locale string                                       set the UI language (allowed values: [de, en-us, es, fr, it, ja, ko, pt-br, zh-hans])
+      --application.locale string                                       set the UI language (allowed values: [de, en-us, es, fr, it, ja, ko, pt-br, vi, zh-hans])
       --application.path-management-strategy string                     update PATH to include ~/.rd/bin (allowed values: [manual, rcfiles])
       --application.start-in-background                                 start app without window
       --application.telemetry.enabled                                   allow collection of anonymous statistics
@@ -663,6 +663,8 @@ Flags:
       --virtual-machine.number-cpus int                                 reserved number of CPUs
       --virtual-machine.type string                                     (allowed values: [qemu, vz])
       --virtual-machine.use-rosetta
+      --wait                                                            wait until the backend has finished starting
+      --wait-timeout duration                                           how long to wait for start before giving up (default 10m0s)
 
 Global Flags:
       --config-path string   config file (default .../rancher-desktop/rd-engine.json)
@@ -699,7 +701,7 @@ Run `rdctl version` to see the current rdctl CLI version.
 
 ```console autoupdate=true
 $ rdctl version
-rdctl client version: v1.24.0, targeting server version: v1
+rdctl client version: v1.25.0, targeting server version: v1
 ```
 
 </details>

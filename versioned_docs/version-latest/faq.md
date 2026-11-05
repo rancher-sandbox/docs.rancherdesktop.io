@@ -103,9 +103,7 @@ Visit [http://127.0.0.1:9000/dashboard/](http://127.0.0.1:9000/dashboard/) in yo
 
 #### **Q: Can I disable Traefik, and will doing so remove Traefik resources?**
 
-**A:** Yes, you can disable Traefik in order to free up port 80 and 443 for alternate ingress configuration. Disabling Traefik will _not_ delete existing resources. By default, the `Enable Traefik` feature is selected under **Kubernetes Settings**; uncheck this box to disable it.
-
-If you want to delete Traefik resources, click on `Reset Kubernetes` on the **Kubernetes Settings** panel of the UI.
+**A:** Yes to both. To disable Traefik, uncheck [Enable Traefik](./ui/preferences/kubernetes.md#enable-traefik) in the Kubernetes preferences. That section also says which resources disabling Traefik deletes.
 
 #### **Q: Is there support for internal container port forwarding?**
 

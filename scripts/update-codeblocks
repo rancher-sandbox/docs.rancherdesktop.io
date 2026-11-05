@@ -136,6 +136,9 @@ while (<>) {
     elsif ($state eq CAPTURE) {
         $output .= ">>> $command <<<\n" if $debug;
         my $capture = qx[$command];
+        # pflag pads every flag name to the usage column, so a flag with no
+        # description leaves trailing spaces in rdctl's help output.
+        $capture =~ s/[ \t]+$//mg;
         if (/\.\.\./) {
             # if first line after command contains "..." then don't replace the output
             $state = UPDATE;
