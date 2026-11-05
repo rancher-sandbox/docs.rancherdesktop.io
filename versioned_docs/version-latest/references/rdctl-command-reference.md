@@ -173,7 +173,7 @@ $ rdctl api /v1/settings --method PUT --body '{"kubernetes": {"enabled": false}}
 is the same as
 
 ```console
-$ rdctl set --kubernetes-enabled=false
+$ rdctl set --kubernetes.enabled=false
 ```
 
 but less concise and user-friendly.
@@ -382,7 +382,7 @@ $ rdctl list-settings
     "integrations": {}
   },
   "kubernetes": {
-    "version": "1.36.2",
+    "version": "1.37.2",
     "port": 6443,
     "enabled": true,
     "options": {
@@ -450,7 +450,7 @@ $ rdctl list-settings
           "240.0.0.0/4"
         ]
       },
-      "sshPortForwarder": true
+      "sshPortForwarder": false
     }
   }
 }
@@ -489,8 +489,8 @@ Run `rdctl set [flags]` to set properties. In most of the cases, Kubernetes woul
 <summary>Example Command</summary>
 
 ```console
-$ rdctl set --kubernetes-enabled=false
-$ rdctl set --container-engine docker --kubernetes-version 1.21.2
+$ rdctl set --kubernetes.enabled=false
+$ rdctl set --container-engine.name docker --kubernetes.version 1.36.6
 ```
 
 </details>
@@ -504,7 +504,7 @@ Run the following API call to set properties:
 <summary>Example Command</summary>
 
 ```console
-$ curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v1/settings -d '{ "kubernetes": { "containerEngine": "docker", "enabled": false, "version":"1.23.5" }}' -X PUT
+$ curl -s -H "Authorization: Basic $AUTH" http://localhost:6107/v1/settings -d '{ "containerEngine": { "name": "docker" }, "kubernetes": { "enabled": false, "version": "1.36.6" }}' -X PUT
 ```
 
 </details>
@@ -599,6 +599,14 @@ $ rdctl snapshot list --json
 
 Run `rdctl start` to ensure that Rancher Desktop is running and configured as requested.
 
+By default, `rdctl start` returns as soon as it has launched the app, so a `docker` or `kubectl` command right after it can run before the container engine is ready. Add `--wait` to return only once the backend has started, when the container engine is ready to use. `rdctl start --wait` fails if the backend reports an error or if `--wait-timeout` (10 minutes by default) runs out.
+
+:::note
+
+When Rancher Desktop is already running, `rdctl start --wait` without a setting flag fails with `start command: no settings to change were given`. If the backend is still starting when you pass a setting that needs a restart, `rdctl start --wait` can return before the restart begins. See [issue #11257](https://github.com/rancher-sandbox/rancher-desktop/issues/11257).
+
+:::
+
 <details>
 
 **Options:**
@@ -616,7 +624,7 @@ Flags:
       --application.auto-start                                          start app when logging in
       --application.debug                                               generate more verbose logging
       --application.hide-notification-icon                              don't show notification icon
-      --application.locale string                                       set the UI language (allowed values: [de, en-us, es, fr, it, ja, ko, pt-br, zh-hans])
+      --application.locale string                                       set the UI language (allowed values: [de, en-us, es, fr, it, ja, ko, pt-br, vi, zh-hans])
       --application.path-management-strategy string                     update PATH to include ~/.rd/bin (allowed values: [manual, rcfiles])
       --application.start-in-background                                 start app without window
       --application.telemetry.enabled                                   allow collection of anonymous statistics
@@ -655,6 +663,8 @@ Flags:
       --virtual-machine.number-cpus int                                 reserved number of CPUs
       --virtual-machine.type string                                     (allowed values: [qemu, vz])
       --virtual-machine.use-rosetta
+      --wait                                                            wait until the backend has finished starting
+      --wait-timeout duration                                           how long to wait for start before giving up (default 10m0s)
 
 Global Flags:
       --config-path string   config file (default .../rancher-desktop/rd-engine.json)
@@ -668,7 +678,8 @@ Global Flags:
 **Example:**
 
 ```console
-$ rdctl start --container-runtime dockerd -- kubernetes-version 1.19.3
+$ rdctl start --container-engine.name docker --kubernetes.version 1.36.6
+$ rdctl start --wait --wait-timeout 15m
 ```
 
 </details>
@@ -676,16 +687,7 @@ $ rdctl start --container-runtime dockerd -- kubernetes-version 1.19.3
   </TabItem>
   <TabItem value="API" default>
 
-Run the following API call to ensure Rancher Desktop is running and configured, making sure to fill in your respective user and password values:
-
-<details>
-<summary>Example Command</summary>
-
-```shell
-$ curl -s -H "Authorization: Basic $(echo -n "user:PASSWORD" | base64)"
-```
-
-</details>
+The API can't start Rancher Desktop, because the API server runs inside the app. When Rancher Desktop is running, `rdctl start` behaves like `rdctl set`; see the [`rdctl set` API call](#rdctl-set).
 
   </TabItem>
 </Tabs>
@@ -699,7 +701,7 @@ Run `rdctl version` to see the current rdctl CLI version.
 
 ```console autoupdate=true
 $ rdctl version
-rdctl client version: v1.24.0, targeting server version: v1
+rdctl client version: v1.25.0, targeting server version: v1
 ```
 
 </details>

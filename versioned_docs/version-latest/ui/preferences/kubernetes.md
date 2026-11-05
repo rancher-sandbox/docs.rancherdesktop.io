@@ -33,6 +33,16 @@ To enable/disable Kubernetes, just check/uncheck the `Enable Kubernetes` checkbo
 
 This option presents a list of Kubernetes versions that your Rancher Desktop instance can use.
 
+:::caution warning
+
+Rancher Desktop 1.26 will drop Kubernetes versions older than 1.32. If you use an older version, move to 1.32 or later while Rancher Desktop 1.25 still lets you go back. Take a [snapshot](../snapshots.md), switch versions as described below, and check that your workloads still run; if they don't, restore the snapshot.
+
+When Rancher Desktop 1.26 starts with an older version selected, it will upgrade Kubernetes to the latest 1.32 release. That upgrade can cross several minor versions at once and may break your workloads. Restoring a snapshot taken on an older version will trigger the same upgrade, so replace such snapshots with new ones taken on 1.32 or later.
+
+If a [deployment profile](../../getting-started/deployment.md) locks an older version, Kubernetes won't start until you change the profile.
+
+:::
+
 When upgrading:
 
 - A check is performed to see if the target Kubernetes version is available locally. If not, it downloads the files.
@@ -59,7 +69,7 @@ Set the port Kubernetes is exposed on. Use this setting to avoid port collisions
 
 This option allows you to enable or disable Traefik. By disabling Traefik, you can free up port 80 and 443 for alternate ingress configuration. By default, Traefik is enabled.
 
-Disabling Traefik will not delete existing resources.
+Disabling Traefik uninstalls it and removes its custom resource definitions. So Kubernetes also deletes every IngressRoute, Middleware, and other Traefik resource in the cluster. Turning Traefik back on reinstalls it, but those resources don't come back. Your Ingress and Gateway API resources stay.
 
 ##### Install Spin Operator
 
