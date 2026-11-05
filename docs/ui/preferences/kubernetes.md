@@ -78,3 +78,11 @@ This option requires that the [WebAssembly](./container-engine/general.md) suppo
 Rancher Desktop automatically installs the [spin cli](https://spinframework.dev/v2/index) and the [kube plugin](https://github.com/spinkube/spin-plugin-kube) to help develop and deploy Spin applications on Kubernetes.
 
 :::
+
+#### Binding Kubernetes services (Windows)
+
+On Windows, when Rancher Desktop is installed with administrative access, Kubernetes ingress and `LoadBalancer` services bind to all network interfaces (`0.0.0.0`), so they are reachable from other machines on the network. There is no GUI control for this. To restrict these services to `127.0.0.1` only, use `rdctl`:
+
+```console
+rdctl set --kubernetes.ingress.localhost-only=true
+```
