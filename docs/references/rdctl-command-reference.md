@@ -450,7 +450,7 @@ $ rdctl list-settings
           "240.0.0.0/4"
         ]
       },
-      "sshPortForwarder": true
+      "sshPortForwarder": false
     }
   }
 }

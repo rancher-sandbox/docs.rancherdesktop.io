@@ -34,7 +34,7 @@ These keys live under `experimental.*` and may change or be removed between rele
 | Setting | `rdctl` flag | Default | Description |
 |---|---|---|---|
 | `experimental.virtualMachine.diskSize` | `--experimental.virtual-machine.disk-size` | `100GiB` | macOS and Linux only. Grow the virtual machine's disk (for example `200GiB`). Existing disks are not shrunk, and a restart is required. |
-| `experimental.virtualMachine.sshPortForwarder` | `--experimental.virtual-machine.ssh-port-forwarder` | `true` | macOS and Linux only. Use SSH for port forwarding instead of gRPC. |
+| `experimental.virtualMachine.sshPortForwarder` | `--experimental.virtual-machine.ssh-port-forwarder` | `false` | macOS and Linux only. Use SSH for port forwarding instead of gRPC. Installs that ran 1.20 through 1.24 keep their saved value, which is `true` unless changed. |
 | `experimental.virtualMachine.proxy.*` | deployment profile | — | Route virtual-machine and container traffic through an HTTP(S) proxy. On Windows this is configured in [Preferences > WSL > Proxy](../ui/preferences/wsl/proxy.md); on macOS and Linux it is set only through a deployment profile. |
 
 ### Proxy bypass defaults
