@@ -35,7 +35,7 @@ This option presents a list of Kubernetes versions that your Rancher Desktop ins
 
 :::caution warning
 
-Rancher Desktop 1.26 will drop Kubernetes versions older than 1.32. If you use one, move to 1.32 or later while Rancher Desktop 1.25 still lets you go back. Take a [snapshot](../snapshots.md), switch versions as described below, and check that your workloads still run; if they don't, restore the snapshot.
+Rancher Desktop 1.26 will drop Kubernetes versions older than 1.32. If you use an older version, move to 1.32 or later while Rancher Desktop 1.25 still lets you go back. Take a [snapshot](../snapshots.md), switch versions as described below, and check that your workloads still run; if they don't, restore the snapshot.
 
 When Rancher Desktop 1.26 starts with an older version selected, it will upgrade Kubernetes to the latest 1.32 release. That upgrade can cross several minor versions at once and may break your workloads. Restoring a snapshot taken on an older version will trigger the same upgrade, so replace such snapshots with new ones taken on 1.32 or later.
 

@@ -128,7 +128,7 @@ Here's a sample locked-field JSON file:
 ```
 
 :::caution Warning
-Users with this locked file will be able to use only `moby`, not `containerd`, and will only be able to pull container images that match the supplied patterns. They will also be constrained to using the specified kubernetes version. From Rancher Desktop 1.26 on, Kubernetes won't start while a profile locks a version older than 1.32; see [Kubernetes Version](../ui/preferences/kubernetes.md#kubernetes-version).
+Users with this locked file will be able to use only `moby`, not `containerd`, and will only be able to pull container images that match the supplied patterns. They will also be constrained to using the specified kubernetes version. From Rancher Desktop 1.26 onwards, Kubernetes won't start while a profile locks a version older than 1.32; see [Kubernetes Version](../ui/preferences/kubernetes.md#kubernetes-version).
 :::
 
 If you're on a Linux system, you can quickly test these files with the following steps:

@@ -82,7 +82,7 @@ For versions `1.9` and later of Rancher Desktop, all preferences values can be l
 
 </details>
 
-From Rancher Desktop 1.26 on, Kubernetes won't start while a profile locks `kubernetes.version` to a version older than 1.32. See [Kubernetes Version](../ui/preferences/kubernetes.md#kubernetes-version).
+From Rancher Desktop 1.26 onwards, Kubernetes won't start while a profile locks `kubernetes.version` to a version older than 1.32. See [Kubernetes Version](../ui/preferences/kubernetes.md#kubernetes-version).
 
 ### Profile Format and Location
 
