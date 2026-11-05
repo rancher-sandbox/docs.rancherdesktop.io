@@ -67,6 +67,22 @@ If you still don't see `docker-compose` available then please file a bug on [Git
 
 **A:** Rancher Desktop places its configuration in the default location, `~/.kube/config,` and uses that. Your `KUBECONFIG` environment variable may be set to look elsewhere for configuration files.
 
+### Kubernetes
+
+<!-- RD #11132 -->
+#### Q: A pod can't resolve a short host name that works on my machine, why?
+
+**A:** On macOS and Linux, pods don't get your network's DNS search domains, so a pod can't expand a short name like `build-server` to `build-server.corp.example.com`. The VM and the containers that you start with `docker` or `nerdctl` still get them. A pod that needs a search domain can list it under `dnsConfig`:
+
+```yaml
+spec:
+  dnsConfig:
+    searches:
+      - corp.example.com
+```
+
+On macOS, pods used to get the search domains, and that broke some lookups of external names. A pod tries each search domain before the name itself. But a search domain can answer for names that it doesn't hold, for example through a wildcard DNS record, or because your router answers for every name under its local domain. In that case, an external name resolved to the wrong address inside the pod, while the host resolved it correctly.
+
 ### WSL
 
 #### Q: Why do I not see my WSL distro under Rancher Desktop's WSL Integration page?
